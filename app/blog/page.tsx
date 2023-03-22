@@ -2,7 +2,10 @@ import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
 
-function PostCard(post) {
+function PostCard(post: any) {
+
+  // console.log(post)
+
   return (
     <div className="mb-6">
       <time dateTime={post.date} className="block text-sm text-slate-600">
@@ -23,8 +26,7 @@ export default async function Blog() {
   });
   return (
     <div className="mx-auto max-w-2xl py-16 text-center">
-      <h1 className="mb-8 text-3xl font-bold">Contentlayer Blog Example</h1>
-
+      <h1 className="mb-8 text-3xl font-bold">Ideabox Blog</h1>
       {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />
       ))}
