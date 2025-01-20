@@ -1,25 +1,17 @@
-import fs from 'fs';
-import path from 'path';
-import Link from 'next/link';
+import Link from "next/link";
+import { getAllPosts } from "@/lib/posts";
 
-export default function Home() {
-  const postsDirectory = path.join(process.cwd(), 'posts');
-  const filenames = fs.readdirSync(postsDirectory);
-  const posts = filenames.map((filename) => {
-    return {
-      filename,
-      slug: filename.replace('.md', ''),
-    };
-  });
+export default function BlogPage() {
+  const posts = getAllPosts();
 
   return (
     <div>
-      <h1>Blog Posts</h1>
+      <h1>Blog</h1>
       <ul>
         {posts.map((post) => (
-          <li key={post.filename}>
-          <Link href={`/blog/posts/${post.slug}`}>
-              {post.slug}
+          <li key={post.slug}>
+            <Link href={`/blog/${post.slug}`}>
+              {post.metadata.title} - {post.metadata.date}
             </Link>
           </li>
         ))}
