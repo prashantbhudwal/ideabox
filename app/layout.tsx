@@ -4,6 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import { Navbar } from "@/components/nav";
 import Footer from "@/components/footer";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export default function RootLayout({
   children,
@@ -13,17 +14,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(
-        "text-black bg-white dark:text-white dark:bg-black",
-        GeistSans.variable,
-        GeistMono.variable
-      )}
+      className={cn(GeistSans.variable, GeistMono.variable)}
+      suppressHydrationWarning
     >
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
-          {children}
-          <Footer />
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Navbar />
+            {children}
+            <Footer />
+          </ThemeProvider>
         </main>
       </body>
     </html>
