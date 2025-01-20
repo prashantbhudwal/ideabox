@@ -3,6 +3,7 @@ title: "Prototype (NOT Product) Management"
 date: "2022-12-24"
 published: true
 ---
+
 I have been fascinated with Product Management. Today, while on my learning journey, I realized something that has fundamentally changed my worldview about Product Management.
 
 **The realization is this - I am NOT fascinated with Product Management, I am fascinated with Prototype Management.**
@@ -17,13 +18,7 @@ I was reading a product management book called Getting Real written by folks at 
 
 Why did it challenge my mental model, you might ask. I have always worked at a startup or at my own startup. And whatever I have read or learned about launching a product is in complete contradiction to what is written in this paragraph. **Pretty much all startup advice books or blogs agree on one thing - it is okay to ship an imperfect product.**
 
-[
-
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/533c60bc-d8e3-42e0-b898-c4f690b4e516_2870x1912.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F533c60bc-d8e3-42e0-b898-c4f690b4e516_2870x1912.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F533c60bc-d8e3-42e0-b898-c4f690b4e516_2870x1912.jpeg)
 
 For example, here is an excerpt from the essential advice the world’s best startup factory - YCombinator - gives to the founders:
 
@@ -41,13 +36,7 @@ I trust Basecamp folks for advice, and I trust YC folks for advice. So, their di
 
 I always try hard to reserve the term product to describe the state at which we can run a business on it. Specifically, it is scalable and performant to the degree necessary. It has a strong suite of automated regression tests. It is instrumented to collect the necessary analytics. It has been internationalized and localized where appropriate. It is maintainable. It is consistent with the brand promise. And, most important, it is something the team can release with confidence.
 
-[
-
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/048e8106-7b0b-49c3-972f-c7ea8b749643_5568x3712.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F048e8106-7b0b-49c3-972f-c7ea8b749643_5568x3712.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F048e8106-7b0b-49c3-972f-c7ea8b749643_5568x3712.jpeg)
 
 So, I realized that X is a product only if it can sustainably bring in cash for a company.
 
@@ -55,8 +44,8 @@ And, from my previous reading, I learned that the stage at which a company has h
 
 **So, if we accept both those definitions to be accurate, then a company can’t have a product pre-PMF.**
 
-This crashed my brain again. Previously, I had also learned that a startup should build an MVP or a Minimum Viable Product — A PRODUCT — pre-PMF and iterate it quickly to reach the PMF. But if a company can’t have a Product pre-PMF, what in the world is an MVP?  
-  
+This crashed my brain again. Previously, I had also learned that a startup should build an MVP or a Minimum Viable Product — A PRODUCT — pre-PMF and iterate it quickly to reach the PMF. But if a company can’t have a Product pre-PMF, what in the world is an MVP?
+
 Inspired came to the rescue again, here is what Marty writes _(as if he is speaking directly to me)_:
 
 I think the root of the issue is that while the P in MVP stands for product, an MVP should never be an actual product (where product is defined as something that your developers can release with confidence, that your customers can run their business on, and that you can sell and support). The MVP should be a prototype, not a product.
@@ -89,8 +78,7 @@ Product management starts with an already existing product that makes money and 
 
 I have serious doubts that the majority of people from the post-PMF (Product) environment, can thrive in the chaotic pre-PMF (Prototype) environments. Or, the people in the pre-PMF (Prototype) environment can thrive in the structured post-PMF (Product) environment.
 
-The Final Word
---------------
+## The Final Word
 
 Whether Product Management and Prototype Management get differentiated in the real world over time, only time can tell. But, whatever the case might be, I realized that the Product management I was fascinated with, was not the Product Management that Basecamp folks were talking about. In fact, it wasn’t Product Management at all, it was Prototype Management - a process of making something that brings in cash, out of nothing, by fast, cheap, and consistent trial and error.
 

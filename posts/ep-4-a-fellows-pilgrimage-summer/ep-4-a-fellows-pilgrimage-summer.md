@@ -3,15 +3,14 @@ title: "Ep 4: A Fellow's Pilgrimage - Summer, Slums, & Startups"
 date: "2021-07-19"
 published: true
 ---
+
 _This is Episode 4 of the series that I am writing to demystify Ed-tech for anyone outside the system._
 
-Ep 4: A Fellow's Pilgrimage - Summer, Slums, & Startups
--------------------------------------------------------
+## Ep 4: A Fellow's Pilgrimage - Summer, Slums, & Startups
 
-A Summer in Pune
-----------------
+## A Summer in Pune
 
-_On a mountain top, somewhere near Pune, Maharashtra._ 
+*On a mountain top, somewhere near Pune, Maharashtra.* 
 
 Around 1:45 pm on a 'flaming' hot May afternoon, she got off the bus a second ago and now she's running towards the hostel mess for her lunch break. "I have been up since 5:30 am", she says "First, I went to a school where I taught a class of 40, and now it's time for me to become a student and sit in a class of 40." She looks at her wristwatch. "But, there is no time left. The lecture starts in 15 minutes and the mess is still 10 minutes away". 
 
@@ -19,10 +18,9 @@ She's almost at the door of the mess. "I hope today they have Chinese. I'm fed u
 
 She will attend these lectures till 8:30 in the evening, like yesterday, the day before that, and the one before that. She will do the same tomorrow -- wake up at 5:30, go and teach in a school till 1:00, force-feed herself, and then attend the lectures till 8:30 in the evening -- and she will do it again the next day, and the one after that. She is one of many, almost 500, mostly in their twenties, on this one-month-long pilgrimage called the 'Summer School'. 
 
-Who was Pedagogy? What was Piaget?
-----------------------------------
+## Who was Pedagogy? What was Piaget?
 
-_Mumbai, D-day, 8:00 pm._ 
+*Mumbai, D-day, 8:00 pm.* 
 
 The teacher finally called. "What you sent me was not suitable for Grade 3 students. Who explains 'a genocide' to a third grader? And, that picture of the children crying near the rows of graves? It would be difficult for the children to sleep at night!" she pointed out 10 more errors to go with that and then hung up after asking us to do better. 
 
@@ -30,13 +28,7 @@ I was the one who had made that plan. I was the one who acted like an idiot too.
 
 Remember I wondered what Piaget was? And if Pedagogy was a female scientist? Pedagogy was not a female scientist, it was a term. Pedagogy is a field of study that explains how to teach. If I had dug a bit deeper into any book on Pedagogy, in one of its subsections, I would have found a topic called Child Development. There I would have come across Piaget (pee·uh·zhay). A psychologist who devoted his whole life to understanding how children think and what they can understand at different stages of their lives. 
 
-[
-
-![Jean Piaget](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/17e18139-6206-454e-b75c-0b01a537d9a0_408x683.png)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F17e18139-6206-454e-b75c-0b01a537d9a0_408x683.png)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F17e18139-6206-454e-b75c-0b01a537d9a0_408x683.png)
 
 I wish I had dug deeper, as it would have stopped me from committing the obvious blunder of 'explaining a genocide to a 3rd grader brought up in South Delhi'. 
 
@@ -44,16 +36,9 @@ But as I had explained before, there was no time to sleep, and therefore digging
 
 But, one thing was for certain, we couldn't keep on making such blunders or else there would be a lot of 'churn' -- Startup-speak for your customers giving up on you and leaving. We needed someone who knew something about the alchemy of education.
 
-Summer to Slums
----------------
+## Summer to Slums
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/9922aafd-76a5-4040-9e36-fd70bcc08887_1488x992.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F9922aafd-76a5-4040-9e36-fd70bcc08887_1488x992.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F9922aafd-76a5-4040-9e36-fd70bcc08887_1488x992.jpeg)
 
 _On a bus somewhere on the Pune-Mumbai expressway._
 
@@ -69,13 +54,7 @@ In the next two years, in that class, what she will experience will be beyond he
 
 But she won't. She will persevere, create hundreds of lesson plans, spend almost all of her salary on getting classroom supplies, and keep showing up to change the lives of those children. For those two years, those children will get an excellent education. Then, she will leave, with excellent lesson planning and teaching skills, a dream to be a leader, and a Whatsapp group full of children who call her 'didi'. 
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/d2d68a05-4dca-4599-bb2e-57ea374078d9_1488x992.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fd2d68a05-4dca-4599-bb2e-57ea374078d9_1488x992.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fd2d68a05-4dca-4599-bb2e-57ea374078d9_1488x992.jpeg)
 
 **Welcome to the wild wild world of 'Teach for India' aka TFI - a non-profit education organization.** TFI recruits people, puts them on a bus, takes them to a mountain, and trains them for a month, in what they believe, are the best practices in education and leadership. During this month, also known as 'summer school', the recruits, who are called 'fellows', spend half of their days learning about teaching and the other half applying those practices by teaching a class of children in a school nearby. 
 
@@ -91,8 +70,7 @@ Consequently, a lot of TFI fellows end up joining Ed-techs. It is almost impossi
 
 In this **Ed-tech world**, nothing can be said to be certain, except death, taxes, and **TFI Fellows**.
 
-Slums to Startups
------------------
+## Slums to Startups
 
 When we needed someone for our Ed-team, the path of least resistance was to hire someone from TFI. So, we did just that - hired a fellow from TFI, branded them as the 'Author' aka Content Developer, explained to them the product and we made lesson plans happily ever after...
 

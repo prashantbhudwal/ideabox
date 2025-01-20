@@ -3,16 +3,10 @@ title: "Ep 1: WSBAT (Will Students Be Able To?)"
 date: "2021-07-02"
 published: true
 ---
-[
 
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/fabc15fd-7161-4185-aae6-a85189525be4_4288x2848.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ffabc15fd-7161-4185-aae6-a85189525be4_4288x2848.jpeg)
 
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ffabc15fd-7161-4185-aae6-a85189525be4_4288x2848.jpeg)
-
-WSBAT
------
+## WSBAT
 
 Five years and one month ago, at my first job, I saw a lesson plan for the first time. A two-page 'word document' that was supposed to guide a teacher on how to carry out a teaching session. I remember thinking - wow! this is so magical, so beautiful, so elegant. 
 

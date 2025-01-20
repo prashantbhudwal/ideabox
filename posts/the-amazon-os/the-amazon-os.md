@@ -3,18 +3,12 @@ title: "The Amazon OS"
 date: "2021-05-21"
 published: true
 ---
+
 [Originally Published on May 22, 2021](https://www.linkedin.com/pulse/what-jeff-bezos-wants-you-remember-amazon-why-does-prashant-bhudwal/)
 
-[
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F2821e39c-d5bd-470c-8954-ba4b83ccfa81_1081x720.jpeg)
 
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2821e39c-d5bd-470c-8954-ba4b83ccfa81_1081x720.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F2821e39c-d5bd-470c-8954-ba4b83ccfa81_1081x720.jpeg)
-
-**How your memory works**
--------------------------
+## **How your memory works**
 
 Think of the last vacation that you took. Take some time to remember whatever you can, from that vacation.
 
@@ -22,36 +16,29 @@ Here is my guess about how you remember your vacation.
 
 You remember:
 
--   peaks - the restaurant you went to, the sunset you saw, the ride you took, the time you got so drunk that you couldn't stand, and
-    
--   end - the last day, the last dinner, the last journey.
-    
+- peaks - the restaurant you went to, the sunset you saw, the ride you took, the time you got so drunk that you couldn't stand, and
+- end - the last day, the last dinner, the last journey.
 
 Psychologist [Daniel Kahneman](https://en.wikipedia.org/wiki/Daniel_Kahneman) calls this the '[Peak-end rule](https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule)'.
 
 You remember your past experiences based on how you felt on the:
 
--   peaks of those experiences - the most intense points,
-    
--   end of those experiences - the conclusions
-    
+- peaks of those experiences - the most intense points,
+- end of those experiences - the conclusions
 
 Another phenomenon that he figured out is this -
 
 You DON'T remember the length of your experiences. The days you spent on the vacation just blend together into one memory. Your memory is not based on the number of days you spent on the vacation but on the snapshots of peaks and ends. If your vacation had just 10 intense moments then it does not matter if it was a 1-day vacation, a 1-week vacation or a 1-month vacation. You will remember all these vacations as being very similar. This is called [duration neglect](https://en.wikipedia.org/wiki/Duration_neglect).
 
-What Jeff Bezos Wants You To Remember about Amazon
---------------------------------------------------
+## What Jeff Bezos Wants You To Remember about Amazon
 
 Bezos like all great writers knows these rules intuitively. In Amazon's annual shareholder letters he makes full use of these rules. He knows that as people read his letters they won't remember how long or detailed the letters were - how many graphs they had or how many numbers were discussed. They will just remember the peaks of their reading experiences and the ends of the letters.
 
-The Peaks
----------
+## The Peaks
 
 So, the letters are short and every letter focuses intensely on a few points that he wants you to remember. He gives many examples that evoke empathy and emotion in any reader. These form the peaks of his letters. I have written a [series of posts](https://ideabox.substack.com/p/the-philosophy-of-jeff-bezos-part) on these peaks.
 
-The Ends
---------
+## The Ends
 
 This post is about the ends. Bezos gives special attention to how he ends each of his letters. These are the crux of everything that Bezos wants you to remember about Amazon as a company in the long term. So, I have compiled all the ends of his shareholder letters from 1997-2020 in this post.
 

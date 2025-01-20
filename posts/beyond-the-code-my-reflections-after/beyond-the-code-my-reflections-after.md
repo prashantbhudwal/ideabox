@@ -3,13 +3,8 @@ title: "Beyond the Code: my reflections after 365 days of code"
 date: "2023-12-23"
 published: true
 ---
-[
 
-![](https://substack-post-media.s3.amazonaws.com/public/images/f4405180-de4c-4ab4-8581-1865c5626d3c_1024x1024.png)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff4405180-de4c-4ab4-8581-1865c5626d3c_1024x1024.png)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff4405180-de4c-4ab4-8581-1865c5626d3c_1024x1024.png)
 
 On Dec 12, 2023, exactly one year passed since I decided to dedicate my 100 percent attention to being good at programming. I learned many things other than just code during this time. This is just a collection of those things:
 
@@ -43,14 +38,10 @@ More things happen in the world of programming every day than in any other disci
 
 NewEnglishGrammar v0.0.1-early-release
 
--   knife can now be written as nife
-    
--   pronouns can now be capitalized like proper nouns
-    
--   use of the word “might” deprecated, always use “may”
-    
--   million other dumb rules removed
-    
+- knife can now be written as nife
+- pronouns can now be capitalized like proper nouns
+- use of the word “might” deprecated, always use “may”
+- million other dumb rules removed
 
 Now, do you upgrade to the New Grammar, or keep using the old one?
 

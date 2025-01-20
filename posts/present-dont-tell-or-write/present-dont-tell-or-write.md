@@ -3,20 +3,14 @@ title: "Present, don't tell. Or write."
 date: "2021-06-03"
 published: true
 ---
-[
 
-![All puns intended.](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/5aeee592-1595-41e8-8a8a-ae116021fdb0_1080x720.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F5aeee592-1595-41e8-8a8a-ae116021fdb0_1080x720.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F5aeee592-1595-41e8-8a8a-ae116021fdb0_1080x720.jpeg)
 
 [Originally Published on June 4, 2021](https://www.linkedin.com/pulse/please-make-your-presentations-less-wordy-prashant-bhudwal/)
 
 There are so many bad presentations in this world. Why? There are four primary reasons - bad flow, bad visuals, bad content, and bad presenters. This post is about bad visuals. Specifically - how bad visuals can ruin a presentation with great flow, great content, and a great presenter. If that is relevant to you, read on.
 
-How humans process language
----------------------------
+## How humans process language
 
 I want you to play the audio of your choice in the background before you start reading the rest of this post. So, minimize this, open a music or podcast app and play something that you haven't heard before. Something interesting. Something that has words. Instrumentals don't count, anything with words does. Play it and get back to the article once you are ready.
 
@@ -24,42 +18,31 @@ I want you to play the audio of your choice in the background before you start r
 
 Now that the audio is playing, read the following three bullet points. You can stop the audio once you are done reading the bullet points.
 
--   **Humans have only one language processing unit and this unit can process only one language string at a time.**
-    
--   **That is, at this very moment, you can either comprehend the words in the audio or you can comprehend these words in these sentences. You can't do both at once.**
-    
--   **When you comprehend the words in audio, the words in these sentences fade into the background. When you comprehend the words in these sentences, the words in the audio fade into the background.**
-    
+- **Humans have only one language processing unit and this unit can process only one language string at a time.**
+- **That is, at this very moment, you can either comprehend the words in the audio or you can comprehend these words in these sentences. You can't do both at once.**
+- **When you comprehend the words in audio, the words in these sentences fade into the background. When you comprehend the words in these sentences, the words in the audio fade into the background.**
 
 _\--You can stop the audio now.--_
 
 One out of these three things has happened.
 
 1.  You have completely comprehended the three points, or
-    
 2.  You have completely comprehended the audio, or
-    
 3.  you have completely comprehended none of them.
-    
 
 Most likely, you belong to the third category. You remember bits and pieces of both and you feel like you should read the bullet points again. Here are the there points again. This time pay complete attention:
 
--   **Humans have only one language processing unit and this unit can process only one language string at a time.**
-    
--   **That is, at this very moment, you can either comprehend the words in the audio or you can comprehend these words in these sentences. You can't do both at once.**
-    
--   **When you comprehend the words in audio, the words in these sentences fade into the background. When you comprehend the words in these sentences, the words in the audio fade into the background.**
-    
+- **Humans have only one language processing unit and this unit can process only one language string at a time.**
+- **That is, at this very moment, you can either comprehend the words in the audio or you can comprehend these words in these sentences. You can't do both at once.**
+- **When you comprehend the words in audio, the words in these sentences fade into the background. When you comprehend the words in these sentences, the words in the audio fade into the background.**
 
-Why Presentations Go Wrong
---------------------------
+## Why Presentations Go Wrong
 
 This is why a lot of presentations go wrong. There are too many things happening at the same time. When you use a lot of words in the presentation and elaborate on them while presenting, you are asking your audience to process two language strings at the same time. The human mind is incapable of this.
 
 If you are expecting your audience to read what's on screen, they won't listen to you and if you are expecting your audience to listen to you, they won't read what's on the screen. The worst of all - they would hear you for a while, read a line on the screen, hear you again, read again, and will end up missing out on a lot of information. They won't admit that they have missed something or that they are utterly confused, but they will be. Just like you were with the audio playing in the background.
 
-But...
-------
+## But...
 
 I can hear you saying, "But, the words in the audio that I played and the words that I read are completely unrelated. It won't be like that on my presentation. The words on my presentation and the words that I speak will be related. It will work out. My wordy presentation will be great."
 
@@ -69,18 +52,11 @@ I can also hear you saying "But, sometimes the content matter is just too much. 
 
 You can paraphrase the paragraph. You can just choose to add critical ideas to the slides. Here is a less wordy version of the bullet points that you read earlier. You can say everything else instead of writing it on the slides.
 
--   **Human brains can process JUST ONE language string at a time.**
-    
+- **Human brains can process JUST ONE language string at a time.**
 
 Or, you can do even better and show the audience instead of telling them. You can help them visualize the idea by adding visuals to your slides and offering the details as a commentary. You can do that by showing them a slide like -
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/fd43d75f-751a-482a-9bac-1d78fa429107_1920x1080.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ffd43d75f-751a-482a-9bac-1d78fa429107_1920x1080.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ffd43d75f-751a-482a-9bac-1d78fa429107_1920x1080.jpeg)
 
 The text on the top of this slide can be read in just a few seconds. For the rest of the duration, the audience is completely yours. Even better, they have visuals to anchor and better understand your words. If, a picture says a thousand words, just let it do its job.
 

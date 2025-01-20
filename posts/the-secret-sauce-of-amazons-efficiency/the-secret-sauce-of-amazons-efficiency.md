@@ -3,15 +3,10 @@ title: "The Secret Sauce of Amazon's Efficiency"
 date: "2021-05-24"
 published: true
 ---
+
 [Originally Published on May 25, 2021](https://www.linkedin.com/pulse/how-jeff-bezos-maintains-high-standards-amazon-prashant-bhudwal/)
 
-[
-
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/b0bd0939-2ed1-483e-b1bd-1639fabbc057_1075x720.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb0bd0939-2ed1-483e-b1bd-1639fabbc057_1075x720.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb0bd0939-2ed1-483e-b1bd-1639fabbc057_1075x720.jpeg)
 
 _As I was completing the [series on Amazon's annual shareholder letters](https://ideabox.substack.com/p/the-philosophy-of-jeff-bezos-part), the letter from 2017 stood out. The first part of the 2017 letter is an essay by Jeff Bezos on building a culture with high standards. It is a masterclass on culture building, self-improvement and - at meta-level - strategic thinking. This letter deserved a post of its own._
 
@@ -19,8 +14,7 @@ _My reasoning behind writing this post remains the same as the [original series]
 
 _**This is for the lazy ones.** If you have some time on your hands, stop here and go read the [letter in its entirety](https://www.aboutamazon.com/news/company-news/2017-letter-to-shareholders). If you don't, read ahead._
 
-A Culture of High Standards
----------------------------
+## A Culture of High Standards
 
 One thing I love about customers is that they are divinely discontent. Their expectations are never static—they go up...How do you stay ahead of ever-rising customer expectations? There’s no single way to do it—it’s a combination of many things. But high standards (widely deployed and at all levels of detail) are certainly a big part of it...I’d like to share with you the essentials of what we’ve learned (so far) about high standards inside an organization.
 
@@ -54,14 +48,10 @@ Beyond recognizing the standard and having realistic expectations on scope, how 
 
 ### **Benefits of High Standards**
 
--   ...most obviously, you’re going to build better products and services for customers—this would be reason enough!
-    
--   Perhaps a little less obvious: people are drawn to high standards—they help with recruiting and retention.
-    
--   More subtle: a culture of high standards is protective of all the “invisible” but crucial work that goes on in every company...The work that gets done when no one is watching.
-    
--   And finally, high standards are fun! Once you’ve tasted high standards, there’s no going back.
-    
+- ...most obviously, you’re going to build better products and services for customers—this would be reason enough!
+- Perhaps a little less obvious: people are drawn to high standards—they help with recruiting and retention.
+- More subtle: a culture of high standards is protective of all the “invisible” but crucial work that goes on in every company...The work that gets done when no one is watching.
+- And finally, high standards are fun! Once you’ve tasted high standards, there’s no going back.
 
 ### **Insist on the Highest Standards**
 

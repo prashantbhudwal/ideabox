@@ -3,18 +3,12 @@ title: "Ep 2: Revolutionising Education"
 date: "2021-07-04"
 published: true
 ---
+
 _This is Episode 2 of the series that I am writing to demystify Ed-tech for anyone outside the system._
 
-Episode 2: Revolutionising Education
-------------------------------------
+## Episode 2: Revolutionising Education
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8c2dd4dc-061e-4a36-b8f4-e413e13c16fb_1286x606.png)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F8c2dd4dc-061e-4a36-b8f4-e413e13c16fb_1286x606.png)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F8c2dd4dc-061e-4a36-b8f4-e413e13c16fb_1286x606.png)
 
 "Excited to revolutionize education together!" was the first line of my first offer letter titled "The Offer". I received it four months into the job. I, now, had to accept a job offer for a job I had already been doing for four months. The feeling of signing a contract like that was different, or better explained by words often uttered by my then-founder - familiar yet different. The designation - Author. Four months ago, I had completed my engineering degree in "Computer Suff", and now George R.R. Martin and I had the same designation. 
 
@@ -38,13 +32,7 @@ The Tech team, just one person at that time, got bugged but said that we could u
 
 Now there was just one more thing to do - Ed. We had to make the content -- Ed-Speak for lesson plans, exercises, charts, and everything else that goes into conducting a class -- and make it now. It was D-day minus 7. If we slacked, then the teacher would have nothing to teach on D-day. So, if you ask me - Couldn't you hire people? No my friend, not today. Today, we were to revolutionize education. 
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/e0dcb3fc-c286-4da8-bd4d-cc499d5f5a83_1325x723.png)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fe0dcb3fc-c286-4da8-bd4d-cc499d5f5a83_1325x723.png)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fe0dcb3fc-c286-4da8-bd4d-cc499d5f5a83_1325x723.png)
 
 ```
 Sidenote: There are also some other, less education-centric businesses that are classified as Ed-tech. They might help administration manage schools, or help teachers get students, or help students/teachers collaborate. In this post, I will not be writing about those businesses.

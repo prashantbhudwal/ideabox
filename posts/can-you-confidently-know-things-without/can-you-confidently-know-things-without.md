@@ -3,6 +3,7 @@ title: "Can you confidently know things without experience?"
 date: "2022-07-17"
 published: true
 ---
+
 **"How do you know? You have never been there, you have never experienced it, how do you know?"**
 
 A friend asked me this question last night after I shared an opinion based on something I have not personally experienced.
@@ -11,8 +12,7 @@ At that moment, the conversation went on to another topic, and no one really car
 
 This post is my answer.
 
-The Short Answer
-----------------
+## The Short Answer
 
 How do I know about something without experiencing it myself?
 
@@ -20,8 +20,7 @@ The short and blunt answer would be 'because of science'.
 
 If you understand the logic leap, you can skip the rest of the post, or else you can read on.
 
-Direct & Indirect Experience
-----------------------------
+## Direct & Indirect Experience
 
 Yes, the simplest way to know something is true would be actually experiencing it for yourself. Let's call this type of knowing - knowing from direct experience.
 
@@ -29,32 +28,19 @@ Yes, the simplest way to know something is true would be actually experiencing i
 
 And certainly, this way of knowing from direct experience may lead to strong impressions and lasting models in your mind. For example, I lived in Mumbai for 10 years and I know from experience that the rains in Mumbai can be devastating. No amount of reading or watching documentaries could have prepared me for that truth.
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/325eb227-fbde-476e-877d-792ac491aadd_800x1000.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F325eb227-fbde-476e-877d-792ac491aadd_800x1000.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F325eb227-fbde-476e-877d-792ac491aadd_800x1000.jpeg)
 
 However, this method of knowing is very inefficient. Think about this, if every person decided that they would only believe the things they have experienced, then knowing simple truths like 'Delhi is in north India' and "Mosquitoes spread malaria" would actually require them to experience those events.
 
 A better way would be to learn from other people's experiences. I can know something by either talking to other people who have direct experience or by reading books written by them. Let's call this method of knowing - knowing from indirect experience. Through indirect experience, I can know, without experiencing it myself, that mosquitoes cause malaria or that Delhi is in north India, or that vaccines work against Covid-19.
 
-The Truth Machine
------------------
+## The Truth Machine
 
 But what if someone lies about their direct experience? For example, if they say, "I went to the Himalayas and I saw a man with the head of a lion." Would you still learn from this experience?
 
 Or what if someone is deceived by their experience? For example, what if someone says "I had herbal tea while I had Covid-19 and I got better. Therefore, herbal tea cures Covid-19". Would you still believe them?
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/a6030993-a88d-4858-80c5-cb496a8afba8_848x1200.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa6030993-a88d-4858-80c5-cb496a8afba8_848x1200.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa6030993-a88d-4858-80c5-cb496a8afba8_848x1200.jpeg)
 
 "No", I hear you saying as you wince. "These statements look obviously false. It is just common sense."
 
@@ -62,13 +48,7 @@ But, what if situations start getting a bit trickier? Consider, "All the land I 
 
 "9/10 dentists recommend this toothpaste and therefore it is good." Would you believe this statement to be true?
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/268e7a92-5df5-447e-93fa-4a84e79e1b68_1488x992.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F268e7a92-5df5-447e-93fa-4a84e79e1b68_1488x992.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F268e7a92-5df5-447e-93fa-4a84e79e1b68_1488x992.jpeg)
 
 So, how do you know which indirect experience to trust and which not to?
 
@@ -78,23 +58,16 @@ Anything that is found out by the scientific method officially goes into this kn
 
 "All the land I can see is flat, therefore the earth is flat." "I can see the sun moving in the sky, it is very obvious that the sun moves around the earth." A scientist would ask questions like:
 
--   What experiments were performed to test these statements?
-    
--   What here the methods and instruments used for testing?
-    
--   What are the predictions that can be made if these statements were true?
-    
+- What experiments were performed to test these statements?
+- What here the methods and instruments used for testing?
+- What are the predictions that can be made if these statements were true?
 
 "9/10 dentists recommend this toothpaste and therefore it is good." A scientist would ask questions like
 
--   How many dentists were surveyed in total?
-    
--   How were the questions asked?
-    
--   Who asked the questions?
-    
--   Were these dentists paid by the toothpaste company?
-    
+- How many dentists were surveyed in total?
+- How were the questions asked?
+- Who asked the questions?
+- Were these dentists paid by the toothpaste company?
 
 Such questions test the validity of the experience and help us be certain about the truth of these statements. If the statements pass the test of science, they are deemed scientific truths - truths all of us can trust.
 
@@ -102,8 +75,7 @@ Such questions test the validity of the experience and help us be certain about 
 
 The answer is very obvious now - the scientific ones. If the indirect experience is scientific, you can trust it, if it is not, you can't.
 
-On the Shoulders of Giants
---------------------------
+## On the Shoulders of Giants
 
 If you take a minute and think about all the things you think you know, very soon you will realize that you have NOT directly experienced most of them. Yet, a lot of us keep making the same mistake of assuming that the best form of learning happens from direct experience. Or we keep on giving excuses like, "I don't read. I learn from real-world experience".
 
@@ -115,8 +87,7 @@ Once you start learning from indirect experience, your own direct experience can
 
 > "If I have seen further it is by standing on the shoulders of Giants" - Isaac Newton
 
-The Complete Answer
--------------------
+## The Complete Answer
 
 How do I know about something without experiencing it myself?
 
@@ -125,5 +96,5 @@ How do I know about something without experiencing it myself?
 ```
 The idea of direct and indirect exprience is inspired by the writings of B. H. Liddell Hart.
 
-Request: Please point out any logical or grammatical errors. It will help me improve this post and my understanding. 
+Request: Please point out any logical or grammatical errors. It will help me improve this post and my understanding.
 ```

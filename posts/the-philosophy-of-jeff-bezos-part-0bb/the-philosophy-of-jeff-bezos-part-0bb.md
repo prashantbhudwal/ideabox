@@ -3,15 +3,10 @@ title: "The Philosophy of Jeff Bezos | Part 2"
 date: "2021-05-07"
 published: true
 ---
+
 [Originally Published on May 8, 2021](https://www.linkedin.com/pulse/how-bezos-captained-his-ship-from-2001-2005-jeff-part-bhudwal/)
 
-[
-
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/bc817fef-e6e9-4fa2-a4df-1d129c252bc4_1080x720.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fbc817fef-e6e9-4fa2-a4df-1d129c252bc4_1080x720.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fbc817fef-e6e9-4fa2-a4df-1d129c252bc4_1080x720.jpeg)
 
 This is the second of six posts in the series that maps out Jeff's philosophy in his own words. In short, this particular post is the thematic compilation of the most interesting ideas from the shareholder letters written by Bezos from 2001 to 2005. To understand more about the series and my reasons behind writing it, read the preface from [Part 1 of this series.](https://open.substack.com/pub/ideabox/p/the-philosophy-of-jeff-bezos-part?r=2pw9o&utm_campaign=post&utm_medium=web)
 
@@ -19,8 +14,7 @@ This is the second of six posts in the series that maps out Jeff's philosophy in
 2001 - 2005
 ```
 
-On the Economics of Amazon
---------------------------
+## On the Economics of Amazon
 
 _Editor's Note: While reading the last few letters I have realised that I will have to do another post explaining the economics of Amazon using Jeff's quotes. Quotes alone will be insufficient for people with limited knowledge of terms like future cashflows, GAAP accounting and EPS ratio. I will write it at the end of this series. However, if you do understand these terms, you can read the letter from 2004 and that will be enough to understand the core of Amazon's economic logic._
 
@@ -38,8 +32,7 @@ Increased volumes take time to materialize, and price reductions almost always h
 
 Our _judgment_ is that relentlessly returning efficiency improvements and scale economies to customers in the form of lower prices creates a virtuous cycle that leads over the long term to a much larger dollar amount of free cash flow, and thereby to a much more valuable Amazon.com...2005
 
-On Customers
-------------
+## On Customers
 
 Amazon.com had been primarily built on two pillars of customer experience: selection and convenience...we added a third customer experience pillar: relentlessly lowering prices...2001
 
@@ -61,20 +54,17 @@ You can count on us to combine a strong quantitative and analytical culture with
 
 _Editor's note: 'we’ll start with the customer and work backward' is a great summary of Amazon's core philosophy relating to customers._
 
-On Mistakes and Errors
-----------------------
+## On Mistakes and Errors
 
 I’ll just point out that one of the most important things we’ve done to improve convenience and experience for customers also happens to be a huge driver of variable cost productivity: eliminating mistakes and errors at their root. Every year that’s gone by since Amazon.com’s founding, we’ve done a better and better job of eliminating errors, and this past year was our best ever. Eliminating the root causes of errors saves us money and saves customers time...2001
 
-On Long-Term Thinking
----------------------
+## On Long-Term Thinking
 
 _Editor's Note: Read the 1997 letter again. This is what Bezos says year after year, in every letter. Literally, in every single letter. That letter maps the philosophy of long term thinking in a set of bullet points. Bezos reiterates this philosophy in different ways, with different examples, but the core remains the same. You can find it in the [appendix of post one of this series](https://open.substack.com/pub/ideabox/p/the-philosophy-of-jeff-bezos-part?r=2pw9o&utm_campaign=post&utm_medium=web)._
 
 ...many investors are effectively short-term tenants, turning their portfolios so quickly they are really just renting the stocks that they temporarily “own.”...2003
 
-On Decision Making
-------------------
+## On Decision Making
 
 Many of the important decisions we make at Amazon.com can be made with data. There is a right answer or a wrong answer, a better answer or a worse answer, and math tells us which is which. These are our favorite kinds of decisions...Quantitative analysis improves the customer’s experience and our cost structure...2005
 

@@ -3,27 +3,20 @@ title: "Hungry, Depressed, Broke People for Sale"
 date: "2022-07-07"
 published: true
 ---
+
 ### This is about the years 1929-1939, the era termed "The Great Depression". A lot has been written about it, describing it, its causes, its effects, and the reforms that happened due to it.
 
-[
-
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f2e0861e-1878-4eb2-a994-e7fd372e16aa_879x662.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2e0861e-1878-4eb2-a994-e7fd372e16aa_879x662.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2e0861e-1878-4eb2-a994-e7fd372e16aa_879x662.jpeg)
 
 This article is different - it is about the people and what they went through during this time. In particular, it is about the American depression but lessons are common and the instances are enough to give you a feel of what the people went through.
 
 I am aiming for surprising you. My metric of success for this article is _F-words/minute_. **If you end up saying the F-word a lot of times while reading this, I would consider my job done.**
 
-Economic Armageddon
--------------------
+## Economic Armageddon
 
 If you don't know anything about this time, I would want you to skip the details for now and just read on with one premise - somehow the world came face to face with economic Armageddon. Everything that can go wrong with the economy, went wrong with the economy - the stock market crashed, the real estate market crashed, the food prices crashed, banks closed, thousands of businesses went bankrupt, the money disappeared from the market, people ran out of food, etc. With that out of the way, let's begin.
 
-**Your Savings Aren't Safe**
-----------------------------
+## **Your Savings Aren't Safe**
 
 Imagine you wake up one day and use your phone to pay for groceries and the payment doesn't go through. You call the bank and they tell you that the bank is closed indefinitely and your access to your own savings is revoked.
 
@@ -33,18 +26,11 @@ Bank closure/failure is rare, but it happens. A total of 511 banks have failed i
 
 **During the Great Depression, around 9000 banks completely failed and almost ALL of them were closed for deposits or withdrawals business during the peak of depression.**
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/9d0e906d-ed95-4278-ae83-5dd47d3cf0d8_1076x733.png)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F9d0e906d-ed95-4278-ae83-5dd47d3cf0d8_1076x733.png)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F9d0e906d-ed95-4278-ae83-5dd47d3cf0d8_1076x733.png)
 
 When banks closed millions of people instantly lost access to their life’s savings. And in the case they failed, they completely lost all their savings.
 
-The Cycle Of Doom
------------------
+## The Cycle Of Doom
 
 What happens when a well-known bank fails? How do people react?
 
@@ -52,13 +38,7 @@ What would you do if the State Bank of India closes/fails tomorrow? What if your
 
 If you are lucky and still have money in a different bank, you would probably run to withdraw your money. And so would all the other people whose banks haven't closed yet. This would put a bank in a situation where almost all of its depositors want their money out at the same time. **This is called a bank run.**
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/68d95f31-a6be-4a5e-94fe-998d1e38ee4c_901x720.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F68d95f31-a6be-4a5e-94fe-998d1e38ee4c_901x720.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F68d95f31-a6be-4a5e-94fe-998d1e38ee4c_901x720.jpeg)
 
 The problem is this - banks don't have all your money with them at all times. When you deposit money, they give that money out as loans and charge a high interest on the loans. A part of this interest is given to you as interest on your deposit. That is how banks make a profit.
 
@@ -66,23 +46,15 @@ Only a part of the money is kept with the bank in the form of cash so that they 
 
 But when people have a slight hint of news about the bank or the economy failing, they run for their money, and then if the condition of the bank, gets too worse, it either closes or fails.
 
-Take Note, or Shells, or Wood
------------------------------
+## Take Note, or Shells, or Wood
 
 **I repeat, 9000 banks failed during the great depression.** When banks fail, people lose their savings, they can no longer get loans, and the checks are no longer accepted at businesses. And the ones that don't fail, stop the depositors from withdrawing money, fearing a bank run. When people can't withdraw physical money, the people who get their hands on physical money, start hoarding money and soon no one has any physical money to transact on a day-to-day basis.
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/22270971-5110-416e-96a4-7bdf7a9e9dfe_659x439.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F22270971-5110-416e-96a4-7bdf7a9e9dfe_659x439.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F22270971-5110-416e-96a4-7bdf7a9e9dfe_659x439.jpeg)
 
 During the depression, almost all of the physical money dried up. So people started using pieces of paper to trade goods with each other. These were called scrips. People went from bank notes to literal 'notes' written on a piece of paper. Sometimes even going to the extent of using shells, wood pieces, and metal tokens as a replacement for money.
 
-So LOANly
----------
+## So LOANly
 
 During good economic times, businesses are booming, the incomes of people in such businesses are high, and their morale is even higher. Loans are easy to get for individuals and they invest in pricier assets and bigger houses. During such times, paying back a loan seems easy. In the best case, people have enough income to pay back the loan themselves. In the worst case, the houses are rented out and the rent is used to pay back the loan. When people realize how easy it is to get houses and pay back the loan, they get more houses on loans and call it an investment. This was the case in the early 1920s in America.
 
@@ -90,89 +62,51 @@ During bad times, businesses don't make money because people have no money to sp
 
 Soon, when banks auctioned seized assets, no one bid for them, as no one had the money, even at dirt-cheap prices. The banks were now left with assets that had no market value. Thousands and thousands of houses and other assets of no value at all. There came a point where the banks just stopped seizing assets as they knew it was of no value and just played the waiting game.
 
-Passbooks for Sale
-------------------
+## Passbooks for Sale
 
 When banks closed, people also started selling their bank passbooks at discounted prices. 40 - 80 dollars for every 100 dollars of saving depending on the bank in which you had the account. Passbook prices were routinely published in the newspapers. People who had the cash, bought these discounted passbooks and then used the money in the accounts to pay back their loans to the bank or buy seized properties that the banks auctioned.
 
-Buffetology
------------
+## Buffetology
 
 Warren Buffett has a simple investment philosophy - if you have hard cash when others don't, you can invest it in assets with low prices, and get rich in the long term when prices get back to normal. Buffetology states that - if you are rich during a downturn, you will be much richer after it.
 
 Most people who happened to have hard cash in the great depression did not plan for the depression but they were the luckiest people during that time. Since no one else had the cash, they could buy houses, land, stocks, bonds, loans, etc. at prices that were way below the actual value of these assets. In short, the rich got richer.
 
-I am For Sale
--------------
+## I am For Sale
 
 Since people had no money, they started cutting down on expenses. The demand fell and almost everything got cheaper. As people spent less and less, the prices kept crashing. There came a point where the prices went so low that it was cheaper for the farmers to destroy their produce than to take it to the market to sell it.
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/24815206-27f7-44ce-bda0-2125a490ca58_1200x865.png)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F24815206-27f7-44ce-bda0-2125a490ca58_1200x865.png)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F24815206-27f7-44ce-bda0-2125a490ca58_1200x865.png)
 
 Ironically, the food was still not cheap enough for people to buy. I repeat, people had no money. So on one side, farmers were destroying food and on the other people were dying from hunger.
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/22e2cfb1-f789-4878-ae45-12319937db4b_1188x1500.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F22e2cfb1-f789-4878-ae45-12319937db4b_1188x1500.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F22e2cfb1-f789-4878-ae45-12319937db4b_1188x1500.jpeg)
 
 Most people depended on charity for food. They formed long lines in front of soup kitchens for a bowl of soup and a loaf of stale bread. It became very common for every house to have a vegetable garden. Even the people who lived in big houses did not have the money to buy food. Some went begging door to door. Those who still couldn't get food migrated back to villages in hope of at least being able to grow food and eat.
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/28cef760-a027-4560-be5d-78ff44b4e007_885x720.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F28cef760-a027-4560-be5d-78ff44b4e007_885x720.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F28cef760-a027-4560-be5d-78ff44b4e007_885x720.jpeg)
 
 **At the very height of the depression, people were advertising to sell themselves or marry for money**.
 
-Proudly Broke
--------------
+## Proudly Broke
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/57b6a82b-6d10-4340-95f6-98d2e28f4af8_879x662.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F57b6a82b-6d10-4340-95f6-98d2e28f4af8_879x662.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F57b6a82b-6d10-4340-95f6-98d2e28f4af8_879x662.jpeg)
 
 There came a point in the depression where people just accepted the fact that they were broke. They bragged about how broke they were to each other. Going bankrupt or losing a house no longer affected them. They shared stories of their ruin and unemployment with each other and compared notes on how much they lost in the crash.
 
-Other Signs of the Time
------------------------
+## Other Signs of the Time
 
 To conclude, here is a list of other things that happened that need no explanation:
 
--   All theaters/clubs were closed.
-    
--   Small businesses had constant sales, but there were no customers. Soon they ran out of money and closed.
-    
--   People stopped caring about non-lethal medical issues like dental care. They stopped buying new clothes, shoes, or anything non-essential. Those who smoked started rolling their own cigarettes.
-    
--   School teachers did not get paid.
-    
--   College graduates did not get jobs after college.
-    
--   The only lawyers that made money were in the business of handling the closing of businesses.
-    
--   People started trading their insurance policies for food.
-    
--   People rioted in factories after being laid off.
-    
--   Insanity and suicide were common among rich businessmen who lost it all.
-    
+- All theaters/clubs were closed.
+- Small businesses had constant sales, but there were no customers. Soon they ran out of money and closed.
+- People stopped caring about non-lethal medical issues like dental care. They stopped buying new clothes, shoes, or anything non-essential. Those who smoked started rolling their own cigarettes.
+- School teachers did not get paid.
+- College graduates did not get jobs after college.
+- The only lawyers that made money were in the business of handling the closing of businesses.
+- People started trading their insurance policies for food.
+- People rioted in factories after being laid off.
+- Insanity and suicide were common among rich businessmen who lost it all.
 
 ```
 Note: This is Draft No. 1. To report any corrctions, comment.

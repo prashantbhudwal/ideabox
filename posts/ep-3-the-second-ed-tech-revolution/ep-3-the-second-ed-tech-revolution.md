@@ -3,6 +3,7 @@ title: "Ep 3: The Second Ed-Tech Revolution"
 date: "2021-07-07"
 published: true
 ---
+
 _This is Episode 3 of the series that I am writing to demystify Ed-tech for anyone outside the system._
 
 ### D-day
@@ -19,23 +20,11 @@ The teacher will be in the class at 4 pm and she has to have something to teach.
 
 **We were converting this -**
 
-[
-
-![Image of a lesson plan on google docs.](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/cc553236-c900-4c1f-9ca6-af0feb034bf9_748x580.png)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fcc553236-c900-4c1f-9ca6-af0feb034bf9_748x580.png)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fcc553236-c900-4c1f-9ca6-af0feb034bf9_748x580.png)
 
 **into this -**
 
-[
-
-![Image of a json document.](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/977cfba1-539b-4db4-aa11-daa3a84a68b0_796x587.png)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F977cfba1-539b-4db4-aa11-daa3a84a68b0_796x587.png)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F977cfba1-539b-4db4-aa11-daa3a84a68b0_796x587.png)
 
 Letter by letter. Word by word. Line by line. One punctuation mark at a time. But why? Why convert a perfectly good-looking doc into this gibberish? Couldn't we have just sent the content to teachers, as it was? Maybe, we could have. But there is more to it than what meets the eye. To understand it, let's go one step deeper into the world of the Ed-tech business. 
 
@@ -55,13 +44,7 @@ Let's say, somehow you could find 1000 customers to buy a book, you wouldn't be 
 
 In all, Pythagoras' words couldn't travel far. But, that changed with the invention of printing.
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/82c4b75a-659d-41ef-ac86-d0d530bceddc_1125x1500.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F82c4b75a-659d-41ef-ac86-d0d530bceddc_1125x1500.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F82c4b75a-659d-41ef-ac86-d0d530bceddc_1125x1500.jpeg)
 
 Around the year 1440, almost 2000 years after Pythagoras, a German named Gutenberg invented the printing press. Now, one could write a book, send it to the press and get copies made. In Startup-speak, the printing press made writing 'scalable'.
 
@@ -69,13 +52,7 @@ As one 'scaled' -- Startup-Speak for 'increased the size' -- of the whole operat
 
 The core innovation behind the printing press invented by Gutenberg was 'the movable type'. The whole press was essentially a giant rectangular stamp fitted with 'metal letters' - called type - that could be moved around and swapped in and out. Printing with it had some initial time investment - one had to carefully arrange letters to be printed on each page - letter by letter, word by word, line by line, one punctuation mark at a time. But, once you had arranged the letters for a page you could print that page, any number of times. It did not matter if you printed 1 copy or 100 copies of that page.
 
-[
-
-![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f298a9e0-50d0-4362-b668-5b9ca8ca5d69_1488x989.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff298a9e0-50d0-4362-b668-5b9ca8ca5d69_1488x989.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff298a9e0-50d0-4362-b668-5b9ca8ca5d69_1488x989.jpeg)
 
 Let's say you had to print 100 copies of a page. The work required to set the letters to print one page was greater than the work required to write one page by hand. But printing the next 99 copies was much much faster, and cheaper - ink, stamp, repeat.
 
@@ -108,7 +85,7 @@ Sidenote: Found any errors? Let me know. Comment or Message.
 ```
 
 > **Thanks for reading.**
-> 
+>
 > **A Like or a Share will go a long way :)**
 
 _**Extras:**_

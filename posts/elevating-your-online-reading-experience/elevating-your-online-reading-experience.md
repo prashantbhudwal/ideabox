@@ -3,30 +3,18 @@ title: "Elevating Your Online Reading Experience"
 date: "2023-01-04"
 published: true
 ---
+
 Here are three tips that will help you if you are someone who reads a lot of articles on your laptop.
 
-[
-
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/ef5db6d1-ab3f-43ab-881b-f9aaeb0d6a03_4752x3168.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fef5db6d1-ab3f-43ab-881b-f9aaeb0d6a03_4752x3168.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fef5db6d1-ab3f-43ab-881b-f9aaeb0d6a03_4752x3168.jpeg)
 
 I read, therefore I am.
 
-1\. Adapt, for Readability
-==========================
+# 1\. Adapt, for Readability
 
 The internet is full of amazing articles that are cursed with borderline unreadable web design. Reading articles with bad web design puts the same amount of stress on your mind as reading bad handwriting does. Pick up and try reading any handwritten medical prescription from your drawer, and you will know that the stress is real.
 
-[
-
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/bbd2159e-239b-4b61-a8e3-7b0b783c2021_5092x3395.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fbbd2159e-239b-4b61-a8e3-7b0b783c2021_5092x3395.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fbbd2159e-239b-4b61-a8e3-7b0b783c2021_5092x3395.jpeg)
 
 The stress is REAL.
 
@@ -34,16 +22,11 @@ The first thing I do, when I sit to read an article that I have committed to rea
 
 These apps/extensions allow me to control the following:
 
--   font
-    
--   font size
-    
--   background-color
-    
--   width
-    
--   line-height
-    
+- font
+- font size
+- background-color
+- width
+- line-height
 
 The first three are a matter of preference. But not the last two. You can immensely decrease the stress on your eyes and mind by keeping the columns narrow and the line heights tall.
 
@@ -57,33 +40,15 @@ I personally use Omnivore as my reading app. You are free to choose from the wid
 
 Here is a screenshot of an article without any Omnivore processing.
 
-[
-
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/a812a08c-d5ee-4eeb-a707-6f15e1842175_692x485.png)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa812a08c-d5ee-4eeb-a707-6f15e1842175_692x485.png)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa812a08c-d5ee-4eeb-a707-6f15e1842175_692x485.png)
 
 Here is a screenshot of the same after processing my text with Omnivore.
 
-[
-
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/b4a00242-48f6-43a0-a3dc-0d5b316673ca_1085x780.png)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb4a00242-48f6-43a0-a3dc-0d5b316673ca_1085x780.png)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb4a00242-48f6-43a0-a3dc-0d5b316673ca_1085x780.png)
 
 One more thing, if you are reading at night, in a dark room, I recommend keeping your background color sepia - or any other brownish tone.
 
-[
-
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/5004dea9-a10f-4b38-b601-e13eabc4b1f5_4032x3024.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F5004dea9-a10f-4b38-b601-e13eabc4b1f5_4032x3024.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F5004dea9-a10f-4b38-b601-e13eabc4b1f5_4032x3024.jpeg)
 
 Are you a night owl, like me?
 
@@ -91,35 +56,21 @@ Are you a night owl, like me?
 
 If you read Wikipedia a lot, I recommend using Wikiwand. It automatically processes all Wikipedia pages for readability every time you open a Wikipedia page. It also has tons of other options. Here is a screenshot of a Wikipedia article after Wikiwand has done its magic:
 
-[
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff884c427-5c26-4eba-ac0f-ebf6a5518f9f_1920x965.png)
 
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f884c427-5c26-4eba-ac0f-ebf6a5518f9f_1920x965.png)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff884c427-5c26-4eba-ac0f-ebf6a5518f9f_1920x965.png)
-
-2\. Annotate, for Engagement
-----------------------------
+## 2\. Annotate, for Engagement
 
 I love the feeling of the pen in hand when I read a book – I can fidget with it, I can underline the text, or I can take notes in the margin. I don’t know if all of these things are actually beneficial for retention in the long term, but what I know is this – they keep me engaged. I think of it like this – a pencil is to reading what music is to running.
 
 In the same spirit, I like to annotate articles that I read on the web. My objective is not to take great notes but to keep myself involved with the article. What highlights or notes I take, and if those are useful, are inconsequential as long as the process of annotation keeps me going. As I said before, it’s like music for my reading.
 
-[
-
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/14c9deb9-dec1-424c-87bb-dbdfd601d1dc_4752x3168.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F14c9deb9-dec1-424c-87bb-dbdfd601d1dc_4752x3168.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F14c9deb9-dec1-424c-87bb-dbdfd601d1dc_4752x3168.jpeg)
 
 Don’t just read, get those hands out!
 
 I use Omnivore for annotations. There are apps like Pocket, Evernote, Readwise, etc that allow you to do much more than annotation but over 10 years of reading online, I have realized that the simpler I keep my reading workflow, the better it is for me. Hence, Omnivore.
 
-3\. Annotate, to Slow Down
---------------------------
+## 3\. Annotate, to Slow Down
 
 All of our digital devices are optimized for scrolling, not reading. So, most of us don't read online; we scroll and maybe, just maybe, read the headlines if they are bold enough. Therefore, a key to reading online is resisting the urge to scroll. I have two tips for slowing down.
 
@@ -129,51 +80,36 @@ The second is to annotate as you read. Annotations, in addition to keeping you e
 
 Whatever you do, remember to read, not scroll.
 
-[
-
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/3c8bec1c-938f-4b8b-b461-1293df18f969_3586x4781.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F3c8bec1c-938f-4b8b-b461-1293df18f969_3586x4781.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F3c8bec1c-938f-4b8b-b461-1293df18f969_3586x4781.jpeg)
 
 Thank you. Happy reading.
 
 ---
 
-Summary
--------
+## Summary
 
--   Use apps to improve the readability experience
-    
-    -   Major factors:
-        
-        -   Line height
-            
-        -   Column width
-            
--   Use Wikiwand for reading Wikipedia
-    
--   Annotate articles to stay engaged with the content
-    
-    -   Analogy: Annotation is to reading, what music is to running
-        
--   Read, don’t scroll
-    
-    -   Don’t use a mouse or the trackpad
-        
-    -   Annotate articles to slow down
-        
--   App recommendations
-    
-    -   Omnivore
-        
-    -   Wikiwand
-        
-    -   Pocket
-        
-    -   Readwise
-        
-    -   Clearly reader
-        
-    -   Mercury reader
+- Use apps to improve the readability experience
+
+  - Major factors:
+
+    - Line height
+    - Column width
+
+- Use Wikiwand for reading Wikipedia
+- Annotate articles to stay engaged with the content
+
+  - Analogy: Annotation is to reading, what music is to running
+
+- Read, don’t scroll
+
+  - Don’t use a mouse or the trackpad
+  - Annotate articles to slow down
+
+- App recommendations
+
+  - Omnivore
+  - Wikiwand
+  - Pocket
+  - Readwise
+  - Clearly reader
+  - Mercury reader

@@ -3,18 +3,12 @@ title: "The Philosophy of Jeff Bezos | Part 1"
 date: "2021-05-07"
 published: true
 ---
-[
 
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/94907753-bd22-469a-b85d-de31c2ee0f0e_1079x720.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F94907753-bd22-469a-b85d-de31c2ee0f0e_1079x720.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F94907753-bd22-469a-b85d-de31c2ee0f0e_1079x720.jpeg)
 
 [Originally Published on May 8, 2021](https://www.linkedin.com/pulse/how-bezos-captained-his-ship-from-1997-2000-jeff-prashant-bhudwal/)
 
-Preface
--------
+## Preface
 
 This post is a part of a game that I am playing with myself.
 
@@ -30,8 +24,7 @@ I will do it all in a series of 6 posts. I will split the 23 letters across the 
 1997 - 2000
 ```
 
-On Long-Term Thinking
----------------------
+## On Long-Term Thinking
 
 It’s All About the Long Term...We believe that a fundamental measure of our success will be the shareholder value we create over the long term...1997
 
@@ -47,8 +40,7 @@ OUCH. IT’S BEEN a brutal year for many in the capital markets and certainly fo
 
 _Editor's note: 2000 was when the internet bubble burst. The stock market crashed, people couldn't raise any money for their businesses and as a result, many companies, mainly internet companies, went out of business. Amazon also took a hit as it lost money when the companies it had invested in, went bust._
 
-On Customers
-------------
+## On Customers
 
 From the beginning, our focus has been on offering our customers compelling value...We dramatically lowered prices, further increasing customer value. Word of mouth remains the most powerful customer acquisition tool we have, and we are grateful for the trust our customers have placed in us...1997
 
@@ -58,8 +50,7 @@ I constantly remind our employees to be afraid, to wake up every morning terrifi
 
 Our vision is to use this platform to build Earth’s most customer-centric company,...We’ll listen to customers, invent on their behalf, and personalize the store for each of them, all while working hard to continue to earn their trust...1999
 
-**On Hiring**
--------------
+## **On Hiring**
 
 It’s not easy to work here (when I interview people I tell them, “You can work long, hard, or smart, but at Amazon.com you can’t choose two out of three”), but we are working to build something important, something that matters to our customers, something that we can all tell our grandchildren about. Such things aren’t meant to be easy. ...1997
 
@@ -69,48 +60,33 @@ Setting the bar high in our approach to hiring has been, and will continue to be
 
 During our hiring meetings, we ask people to consider three questions before making a decision:
 
--   Will you admire this person?...I’ve always tried hard to work only with people I admire, and I encourage folks here to be just as demanding. Life is definitely too short to do otherwise.
-    
--   Will this person raise the average level of effectiveness of the group they’re entering? We want to fight entropy. The bar has to continuously go up.
-    
--   Along what dimension might this person be a superstar? Many people have unique skills, interests, and perspectives that enrich the work environment for all of us....1998
-    
+- Will you admire this person?...I’ve always tried hard to work only with people I admire, and I encourage folks here to be just as demanding. Life is definitely too short to do otherwise.
+- Will this person raise the average level of effectiveness of the group they’re entering? We want to fight entropy. The bar has to continuously go up.
+- Along what dimension might this person be a superstar? Many people have unique skills, interests, and perspectives that enrich the work environment for all of us....1998
 
-On Risk Taking
---------------
+## On Risk Taking
 
 ... we think the opportunities and risks ahead of us are even greater than those behind us. We will have to make many conscious and deliberate choices, some of which will be bold and unconventional. Hopefully, some will turn out to be winners. Certainly, some will turn out to be mistakes....1998
 
-On Technology
--------------
+## On Technology
 
 ...the current online shopping experience is the worst it will ever be. It’s good enough today to attract seventeen million customers, but it will get so much better...We have a market-size unconstrained opportunity in an area where the underlying foundational technology we employ improves every day. That is not normal....1999
 
 _Editor's note: This is probably true for every revolutionary technology._
 
-Appendix:
----------
+## Appendix:
 
 ### It's all about the long term...1997
 
 ...we want to share with you our fundamental management and decision-making approach so that you, our shareholders, may confirm that it is consistent with your investment philosophy:
 
--   We will continue to focus relentlessly on our customers.
-    
--   We will continue to make investment decisions in light of long-term market leadership considerations rather than short-term profitability considerations or short-term Wall Street reactions.
-    
--   We will continue to measure our programs and the effectiveness of our investments analytically, to jettison those that do not provide acceptable returns, and to step up our investment in those that work best. We will continue to learn from both our successes and our failures.
-    
--   We will make bold rather than timid investment decisions where we see a sufficient probability of gaining market leadership advantages. Some of these investments will pay off, others will not, and we will have learned another valuable lesson in either case.
-    
--   When forced to choose between optimizing the appearance of our GAAP accounting and maximizing the present value of future cash flows, we’ll take the cash flows.
-    
--   We will share our strategic thought processes with you when we make bold choices (to the extent competitive pressures allow), so that you may evaluate for yourselves whether we are making rational long-term leadership investments.
-    
--   We will work hard to spend wisely and maintain our lean culture. We understand the importance of continually reinforcing a cost-conscious culture, particularly in a business incurring net losses.
-    
--   We will balance our focus on growth with emphasis on long-term profitability and capital management. At this stage, we choose to prioritize growth because we believe that scale is central to achieving the potential of our business model.
-    
--   We will continue to focus on hiring and retaining versatile and talented employees and continue to weight their compensation to stock options rather than cash. We know our success will be largely affected by our ability to attract and retain a motivated employee base, each of whom must think like, and therefore must actually be, an owner.
-    
--   We aren’t so bold as to claim that the above is the “right” investment philosophy, but it’s ours, and we would be remiss if we weren’t clear in the approach we have taken and will continue to take.
+- We will continue to focus relentlessly on our customers.
+- We will continue to make investment decisions in light of long-term market leadership considerations rather than short-term profitability considerations or short-term Wall Street reactions.
+- We will continue to measure our programs and the effectiveness of our investments analytically, to jettison those that do not provide acceptable returns, and to step up our investment in those that work best. We will continue to learn from both our successes and our failures.
+- We will make bold rather than timid investment decisions where we see a sufficient probability of gaining market leadership advantages. Some of these investments will pay off, others will not, and we will have learned another valuable lesson in either case.
+- When forced to choose between optimizing the appearance of our GAAP accounting and maximizing the present value of future cash flows, we’ll take the cash flows.
+- We will share our strategic thought processes with you when we make bold choices (to the extent competitive pressures allow), so that you may evaluate for yourselves whether we are making rational long-term leadership investments.
+- We will work hard to spend wisely and maintain our lean culture. We understand the importance of continually reinforcing a cost-conscious culture, particularly in a business incurring net losses.
+- We will balance our focus on growth with emphasis on long-term profitability and capital management. At this stage, we choose to prioritize growth because we believe that scale is central to achieving the potential of our business model.
+- We will continue to focus on hiring and retaining versatile and talented employees and continue to weight their compensation to stock options rather than cash. We know our success will be largely affected by our ability to attract and retain a motivated employee base, each of whom must think like, and therefore must actually be, an owner.
+- We aren’t so bold as to claim that the above is the “right” investment philosophy, but it’s ours, and we would be remiss if we weren’t clear in the approach we have taken and will continue to take.

@@ -3,20 +3,14 @@ title: "The Philosophy of Jeff Bezos | Part 4"
 date: "2021-05-22"
 published: true
 ---
+
 [Originally Published on May 23, 2021](https://www.linkedin.com/pulse/how-bezos-captained-his-ship-from-2011-2015-jeff-part-bhudwal/)
 
-[
-
-![](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/4422163e-b1f0-4a1a-bb4a-6851115f1834_1081x720.jpeg)
-
-
-
-](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4422163e-b1f0-4a1a-bb4a-6851115f1834_1081x720.jpeg)
+![](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4422163e-b1f0-4a1a-bb4a-6851115f1834_1081x720.jpeg)
 
 This is the fourth of six posts in the series that maps out Jeff's philosophy in his own words. In short, this particular post is the thematic compilation of the most interesting ideas from the shareholder letters written by Bezos from 2011 to 2015. To understand more about the series and my reasons behind writing it, read the preface from **[Part 1 of this series.](https://ideabox.substack.com/p/the-philosophy-of-jeff-bezos-part)**
 
-Interlude:
-----------
+## Interlude:
 
 I took a detour while writing this post and wrote another post on Jeff's letters. It is short introduction to how human memory works, followed by a compilation of last two paragraphs from each of his letter from 1997 to 2020.
 
@@ -26,8 +20,7 @@ Why last two paragraphs? Because to Bezos, and to humans in general, the end mat
 2011-2015
 ```
 
-On Innovation
--------------
+## On Innovation
 
 Invention comes in many forms and at many scales. The most radical and transformative of inventions are often those that empower _others_ to unleash _their_ creativity—to pursue _their_ dreams. That’s a big part of what’s going on with Amazon Web Services, Fulfillment by Amazon, and Kindle Direct Publishing...These innovative, large-scale platforms are not zero-sum—they create win-win situations and create significant value for developers, entrepreneurs, customers, authors, and readers...2011
 
@@ -39,8 +32,7 @@ We have our own internal experimentation platform called “Weblab” that we us
 
 One area where I think we are especially distinctive is failure. I believe we are the best place in the world to fail (we have plenty of practice!), and failure and invention are inseparable twins. To invent you have to experiment, and if you know in advance that it’s going to work, it’s not an experiment. Most large organizations embrace the idea of invention but are not willing to suffer the string of failed experiments necessary to get there. Outsized returns often come from betting against conventional wisdom, and conventional wisdom is usually right. Given a ten percent chance of a one hundred times payoff, you should take that bet every time. But you’re still going to be wrong nine times out of ten. We all know that if you swing for the fences, you’re going to strike out a lot, but you’re also going to hit some home runs. The difference between baseball and business, however, is that baseball has a truncated outcome distribution. When you swing, no matter how well you connect with the ball, the most runs you can get is four. In business, every once in a while, when you step up to the plate, you can score one thousand runs. This long-tailed distribution of returns is why it’s important to be bold. Big winners pay for so many experiments...2015
 
-On Strategy
------------
+## On Strategy
 
 One advantage—perhaps a somewhat subtle one—of a customer-driven focus is that it aids a certain type of proactivity. When we’re at our best, we don’t wait for external pressures. We are _internally_ driven to improve our services, adding benefits and features, before we have to. We lower prices and increase value for customers before we have to. We invent before we have to. These investments are motivated by customer focus rather than by reaction to competition...2012
 
@@ -50,13 +42,11 @@ Marketplace, Prime, and Amazon Web Services are three big ideas. We’re lucky t
 
 We want to be a large company that’s also an invention machine. We want to combine the extraordinary customer-serving capabilities that are enabled by size with the speed of movement, nimbleness, and risk-acceptance mentality normally associated with entrepreneurial start-ups...2015
 
-On Long-Term Thinking
----------------------
+## On Long-Term Thinking
 
 Our heavy investments in Prime, AWS, Kindle, digital media, and customer experience in general strike some as too generous, shareholder indifferent, or even at odds with being a for-profit company. “Amazon, as far as I can tell, is a charitable organization being run by elements of the investment community for the benefit of consumers,” writes one outside observer. But I don’t think so. To me, trying to dole out improvements in a just-in-time fashion would be too clever by half. It would be risky in a world as fast-moving as the one we all live in. More fundamentally, I think long-term thinking squares the circle. Proactively delighting customers earns trust, which earns more business from those customers, even in new business arenas. Take a long-term view, and the interests of customers and shareholders align...2012
 
-**On Creating Successful Businesses**
--------------------------------------
+## **On Creating Successful Businesses**
 
 A dreamy business offering has at least four characteristics. Customers love it, it can grow to very large size, it has strong returns on capital, and it’s durable in time—with the potential to endure for decades. When you find one of these, don’t just swipe right, get married...Well, I’m pleased to report that Amazon hasn’t been monogamous in this regard...I believe are three such life partners: Marketplace, Prime, and AWS...2014
 
@@ -64,13 +54,11 @@ _(In building AWS, Markteplace and Prime)_ We’ll approach the job with our usu
 
 They share a distinctive organizational culture that cares deeply about and acts with conviction on a small number of principles. I’m talking about customer obsession rather than competitor obsession, eagerness to invent and pioneer, willingness to fail, the patience to think long-term, and the taking of professional pride in operational excellence...2015
 
-On Company Culture & Hiring
----------------------------
+## On Company Culture & Hiring
 
 A word about corporate cultures: for better or for worse, they are enduring, stable, hard to change. They can be a source of advantage or disadvantage. You can write down your corporate culture, but when you do so, you’re discovering it, uncovering it—not creating it. It is created slowly over time by the people and by events—by the stories of past success and failure that become a deep part of the company lore. If it’s a distinctive culture, it will fit certain people like a custom-made glove. The reason cultures are so stable in time is because people self-select. Someone energized by competitive zeal may select and be happy in one culture, while someone who loves to pioneer and invent may choose another. The world, thankfully, is full of many high-performing, highly distinctive corporate cultures. We never claim that our approach is the right one—just that it’s ours—and over the last two decades, we’ve collected a large group of like-minded people. Folks who find our approach energizing and meaningful...2015
 
-On Decision Making
-------------------
+## On Decision Making
 
 One common pitfall for large organizations—one that hurts speed and inventiveness—is “one-size-fits-all” decision making.
 
@@ -80,13 +68,10 @@ As organizations get larger, there seems to be a tendency to use the heavy-weigh
 
 (\*The opposite situation is less interesting and there is undoubtedly some survivorship bias. Any companies that habitually use the light-weight Type 2 decision-making process to make Type 1 decisions go extinct before they get large.) ...2015
 
-Appendix 2: Helpful Links
--------------------------
+## Appendix 2: Helpful Links
 
 I think the following links will help you get more out of this compilation.
 
--   [Timeline of Amazon](https://edition.cnn.com/interactive/2018/10/business/amazon-history-timeline/index.html)
-    
--   [History of Amazon](https://en.wikipedia.org/wiki/History_of_Amazon)
-    
--   [Shareholder Letters](https://www.aboutamazon.com/news/company-news/2020-letter-to-shareholders)
+- [Timeline of Amazon](https://edition.cnn.com/interactive/2018/10/business/amazon-history-timeline/index.html)
+- [History of Amazon](https://en.wikipedia.org/wiki/History_of_Amazon)
+- [Shareholder Letters](https://www.aboutamazon.com/news/company-news/2020-letter-to-shareholders)
