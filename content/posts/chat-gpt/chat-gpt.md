@@ -1,5 +1,5 @@
 ---
-title: "ChatGPT"
+title: "ChatGPT - How does it work!"
 date: "2024-04-20"
 published: true
 ---
