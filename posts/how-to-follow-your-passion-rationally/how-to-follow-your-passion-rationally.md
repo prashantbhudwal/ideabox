@@ -1,0 +1,88 @@
+---
+title: "How to follow your passion, rationally?"
+date: "2022-07-20"
+published: true
+---
+"I want to do things that I am passionate about" goes almost everyone. 'Following the passion' is the desired life for many. We keep romanticizing about 'following the passion', dreaming about it, thinking about it. **Yet, time passes, and we never go on the path of following our passion.**
+
+The belief is this - if I am passionate about something, I will enjoy doing it, and I will never get bored. I will jump out of bed, instead of snoozing that alarm. I will be on time, for all meetings, and for all commitments. I will need no motivation. We believe that one day, we will live the dream. **Yet, more time passes, and we never follow our passion.**
+
+To further quench our obsession, we read books about 'following the passion', we listen to podcasts to get motivated, and we profess to our friends how 'One day, I will follow my passion.' **Yet, we don't do it, and time keeps on passing.**
+
+We keep building their theories and fantasies about 'the path of passion', without ever testing them out in the real world. And if there is one thing that almost all humanity agrees on, it is this: "building theories without testing, and then applying it to the real world, leads to disaster". Here are a few absurd theories about following the 'path of passion', that I have found, through my own experience, to be particularly disastrous:
+
+Following the passion = Work becomes easy
+-----------------------------------------
+
+Passion does not make your work easy. I will give you an example. I am passionate about history, any history. Initially, I fantasized, 'only if I got the time to read history for a week straight, what a dream would that be!'.
+
+Then, one day it happened, I got a week in which I have no commitments, no work, and decided to dedicate it to reading history. That was a reality check. My brain just refused to process it after reading a few pages. There were multiple characters to keep track of, multiple timelines to follow, and cause-and-effect chains that were so long that it was impossible for me to keep them in mind. The books kept citing events I had never heard of and when I googled those events, they pointed to more events, and so on. The myth of following the passion, being 'a dream' started crumbling. Reading history was hard, and when I got to a certain depth, very very hard. The same happened when my passion led me to explore complex systems, probability, sales, venture capital, and even rapping. Passion does not do the actual work for you.
+
+Passion gives us the start, but it does not do the work for us, nor does it make the work easy. Everything that we are passionate about, becomes difficult when you get deeper into it and that is just how it works. The idea that passion makes our work easy is a gross oversimplification of what it actually does. Passion makes the work easier because we are motivated, but it does NOT make it fundamentally easy.
+
+Doing the work requires 'doing the work'. Passion alone is not enough!
+
+Passion = Constant Motivation
+-----------------------------
+
+Another flawed theory is that if we are passionate about something, we will constantly be motivated to do it. I have experienced this to be false too.
+
+Sometimes, I just want to burn the books that I am reading and just go hide somewhere. Sometimes I don't want to make a sale even for the product that I am passionate about. Sometimes I don't want to write, even though I know I love doing it. Passion is not some arc reactor of constant motivation embedded in you.
+
+[
+
+![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/c9b9fb33-ab63-48e0-9f65-5f1390642d70_1488x837.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc9b9fb33-ab63-48e0-9f65-5f1390642d70_1488x837.jpeg)
+
+Along with passion, we require patience and purpose. Patience for the days when we don't feel the passion. Patience to keep the focus on the purpose on the days when passion is absent. Passion alone is not enough!
+
+Passion = Change in Habits
+--------------------------
+
+"I will jump out of bed, instead of snoozing that alarm. I will be on time, for all meetings, for all commitments." No, you won't.
+
+Passion may change a lot of things for our basic behaviour and impulses remain. Passion might act as a catalyst if we want to change these habits but this change will not be spontaneous. It will be slow and it will take active work.
+
+The habit-controlling centre lies in the part of the brain that is sometimes called the 'monkey brain' to explain its functions. Thinking that following your passions, will change your habits, is like saying, giving a monkey banana will suddenly change its basic monkey behaviour.
+
+[
+
+![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/09973a29-604d-458a-aaae-298a66f8f649_1488x986.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F09973a29-604d-458a-aaae-298a66f8f649_1488x986.jpeg)
+
+So, if you had a job that you weren't passionate about and were consistently late for work, you will probably be late for work, even after you find a job you're passionate about. In the initial days, you might be able to control those behaviours but you will soon drift into the old habits.
+
+"I will wake up at 5:00 am, if I could follow my passion", not gonna happen.
+
+"I will work for 16 hours a day", not going to happen.
+
+"I will stop lying about not being in office", not gonna happen.
+
+Changing behaviour requires active work, passion alone is not enough!
+
+Passion & Rationality
+---------------------
+
+Passion may not be rational, that is its biggest weakness and that is its super-power.
+
+If we are always rational while pursuing something we are passionate about, we might never be able to understand our true limits. Being passionate about 'Saving the civilization' is irrational, yet Musk is doing it. Being passionate about 'fighting poverty, disease, and inequity around the world' is irrational, yet Gates is doing it. Most passions that lead to game-changing solutions are by definition irrational, hence the word game-changing.
+
+Passions don't always have to be game-changing at the world level, like the examples I gave. If they change the game for you at a personal level, they might redefine the meaning of rationality for you. Being passionate about 'becoming a singer' is irrational only until you become one. As Mandela said, "It always seems impossible until it is done".
+
+But as I said, there is a dichotomy, the irrationality of passion is also its weakness. When you keep clinging to passion or when you keep taking fatal risks, passion might give you results that you don't want. All stories about passion don't end well. A passion that is out of touch with reality is one of the constantly occurring human tragedies. Here is a list of '[free solo' climbers](https://www.climbernews.com/free-soloists-the-climbers-who-risk-it-all/), all of them passionate about climbing peaks without ropes, all of them great, and most of them dead. As time passes, the risk accrues and disaster strikes.
+
+[
+
+![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/e1950cd4-d352-432f-8bd7-34605056ee24_1488x992.jpeg)
+
+
+
+](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fe1950cd4-d352-432f-8bd7-34605056ee24_1488x992.jpeg)
+
+**Passion is not a magic bullet that will solve all your problems. It is a 'very sharp' double-edged sword that must be wielded with extreme care while respecting its limitations.**

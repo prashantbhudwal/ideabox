@@ -1,0 +1,86 @@
+---
+title: "Write Obvious and Unoriginal Stuff"
+date: "2022-12-23"
+published: true
+---
+I like writing and want to improve my writing skills. I also know that the only way to improve my writing skills is by writing more. Writing consistently. But how to write consistently when I have nothing to write about? Or to reword it a bit, how do I write consistently when I don't know enough about the subject that I am supposed to write about? 
+
+[
+
+![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/a9aeeca1-5885-4ec0-964b-a6d357facddb_1000x1000.png)
+
+
+
+](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa9aeeca1-5885-4ec0-964b-a6d357facddb_1000x1000.png)
+
+I have been thinking about these questions for a while. And I think I have a good enough solution that I can share.
+
+And the solution is to write about obvious and unoriginal stuff.
+
+Obvious, Unoriginal, yet Useful
+-------------------------------
+
+If you go to any website that helps you improve your coding skills, you will probably find a section that asks you to write programs based on mathematical algorithms that you learned in fifth grade. Here is an example of such a section from freeCodeCamp.
+
+[
+
+![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2466461a-8155-4348-a90c-cedab6529ff1_948x625.png)
+
+
+
+](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F2466461a-8155-4348-a90c-cedab6529ff1_948x625.png)
+
+To be clear this practice is not meant for children. There are very few programmers alive who have not written a program on the Fibonacci numbers or a sorting algorithm in their adulthood. These unoriginal and obvious programs are used by programmers to improve their programming skills across ages and languages. Here are the last few programs from the same section on freeCodeCamp.
+
+[
+
+![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/85831168-0f74-4bd3-9913-c10724f0ac67_1063x713.png)
+
+
+
+](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F85831168-0f74-4bd3-9913-c10724f0ac67_1063x713.png)
+
+What is so special about this progression? It keeps you consistently interested in the task by providing you with optimal difficulty throughout the task. The progression aims to be never so difficult that you get anxious at any point, and yet never so obvious that you get bored at any point.
+
+Initially, the optimal difficulty is due to the novelty of the programming language, keeping you interested in the practice. The obviousness of the mathematical algorithms is balanced by the difficulty of the programming task due to the lack of programming skills that you possess.
+
+And as you progress, and your programming skills increase, the onus of providing the optimal difficulty shifts to mathematical algorithms. Thereby achieving the goal of letting you be interested in the task, the whole way.
+
+Partially obvious and Wholly unoriginal
+---------------------------------------
+
+Now when a programmer is writing a program that finds the multiples and factors of a number, they are self-aware of it. They know that they are not going to be judged for this program. That the program is obviously, obvious. And anyone who judges their skills for writing such a program is probably not the person they should be paying attention towards.
+
+Also, this practice makes being unoriginal, acceptable. Through the whole task, you won't probably come up with a solution that hasn't been written before. And this provides a safe space to learn as there is no pressure of standing out by being original.
+
+The purpose of the task is to churn out lines of code, have moments of self-reflection, find patterns, train your muscle memory, etc. The purpose of the task is neither to be creative nor original, it is to write code and improve your coding skills.
+
+Write Obvious and Unoriginal stuff
+----------------------------------
+
+I believe writing can be improved in the same way. By being intentionally obvious and unoriginal.
+
+If the objective is just to write as much as you can, then to be intentionally obvious and unoriginal is okay, as long as you keep churning out lines of text. You don't have to be as stylish as Stephen King or as original as Adam Smith. You just have to write as much as you can.
+
+[
+
+![No alt text provided for this image](https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/9a17c139-c384-4eaf-a795-08c2d314512c_1000x1000.png)
+
+
+
+](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F9a17c139-c384-4eaf-a795-08c2d314512c_1000x1000.png)
+
+Why write about something philosophical in your first post? Maybe you can start with something obvious like - 'What makes a chair useful'.
+
+Or, something that is obvious to you like -
+
+-   'How do banks work', if you are a banker
+    
+-   'How do schools work' if you are an educator
+    
+-   'What is javascript' if you are a programmer
+    
+
+With time, you can increase the complexity of the topic, and maybe over time you get to a point where you are confident enough to write something creative and original.
+
+But until then, keep writing obvious and unoriginal stuff.
