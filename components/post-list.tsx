@@ -1,6 +1,7 @@
+import { Post } from "@/lib/posts";
 import Link from "next/link";
 
-export default function PostList({ posts }) {
+export default function PostList({ posts }: { posts: Post[] }) {
   return (
     <ul className="space-y-2">
       {posts.map((post) => (
