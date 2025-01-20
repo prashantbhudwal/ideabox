@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
+import PostList from "@/components/post-list";
 
 export default async function BlogPage() {
   const posts = await getAllPosts();
@@ -11,14 +12,8 @@ export default async function BlogPage() {
   );
 
   return (
-    <div>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <Link href={`/blog/${post.slug}`}>{post.metadata.title}</Link>
-          </li>
-        ))}
-      </ul>
+    <div className="p-4">
+      <PostList posts={posts} />
     </div>
   );
 }
