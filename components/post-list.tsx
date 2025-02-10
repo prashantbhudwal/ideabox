@@ -1,19 +1,71 @@
-import { Post } from "@/lib/posts";
+"use client"
 import Link from "next/link";
+import { motion } from "motion/react";
+import { Post } from "@/lib/posts";
 
 export default function PostList({ posts }: { posts: Post[] }) {
   return (
-    <ul className="space-y-2">
+    <ul className="space-y-4">
       {posts.map((post) => (
-        <Link
-          href={`/blog/${post.slug}`}
-          className="text-base font-medium"
+        <motion.li
           key={post.slug}
+          layout
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          whileHover={{ scale: 1.02 }}
+          transition={{ 
+            type: "spring",
+            stiffness: 400,
+            damping: 40,
+            mass: 0.8
+          }}
         >
-          <li className="p-3 rounded-md shadow-sm hover:bg-primary hover:text-primary-foreground transition-all duration-200 transform hover:scale-102 select-none">
-            <span className="text-base font-medium">{post.metadata.title}</span>
-          </li>
-        </Link>
+          <Link
+            href={`/blog/${post.slug}`}
+            className="block p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+          >
+            <motion.div
+              layoutId={`container-${post.slug}`}
+              transition={{
+                type: "spring",
+                stiffness: 350,
+                damping: 35,
+                mass: 0.8
+              }}
+              className="flex flex-col"
+            >
+              <motion.h3 
+                layoutId={`title-${post.slug}`} 
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 30,
+                  mass: 1
+                }}
+                className="text-lg font-medium mb-1"
+              >
+                {post.metadata.title}
+              </motion.h3>
+              <motion.time 
+                layoutId={`date-${post.slug}`}
+                transition={{
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 30,
+                  mass: 1
+                }}
+                className="text-sm text-gray-600 dark:text-gray-400"
+              >
+                {new Date(post.metadata.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </motion.time>
+            </motion.div>
+          </Link>
+        </motion.li>
       ))}
     </ul>
   );
