@@ -1,5 +1,6 @@
 import { getPostBySlug, getPostSlugs } from "@/lib/posts";
 import { Article } from "./article";
+import { Suspense } from "react";
 
 type Params = Promise<{ slug: string }>;
 
@@ -13,5 +14,5 @@ export async function generateStaticParams() {
 export default async function Post({ params }: { params: Params }) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  return <Article post={post} />;
+  return <Suspense><Article post={post} /></Suspense>;
 }
