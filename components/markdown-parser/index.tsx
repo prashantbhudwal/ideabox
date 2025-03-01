@@ -100,7 +100,7 @@ const NonMemoizedMarkdown = ({ children }: { children: string }) => {
     <ReactMarkdown
       remarkPlugins={remarkPlugins}
       components={components}
-      className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
+      className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0 prose-lg"
     >
       {children}
     </ReactMarkdown>
