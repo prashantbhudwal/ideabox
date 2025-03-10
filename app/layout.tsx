@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import "@/app/globals.css";
 import { GeistSans } from "geist/font/sans";
@@ -8,7 +8,7 @@ import Footer from "@/components/footer";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { motion } from "motion/react";
-
+import { TbShovel } from "react-icons/tb";
 export default function RootLayout({
   children,
 }: {
@@ -33,10 +33,10 @@ export default function RootLayout({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              transition={{ 
+              transition={{
                 type: "spring",
                 stiffness: 300,
-                damping: 30
+                damping: 30,
               }}
             >
               {children}
