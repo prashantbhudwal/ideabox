@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
+@plugin "tailwind-scrollbar";
+@plugin "tailwind-capitalize-first-letter";
+
+
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
