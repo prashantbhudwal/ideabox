@@ -25,7 +25,7 @@ export function Article({ post }: { post: Post }) {
         damping: 30,
         mass: 0.8
       }}
-      className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12"
+      className="max-w-3xl py-6 sm:py-10"
     >
       <header className="mb-6 sm:mb-8">
         <motion.div

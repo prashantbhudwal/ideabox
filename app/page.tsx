@@ -26,12 +26,12 @@ export default async function BlogPage() {
   );
 
   return (
-    <div className="p-4">
+    <div className="px-1 flex flex-col space-y-16">
       {Object.keys(postsByYear)
         .sort((a, b) => parseInt(b) - parseInt(a)) // Sort years in descending order
         .map((year) => (
-          <div key={year} className="mb-8">
-            <h2 className="text-2xl font-semibold pb-2">{year}</h2>
+          <div key={year}>
+            <h2 className="text-2xl font-semibold pb-2 text-primary">{year}</h2>
             <Separator className="mb-4" />
             <PostList posts={postsByYear[year]} />
           </div>

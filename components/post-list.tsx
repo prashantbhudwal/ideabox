@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { Post } from "@/lib/posts";
 
 export default function PostList({ posts }: { posts: Post[] }) {
   return (
-    <ul className="space-y-4">
+    <ul className="space-y-8.5">
       {posts.map((post) => (
         <motion.li
           key={post.slug}
@@ -14,46 +14,43 @@ export default function PostList({ posts }: { posts: Post[] }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           whileHover={{ scale: 1.02 }}
-          transition={{ 
+          transition={{
             type: "spring",
             stiffness: 400,
             damping: 40,
-            mass: 0.8
+            mass: 0.8,
           }}
         >
-          <Link
-            href={`/blog/${post.slug}`}
-            className="block p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
-          >
+          <Link href={`/blog/${post.slug}`}>
             <motion.div
               layoutId={`container-${post.slug}`}
               transition={{
                 type: "spring",
                 stiffness: 350,
                 damping: 35,
-                mass: 0.8
+                mass: 0.8,
               }}
               className="flex flex-col"
             >
-              <motion.h3 
-                layoutId={`title-${post.slug}`} 
+              <motion.h3
+                layoutId={`title-${post.slug}`}
                 transition={{
                   type: "spring",
                   stiffness: 200,
                   damping: 30,
-                  mass: 1
+                  mass: 1,
                 }}
                 className="text-lg font-medium mb-1"
               >
                 {post.metadata.title}
               </motion.h3>
-              <motion.time 
+              <motion.time
                 layoutId={`date-${post.slug}`}
                 transition={{
                   type: "spring",
                   stiffness: 200,
                   damping: 30,
-                  mass: 1
+                  mass: 1,
                 }}
                 className="text-sm text-gray-600 dark:text-gray-400"
               >

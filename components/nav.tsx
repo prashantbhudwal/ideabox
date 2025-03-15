@@ -1,41 +1,65 @@
 import Link from "next/link";
 import { WIP } from "./wip";
+import { Separator } from "./ui/separator";
+import { cn } from "@/lib/utils";
 
-const navItems = {
-  "/": {
-    name: "home",
+type NavItems = Array<{
+  label: string;
+  route: string;
+  isActive: boolean;
+}>;
+
+const navItems: NavItems = [
+  {
+    label: "writings",
+    route: "/",
+    isActive: true,
   },
-  "/blog": {
-    name: "blog",
+  {
+    label: "story",
+    route: "",
+    isActive: false,
   },
-};
+  {
+    label: "tools",
+    route: "",
+    isActive: false,
+  },
+];
 
 export function Navbar() {
   return (
     <aside className="mb-8 tracking-tight">
-      <div className="lg:sticky lg:top-20">
-        <nav className="flex flex-row justify-between" id="nav">
+      <div className="lg:sticky lg:top-20 flex flex-col space-y-2">
+        <header className="flex flex-row justify-between items-end" id="nav">
           <Link href="/">
-            <h1 className="text-3xl font-bold  font-mono">Ideabox</h1>
+            <h1 className="text-3xl font-bold font-mono">Prashant</h1>
           </Link>
           <WIP className="text-sm md:text-base" />
-        </nav>
+        </header>
+        <MenuBar />
       </div>
     </aside>
   );
 }
 
-const NavItems = function () {
+const MenuBar = function () {
   return (
-    <div className="flex flex-row space-x-0 pr-10">
-      {Object.entries(navItems).map(([path, { name }]) => {
+    <div className="flex flex-row space-x-0 pr-10 items-end">
+      {navItems.map(({ isActive, label, route }) => {
         return (
           <Link
-            key={path}
-            href={path}
-            className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
+            key={label}
+            href={route}
+            className={cn(
+              "font-mono transition-all flex align-middle relative py-1 pr-2 m-1",
+              {
+                "hover:text-neutral-800 dark:hover:text-neutral-200": isActive,
+                "text-muted-foreground/60": !isActive,
+              }
+            )}
           >
-            {name}
+            {label}
           </Link>
         );
       })}
