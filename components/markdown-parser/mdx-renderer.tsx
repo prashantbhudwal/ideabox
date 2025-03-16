@@ -3,8 +3,8 @@
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { CodeBlock } from "./code-block";
 import Link from "next/link";
+import { postComponents } from "@/components/markdown-parser/post-components";
 
-// Custom components to be used in MDX
 const components = {
   // Preserve existing styling for elements
   pre: ({ children }: { children: React.ReactNode }) => <>{children}</>,
@@ -70,6 +70,7 @@ const components = {
       {children}
     </h6>
   ),
+  ...postComponents,
 };
 
 interface MDXContentProps {
