@@ -1,18 +1,20 @@
-import { getPostBySlug, getPostSlugs } from "@/lib/posts";
+import { getPostBySlug } from "@/lib/posts";
+import { notFound } from "next/navigation";
 import { Article } from "./article";
-import { Suspense } from "react";
+import { serializeMdx } from "@/lib/mdx";
 
-type Params = Promise<{ slug: string }>;
-
-export async function generateStaticParams() {
-  const slugs = await getPostSlugs().map((slug) => ({
-    slug: slug.replace(/\.md$/, ""),
-  }));
-  return slugs;
+export default function Page({ params }: any) {
+  return <BlogPost params={params} />;
 }
 
-export default async function Post({ params }: { params: Params }) {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
-  return <Suspense><Article post={post} /></Suspense>;
+async function BlogPost({ params }: { params: { slug: string } }) {
+  const post = await getPostBySlug(params.slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  const mdxSource = await serializeMdx(post.content);
+
+  return <Article post={{ ...post, mdxSource }} />;
 }
