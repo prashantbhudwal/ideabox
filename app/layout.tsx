@@ -41,7 +41,6 @@ export default function RootLayout({
             >
               {children}
             </motion.div>
-            <Footer />
           </ThemeProvider>
         </main>
       </body>
