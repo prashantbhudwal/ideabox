@@ -1,14 +1,14 @@
-import { getPostBySlug } from "@/lib/posts";
+import { getPostBySlug, getPostSlugs } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import { Article } from "./article";
 import { serializeMdx } from "@/lib/mdx";
 import { Metadata, ResolvingMetadata } from "next";
-
 export async function generateMetadata(
-  { params }: { params: { slug: string } },
+  { params }: { params: Promise<{ slug: string }> },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return {
@@ -35,6 +35,14 @@ export async function generateMetadata(
       description,
     },
   };
+}
+
+// This function generates all possible slug values at build time
+export async function generateStaticParams() {
+  const slugs = await getPostSlugs();
+  return slugs.map((slug) => ({
+    slug,
+  }));
 }
 
 export default function Page({ params }: any) {
