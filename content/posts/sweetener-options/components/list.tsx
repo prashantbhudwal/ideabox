@@ -35,7 +35,7 @@ import { type ChangeEvent } from "react";
 const GI_TABLE_SUGAR: number = 65;
 
 export default function SweetenerList() {
-  const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set(["0"])); // First row expanded by default
+  const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set([""])); // First row expanded by default
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [globalFilter, setGlobalFilter] = useState("");
@@ -158,52 +158,16 @@ export default function SweetenerList() {
             <div className="flex items-center justify-center space-x-8">
               <div className="flex items-center justify-center w-6">
                 {state === "powder" || state === "both" ? (
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger>
-                        <Check className="h-5 w-5 text-primary" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p className="text-xs">Available as powder</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
+                  <Check className="h-5 w-5 text-primary" />
                 ) : (
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger>
-                        <X className="h-5 w-5 text-muted-foreground" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p className="text-xs">Not available as powder</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
+                  <X className="h-5 w-5 text-muted-foreground" />
                 )}
               </div>
               <div className="flex items-center justify-center w-6">
                 {state === "liquid" || state === "both" ? (
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger>
-                        <Check className="h-5 w-5 text-primary" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p className="text-xs">Available as liquid</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
+                  <Check className="h-5 w-5 text-primary" />
                 ) : (
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger>
-                        <X className="h-5 w-5 text-muted-foreground" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p className="text-xs">Not available as liquid</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
+                  <X className="h-5 w-5 text-muted-foreground" />
                 )}
               </div>
             </div>
@@ -228,30 +192,13 @@ export default function SweetenerList() {
         cell: ({ row }) => {
           const calories = row.getValue<number>("caloriesPerGram");
           return (
-            <div className="text-right">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <span
-                      className={
-                        calories === 0
-                          ? "text-primary font-medium"
-                          : "text-foreground"
-                      }
-                    >
-                      {calories}
-                    </span>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p className="text-xs">
-                      {calories === 0
-                        ? "Zero calorie sweetener"
-                        : `${calories} calories per gram`}
-                    </p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </div>
+            <span
+              className={
+                calories === 0 ? "text-primary font-medium" : "text-foreground"
+              }
+            >
+              {calories}
+            </span>
           );
         },
         sortingFn: "basic",
@@ -281,17 +228,13 @@ export default function SweetenerList() {
   return (
     <div className="w-full px-2 py-4 space-y-4">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-medium">Sweetener Comparison</h2>
-        <div className="flex items-center space-x-2">
-          <Input
-            placeholder="Search sweeteners..."
-            value={globalFilter ?? ""}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setGlobalFilter(e.target.value)
-            }
-            className="max-w-xs"
-          />
-        </div>
+        <Input
+          placeholder="Search"
+          value={globalFilter ?? ""}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setGlobalFilter(e.target.value)
+          }
+        />
       </div>
 
       <div className="rounded-md border border-border">
