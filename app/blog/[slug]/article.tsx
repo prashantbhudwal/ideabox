@@ -80,7 +80,7 @@ export function Article({ post }: { post: ExtendedPost }) {
         className="prose prose-lg dark:prose-invert"
         suppressHydrationWarning
       >
-        <Markdown mdxSource={post.mdxSource}>{post.content}</Markdown>
+        <Markdown mdxSource={post.mdxSource} />
       </motion.div>
     </motion.article>
   );
