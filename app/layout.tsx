@@ -1,14 +1,27 @@
-"use client";
-
 import "@/app/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Navbar } from "@/components/nav";
-import Footer from "@/components/footer";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-import { motion } from "motion/react";
-import { TbShovel } from "react-icons/tb";
+import type { Metadata } from "next";
+import { RootMotionProvider } from "./root-motion-provider";
+
+export const metadata: Metadata = {
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
 export default function RootLayout({
   children,
 }: {
@@ -29,18 +42,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Navbar />
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 30,
-              }}
-            >
-              {children}
-            </motion.div>
+            <RootMotionProvider>{children}</RootMotionProvider>
           </ThemeProvider>
         </main>
       </body>

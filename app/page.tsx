@@ -1,7 +1,45 @@
-import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 import PostList from "@/components/post-list";
 import { Separator } from "@/components/ui/separator";
+import { Metadata } from "next";
+
+function currentWeekOfLife(
+  birthYear: number = 1993,
+  birthMonth: number = 2, // March (0-indexed: 0 = January)
+  birthDay: number = 1
+): number {
+  // Create the birth date
+  const birthDate = new Date(birthYear, birthMonth, birthDay);
+  const today = new Date();
+
+  // Check if the birth date is in the future
+  if (today < birthDate) {
+    throw new Error("Your birth date is in the future!");
+  }
+
+  // Calculate the difference in milliseconds
+  const msPerDay = 1000 * 60 * 60 * 24;
+  const diffMs = today.getTime() - birthDate.getTime();
+
+  // Calculate the number of days elapsed since birth
+  const daysElapsed = Math.floor(diffMs / msPerDay);
+
+  // Compute the week of life:
+  // Each week has 7 days. The integer division of the elapsed days by 7
+  // plus one (to count the first week as week 1) gives the current week number.
+  const weekNumber = Math.floor(daysElapsed / 7) + 1;
+
+  return weekNumber;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const week = currentWeekOfLife();
+
+  return {
+    title: `prashant`,
+    description: `Notes on the world, software and life. Week ${week}.`,
+  };
+}
 
 export default async function BlogPage() {
   const posts = await getAllPosts();
