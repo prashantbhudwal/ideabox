@@ -2,6 +2,7 @@ import Link from "next/link";
 import { WIP } from "./wip";
 import { Separator } from "./ui/separator";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 type NavItems = Array<{
   label: string;
@@ -32,8 +33,14 @@ export function Navbar() {
     <aside className="mb-8 tracking-tight">
       <div className="lg:sticky lg:top-20 flex flex-col space-y-2">
         <header className="flex flex-row justify-between items-end" id="nav">
-          <Link href="/">
-            <h1 className="text-3xl font-bold font-mono">Prashant</h1>
+          <Link href="/" className="flex flex-row gap-1.5">
+            <Image src={`/icon.png`} alt={"icon"} width="36" height="36" />
+            <h1 className="text-3xl font-bold font-mono">
+              pr
+              <span className="underline underline-offset-4 decoration-1 decoration-primary">
+                ashant
+              </span>
+            </h1>
           </Link>
           <WIP className="text-sm md:text-base" />
         </header>
