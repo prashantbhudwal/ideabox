@@ -34,10 +34,42 @@ function currentWeekOfLife(
 
 export async function generateMetadata(): Promise<Metadata> {
   const week = currentWeekOfLife();
+  const baseUrl = "https://www.ashant.in";
 
   return {
     title: `prashant`,
     description: `Notes on the world, software and life. Week ${week}.`,
+    metadataBase: new URL(baseUrl),
+    alternates: {
+      canonical: "/",
+      types: {
+        "application/rss+xml": `${baseUrl}/api/feed`,
+      },
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    openGraph: {
+      title: "prashant",
+      description: `Notes on the world, software and life. Week ${week}.`,
+      url: baseUrl,
+      siteName: "ashant.in",
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "prashant",
+      description: `Notes on the world, software and life. Week ${week}.`,
+    },
   };
 }
 
