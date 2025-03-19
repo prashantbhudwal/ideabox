@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import { Article } from "./article";
 import { serializeMdx } from "@/lib/mdx";
 import { Metadata, ResolvingMetadata } from "next";
+import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
+import { url, xHandle } from "@/app/url";
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
   parent: ResolvingMetadata
@@ -58,5 +61,39 @@ async function BlogPost({ params }: { params: { slug: string } }) {
 
   const mdxSource = await serializeMdx(post.content);
 
-  return <Article post={{ ...post, mdxSource }} />;
+  const postUrl = url.blog({ slug: params.slug });
+  const tweetText = `\n\n${post.metadata.title} by ${xHandle}\n${postUrl}`;
+
+  return (
+    <>
+      <Article post={{ ...post, mdxSource }} />
+      <Separator className="mb-4" />
+      <div className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
+        <Link
+          href={
+            `https://github.com/prashantbhudwal/ideabox/edit/main/content/posts/` +
+            params.slug +
+            `/` +
+            params.slug +
+            ".mdx"
+          }
+          className="pb-6 underline underline-offset-2 text-muted-foreground/50 font-semibold"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Improve on Github
+        </Link>
+        <Link
+          href={`https://x.com/intent/tweet?text=${encodeURIComponent(
+            tweetText
+          )}`}
+          className="pb-6 underline underline-offset-2 text-muted-foreground/50 font-semibold"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Discuss on X
+        </Link>
+      </div>
+    </>
+  );
 }
