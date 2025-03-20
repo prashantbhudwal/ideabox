@@ -1,0 +1,111 @@
+---
+title: Layout Decisions - Large Screens
+date: 2025-05-06
+published: true
+---
+
+import {
+HeaderSpanned,
+HeaderCentered,
+SpannedHeaderWithCtas,
+LayoutWithSidebars,
+} from "./components/header";
+
+I started out with this question - How do I design layouts for large screens without going into the rabbit-hole of UI design? Alas, I couldn't find anything that gave me some good defaults, without going too deep into the rabbit-hole. So, I decided to make such a post.
+
+Websites
+
+## Elements
+
+Most layouts are made up of 5 elements.
+
+1. Header
+2. Footer
+3. Main Area
+4. Primary Sidebar
+5. Secondary Sidebar
+
+Here you can see them all. You can interact with the layouts by clicking the switches.
+
+<LayoutWithSidebars />
+
+How does one decide when the header should span the width of the whole viewport, and if not what max-width to add? Is there a difference between content max-width and main area max width? What about the padding that goes around the whole layout - distance between where the physical world ends and your web app layout start - how much should that be? At what break points to hide the sidebar?
+
+I must make so many decisions, that a designer would generally make but I don't have access to one so I have to make them, so I must answer these myself. In the following section I would try answer these questions regarding each element.
+
+## Header
+
+First let's think about the width of the header. Should the header span the whole width of the viewport of should it be smaller than the viewport? If smaller then how small?
+
+When I went through different websites, I found two patterns.
+
+1. Full-width Header
+2. Header with max-width
+
+### Full-width Header
+
+This is how the full-width header looks. I found two reasons for adding full width headers.
+
+<HeaderSpanned />
+
+First when the focus is on the whole, and the content is secondary. This means that is immersiveness is more important than the content. I found this pattern a lot on hero pages.
+
+But here too I found two types of designs. First that remained full-width for everything but very large displays. For example, the Figma website spanned full width upto a resolution of 1440 
+
+Should the header look like this?
+
+Or, should it look like this?
+
+<HeaderCentered />
+
+<SpannedHeaderWithCtas />
+
+#### Max Width
+
+## Footer
+
+#### Same as footer?
+
+## Sidebar
+
+## Secondary Sidebar
+
+## Main Container
+
+## What to fit in?
+
+### Resolution
+
+### Size
+
+# Decisions
+
+---
+
+- Goal: to write a post to explore different layout decision for large screens.
+  Objectives
+
+  - Find a definitive answer to basic layout structures
+  - Find sane defaults for future projects
+  - Present learnings to the technical audience in the form of a blog post.
+
+- Constraints:
+
+  - Large screens layouts only
+  - Tailwind defaults
+  - Stay at the layout level, assume that people know what information to put in which component. ie. don't go into information design.
+
+- Terms:
+
+  - Websites: Websites.
+    - First I thought of including web apps, but those have their own set of design patterns.
+  - Layouts: Desktop/Large Screen Layouts.
+  - Large Screens: Laptops or monitors with a resolution of at least
+  - Elements: UI elements
+
+- Links:
+  - https://grok.com/share/bGVnYWN5_5779e8b6-f2cf-4f10-94cb-f5f2be835557
+  - https://t3.chat/chat/08df205c-0848-4a72-b7ce-2eacd07386c2
+  - https://gemini.google.com/app/d328d28e3fec9e74
+
+---
