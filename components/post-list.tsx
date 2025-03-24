@@ -5,7 +5,7 @@ import { Post } from "@/lib/posts";
 
 export default function PostList({ posts }: { posts: Post[] }) {
   return (
-    <ul className="space-y-8.5">
+    <ul className="space-y-12 md:space-y-16">
       {posts.map((post) => (
         <motion.li
           key={post.slug}
@@ -40,7 +40,7 @@ export default function PostList({ posts }: { posts: Post[] }) {
                   damping: 30,
                   mass: 1,
                 }}
-                className="text-lg font-medium mb-1"
+                className="text-xl font-extrabold text-foreground/80 md:text-xl md:font-bold md:mb-1 mb-2"
               >
                 {post.metadata.title}
               </motion.h3>
@@ -52,7 +52,7 @@ export default function PostList({ posts }: { posts: Post[] }) {
                   damping: 30,
                   mass: 1,
                 }}
-                className="text-sm text-gray-600 dark:text-gray-400"
+                className="text-sm text-muted-foreground md:text-base"
               >
                 {new Date(post.metadata.date).toLocaleDateString("en-US", {
                   year: "numeric",
