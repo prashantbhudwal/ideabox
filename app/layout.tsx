@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { RootMotionProvider } from "./root-motion-provider";
+import { WIP } from "@/components/wip";
 
 export const metadata: Metadata = {
   robots: {
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
     },
   },
 };
+
 export default function RootLayout({
   children,
 }: {
@@ -33,16 +35,17 @@ export default function RootLayout({
       className={cn(GeistSans.variable, GeistMono.variable)}
       suppressHydrationWarning
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+      <body className="antialiased max-w-xl mx-4 mt-8 md:mt-16 lg:mt-20 md:mx-auto md:max-w-full xl:max-w-4xl">
+        <main className="min-w-0 flex flex-col space-y-12 md:space-y-10 lg:space-y-12 xl:space-y-16 2xl:space-y-20 px-2 md:px-4 lg:px-6 xl:px-8 2xl:px-10 pb-4">
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
-            <Navbar />
+            <Navbar className="2xl:mb-36" />
             <RootMotionProvider>{children}</RootMotionProvider>
+            <WIP className="text-sm md:text-base mt-4 self-end" />
           </ThemeProvider>
         </main>
       </body>
