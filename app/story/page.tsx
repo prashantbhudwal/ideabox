@@ -1,13 +1,21 @@
-export default function MyStory() {
-  return (
-    <div className="flex flex-col gap-4">
-      <h1>I am prashant and this is my story.</h1>
-      <p className="text-sm text-muted-foreground">
-        I am a software engineer with a passion for building products that help
-        people live better lives.
-      </p>
+import { Story } from "./trip";
 
-      <div></div>
-    </div>
-  );
+type Story = {
+  sno: number;
+  date: string;
+  title: string;
+  story: string;
+  image?: string;
+};
+
+const story = [
+  { sno: 1, date: "", title: "Poonch", story: "I was born here." },
+  { sno: 2, date: "", title: "Jammu", story: "" },
+  { sno: 3, date: "", title: "Mumbai", story: "" },
+  { sno: 3, date: "", title: "Mumbai", story: "" },
+  { sno: 4, date: "", title: "Bangalore", story: "" },
+];
+
+export default function MyStory() {
+  return <Story />;
 }
