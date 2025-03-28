@@ -3,6 +3,7 @@ import mapboxgl, { Map, Marker, LngLatLike } from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { Story } from "./story-data";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface TargetLocation {
   coordinates: [number, number];
@@ -49,6 +50,12 @@ export const TravelMap: React.FC<TravelMapProps> = ({
 
     map.current.on("load", () => {
       setIsMapLoaded(true);
+
+      // Force resize when map loads
+      window.setTimeout(() => {
+        map.current?.resize();
+      }, 0);
+
       if (!map.current) return;
 
       // Create curved line coordinates
@@ -233,15 +240,20 @@ export const TravelMap: React.FC<TravelMapProps> = ({
     }
   }, [targetLocation, isMapLoaded, allLocations]);
 
+  const isMobile = useIsMobile();
+
   return (
-    <AspectRatio
-      ratio={21 / 9}
-      ref={mapContainer}
-      className="h-full w-full rounded-lg overflow-hidden "
-      style={{
-        position: "relative",
-        isolation: "isolate",
-      }}
-    />
+    <AspectRatio ratio={isMobile ? 4 / 3 : 21 / 9}>
+      <div
+        //ref={mapContainer}
+        className="h-full w-full rounded-lg overflow-hidden"
+        style={{
+          position: "relative",
+          isolation: "isolate",
+          minHeight: "100%",
+          minWidth: "100%",
+        }}
+      />
+    </AspectRatio>
   );
 };
