@@ -1,4 +1,4 @@
-import { Story } from "./trip";
+import { Story } from "./story";
 
 type Story = {
   sno: number;
