@@ -8,6 +8,7 @@ import { Tweet } from "react-tweet";
 import Image from "next/image";
 import { PostImage } from "@/components/content/post-image";
 import { GoDeep } from "../content/go-deep";
+import { Prose } from "./prose";
 
 const components = {
   // Preserve existing styling for elements
@@ -85,6 +86,7 @@ const components = {
   ),
   PostImage: (props: any) => <PostImage {...props} />,
   GoDeep: (props: any) => <GoDeep {...props} />,
+  Prose: (props: any) => <Prose {...props} />,
 };
 
 interface MDXContentProps {
@@ -93,8 +95,8 @@ interface MDXContentProps {
 
 export function MDXContent({ source }: MDXContentProps) {
   return (
-    <div className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0 prose-lg">
+    <Prose>
       <MDXRemote {...source} components={components} />
-    </div>
+    </Prose>
   );
 }
