@@ -4,6 +4,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { CodeBlock } from "./code-block";
 import Link from "next/link";
 import { postComponents } from "@/components/markdown-parser/post-components";
+import { Tweet } from "react-tweet";
 
 const components = {
   // Preserve existing styling for elements
@@ -71,6 +72,7 @@ const components = {
     </h6>
   ),
   ...postComponents,
+  Tweet: (props: any) => <Tweet {...props} />,
 };
 
 interface MDXContentProps {
