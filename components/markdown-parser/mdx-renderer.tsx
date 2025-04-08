@@ -6,6 +6,7 @@ import Link from "next/link";
 import { postComponents } from "@/components/markdown-parser/post-components";
 import { Tweet } from "react-tweet";
 import Image from "next/image";
+import { PostImage } from "@/components/post-image";
 
 const components = {
   // Preserve existing styling for elements
@@ -80,6 +81,9 @@ const components = {
   ),
   Image: (props: any) => (
     <Image {...props} className="rounded shadow mx-auto" />
+  ),
+  PostImage: (props: any) => (
+    <PostImage {...props} />
   ),
 };
 
