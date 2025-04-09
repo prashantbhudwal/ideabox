@@ -3,8 +3,9 @@
     {
       "files": ["*.md", "*.mdx"],
       "options": {
-        "parser": "markdown",
+        "parser": "mdx",
         "proseWrap": "preserve"
+        
       }
     }
   ]

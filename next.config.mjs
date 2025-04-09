@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     domains: ["substackcdn.com"],
+    unoptimized: true,
   },
 };
 
