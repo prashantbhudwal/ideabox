@@ -1,16 +1,17 @@
 import Link from "next/link";
-import { WIP } from "./wip";
-import { Separator } from "./ui/separator";
+import { FaXTwitter, FaGithubAlt } from "react-icons/fa6";
+
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
-type NavItems = Array<{
+type MenuItems = Array<{
   label: string;
   route: string;
   isActive: boolean;
 }>;
 
-const navItems: NavItems = [
+const menuItems: MenuItems = [
   {
     label: "writings",
     route: "/",
@@ -28,48 +29,114 @@ const navItems: NavItems = [
   },
 ];
 
-export function Navbar() {
+type ActionItems = {
+  icon: React.ReactElement;
+  link: string;
+  name: string;
+};
+
+const actionItems: Array<ActionItems> = [
+  {
+    link: "https://x.com/prashant_hq",
+    icon: <FaXTwitter />,
+    name: "x",
+  },
+  {
+    link: "https://github.com/prashantbhudwal",
+    icon: <FaGithubAlt />,
+    name: "github",
+  },
+];
+export function Navbar({ className }: { className?: string }) {
   return (
-    <aside className="mb-8 tracking-tight">
-      <div className="lg:sticky lg:top-20 flex flex-col space-y-2">
-        <header className="flex flex-row justify-between items-end" id="nav">
-          <Link href="/" className="flex flex-row gap-1.5">
-            <Image src={`/icon.png`} alt={"icon"} width="36" height="36" />
-            <h1 className="text-3xl font-bold font-mono">
-              pr
-              <span className="underline underline-offset-4 decoration-1 decoration-primary">
-                ashant
-              </span>
-            </h1>
-          </Link>
-          <WIP className="text-sm md:text-base" />
-        </header>
-        <MenuBar />
-      </div>
-    </aside>
+    <header
+      className={cn(
+        "flex flex-col md:flex-row md:space-x-12 tracking-tight md:w-full items-baseline",
+        className,
+      )}
+    >
+      <Link
+        href="/"
+        className="flex flex-row gap-1 md:gap-1.5 xl:gap-2 items-baseline text-2xl md:text-3xl 2xl:text-4xl font-bold font-mono"
+      >
+        <div className="relative top-[0.25em]">
+          <Image
+            src={`/icon.png`}
+            alt={"icon"}
+            width="36"
+            height="36"
+            className="w-7 h-7 md:w-9 md:h-9 2xl:w-11 2xl:h-11"
+          />
+        </div>
+        <h1>
+          pr
+          <span className="underline underline-offset-3 md:underline-offset-4 2xl:underline-offset-5 decoration-1 decoration-primary">
+            ashant
+          </span>
+        </h1>
+      </Link>
+      <MenuBar className="flex flex-grow items-baseline" />
+      <ActionBar className="hidden md:block flex-shrink-0 items-baseline" />
+    </header>
   );
 }
 
-const MenuBar = function () {
+const MenuBar = function ({ className }: { className?: string }) {
   return (
-    <div className="flex flex-row space-x-0 pr-10 items-end">
-      {navItems.map(({ isActive, label, route }) => {
+    <nav className={cn("my-4 md:my-0", className)}>
+      <ul className="flex flex-row space-x-2 md:space-x-8 items-baseline">
+        {menuItems.map(({ isActive, label, route }) => {
+          return (
+            <li key={label}>
+              <Link
+                href={route}
+                className={cn(
+                  "font-mono flex items-center h-8 md:h-9 rounded-md transition-all relative",
+                  "bg-clip-text",
+                  {
+                    "text-primary font-medium": isActive,
+                    "hover:text-foreground": !isActive,
+                    "text-muted-foreground": !isActive,
+                  },
+                )}
+              >
+                <span
+                  className={cn(
+                    "mx-2 md:mx-3 relative",
+                    !isActive &&
+                      "before:absolute before:inset-0 before:bg-gradient-to-r before:from-foreground before:to-foreground before:bg-clip-text before:-z-10",
+                    !isActive &&
+                      "before:translate-x-[-100%] hover:before:translate-x-0 before:transition-transform before:duration-300 before:ease-in-out",
+                  )}
+                >
+                  {label}
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+};
+
+const ActionBar = function ({ className }: { className?: string }) {
+  return (
+    <ul className={cn(className)}>
+      {actionItems.map((action) => {
         return (
-          <Link
-            key={label}
-            href={route}
-            className={cn(
-              "font-mono transition-all flex align-middle relative py-1 pr-2 m-1",
-              {
-                "hover:text-neutral-800 dark:hover:text-neutral-200": isActive,
-                "text-muted-foreground/60": !isActive,
-              }
-            )}
-          >
-            {label}
-          </Link>
+          <Button size={"icon"} variant={"ghost"} key={action.name}>
+            <Link
+              href={action.link}
+              className="flex items-center transition-all "
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {action.icon}
+            </Link>
+          </Button>
         );
       })}
-    </div>
+    </ul>
   );
 };

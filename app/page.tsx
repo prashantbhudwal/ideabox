@@ -6,7 +6,7 @@ import { Metadata } from "next";
 function currentWeekOfLife(
   birthYear: number = 1993,
   birthMonth: number = 2, // March (0-indexed: 0 = January)
-  birthDay: number = 1
+  birthDay: number = 1,
 ): number {
   // Create the birth date
   const birthDate = new Date(birthYear, birthMonth, birthDay);
@@ -79,7 +79,7 @@ export default async function BlogPage() {
   // Sort posts by date in descending order
   posts.sort(
     (a, b) =>
-      new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime()
+      new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime(),
   );
 
   // Group posts by year
@@ -92,16 +92,18 @@ export default async function BlogPage() {
       acc[year].push(post);
       return acc;
     },
-    {}
+    {},
   );
 
   return (
-    <div className="px-1 flex flex-col space-y-16">
+    <div className="flex flex-col space-y-24">
       {Object.keys(postsByYear)
         .sort((a, b) => parseInt(b) - parseInt(a)) // Sort years in descending order
         .map((year) => (
-          <div key={year}>
-            <h2 className="text-2xl font-semibold pb-2 text-primary">{year}</h2>
+          <div key={year} className="px-1 flex flex-col space-y-6">
+            <h2 className="text-3xl md:text-4xl font-semibold text-primary">
+              {year}
+            </h2>
             <Separator className="mb-4" />
             <PostList posts={postsByYear[year]} />
           </div>
