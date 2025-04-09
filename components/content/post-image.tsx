@@ -13,10 +13,10 @@ export function PostImage({
 }) {
   const dimensions =
     variant === "square"
-      ? { width: 500, height: 500 }
+      ? { width: 400, height: 400 }
       : variant === "landscape"
-        ? { width: 800, height: 600 }
-        : { width: 600, height: 750 }; // portrait
+        ? { width: 600, height: 400 }
+        : { width: 400, height: 650 }; // portrait
 
   return (
     <Image
