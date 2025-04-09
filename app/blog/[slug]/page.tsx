@@ -65,7 +65,7 @@ async function BlogPost({ params }: { params: { slug: string } }) {
   const tweetText = `\n\n${post.metadata.title} by ${xHandle}\n${postUrl}`;
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="md:flex md:flex-col items-center">
       <Article post={{ ...post, mdxSource }} />
       <Separator className="mb-4" />
       <div className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
