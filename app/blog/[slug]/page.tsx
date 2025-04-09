@@ -8,7 +8,7 @@ import Link from "next/link";
 import { url, xHandle } from "@/app/url";
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
-  parent: ResolvingMetadata
+  parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
@@ -65,7 +65,7 @@ async function BlogPost({ params }: { params: { slug: string } }) {
   const tweetText = `\n\n${post.metadata.title} by ${xHandle}\n${postUrl}`;
 
   return (
-    <>
+    <div className=" flex flex-col items-center">
       <Article post={{ ...post, mdxSource }} />
       <Separator className="mb-4" />
       <div className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
@@ -85,7 +85,7 @@ async function BlogPost({ params }: { params: { slug: string } }) {
         </Link>
         <Link
           href={`https://x.com/intent/tweet?text=${encodeURIComponent(
-            tweetText
+            tweetText,
           )}`}
           className="pb-6 underline underline-offset-2 text-muted-foreground/50 font-semibold"
           target="_blank"
@@ -94,6 +94,6 @@ async function BlogPost({ params }: { params: { slug: string } }) {
           Discuss on X
         </Link>
       </div>
-    </>
+    </div>
   );
 }
