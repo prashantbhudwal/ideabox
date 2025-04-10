@@ -14,17 +14,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  LEVEL,
-  DETAIL_LABELS,
-  type Story,
-  layersPoints,
-  type StorySubplot,
-} from "./story-data";
+import { layersPoints } from "./story-data";
 import { TravelMap } from "./map";
 import { Markdown } from "@/components/markdown-parser/markdown-renderer";
 import { Slider } from "@/components/ui/slider";
 import { useScrollDirection } from "../hooks/useScrollDirection";
+import { DETAIL_LABELS, LEVEL, type Story, StorySubplot } from "./types";
+import { WIP } from "@/components/wip";
 
 const observerOptions = {
   // threshold: 0, // Not needed if using rootMargin effectively
@@ -39,9 +35,7 @@ export function Story() {
   const [expandedSubplotId, setExpandedSubplotId] = useState<string | null>(
     null,
   );
-  const [resolution, setResolution] = useState<number>(
-    LEVEL.professional.value,
-  );
+  const [resolution, setResolution] = useState<number>(LEVEL.basic.value);
   const { isScrollingUp, hasScrolled, isIdle } = useScrollDirection();
 
   const activeLocation = layersPoints.find(
@@ -70,7 +64,7 @@ export function Story() {
     if (!level) return "";
 
     // Initialize with concise content which is always available
-    let content = story.layers.concise.text;
+    let content = story.layers.l1.text;
 
     // Helper to add layer content with spacing
     const addLayer = (text: string | undefined) => {
@@ -80,20 +74,14 @@ export function Story() {
     };
 
     switch (level.name) {
-      case "Philosophical":
+      case "Basic":
         // Add professional, personal, then philosophical (in that order)
-        addLayer(story.layers.professional?.text);
-        addLayer(story.layers.personal?.text);
-        addLayer(story.layers.philosophical?.text);
+        addLayer(story.layers.l2?.text);
         break;
-      case "Personal":
+      case "Detailed":
         // Add professional then personal
-        addLayer(story.layers.professional?.text);
-        addLayer(story.layers.personal?.text);
-        break;
-      case "Professional":
-        // Add only professional
-        addLayer(story.layers.professional?.text);
+        addLayer(story.layers.l2?.text);
+        addLayer(story.layers.l3?.text);
         break;
       case "Concise":
       default:
@@ -104,43 +92,12 @@ export function Story() {
     return content;
   };
 
-  const ResolutionToggle = () => (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <h3 className="text-sm font-medium">Detail Level</h3>
-        <span className="text-sm font-medium text-primary">
-          {DETAIL_LABELS[resolution]}
-        </span>
-      </div>
-      <div className="relative pt-1 max-w-xs">
-        <Slider
-          value={[resolution]}
-          min={LEVEL.concise.value}
-          max={LEVEL.philosophical.value}
-          step={1}
-          onValueChange={(value) => setResolution(value[0])}
-          className="w-full h-1 [&_[role=slider]]:h-3 [&_[role=slider]]:w-3 [&_[role=slider]]:rounded-full [&_[role=slider]]:bg-primary"
-        />
-        <div className="flex justify-between mt-1 px-1 text-xs">
-          {Object.values(LEVEL).map((level) => (
-            <div
-              key={level.value}
-              className={`text-xs font-medium ${
-                resolution === level.value
-                  ? "text-primary"
-                  : "text-muted-foreground"
-              }`}
-            >
-              {DETAIL_LABELS[level.value]}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-
   return (
     <div className="container py-8 max-w-7xl">
+      <WIP
+        className="text-amber-300 py-6 font-bold"
+        text="This page is incomplete. Tread with caution."
+      />
       {/* Desktop view */}
       <div className="hidden md:block">
         <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 bg-card border shadow-xl rounded-lg p-4 w-20">
@@ -151,7 +108,7 @@ export function Story() {
             <Slider
               value={[resolution]}
               min={LEVEL.concise.value}
-              max={LEVEL.philosophical.value}
+              max={LEVEL.detailed.value}
               step={1}
               orientation="vertical"
               onValueChange={(value) => {
@@ -207,28 +164,32 @@ export function Story() {
                       onValueChange={setExpandedSubplotId}
                       className="w-full"
                     >
-                      {event.subplots.map((subplot) => {
-                        const uniqueSubplotId = `${event.id}-${subplot.id}`;
-                        return (
-                          <AccordionItem
-                            key={uniqueSubplotId}
-                            value={uniqueSubplotId}
-                            className="underline-none"
-                          >
-                            <AccordionTrigger className="flex justify-between text-base hover:no-underline hover:cursor-pointer">
-                              <div className="flex flex-col space-y-1 items-baseline">
-                                <span>{subplot.title}</span>
-                                <span className="text-xs text-muted-foreground">
-                                  {subplot.description}
-                                </span>
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <Markdown content={getLayerContent(subplot)} />
-                            </AccordionContent>
-                          </AccordionItem>
-                        );
-                      })}
+                      {event.subplots
+                        .filter(
+                          (subplot) => subplot.resolution.value <= resolution,
+                        )
+                        .map((subplot) => {
+                          const uniqueSubplotId = `${event.id}-${subplot.id}`;
+                          return (
+                            <AccordionItem
+                              key={uniqueSubplotId}
+                              value={uniqueSubplotId}
+                              className="underline-none"
+                            >
+                              <AccordionTrigger className="flex justify-between text-base hover:no-underline hover:cursor-pointer">
+                                <div className="flex flex-col space-y-1 items-baseline">
+                                  <span>{subplot.title}</span>
+                                  <span className="text-xs text-muted-foreground">
+                                    {subplot.description}
+                                  </span>
+                                </div>
+                              </AccordionTrigger>
+                              <AccordionContent>
+                                <Markdown content={getLayerContent(subplot)} />
+                              </AccordionContent>
+                            </AccordionItem>
+                          );
+                        })}
                     </Accordion>
                   )}
                 </CardContent>
@@ -266,28 +227,32 @@ export function Story() {
                       onValueChange={setExpandedSubplotId}
                       className="w-full"
                     >
-                      {event.subplots.map((subplot) => {
-                        const uniqueSubplotId = `${event.id}-${subplot.id}`;
-                        return (
-                          <AccordionItem
-                            key={uniqueSubplotId}
-                            value={uniqueSubplotId}
-                            className="underline-none"
-                          >
-                            <AccordionTrigger className="flex justify-between text-base hover:no-underline hover:cursor-pointer">
-                              <div className="flex flex-col space-y-1 items-baseline">
-                                <span>{subplot.title}</span>
-                                <span className="text-xs text-muted-foreground">
-                                  {subplot.description}
-                                </span>
-                              </div>
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <Markdown content={getLayerContent(subplot)} />
-                            </AccordionContent>
-                          </AccordionItem>
-                        );
-                      })}
+                      {event.subplots
+                        .filter(
+                          (subplot) => subplot.resolution.value <= resolution,
+                        )
+                        .map((subplot) => {
+                          const uniqueSubplotId = `${event.id}-${subplot.id}`;
+                          return (
+                            <AccordionItem
+                              key={uniqueSubplotId}
+                              value={uniqueSubplotId}
+                              className="underline-none"
+                            >
+                              <AccordionTrigger className="flex justify-between text-base hover:no-underline hover:cursor-pointer">
+                                <div className="flex flex-col space-y-1 items-baseline">
+                                  <span>{subplot.title}</span>
+                                  <span className="text-xs text-muted-foreground">
+                                    {subplot.description}
+                                  </span>
+                                </div>
+                              </AccordionTrigger>
+                              <AccordionContent>
+                                <Markdown content={getLayerContent(subplot)} />
+                              </AccordionContent>
+                            </AccordionItem>
+                          );
+                        })}
                     </Accordion>
                   )}
                 </CardContent>
@@ -313,7 +278,7 @@ export function Story() {
             <Slider
               value={[resolution]}
               min={LEVEL.concise.value}
-              max={LEVEL.philosophical.value}
+              max={LEVEL.detailed.value}
               step={1}
               onValueChange={(value) => {
                 setResolution(value[0]);
