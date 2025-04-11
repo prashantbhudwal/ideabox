@@ -1,3 +1,5 @@
+import "./registry/register";
+
 export default function ToolsLayout({
   children,
 }: {

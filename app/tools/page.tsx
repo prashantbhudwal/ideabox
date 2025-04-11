@@ -4,33 +4,51 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
-type Tool = {
-  id: string;
-  title: string;
-  description: string;
-  tags: string[];
-};
-
-type Tools = Array<Tool>;
-
-const tools: Tools = [
-  { id: "test", title: "sweetener", description: "ds", tags: ["what"] },
-];
+import { getAllTools } from "./registry";
+import Link from "next/link";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 export default function Tools() {
+  const tools = getAllTools();
   return (
-    <>
-      {tools.map((tool) => {
+    <div className="grid grid-cols-3 gap-2 auto-rows-[250px]">
+      {tools.map((tool, index) => {
         return (
-          <Card key={tool.id}>
-            <CardHeader>
-              <CardTitle>{tool.title}</CardTitle>
-              <CardDescription>{tool.description}</CardDescription>
-            </CardHeader>
-          </Card>
+          <Link
+            href={"/tools/" + tool.id}
+            key={tool.id}
+            className={cn("h-full", {
+              "col-span-2 row-span-1": index === 0,
+            })}
+          >
+            {tool.heroImage && (
+              <Card
+                className={cn(
+                  "relative h-full",
+                  "hover:outline-primary hover:outline transition-colors duration-300 p-0.5 backdrop-blur-xs hover:backdrop-blur-none",
+                )}
+              >
+                <div className="relative w-full h-full overflow-hidden">
+                  <Image
+                    className="rounded object-cover"
+                    src={"/tools/" + tool.heroImage}
+                    fill
+                    alt=""
+                  />
+                </div>
+                <div className="absolute left-2 bottom-2 w-full ">
+                  <CardHeader>
+                    <CardTitle className="text-4xl font-extrabold text-foreground font-serif drop-shadow-md">
+                      {tool.name}
+                    </CardTitle>
+                  </CardHeader>
+                </div>
+              </Card>
+            )}
+          </Link>
         );
       })}
-    </>
+    </div>
   );
 }
