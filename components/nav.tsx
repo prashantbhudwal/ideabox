@@ -75,7 +75,10 @@ export function Navbar({ className }: { className?: string }) {
           </span>
         </h1>
       </Link>
-      <MenuBar className="flex flex-grow items-baseline" />
+      {/* Temp div, replace after placing the menubar */}
+      <div className="flex flex-grow"></div>
+
+      {/* <MenuBar className="flex flex-grow items-baseline" /> */}
       <ActionBar className="hidden md:block flex-shrink-0 items-baseline" />
     </header>
   );
