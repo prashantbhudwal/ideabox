@@ -7,4 +7,8 @@ export const url = {
   external: {
     x: "https://x.com/" + xUsername,
   },
+  toolById: ({ id }: { id: string }) => `/tools/${id}`,
+  images: {
+    tools: ({ imgName }: { imgName: string }) => `/tools/${imgName}`,
+  },
 };
