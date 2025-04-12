@@ -1,6 +1,7 @@
 type ToolDefinition = {
   id: string;
   name: string;
+  desc: string;
   heroImage: string;
   Component: React.ComponentType;
 };
