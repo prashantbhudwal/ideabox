@@ -1,12 +1,34 @@
+"use client";
 import { registerTool } from "..";
-registerTool({
-  id: "scientific-method",
-  name: "Scientific Method",
-  desc: "Learn to apply the scientific method in your life. How to form a hypothesis or a theory?",
-  heroImage: "scientific-method.png",
-  Component: Tool,
-});
+import { useState } from "react";
+import { testLLM } from "./server";
 
-function Tool() {
-  return <div>Scientific Method Tool</div>;
+export function ScientificMethodTool() {
+  const [loading, setLoading] = useState(false);
+  const [text, setText] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const getText = async () => {
+    setLoading(true);
+    setError(null);
+    setText(null);
+    try {
+      const result = await testLLM();
+      setText(result);
+    } catch (err) {
+      setError("Something went wrong");
+    } finally {
+      setLoading(false);
+    } 
+  };
+
+  return (
+    <div>
+      <button onClick={getText} disabled={loading}>
+        {loading ? "Loading..." : "Get Text"}
+      </button>
+      {text && <p>{text}</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
+    </div>
+  );
 }
