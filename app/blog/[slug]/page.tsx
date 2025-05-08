@@ -52,8 +52,10 @@ export default function Page({ params }: any) {
   return <BlogPost params={params} />;
 }
 
-async function BlogPost({ params }: { params: { slug: string } }) {
-  const post = await getPostBySlug(params.slug);
+async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -61,7 +63,7 @@ async function BlogPost({ params }: { params: { slug: string } }) {
 
   const mdxSource = await serializeMdx(post.content);
 
-  const postUrl = url.blog({ slug: params.slug });
+  const postUrl = url.blog({ slug: slug });
   const tweetText = `\n\n${post.metadata.title} by ${xHandle}\n${postUrl}`;
 
   return (
@@ -72,9 +74,9 @@ async function BlogPost({ params }: { params: { slug: string } }) {
         <Link
           href={
             `https://github.com/prashantbhudwal/ideabox/edit/main/content/posts/` +
-            params.slug +
+            slug +
             `/` +
-            params.slug +
+            slug +
             ".mdx"
           }
           className="pb-6 underline underline-offset-2 text-muted-foreground/50 font-semibold"
