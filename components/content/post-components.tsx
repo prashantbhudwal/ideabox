@@ -1,11 +1,16 @@
 import { bronnComponents } from "@/content/posts/bronn";
 import { scientificMethod } from "@/content/posts/scientific-method";
 import { sweetenerOptions } from "@/content/posts/sweetener-options";
-import { FacebookEmbed, YouTubeEmbed } from "react-social-media-embed";
+import {
+  FacebookEmbed,
+  InstagramEmbed,
+  YouTubeEmbed,
+} from "react-social-media-embed";
 
 const externalComponents = {
   FacebookEmbed,
   YouTubeEmbed,
+  InstagramEmbed,
 };
 
 export const postComponents = {
