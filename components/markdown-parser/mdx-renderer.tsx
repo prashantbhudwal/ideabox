@@ -37,7 +37,7 @@ const components = {
   a: ({ href, children, ...props }: any) => (
     <Link
       href={href}
-      className="text-blue-500 hover:underline"
+      className="text-foreground hover:underline underline-offset-1 decoration-primary font-semibold"
       target={href.startsWith("http") ? "_blank" : undefined}
       rel={href.startsWith("http") ? "noreferrer" : undefined}
       {...props}
