@@ -9,6 +9,8 @@ export type PostMetadata = {
   title: string;
   date: string;
   slug: string;
+  heroImage?: string;
+  description?: string;
 };
 
 export type Post = {
@@ -59,7 +61,7 @@ export const getDraftBySlug = cache(
       metadata: metadata as PostMetadata,
       content,
     };
-  }
+  },
 );
 
 export const getAllDrafts = cache(async (): Promise<Post[]> => {
@@ -69,7 +71,7 @@ export const getAllDrafts = cache(async (): Promise<Post[]> => {
     .map((entry) => entry.name.replace(/\.mdx$/, ""));
 
   const drafts = await Promise.all(
-    draftFiles.map((slug) => getDraftBySlug(slug))
+    draftFiles.map((slug) => getDraftBySlug(slug)),
   );
   return drafts.filter((draft): draft is Post => draft !== null);
 });

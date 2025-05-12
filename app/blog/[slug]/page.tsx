@@ -20,22 +20,30 @@ export async function generateMetadata(
   }
 
   const title = post.metadata.title;
-  const description = "by prashant";
-
+  const description = post.metadata.description
+    ? post.metadata.description
+    : "by prashant";
+  const imagePath = post.metadata.heroImage
+    ? "/blog/" + slug + "/" + post.metadata.heroImage + ".webp"
+    : "";
+  console.log(imagePath);
   return {
     title,
-    description: `Read ${title}`,
+    description,
     openGraph: {
       title,
       description,
       type: "article",
       publishedTime: post.metadata.date,
       authors: "prashant",
+      images: [imagePath],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [imagePath],
+      creator: "prashant",
     },
   };
 }
