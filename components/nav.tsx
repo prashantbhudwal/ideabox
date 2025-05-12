@@ -61,7 +61,7 @@ export function Navbar({ className }: { className?: string }) {
       >
         <div className="relative top-[0.25em]">
           <Image
-            src={`/icon.png`}
+            src={`/icon-new.webp`}
             alt={"icon"}
             width="36"
             height="36"
