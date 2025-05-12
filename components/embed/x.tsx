@@ -1,18 +1,16 @@
 import { cn } from "@/lib/utils";
-import { XEmbed } from "react-social-media-embed";
+import { Tweet } from "react-tweet";
 
 export function PostEmbed_X({
-  href,
+  id,
   className,
 }: {
-  href: string;
+  id: string;
   className?: string;
 }) {
   return (
-    <XEmbed
-      url={href}
-      width={"90%"}
-      className={cn("mx-auto py-2", className)}
-    />
+    <div className={cn("flex flex-col items-center", className)}>
+      <Tweet id={id} />
+    </div>
   );
 }

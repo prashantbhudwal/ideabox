@@ -6,6 +6,9 @@ import {
   InstagramEmbed,
   YouTubeEmbed,
 } from "react-social-media-embed";
+import { Facebook, ImageX, Instagram, X, Youtube } from "../embed";
+import { GoDeep } from "./go-deep";
+import { Prose } from "../markdown-parser/prose";
 
 const externalComponents = {
   FacebookEmbed,
@@ -13,9 +16,24 @@ const externalComponents = {
   InstagramEmbed,
 };
 
+const embedComponents = {
+  ImageX,
+  Facebook,
+  Instagram,
+  Youtube,
+  X,
+};
+
+const customComponents = {
+  GoDeep,
+  Prose,
+};
+
 export const postComponents = {
   ...bronnComponents,
   ...sweetenerOptions,
   ...scientificMethod,
   ...externalComponents,
+  ...embedComponents,
+  ...customComponents,
 };

@@ -4,9 +4,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { CodeBlock } from "./code-block";
 import Link from "next/link";
 import { postComponents } from "@/components/content/post-components";
-import { Tweet } from "react-tweet";
 import Image from "next/image";
-import { PostImage } from "@/components/content/post-image";
 import { GoDeep } from "../content/go-deep";
 import { Prose } from "./prose";
 
@@ -75,18 +73,10 @@ const components = {
       {children}
     </h6>
   ),
-  ...postComponents,
-  Tweet: (props: any) => (
-    <div className="flex flex-col items-center">
-      <Tweet {...props} />
-    </div>
-  ),
   Image: (props: any) => (
     <Image {...props} className="rounded shadow mx-auto" />
   ),
-  PostImage: (props: any) => <PostImage {...props} />,
-  GoDeep: (props: any) => <GoDeep {...props} />,
-  Prose: (props: any) => <Prose {...props} />,
+  ...postComponents,
 };
 
 interface MDXContentProps {

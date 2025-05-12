@@ -5,7 +5,7 @@ published: true
 ---
 
 import { FacebookEmbed, YouTubeEmbed } from "react-social-media-embed";
-import Image from "next/image";
+import { ImageX } from "@/components/embed";
 
 ---
 
@@ -43,12 +43,7 @@ The family sits together at 10:00 am. They make a decision to leave. Next challe
 
 Destination — Jammu. Departure time – 3:00 pm. Estimated arrival – 11:00 pm. Distance – 260 km.
 
-<Image
-  src="/blog/poonch-two/loc.png"
-  width={500}
-  height={500}
-  alt="A map of the LOC"
-/>
+<ImageX src="poonch-two/loc" variant="square" alt="A map of the LOC" />
 
 The dark red line is the International Border, hereafter IB. The dotted line to the left of it is the Line of Control, the de facto border, hereafter the border. They have to go from the red circle to the green one. The pinkish line connecting the two is the way.
 
@@ -134,12 +129,7 @@ In Jammu, the first blackout ends at 11:00 pm. People go back to their rooms. At
 
 My family leaves Naushera at 8:00 am and reach Jammu at 11:00 am. The rest of the journey is uneventful. Here is our dog after the journey, as exhausted as its humans.
 
-<Image
-  src="/blog/poonch-two/brownie.jpeg"
-  width={500}
-  height={500}
-  alt="A resting dog."
-/>
+<ImageX src="poonch-two/brownie" variant="landscape" alt="A resting dog." />
 
 ## What now?
 
@@ -179,9 +169,4 @@ A local news report from Poonch, showing the destruction from last night.
 
 People taking shelter in the district hospital. Taken by a relative who is a first responder at the hospital.
 
-<Image
-  src="/blog/poonch-two/shelter.jpeg"
-  width={500}
-  height={500}
-  alt="People in shelter"
-/>
+<ImageX src="poonch-two/shelter" variant="portrait" alt="People in shelter" />

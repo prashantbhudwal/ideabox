@@ -6,9 +6,8 @@ type: diary
 published: true
 ---
 
-import { Tweet } from "react-tweet";
-import { PostImage } from "@/components/content/post-image";
 import { GoDeep } from "@/components/content/go-deep";
+import { ImageX } from "@/components/embed";
 
 The last week of March was chaos. Exciting chaos. Why? Because OpenAI launched a new way to generate images. First, I generated an image for my partner — she was awestruck, and I earned a ton of brownie points. Then I generated an image of my sister and sent it on the family group. That’s when all hell broke loose. I generated images non-stop until midnight.
 
@@ -27,24 +26,24 @@ People went mad in one very specific way: the Ghibli way. In the demo, the OpenA
 
 Here is the style of the studio.
 
-<PostImage
-  src={"/blog/ghiblification/totoro.jpg"}
+<ImageX
+  src={"ghiblification/totoro"}
   alt="Totoro movie poster."
   variant="landscape"
 />
 
 Here’s what it generated when I gave it a photo of me falling off a chair.
 
-<PostImage
-  src={"/blog/ghiblification/fall-ghibli.png"}
+<ImageX
+  src={"ghiblification/fall-ghibli"}
   alt="4o Image Generation Preview"
   variant="landscape"
 />
 
 Here is another one, this time in a different style, but equally good.
 
-<PostImage
-  src={"/blog/ghiblification/sleep.jpeg"}
+<ImageX
+  src={"ghiblification/sleep"}
   alt="4o Image Generation Preview"
   variant="landscape"
 />
