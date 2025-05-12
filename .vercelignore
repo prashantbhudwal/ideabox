@@ -1,0 +1,5 @@
+# .vercelignore
+# never deploy raw post images
+content/posts/**/*.jpg
+content/posts/**/*.jpeg
+content/posts/**/*.png
