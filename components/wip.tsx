@@ -1,7 +1,12 @@
 import { cn } from "@/lib/utils";
 import { TbShovel } from "react-icons/tb";
+import { fetchQuery } from "convex/nextjs";
+import { api } from "@/convex/_generated/api";
+import { isProdWorking } from "@/convex/tasks";
 
-export function WIP({ className }: { className?: string }) {
+export async function WIP({ className }: { className?: string }) {
+  const isWorking = await fetchQuery(api.tasks.isProdWorking);
+  if (isWorking) return;
   return (
     <div
       className={cn(

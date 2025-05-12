@@ -6,3 +6,15 @@ export const get = query({
     return await ctx.db.query("tasks").collect();
   },
 });
+
+export const isProdWorking = query({
+  args: {},
+  handler: async (ctx) => {
+    try {
+      await ctx.db.query("tasks").collect();
+      return true;
+    } catch {
+      return false;
+    }
+  },
+});

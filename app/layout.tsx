@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 import { RootMotionProvider } from "./root-motion-provider";
 import { WIP } from "@/components/wip";
 import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
-
+import { Analytics } from "@vercel/analytics/next";
 export const metadata: Metadata = {
   robots: {
     index: true,
@@ -50,6 +50,7 @@ export default function RootLayout({
             </RootMotionProvider>
             <WIP className="text-sm md:text-base mt-4 self-end" />
           </ThemeProvider>
+          <Analytics />
         </main>
       </body>
     </html>
