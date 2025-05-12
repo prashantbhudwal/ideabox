@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { RootMotionProvider } from "./root-motion-provider";
 import { WIP } from "@/components/wip";
+import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
 
 export const metadata: Metadata = {
   robots: {
@@ -44,7 +45,9 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Navbar className="2xl:mb-36" />
-            <RootMotionProvider>{children}</RootMotionProvider>
+            <RootMotionProvider>
+              <ConvexClientProvider>{children}</ConvexClientProvider>
+            </RootMotionProvider>
             <WIP className="text-sm md:text-base mt-4 self-end" />
           </ThemeProvider>
         </main>

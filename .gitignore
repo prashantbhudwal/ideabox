@@ -38,3 +38,5 @@ drafts
 .obsidian
 /content/posts/test
 .env
+exp
+sampleData.jsonl
