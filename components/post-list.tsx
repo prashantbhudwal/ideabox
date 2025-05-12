@@ -21,7 +21,7 @@ export default function PostList({ posts }: { posts: Post[] }) {
             mass: 0.8,
           }}
         >
-          <Link href={`/blog/${post.slug}`}>
+          <Link href={`/blog/${post.slug}`} prefetch>
             <motion.div
               layoutId={`container-${post.slug}`}
               transition={{
