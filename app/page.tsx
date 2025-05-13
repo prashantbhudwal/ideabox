@@ -96,7 +96,7 @@ export default async function BlogPage() {
   );
 
   return (
-    <div className="flex flex-col space-y-24">
+    <div className="flex flex-col space-y-24 max-w-xl mx-auto">
       {Object.keys(postsByYear)
         .sort((a, b) => parseInt(b) - parseInt(a)) // Sort years in descending order
         .map((year) => (

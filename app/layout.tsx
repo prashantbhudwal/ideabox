@@ -7,7 +7,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { RootMotionProvider } from "./root-motion-provider";
 import { WIP } from "@/components/wip";
-
+import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
+import { Analytics } from "@vercel/analytics/next";
 export const metadata: Metadata = {
   robots: {
     index: true,
@@ -35,7 +36,7 @@ export default function RootLayout({
       className={cn(GeistSans.variable, GeistMono.variable)}
       suppressHydrationWarning
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 md:mt-16 lg:mt-20 md:mx-auto md:max-w-full xl:max-w-4xl">
+      <body className="antialiased mx-4 mt-8 md:mt-10 lg:mt-12 md:mx-auto max-w-full">
         <main className="min-w-0 flex flex-col space-y-12 md:space-y-10 lg:space-y-12 xl:space-y-16 2xl:space-y-20 px-2 md:px-4 lg:px-6 xl:px-8 2xl:px-10 pb-4">
           <ThemeProvider
             attribute="class"
@@ -44,9 +45,12 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Navbar className="2xl:mb-36" />
-            <RootMotionProvider>{children}</RootMotionProvider>
+            <RootMotionProvider>
+              <ConvexClientProvider>{children}</ConvexClientProvider>
+            </RootMotionProvider>
             <WIP className="text-sm md:text-base mt-4 self-end" />
           </ThemeProvider>
+          <Analytics />
         </main>
       </body>
     </html>

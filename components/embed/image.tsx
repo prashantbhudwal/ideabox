@@ -1,8 +1,9 @@
+import { paths } from "@/lib/paths";
 import Image from "next/image";
 
 type PostImageVariants = "square" | "landscape" | "portrait";
 
-export function PostImage({
+export function PostEmbed_Image({
   variant,
   src,
   alt,
@@ -20,7 +21,7 @@ export function PostImage({
 
   return (
     <Image
-      src={src}
+      src={paths.imageBase + src + ".webp"}
       alt={alt}
       width={dimensions.width}
       height={dimensions.height}
