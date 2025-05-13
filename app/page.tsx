@@ -114,7 +114,7 @@ export default async function BlogPage() {
       </div>
       <div className="flex flex-col space-y-10 pb-10 md:items-center">
         <Separator />
-        <Link href={"/about"}>
+        <Link href={"/story"}>
           <Button variant={"link"}>About Me</Button>
         </Link>
       </div>
