@@ -26,8 +26,7 @@ export function SummaryCard() {
             I am good at building full-stack web applications with language models. I code in Typescript. I love working with React, Tailwind, NextJs, Express, tRPC, Prisma, and AuthJs. 
 
             You have **two** ways to learn more about me.
-            ### One
-            Go conventional route and click any of these links.
+            ### Conventional Route
             `}
         />
         <div className="flex flex-row space-x-2 py-6">
@@ -51,8 +50,10 @@ export function SummaryCard() {
           </Button>
         </div>
         <Markdown
-          content={endent`### Two 
-            If you prefer narratives and nuance, go through my journey below. Use the slider on your screen to change the level of detail. Each level is a complete narrative.
+          content={endent`### Narrative Route
+            If you prefer nuance, go through my journey below. 
+            
+            Use the **slider** on your screen to change the level of detail. Each level is a complete narrative.
             `}
         />
       </CardContent>

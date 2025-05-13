@@ -141,6 +141,9 @@ export function Story() {
         <div className="prose max-w-none dark:prose-invert space-y-10 pb-44">
           <SummaryCard />
           <Separator />
+          <h1 className="text-center text-2xl font-semibold font-mono text-muted-foreground">
+            I, Prashant
+          </h1>
           {layersPoints.map((event) => (
             <InView
               key={event.id}
@@ -206,6 +209,10 @@ export function Story() {
         <div className="prose max-w-none dark:prose-invert space-y-10 pb-44">
           <SummaryCard />
           <Separator />
+          <h1 className="text-center text-xl font-semibold font-mono text-muted-foreground">
+            I, Prashant
+          </h1>
+
           {layersPoints.map((event) => (
             <InView
               key={event.id}
