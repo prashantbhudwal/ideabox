@@ -7,62 +7,22 @@ export default function PostList({ posts }: { posts: Post[] }) {
   return (
     <ul className="space-y-12 md:space-y-16">
       {posts.map((post) => (
-        <motion.li
-          key={post.slug}
-          layout
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 10 }}
-          whileHover={{ scale: 1.02 }}
-          transition={{
-            type: "spring",
-            stiffness: 400,
-            damping: 40,
-            mass: 0.8,
-          }}
-        >
+        <li>
           <Link href={`/blog/${post.slug}`} prefetch>
-            <motion.div
-              layoutId={`container-${post.slug}`}
-              transition={{
-                type: "spring",
-                stiffness: 350,
-                damping: 35,
-                mass: 0.8,
-              }}
-              className="flex flex-col"
-            >
-              <motion.h3
-                layoutId={`title-${post.slug}`}
-                transition={{
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 30,
-                  mass: 1,
-                }}
-                className="text-xl font-extrabold text-foreground/80 md:text-xl md:font-bold md:mb-1 mb-2"
-              >
+            <div className="flex flex-col group">
+              <h3 className="text-xl font-extrabold text-foreground/80 md:text-xl md:font-bold md:mb-1 mb-2 group-hover:text-slate-100 transition duration-400">
                 {post.metadata.title}
-              </motion.h3>
-              <motion.time
-                layoutId={`date-${post.slug}`}
-                transition={{
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 30,
-                  mass: 1,
-                }}
-                className="text-sm text-muted-foreground md:text-base"
-              >
+              </h3>
+              <time className="text-sm text-muted-foreground md:text-base group-hover:text-slate-200 transition duration-400">
                 {new Date(post.metadata.date).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
                 })}
-              </motion.time>
-            </motion.div>
+              </time>
+            </div>
           </Link>
-        </motion.li>
+        </li>
       ))}
     </ul>
   );
