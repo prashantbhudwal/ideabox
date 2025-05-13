@@ -6,6 +6,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { url, xHandle } from "@/app/url";
+import { Button } from "@/components/ui/button";
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
   parent: ResolvingMetadata,
@@ -77,7 +78,17 @@ async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
 
   return (
     <div className="md:flex md:flex-col items-center">
-      <Article post={{ ...post, mdxSource }} />
+      <Article post={{ ...post, mdxSource }} />{" "}
+      <div className="flex flex-col space-y-2 items-center mb-4">
+        <Button className="rounded-3xl" size={"lg"}>
+          <Link href={"https://buymeacoffee.com/ashant"}>
+            Pay for this Post
+          </Link>
+        </Button>
+        <div className="text-muted-foreground text-sm">
+          Support my writing with a small, one-time donation
+        </div>
+      </div>
       <Separator className="mb-4" />
       <div className="font-sm mt-8 flex space-x-4 space-y-2 text-neutral-600 md:flex-row dark:text-neutral-300 flex-col text-center">
         <Link
