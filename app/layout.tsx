@@ -49,6 +49,7 @@ export default function RootLayout({
               <ConvexClientProvider>{children}</ConvexClientProvider>
             </RootMotionProvider>
             <WIP className="text-sm md:text-base mt-4 self-end" />
+       
           </ThemeProvider>
           <Analytics />
         </main>
