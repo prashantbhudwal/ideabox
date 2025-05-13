@@ -52,6 +52,7 @@
     "geist": "^1.4.2",
     "gray-matter": "^4.0.3",
     "input-otp": "^1.4.2",
+    "jotai": "^2.12.4",
     "lucide-react": "^0.479.0",
     "mapbox-gl": "^3.12.0",
     "motion": "^12.10.2",

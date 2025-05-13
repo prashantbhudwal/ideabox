@@ -25,6 +25,8 @@ import { WIP } from "@/components/wip";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { SummaryCard } from "./summary-card";
+import { useAtom } from "jotai";
+import { resolutionAtom } from "./resolution-atom";
 
 const observerOptions = {
   // threshold: 0, // Not needed if using rootMargin effectively
@@ -39,7 +41,7 @@ export function Story() {
   const [expandedSubplotId, setExpandedSubplotId] = useState<string | null>(
     null,
   );
-  const [resolution, setResolution] = useState<number>(LEVEL.basic.value);
+  const [resolution, setResolution] = useAtom<number>(resolutionAtom);
   const { isScrollingUp, hasScrolled, isIdle } = useScrollDirection();
 
   const activeLocation = layersPoints.find(

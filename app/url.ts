@@ -6,5 +6,7 @@ export const url = {
   blog: ({ slug }: { slug: string }) => base + "blog/" + slug,
   external: {
     x: "https://x.com/" + xUsername,
+    linkedIn: "https://www.linkedin.com/in/prashantbhudwal/",
+    github: "https://github.com/prashantbhudwal",
   },
 };
