@@ -15,7 +15,6 @@ export async function WIP({ className }: { className?: string }) {
       )}
     >
       <TbShovel />
-      <span className="sm:inline hidden">{text}</span>
       <span className="sm:hidden">WIP</span>
     </div>
   );

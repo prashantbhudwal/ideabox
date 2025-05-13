@@ -11,7 +11,7 @@ export const layersPoints: Story[] = [
     resolution: LEVEL.concise,
     layers: {
       l1: {
-        text: "I was born in Poonch, Jammu & Kashmir. Here I did my schooling till 10th Grade.",
+        text: "I was born in Poonch, Jammu & Kashmir, where I completed my schooling up to the 10th grade.",
       },
 
       l2: {
@@ -50,7 +50,7 @@ export const layersPoints: Story[] = [
         description: "2008-09",
         layers: {
           l1: {
-            text: "When there was no terrorism and shelling, there was hindu-muslim violence. A civil agitation for a land issue started in 2008, it went out of hand and culminated in full-fledged religious violence, which stopped after the army was deployed. Schools remained shut for half the year and there was a complete curfew for two of those months.",
+            text: "When there was no terrorism or shelling, there was Hindu‑Muslim violence. A civil agitation over a land issue started in 2008; it soon got out of hand and culminated in full‑fledged religious violence, which stopped after the army was deployed. Schools remained shut for half the year, and there was a complete curfew for two of those months.",
           },
         },
         resolution: LEVEL.detailed,
@@ -69,10 +69,10 @@ export const layersPoints: Story[] = [
         text: "I moved to Jammu in 2009 for my higher secondary education. I also did my coaching for IIT here.",
       },
       l2: {
-        text: "Moving to Jammu was a final minute decision. I realized how bad the quality of higher secondary education was in Poonch after studying there for 2 months and then decided to move out. I got better education in Jammu.",
+        text: "Moving to Jammu was a last‑minute decision. After studying in Poonch for two months, I realized how poor the quality of higher secondary education was and decided to move. The education in Jammu was better.",
       },
       l3: {
-        text: "Jammu was hard. It was HOT, temperatures reaching 45 degrees, I was living on the top floor, and there was no air conditioning. Additionally, money was tight.",
+        text: "Jammu was hard. It was HOT, with temperatures reaching 45 °C. I was living on the top floor with no air conditioning, and money was tight.",
       },
     },
     subplots: [
@@ -93,7 +93,7 @@ export const layersPoints: Story[] = [
         description: "2010-11",
         layers: {
           l1: {
-            text: "Somewhere in the middle of 11th grade I got to know what IIT was and decided that I would prepare for it. I moved into my teacher's home and started preparing. I also stopped going to the school.",
+            text: "Somewhere in the middle of 11th grade, I learned about IIT and decided to prepare for it. I moved into my teacher's home and started studying, and I also stopped going to school.",
           },
         },
         resolution: LEVEL.detailed,
@@ -120,7 +120,7 @@ export const layersPoints: Story[] = [
     resolution: LEVEL.concise,
     layers: {
       l1: {
-        text: "This is city where I became myself - this is where I earned my degree, got my first job, had my first drink, rented my first apartment and started my first startup. Mumbai is as much a home to me as my hometown.",
+        text: "This is the city where I became myself—where I earned my degree, got my first job, had my first drink, rented my first apartment, and started my first startup. Mumbai is as much a home to me as my hometown.",
       },
     },
 
@@ -131,7 +131,7 @@ export const layersPoints: Story[] = [
         description: "2012-16",
         layers: {
           l1: {
-            text: " I did my Bachelor in Engineering in Information Technology from Mumbai University.",
+            text: "I completed my Bachelor's in Engineering in Information Technology at Mumbai University.",
           },
 
           l2: {
@@ -147,8 +147,7 @@ export const layersPoints: Story[] = [
         description: "2016-18",
         layers: {
           l1: {
-            text: endent`
-            I was placed out of college but did not join after orientation, instead I took up an unpaid internship at a Startup. I realized a conventional corporate setup wasn’t the best fit for me. The internship converted to a job in 3 months, and later to a founding-team designation. 
+            text: endent`I received a job offer through campus placement but chose not to join after orientation. Instead, I took an unpaid internship at a startup. I realized a conventional corporate setup wasn’t the best fit for me. The internship converted into a job in three months and later into a founding‑team role.
             `,
           },
           l2: {
@@ -169,7 +168,7 @@ export const layersPoints: Story[] = [
             text: "Parallel Ed was a platform for students to learn skills that were not taught in schools.",
           },
           l2: {
-            text: "I thought it would be a good idea to build a parallel education system. Something that taught students about the skills that were not taught in school. So I began thinking about curriculum from first principles and realized I could create courses around better writing, thinking, speaking and reading. I designed the curriculum and took the classes.",
+            text: "I thought it would be a good idea to build a parallel education system—something that taught students skills not taught in school. So I began thinking about curriculum from first principles and realized I could create courses around better writing, thinking, speaking, and reading. I designed the curriculum and taught the classes myself.",
           },
         },
 
@@ -198,10 +197,10 @@ export const layersPoints: Story[] = [
         description: "2019-21",
         layers: {
           l1: {
-            text: "I never paid any attention to my health before this point. One day I decided to go to a specialist for a minor stomach upset. He ordered a battery of tests and that changed my life. I got diagnosed with 3 different things, all chronic, some they may turn fatal if not attended to. My whole life stopped. I practically did nothing from the end of 2019 to the beginning of 2021. [I received multiple diagnoses that required significant lifestyle changes, prompting me to pause and reassess my priorities.]",
+            text: "I never paid any attention to my health before this point. One day I went to a specialist for a minor stomach upset. He ordered a battery of tests, and that changed my life. I was diagnosed with three different chronic conditions, some of which could turn fatal if left untreated. My whole life stopped. I practically did nothing from the end of 2019 to the beginning of 2021. [I received multiple diagnoses that required significant lifestyle changes, prompting me to pause and reassess my priorities.]",
           },
           l2: {
-            text: "I had to change my lifestyle. I lost 50Kgs of weight. I stopped drinking and processed foods, completely. To add to the misery, Covid hit while I was doing all this, and it tore the whole world apart—including mine.",
+            text: "I had to change my lifestyle. I lost 50 kg. I completely eliminated alcohol and processed foods. To add to the misery, Covid hit while I was doing all this, and it tore the whole world apart—including mine.",
           },
         },
         resolution: LEVEL.detailed,
@@ -231,7 +230,7 @@ export const layersPoints: Story[] = [
     description: "2022-present",
     layers: {
       l1: {
-        text: "First software startup. Hired people, worked with a co-founder and wrote code - tons of code.",
+        text: "First software startup. I hired people, worked with a co‑founder, and wrote code—tons of code.",
       },
     },
     resolution: LEVEL.concise,

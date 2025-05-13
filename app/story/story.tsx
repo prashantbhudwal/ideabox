@@ -5,6 +5,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -21,6 +22,9 @@ import { Slider } from "@/components/ui/slider";
 import { useScrollDirection } from "../hooks/useScrollDirection";
 import { DETAIL_LABELS, LEVEL, type Story, StorySubplot } from "./types";
 import { WIP } from "@/components/wip";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { SummaryCard } from "./summary-card";
 
 const observerOptions = {
   // threshold: 0, // Not needed if using rootMargin effectively
@@ -94,10 +98,6 @@ export function Story() {
 
   return (
     <div className="container py-8 max-w-7xl">
-      <WIP
-        className="text-amber-300 py-6 font-bold"
-        text="This page is incomplete. Tread with caution."
-      />
       {/* Desktop view */}
       <div className="hidden md:block">
         <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 bg-card border shadow-xl rounded-lg p-4 w-20">
@@ -139,6 +139,8 @@ export function Story() {
           </div>
         </div>
         <div className="prose max-w-none dark:prose-invert space-y-10 pb-44">
+          <SummaryCard />
+          <Separator />
           {layersPoints.map((event) => (
             <InView
               key={event.id}

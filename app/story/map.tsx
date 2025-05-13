@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import mapboxgl, { Map, Marker, LngLatLike } from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { Story } from "./story-data";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Story } from "./types";
 
 interface TargetLocation {
   coordinates: [number, number];
