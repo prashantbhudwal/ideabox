@@ -9,13 +9,7 @@ export function PostEmbed_Youtube({
   className?: string;
 }) {
   return (
-    <div
-      className={cn(
-        "py-2 aspect-video",
-        "aspect-video h-64 md:h-1/3 mx-auto",
-        className,
-      )}
-    >
+    <div className={cn("py-2 aspect-video mx-auto", className)}>
       <ReactPlayer
         src={href}
         width={"90%"}
