@@ -36,7 +36,7 @@ export default function RootLayout({
       className={cn(GeistSans.variable, GeistMono.variable)}
       suppressHydrationWarning
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 md:mt-16 lg:mt-20 md:mx-auto md:max-w-full xl:max-w-4xl">
+      <body className="antialiased mx-4 mt-8 md:mt-10 lg:mt-12 md:mx-auto max-w-full">
         <main className="min-w-0 flex flex-col space-y-12 md:space-y-10 lg:space-y-12 xl:space-y-16 2xl:space-y-20 px-2 md:px-4 lg:px-6 xl:px-8 2xl:px-10 pb-4">
           <ThemeProvider
             attribute="class"

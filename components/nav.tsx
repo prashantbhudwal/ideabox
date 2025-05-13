@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaXTwitter, FaGithubAlt } from "react-icons/fa6";
+import { FaXTwitter, FaGithubAlt, FaGithub } from "react-icons/fa6";
 
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -38,12 +38,12 @@ type ActionItems = {
 const actionItems: Array<ActionItems> = [
   {
     link: "https://x.com/prashant_hq",
-    icon: <FaXTwitter />,
+    icon: <FaXTwitter className="text-primary/70" />,
     name: "x",
   },
   {
     link: "https://github.com/prashantbhudwal",
-    icon: <FaGithubAlt />,
+    icon: <FaGithub className="text-primary/70" />,
     name: "github",
   },
 ];
@@ -51,7 +51,7 @@ export function Navbar({ className }: { className?: string }) {
   return (
     <header
       className={cn(
-        "flex flex-col md:flex-row md:space-x-12 tracking-tight md:w-full items-baseline",
+        "flex flex-row md:space-x-12 tracking-tight w-full items-baseline",
         className,
       )}
     >
@@ -79,7 +79,7 @@ export function Navbar({ className }: { className?: string }) {
       <div className="flex flex-grow"></div>
 
       {/* <MenuBar className="flex flex-grow items-baseline" /> */}
-      <ActionBar className="hidden md:block flex-shrink-0 items-baseline" />
+      <ActionBar className="items-baseline" />
     </header>
   );
 }
@@ -131,7 +131,7 @@ const ActionBar = function ({ className }: { className?: string }) {
           <Button size={"icon"} variant={"ghost"} key={action.name}>
             <Link
               href={action.link}
-              className="flex items-center transition-all "
+              className="flex items-center transition-all"
               rel="noopener noreferrer"
               target="_blank"
             >

@@ -72,13 +72,14 @@ async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const mdxSource = await serializeMdx(post.content);
 
   const postUrl = url.blog({ slug: slug });
-  const tweetText = `\n\n${post.metadata.title} by ${xHandle}\n${postUrl}`;
+  const tweetText = `\n\nRead ${post.metadata.title} by ${xHandle}\n${postUrl}`;
+  const whatsAppText = `\n\nRead ${post.metadata.title} by prashant \n${postUrl}`;
 
   return (
     <div className="md:flex md:flex-col items-center">
       <Article post={{ ...post, mdxSource }} />
       <Separator className="mb-4" />
-      <div className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
+      <div className="font-sm mt-8 flex space-x-4 space-y-2 text-neutral-600 flex-row dark:text-neutral-300">
         <Link
           href={
             `https://github.com/prashantbhudwal/ideabox/edit/main/content/posts/` +
@@ -102,6 +103,14 @@ async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
           rel="noopener noreferrer"
         >
           Discuss on X
+        </Link>
+        <Link
+          href={`https://wa.me/?text=${encodeURIComponent(whatsAppText)}`}
+          className="pb-6 underline underline-offset-2 text-muted-foreground/50 font-semibold"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Share on WhatsApp
         </Link>
       </div>
     </div>

@@ -7,7 +7,7 @@ export default function PostList({ posts }: { posts: Post[] }) {
   return (
     <ul className="space-y-12 md:space-y-16">
       {posts.map((post) => (
-        <li>
+        <li key={post.slug}>
           <Link href={`/blog/${post.slug}`} prefetch>
             <div className="flex flex-col group">
               <h3 className="text-xl font-extrabold text-foreground/80 md:text-xl md:font-bold md:mb-1 mb-2 group-hover:text-slate-100 transition duration-400">
