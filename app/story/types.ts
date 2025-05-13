@@ -23,7 +23,7 @@ export const LEVEL = {
 
 export const DETAIL_LABELS: Record<number, string> = {
   [LEVEL.concise.value]: "Concise",
-  [LEVEL.basic.value]: "Default",
+  [LEVEL.basic.value]: "Balanced",
   [LEVEL.detailed.value]: "Detailed",
 };
 

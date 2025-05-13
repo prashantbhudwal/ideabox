@@ -204,6 +204,8 @@ export function Story() {
       {/* Mobile view */}
       <div className="md:hidden">
         <div className="prose max-w-none dark:prose-invert space-y-10 pb-44">
+          <SummaryCard />
+          <Separator />
           {layersPoints.map((event) => (
             <InView
               key={event.id}
