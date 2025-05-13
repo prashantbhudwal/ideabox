@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { YouTubeEmbed } from "react-social-media-embed";
+import ReactPlayer from "react-player";
 
 export function PostEmbed_Youtube({
   href,
@@ -9,10 +9,19 @@ export function PostEmbed_Youtube({
   className?: string;
 }) {
   return (
-    <YouTubeEmbed
-      url={href}
-      width={"90%"}
-      className={cn("mx-auto py-2", className)}
-    />
+    <div
+      className={cn(
+        "py-2 aspect-video",
+        "aspect-video h-64 md:h-1/3 mx-auto",
+        className,
+      )}
+    >
+      <ReactPlayer
+        src={href}
+        width={"90%"}
+        height={"100%"}
+        className="mx-auto"
+      />
+    </div>
   );
 }
