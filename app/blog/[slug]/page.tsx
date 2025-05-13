@@ -72,14 +72,14 @@ async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const mdxSource = await serializeMdx(post.content);
 
   const postUrl = url.blog({ slug: slug });
-  const tweetText = `\n\nRead ${post.metadata.title} by ${xHandle}\n${postUrl}`;
-  const whatsAppText = `\n\nRead ${post.metadata.title} by prashant \n${postUrl}`;
+  const tweetText = `\n\nRead "${post.metadata.title}" by ${xHandle}\n${postUrl}`;
+  const whatsAppText = `\n\nRead "${post.metadata.title}" by prashant \n${postUrl}`;
 
   return (
     <div className="md:flex md:flex-col items-center">
       <Article post={{ ...post, mdxSource }} />
       <Separator className="mb-4" />
-      <div className="font-sm mt-8 flex space-x-4 space-y-2 text-neutral-600 flex-row dark:text-neutral-300">
+      <div className="font-sm mt-8 flex space-x-4 space-y-2 text-neutral-600 md:flex-row dark:text-neutral-300 flex-col text-center">
         <Link
           href={
             `https://github.com/prashantbhudwal/ideabox/edit/main/content/posts/` +
