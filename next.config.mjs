@@ -4,6 +4,7 @@ const nextConfig = {
     domains: ["substackcdn.com"],
     unoptimized: true,
   },
+  serverExternalPackages: ["@mastra/*"],
 };
 
 export default nextConfig;

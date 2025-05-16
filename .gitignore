@@ -40,3 +40,4 @@ drafts
 .env
 exp
 sampleData.jsonl
+.env.development
