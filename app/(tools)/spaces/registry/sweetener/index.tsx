@@ -1,7 +1,6 @@
 import { SweetenerTable } from "./sweetener-table";
-import { registerTool } from "..";
+import { registerSpace } from "..";
 
-export function SweetenerTool() {
+export function SweetenerSpace() {
   return <SweetenerTable />;
 }
-

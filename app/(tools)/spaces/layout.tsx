@@ -1,6 +1,6 @@
 import "./registry/register";
 
-export default function ToolsLayout({
+export default function SpacesLayout({
   children,
 }: {
   children: React.ReactNode;

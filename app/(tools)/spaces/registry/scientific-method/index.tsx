@@ -1,9 +1,8 @@
 "use client";
-import { registerTool } from "..";
 import { useState } from "react";
 import { testLLM } from "./server";
 
-export function ScientificMethodTool() {
+export function ScientificMethodSpace() {
   const [loading, setLoading] = useState(false);
   const [text, setText] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);

@@ -9,8 +9,8 @@ export const url = {
     linkedIn: "https://www.linkedin.com/in/prashantbhudwal/",
     github: "https://github.com/prashantbhudwal",
   },
-  toolById: ({ id }: { id: string }) => `/tools/${id}`,
+  spaceById: ({ id }: { id: string }) => `/spaces/${id}`,
   images: {
-    tools: ({ imgName }: { imgName: string }) => `/tools/${imgName}`,
+    spaces: ({ imgName }: { imgName: string }) => `/spaces/${imgName}`,
   },
 };
