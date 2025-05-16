@@ -1,7 +1,6 @@
 import { google } from "@ai-sdk/google";
 import { Agent } from "@mastra/core/agent";
 import { Memory } from "@mastra/memory";
-import { LibSQLStore } from "@mastra/libsql";
 import { weatherTool } from "../tools";
 import { gemini } from "../models";
 
@@ -22,9 +21,9 @@ export const weatherAgent = new Agent({
   model: gemini,  
   tools: { weatherTool },
   memory: new Memory({
-    storage: new LibSQLStore({
-      url: "file:../mastra.db", // path is relative to the .mastra/output directory
-    }),
+    // storage: new LibSQLStore({
+    //   url: "file:../mastra.db", // path is relative to the .mastra/output directory
+    // }),
     options: {
       lastMessages: 10,
       semanticRecall: false,
