@@ -2,6 +2,8 @@ import { getAllPosts } from "@/lib/posts";
 import PostList from "@/components/post-list";
 import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 function currentWeekOfLife(
   birthYear: number = 1993,
@@ -96,18 +98,26 @@ export default async function BlogPage() {
   );
 
   return (
-    <div className="flex flex-col space-y-24">
-      {Object.keys(postsByYear)
-        .sort((a, b) => parseInt(b) - parseInt(a)) // Sort years in descending order
-        .map((year) => (
-          <div key={year} className="px-1 flex flex-col space-y-6">
-            <h2 className="text-3xl md:text-4xl font-semibold text-primary">
-              {year}
-            </h2>
-            <Separator className="mb-4" />
-            <PostList posts={postsByYear[year]} />
-          </div>
-        ))}
+    <div className="max-w-xl mx-auto flex flex-col space-y-16 pt-10">
+      <div className="flex flex-col space-y-24 ">
+        {Object.keys(postsByYear)
+          .sort((a, b) => parseInt(b) - parseInt(a)) // Sort years in descending order
+          .map((year) => (
+            <div key={year} className="px-1 flex flex-col space-y-6">
+              <h2 className="text-3xl md:text-4xl font-semibold text-primary">
+                {year}
+              </h2>
+              <Separator className="mb-4" />
+              <PostList posts={postsByYear[year]} />
+            </div>
+          ))}
+      </div>
+      <div className="flex flex-col space-y-10 pb-10 md:items-center">
+        <Separator />
+        <Link href={"/story"}>
+          <Button variant={"link"}>About Me</Button>
+        </Link>
+      </div>
     </div>
   );
 }

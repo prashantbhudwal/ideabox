@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function LoadingArticle() {
   return (
-    <article className="max-w-3xl py-6 sm:py-10">
+    <article className="max-w-prose py-6 sm:py-10 mx-auto">
       {/* Header section */}
       <header className="mb-6 sm:mb-8">
         <div className="flex flex-col">
@@ -15,7 +15,7 @@ export default function LoadingArticle() {
 
       {/* Content section with prose styling */}
       <div className="prose prose-lg dark:prose-invert">
-        {/* Paragraphs */}
+      {/* Paragraphs */}
         <Skeleton className="h-4 w-full mb-4" />
         <Skeleton className="h-4 w-11/12 mb-4" />
         <Skeleton className="h-4 w-full mb-4" />
