@@ -1,5 +1,3 @@
-import "./registry/register";
-
 export default function SpacesLayout({
   children,
 }: {

@@ -22,7 +22,7 @@ const formSchema = z.object({
   apiKey: z.string().min(1, "API key is required"),
 });
 
-export default function Similarity() {
+export function SimilaritySpace() {
   const [similarity, setSimilarity] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -49,8 +49,8 @@ export default function Similarity() {
         setSimilarity(result);
       }
     } catch (error: any) {
-      console.error('Error in onSubmit:', error);
-      setError(error.message || 'An error occurred while comparing texts');
+      console.error("Error in onSubmit:", error);
+      setError(error.message || "An error occurred while comparing texts");
       setSimilarity(0);
     } finally {
       setIsLoading(false);
@@ -122,11 +122,14 @@ export default function Similarity() {
           </div>
 
           {error && (
-            <div className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+            <div
+              className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+              role="alert"
+            >
               <span className="font-medium">Error:</span> {error}
             </div>
           )}
-          
+
           <div className="flex flex-col items-center gap-4">
             <Button
               type="submit"

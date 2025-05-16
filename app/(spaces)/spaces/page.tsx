@@ -4,14 +4,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { getAllSpaces } from "./registry";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { url } from "../../url";
+import { spaces } from "./spaces";
 
 export default function Spaces() {
-  const spaces = getAllSpaces();
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2 auto-rows-[250px]">
       {spaces.map((space, index) => {

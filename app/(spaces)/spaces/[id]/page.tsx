@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getSpaceById } from "../registry";
+import { getSpaceById } from "../spaces";
 
 export default async function SpacePage({
   params,
@@ -7,7 +7,7 @@ export default async function SpacePage({
   params: Promise<{ id: string }>;
 }) {
   const spaceId = (await params).id;
-  const space = getSpaceById({ spaceId });
+  const space = getSpaceById(spaceId);
   if (!space) return notFound();
   const SpaceComponent = space.Component;
   return (
