@@ -12,17 +12,17 @@ type SpaceDefinition = {
 export const spaces = [
   {
     id: "sweetener-comparison",
-    name: "Sweeteners",
+    name: "Compare Sweeteners",
     desc: "Which sweeteners raise GI? What sweeteners are trojan horses? Which ones are actually good?",
     Component: SweetenerSpace,
-    heroImage: "sweeteners.png",
+    heroImage: "sweeteners.webp",
   },
   {
     id: "similarity",
-    name: "Similarity",
-    desc: "Compare two texts and find their similarity",
+    name: "Text Similarity",
+    desc: "Find similarity between two texts using OpenAI embeddings.",
     Component: SimilaritySpace,
-    heroImage: "scientific-method.png",
+    heroImage: "similarity.webp",
   },
 ];
 
