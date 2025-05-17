@@ -10,6 +10,7 @@ type SpaceDefinition = {
   heroImage: string;
   Component: React.ComponentType;
   tags: tagOptions[];
+  title: string;
 };
 
 export const spaces: SpaceDefinition[] = [
@@ -20,14 +21,16 @@ export const spaces: SpaceDefinition[] = [
     Component: SweetenerSpace,
     heroImage: "sweeteners.webp",
     tags: ["health", "software"],
+    title: "Sweeteners",
   },
   {
-    id: "similarity",
+    id: "text-similarity",
     name: "Text Similarity",
     desc: "Find similarity between two texts using OpenAI embeddings.",
     Component: SimilaritySpace,
     heroImage: "similarity.webp",
     tags: ["ai", "software"],
+    title: "Similarity",
   },
 ];
 
