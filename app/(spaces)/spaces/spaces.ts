@@ -12,7 +12,7 @@ type SpaceDefinition = {
   tags: tagOptions[];
 };
 
-export const spaces = [
+export const spaces: SpaceDefinition[] = [
   {
     id: "sweetener-comparison",
     name: "Compare Sweeteners",
