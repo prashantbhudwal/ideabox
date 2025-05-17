@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { FaXTwitter, FaGithub, FaAddressBook } from "react-icons/fa6";
+import { FaXTwitter, FaGithub, FaAddressBook, FaDiceD6 } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useSelectedLayoutSegment } from "next/navigation";
@@ -14,6 +14,18 @@ type ActionItem = {
 
 const actionItems: ActionItem[] = [
   {
+    link: "/spaces",
+    icon: <FaDiceD6 className="text-primary/70" />,
+    name: "spaces",
+    target: "",
+  },
+  {
+    link: "/story",
+    icon: <FaAddressBook className="text-primary/70" />,
+    name: "story",
+    target: "",
+  },
+  {
     link: "https://x.com/prashant_hq",
     icon: <FaXTwitter className="text-primary/70" />,
     name: "x",
@@ -24,12 +36,6 @@ const actionItems: ActionItem[] = [
     icon: <FaGithub className="text-primary/70" />,
     name: "github",
     target: "_blank",
-  },
-  {
-    link: "/story",
-    icon: <FaAddressBook className="text-primary/70" />,
-    name: "story",
-    target: "",
   },
 ];
 

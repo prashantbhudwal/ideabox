@@ -3,5 +3,5 @@ export default function SpacesLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div>{children}</div>;
+  return <div className="max-w-6xl mx-auto">{children}</div>;
 }
