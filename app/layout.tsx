@@ -1,7 +1,7 @@
 import "@/app/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { Navbar } from "@/components/nav";
+import { Navbar } from "@/components/nav/nav";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
@@ -49,7 +49,6 @@ export default function RootLayout({
               <ConvexClientProvider>{children}</ConvexClientProvider>
             </RootMotionProvider>
             <WIP className="text-sm md:text-base mt-4 self-end" />
-       
           </ThemeProvider>
           <Analytics />
         </main>
