@@ -2,9 +2,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { useParams, useSelectedLayoutSegment } from "next/navigation";
+import { useSelectedLayoutSegment } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
-import { useSpaceInfo } from "./use-space-title";
+import { useSpaceInfo } from "../../app/hooks/use-space-info";
 
 const segmentMap = [
   {
@@ -25,8 +25,7 @@ const findSegment = (segment: string) => {
 
 export function TitleIsland({ className }: { className?: string }) {
   const segment = useSelectedLayoutSegment();
-  const params = useParams();
-  const { spaceTitle, spaceId, spaceUrl } = useSpaceInfo();
+  const { spaceTitle, spaceUrl } = useSpaceInfo();
   const isRoot = segment === null;
   const isBlog = segment === "blog";
   const showSiteName = isRoot || isBlog;
@@ -37,7 +36,7 @@ export function TitleIsland({ className }: { className?: string }) {
     <Link href={backLink}>
       <div
         className={cn(
-            "flex flex-row gap-1 md:gap-1.5 xl:gap-2 items-baseline text-2xl md:text-3xl 2xl:text-4xl font-bold font-mono",
+          "flex flex-row gap-1 md:gap-1.5 xl:gap-2 items-baseline text-2xl md:text-3xl 2xl:text-4xl font-bold font-mono",
           className,
         )}
       >

@@ -35,7 +35,7 @@ const actionItems: ActionItem[] = [
 
 export function ActionIsland({ className }: { className?: string }) {
   const segment = useSelectedLayoutSegment();
-  if (segment === "(spaces)") {
+  if (segment === "(spaces)" || segment === "story") {
     return null;
   }
 
