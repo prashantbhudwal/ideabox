@@ -41,3 +41,5 @@ drafts
 exp
 sampleData.jsonl
 .env.development
+.mastra
+memory.db

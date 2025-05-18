@@ -1,18 +1,23 @@
+import { Mastra } from "@mastra/core/mastra";
+import { createLogger } from "@mastra/core/logger";
+import { LibSQLStore } from "@mastra/libsql";
 
-import { Mastra } from '@mastra/core/mastra';
-import { createLogger } from '@mastra/core/logger';
-import { LibSQLStore } from '@mastra/libsql';
-
-import { weatherAgent } from './agents';
+import {
+  travelAgentWorkflow,
+  travelPlanningAgent,
+  travelSuggestionAgent,
+} from "../dw/mastra/travel-agent-workflow/travel-agent";
 
 export const mastra = new Mastra({
-  agents: { weatherAgent },
+  agents: { travelSuggestionAgent, travelPlanningAgent },
   storage: new LibSQLStore({
-    // stores telemetry, evals, ... into memory storage, if it needs to persist, change to file:../mastra.db
-    url: ":memory:",
+    url: "file:../../memory.db",
   }),
+  vnext_workflows: {
+    travelAgentWorkflow,
+  },
   logger: createLogger({
-    name: 'Mastra',
-    level: 'info',
+    name: "Mastra",
+    level: "info",
   }),
 });
