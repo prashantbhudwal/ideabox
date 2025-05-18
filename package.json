@@ -9,7 +9,9 @@
     "lint": "next lint",
     "shadd": "pnpm dlx shadcn@canary add",
     "optimize": "pnpm tsx lib/scripts/optimize-images.ts",
-    "mastra": "mastra dev --dir /mastra"
+    "mastra": "mastra dev --dir /mastra",
+    "prepare": "husky",
+    "check": "tsc"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.2.18",
@@ -107,6 +109,7 @@
     "dotenv": "^16.5.0",
     "eslint": "^9.26.0",
     "eslint-config-next": "15.1.5",
+    "husky": "^9.1.7",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
