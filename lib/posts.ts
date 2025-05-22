@@ -4,20 +4,7 @@ import { cache } from "react";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import matter from "gray-matter";
-
-export type PostMetadata = {
-  title: string;
-  date: string;
-  slug: string;
-  heroImage?: string;
-  description?: string;
-};
-
-export type Post = {
-  slug: string;
-  metadata: PostMetadata;
-  content: string;
-};
+import { Post, PostMetadata } from "../types/post";
 
 const postsDirectory = join(process.cwd(), "content/posts");
 const draftsDirectory = join(process.cwd(), "content/drafts");
