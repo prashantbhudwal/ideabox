@@ -1,5 +1,5 @@
 import { getAllPosts } from "@/lib/posts";
-import PostList from "@/components/post-list";
+import PostList from "@/components/blog/post-list";
 import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
