@@ -1,11 +1,9 @@
 "use server";
-
 import { cache } from "react";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import matter from "gray-matter";
-import { Post, PostMetadata } from "../types/post";
-
+import { Post, PostMetadata } from "@/types/post";
 const postsDirectory = join(process.cwd(), "content/posts");
 const draftsDirectory = join(process.cwd(), "content/drafts");
 

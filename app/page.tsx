@@ -1,9 +1,9 @@
-import { getAllPosts } from "@/lib/posts";
 import PostList from "@/components/blog/post-list";
 import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { server } from "@/server/routers";
 
 function currentWeekOfLife(
   birthYear: number = 1993,
@@ -76,7 +76,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function BlogPage() {
-  const posts = await getAllPosts();
+  const posts = await server.post.getAll();
 
   // Sort posts by date in descending order
   posts.sort(
