@@ -43,7 +43,7 @@ export function SummaryCard() {
             `}
         />
         <div className="flex flex-row space-x-2 py-6">
-          <Link href={url.external.linkedIn} target="_blank">
+          <Link href={url.authorProfile.linkedIn} target="_blank">
             <Button variant={"secondary"}>
               <span>
                 <FaLinkedin />
@@ -51,7 +51,7 @@ export function SummaryCard() {
               <span className="hidden md:block">LinkedIn</span>
             </Button>
           </Link>
-          <Link href={url.external.x} target="_blank">
+          <Link href={url.authorProfile.x} target="_blank">
             <Button variant={"secondary"}>
               <span>
                 <FaXTwitter />
@@ -59,7 +59,7 @@ export function SummaryCard() {
               <span className="hidden md:block">Twitter</span>
             </Button>
           </Link>
-          <Link href={url.external.github} target="_blank">
+          <Link href={url.authorProfile.github} target="_blank">
             <Button variant={"secondary"}>
               <span>
                 <FaGithub />

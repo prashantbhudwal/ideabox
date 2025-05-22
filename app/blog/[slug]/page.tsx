@@ -72,7 +72,7 @@ async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
 
   const mdxSource = await serializeMdx(post.content);
 
-  const postUrl = url.blog({ slug: slug });
+  const postUrl = url.share.post({ slug: slug });
   const tweetText = `\n\nRead "${post.metadata.title}" by ${xHandle}\n${postUrl}`;
   const whatsAppText = `\n\nRead "${post.metadata.title}" by prashant \n${postUrl}`;
 
