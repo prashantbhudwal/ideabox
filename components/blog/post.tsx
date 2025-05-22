@@ -1,17 +1,19 @@
 "use client";
 
 import { Markdown } from "@/components/markdown-parser";
-import { Post } from "@/types/post";
+import { TPost } from "@/types/post";
 import { motion } from "motion/react";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
-type ExtendedPost = Post & {
+export function Post({
+  post,
+  mdxSource,
+}: {
+  post: TPost;
   mdxSource: MDXRemoteSerializeResult;
-};
-
-export function Article({ post }: { post: ExtendedPost }) {
+}) {
   const searchParams = useSearchParams();
   const fromPosition = searchParams.get("from");
 
@@ -80,7 +82,7 @@ export function Article({ post }: { post: ExtendedPost }) {
         className="prose prose-lg dark:prose-invert"
         suppressHydrationWarning
       >
-        <Markdown mdxSource={post.mdxSource} />
+        <Markdown mdxSource={mdxSource} />
       </motion.div>
     </motion.article>
   );

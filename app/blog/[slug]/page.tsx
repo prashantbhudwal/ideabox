@@ -1,12 +1,11 @@
 import { server } from "@/server/routers";
 import { notFound } from "next/navigation";
-import { Article } from "./article";
+import { Post } from "../../../components/blog/post";
 import { serializeMdx } from "@/lib/mdx";
 import { Metadata, ResolvingMetadata } from "next";
-import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
-import { url, xHandle } from "@/app/url";
-import { Button } from "@/components/ui/button";
+import { PostFooter } from "../../../components/blog/post-footer";
+import { RecommendedPosts } from "@/components/blog/recommended-posts";
+
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
   parent: ResolvingMetadata,
@@ -57,73 +56,25 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function Page({ params }: any) {
-  return <BlogPost params={params} />;
-}
-
-async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const slug = (await params).slug;
 
   const post = await server.post.getBySlug(slug);
+  const mdxSource = await serializeMdx(post.content);
 
   if (!post) {
     notFound();
   }
 
-  const mdxSource = await serializeMdx(post.content);
-
-  const postUrl = url.share.post({ slug: slug });
-  const tweetText = `\n\nRead "${post.metadata.title}" by ${xHandle}\n${postUrl}`;
-  const whatsAppText = `\n\nRead "${post.metadata.title}" by prashant \n${postUrl}`;
-
   return (
-    <div className="md:flex md:flex-col items-center">
-      <Article post={{ ...post, mdxSource }} />{" "}
-      <div className="flex flex-col space-y-2 items-center mb-4">
-        <Button className="rounded-3xl" size={"lg"}>
-          <Link href={"https://buymeacoffee.com/ashant"}>
-            Pay for this Post
-          </Link>
-        </Button>
-        <div className="text-muted-foreground text-sm">
-          Support my writing with a small, one-time donation
-        </div>
-      </div>
-      <Separator className="mb-4" />
-      <div className="font-sm mt-8 flex space-x-4 space-y-2 text-neutral-600 md:flex-row dark:text-neutral-300 flex-col text-center">
-        <Link
-          href={
-            `https://github.com/prashantbhudwal/ideabox/edit/main/content/posts/` +
-            slug +
-            `/` +
-            slug +
-            ".mdx"
-          }
-          className="pb-6 underline underline-offset-2 text-muted-foreground/50 font-semibold"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Improve on Github
-        </Link>
-        <Link
-          href={`https://x.com/intent/tweet?text=${encodeURIComponent(
-            tweetText,
-          )}`}
-          className="pb-6 underline underline-offset-2 text-muted-foreground/50 font-semibold"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Discuss on X
-        </Link>
-        <Link
-          href={`https://wa.me/?text=${encodeURIComponent(whatsAppText)}`}
-          className="pb-6 underline underline-offset-2 text-muted-foreground/50 font-semibold"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Share on WhatsApp
-        </Link>
-      </div>
+    <div className="flex flex-col items-center gap-8">
+      <Post post={post} mdxSource={mdxSource} />
+      <RecommendedPosts currentPost={post} />
+      <PostFooter slug={post.slug} metadata={post.metadata} />
     </div>
   );
 }

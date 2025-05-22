@@ -1,0 +1,63 @@
+import { TPost } from "@/types/post";
+import { PostCard } from "./post-card";
+import { server } from "@/server/routers";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Suspense } from "react";
+
+function RecommendedPostsLoading() {
+  return (
+    <Card className="mb-6 w-full max-w-prose animate-pulse">
+      <CardHeader>
+        <CardTitle className="text-2xl font-semibold mb-4 text-primary">
+          Keep Reading
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="flex flex-col gap-10 max-w-11/12 mx-auto">
+          {[1, 2, 3].map((index) => (
+            <div key={index} className="h-48 bg-muted rounded-lg" />
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+async function RecommendedPostsContent({
+  currentPost,
+}: {
+  currentPost: TPost;
+}) {
+  const allPosts = await server.post.getAll();
+
+  const threeRandomPosts = allPosts.sort(() => Math.random() - 0.5).slice(0, 3);
+
+  return (
+    <Card className="mb-6 w-full max-w-prose">
+      <CardHeader>
+        <CardTitle className="text-2xl font-semibold mb-4 text-primary">
+          Keep Reading
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="flex flex-col gap-10 max-w-11/12 mx-auto">
+          {threeRandomPosts.map((post) => (
+            <PostCard post={post} key={post.slug} />
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+export function RecommendedPosts({
+  currentPost,
+}: {
+  currentPost: TPost;
+}) {
+  return (
+    <Suspense fallback={<RecommendedPostsLoading />}>
+      <RecommendedPostsContent currentPost={currentPost} />
+    </Suspense>
+  );
+}

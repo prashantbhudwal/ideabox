@@ -1,8 +1,8 @@
 "use client";
-import { Post } from "@/types/post";
+import { TPost } from "@/types/post";
 import { PostCard } from "./post-card";
 
-export default function PostList({ posts }: { posts: Post[] }) {
+export default function PostList({ posts }: { posts: TPost[] }) {
   return (
     <ul className="space-y-12 md:space-y-16">
       {posts.map((post) => (
