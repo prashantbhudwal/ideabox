@@ -5,6 +5,9 @@ const nextConfig = {
     unoptimized: true,
   },
   serverExternalPackages: ["@mastra/*"],
+  experimental: {
+    typedEnv: true,
+  },
 };
 
 export default nextConfig;

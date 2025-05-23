@@ -1,5 +1,6 @@
 import { TPostMetadata } from "@/types/post";
-import { url, xHandle } from "@/app/url";
+import { link } from "@/lib/link";
+import { constants } from "@/lib/constants";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -11,9 +12,9 @@ export const PostFooter = ({
   slug: string;
   metadata: TPostMetadata;
 }) => {
-  const postUrl = url.share.post({ slug });
-  const tweetText = `\n\nRead "${metadata.title}" by ${xHandle}\n${postUrl}`;
-  const whatsAppText = `\n\nRead "${metadata.title}" by prashant \n${postUrl}`;
+  const postUrl = link.url.internal.post({ slug });
+  const tweetText = `\n\nRead "${metadata.title}" by ${constants.xHandle}\n${postUrl}`;
+  const whatsAppText = `\n\nRead "${metadata.title}" by ${constants.firstName}\n${postUrl}`;
   return (
     <>
       <Separator className="mb-4" />
@@ -60,7 +61,9 @@ const SupportMe = () => {
   return (
     <div className="flex flex-col space-y-4 items-center">
       <Button size={"lg"}>
-        <Link href={"https://buymeacoffee.com/ashant"}>Pay ₹100</Link>
+        <Link href={link.url.external.authorProfile.buyMeACoffee}>
+          Pay ₹100
+        </Link>
       </Button>
       <div className="text-muted-foreground text-sm font-semibold max-w-xs md:max-w-prose text-center">
         Support my writing by paying for this post

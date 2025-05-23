@@ -7,7 +7,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { url } from "../../url";
+import { link } from "@/lib/link";
 import { spaces } from "./spaces";
 
 export function SpacesGrid() {
@@ -16,7 +16,7 @@ export function SpacesGrid() {
       {spaces.map((space, index) => {
         return (
           <Link
-            href={url.spaceById({ id: space.id })}
+            href={link.path.space({ id: space.id })}
             key={space.id}
             className={cn(
               "h-full",
@@ -34,7 +34,7 @@ export function SpacesGrid() {
                 <div className="relative w-full h-full overflow-hidden">
                   <Image
                     className="rounded object-cover"
-                    src={url.images.spaces({ imgName: space.heroImage })}
+                    src={link.path.images.spaces({ imgName: space.heroImage })}
                     fill
                     alt=""
                   />

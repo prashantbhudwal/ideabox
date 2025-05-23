@@ -1,5 +1,5 @@
 import { getSpaceById } from "@/app/(spaces)/spaces/spaces";
-import { url } from "@/app/url";
+import { link } from "@/lib/link";
 import { useParams, usePathname } from "next/navigation";
 
 export function useSpaceInfo() {
@@ -24,6 +24,6 @@ export function useSpaceInfo() {
   return {
     spaceTitle: space.title.toLowerCase(),
     spaceId: space.id,
-    spaceUrl: url.spaceById({ id: space.id }),
+    spaceUrl: link.url.internal.space({ id: space.id }),
   };
 }
