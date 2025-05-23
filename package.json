@@ -7,6 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "vitest",
+    "test:watch": "vitest watch",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
     "shadd": "pnpm dlx shadcn@canary add",
     "optimize": "pnpm tsx lib/scripts/optimize-images.ts",
     "mastra": "mastra dev --dir /mastra",
@@ -121,6 +125,7 @@
     "tailwindcss": "^4.1.7",
     "tailwindcss-animate": "^1.0.7",
     "tsx": "^4.19.4",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^0.34.1"
   }
 }
