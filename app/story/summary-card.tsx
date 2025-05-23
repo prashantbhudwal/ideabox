@@ -4,7 +4,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -12,7 +11,7 @@ import endent from "endent";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { link } from "@/lib/link";
-import { useAtom, useAtomValue } from "jotai";
+import { useAtomValue } from "jotai";
 import { resolutionAtom } from "./resolution-atom";
 export function SummaryCard() {
   const resolution = useAtomValue<number>(resolutionAtom);
