@@ -3,7 +3,7 @@ import { cache } from "react";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import matter from "gray-matter";
-import { TPost, TPostMetadata } from "@/types/post";
+import { TPost, TPostMetadata } from "@/lib/types/post";
 const postsDirectory = join(process.cwd(), "content/posts");
 const draftsDirectory = join(process.cwd(), "content/drafts");
 

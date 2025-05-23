@@ -1,7 +1,7 @@
 "use client";
 
 import { Markdown } from "@/components/markdown-parser";
-import { TPost } from "@/types/post";
+import { TPost } from "@/lib/types/post";
 import { motion } from "motion/react";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";

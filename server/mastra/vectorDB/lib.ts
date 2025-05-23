@@ -1,4 +1,4 @@
-import { TPost } from "@/types/post";
+import { TPost } from "@/lib/types/post";
 import { store } from "./qdrant";
 import { embedMany } from "ai";
 

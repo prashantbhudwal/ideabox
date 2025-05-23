@@ -1,4 +1,4 @@
-import { TPostMetadata } from "@/types/post";
+import { TPostMetadata } from "@/lib/types/post";
 import { link } from "@/lib/link";
 import { constants } from "@/lib/constants";
 import { Separator } from "@/components/ui/separator";

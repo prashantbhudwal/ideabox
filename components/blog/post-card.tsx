@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TPost } from "@/types/post";
+import { TPost } from "@/lib/types/post";
 import { link } from "@/lib/link";
 
 export function PostCard({ post }: { post: TPost }) {
