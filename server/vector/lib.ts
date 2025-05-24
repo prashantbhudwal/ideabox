@@ -15,30 +15,34 @@ export async function createCollection({
   });
 }
 
-type TPostCollectionMetadata = [
-  {
-    id: string;
-    text: string;
-    slug: string;
-    description?: string;
-  },
-];
+type TPostCollectionMetadata = {
+  id: string;
+  text: string;
+  slug: string;
+  description?: string;
+};
+
+const getPostMetadataForCollection = (
+  posts: TPost[],
+): TPostCollectionMetadata[] => {            
+  return posts.map((post) => ({           
+    id: post.slug,
+    text: post.metadata.title,
+    slug: post.slug,
+    description: post.metadata.description,                                                                           
+  }));                                             
+};
 
 export async function addPostsToCollection({
   collectionName,
-  vectors,
+  vectors,           
   posts,
 }: {
   collectionName: string;
   vectors: number[][];
   posts: TPost[];
 }) {
-  const metadata = posts.map((post) => ({
-    id: post.slug,
-    text: post.metadata.title,
-    slug: post.slug,
-    description: post.metadata.description,
-  }));
+  const metadata = getPostMetadataForCollection(posts);
 
   await store.upsert({
     indexName: collectionName,
