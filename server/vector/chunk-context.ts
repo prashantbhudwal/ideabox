@@ -2,11 +2,10 @@ import { TPostChunk } from "./chunk";
 import { TPost } from "@/lib/types/post";
 import { mdxToGfmMarkdown } from "./mdx-to-markdown";
 import dedent from "dedent";
-import { llama70B } from "@/lib/models";
 import { generateText } from "ai";
 import { openai } from "@ai-sdk/openai";
 
-export const generateChunkContext = async function ({
+export const enrichChunkWithContext = async function ({
   chunk,
   post,
 }: {
