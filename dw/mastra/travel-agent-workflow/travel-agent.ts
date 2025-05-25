@@ -33,7 +33,7 @@
 
 import { Agent } from "@mastra/core/agent";
 import { gemini } from "../../../lib/models";
-import { createWorkflow, createStep } from "@mastra/core/workflows/vNext";
+import { createWorkflow, createStep } from "@mastra/core/workflows";
 import { z } from "zod";
 import dedent from "dedent";
 

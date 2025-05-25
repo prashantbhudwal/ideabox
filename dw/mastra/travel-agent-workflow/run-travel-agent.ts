@@ -17,7 +17,7 @@ import { H_suggestionSelectionStep } from "./travel-agent";
 import { z } from "zod";
 
 async function runTravelAgent() {
-  const workflow = mastra.vnext_getWorkflow("travelAgentWorkflow");
+  const workflow = mastra.getWorkflow("travelAgentWorkflow");
   const run = workflow.createRun({});
 
   // Start the workflow with initial vacation description

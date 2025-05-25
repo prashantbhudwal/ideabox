@@ -13,11 +13,15 @@ export const mastra = new Mastra({
   storage: new LibSQLStore({
     url: "file:../../memory.db",
   }),
-  vnext_workflows: {
+  workflows: {
     travelAgentWorkflow,
   },
   logger: createLogger({
     name: "Mastra",
     level: "info",
   }),
+  telemetry: {
+    enabled: false,
+    disableLocalExport: true,
+  },
 });
