@@ -1,6 +1,7 @@
+"use server";
+
 import { TPost } from "@/lib/types/post";
 import { store } from "./qdrant";
-import { embedMany } from "ai";
 
 export async function createCollection({
   collectionName,
@@ -24,18 +25,18 @@ type TPostCollectionMetadata = {
 
 const getPostMetadataForCollection = (
   posts: TPost[],
-): TPostCollectionMetadata[] => {            
-  return posts.map((post) => ({           
+): TPostCollectionMetadata[] => {
+  return posts.map((post) => ({
     id: post.slug,
     text: post.metadata.title,
     slug: post.slug,
-    description: post.metadata.description,                                                                           
-  }));                                             
+    description: post.metadata.description,
+  }));
 };
 
 export async function addPostsToCollection({
   collectionName,
-  vectors,           
+  vectors,
   posts,
 }: {
   collectionName: string;
