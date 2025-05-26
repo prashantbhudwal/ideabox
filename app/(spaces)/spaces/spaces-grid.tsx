@@ -16,7 +16,7 @@ export function SpacesGrid() {
       {spaces.map((space, index) => {
         return (
           <Link
-            href={link.path.space({ id: space.id })}
+            href={link.path.space({ slug: space.slug })}
             key={space.id}
             className={cn(
               "h-full",
@@ -42,10 +42,10 @@ export function SpacesGrid() {
                 <div className="absolute left-2 bottom-2 w-full  p-2 rounded">
                   <CardHeader>
                     <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground font-serif drop-shadow-md">
-                      {space.name}
+                      {space.shortTitle}
                     </CardTitle>
                     <CardDescription className="text-sm sm:text-base md:text-lg text-foreground/80 bg-black/10 backdrop-blur-xs">
-                      {space.desc}
+                      {space.description}
                     </CardDescription>
                   </CardHeader>
                 </div>

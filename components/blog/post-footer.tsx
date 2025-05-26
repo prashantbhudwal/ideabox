@@ -1,4 +1,3 @@
-import { TPostMetadata } from "@/lib/types/post";
 import { link } from "@/lib/link";
 import { constants } from "@/lib/constants";
 import { Separator } from "@/components/ui/separator";
@@ -7,14 +6,14 @@ import { Button } from "@/components/ui/button";
 
 export const PostFooter = ({
   slug,
-  metadata,
+  title,
 }: {
   slug: string;
-  metadata: TPostMetadata;
+  title: string;
 }) => {
   const postUrl = link.url.internal.post({ slug });
-  const tweetText = `\n\nRead "${metadata.title}" by ${constants.xHandle}\n${postUrl}`;
-  const whatsAppText = `\n\nRead "${metadata.title}" by ${constants.firstName}\n${postUrl}`;
+  const tweetText = `\n\nRead "${title}" by ${constants.xHandle}\n${postUrl}`;
+  const whatsAppText = `\n\nRead "${title}" by ${constants.firstName}\n${postUrl}`;
   return (
     <>
       <Separator className="mb-4" />

@@ -25,7 +25,7 @@ const findSegment = (segment: string) => {
 
 export function TitleIsland({ className }: { className?: string }) {
   const segment = useSelectedLayoutSegment();
-  const { spaceTitle, spaceUrl } = useSpaceInfo();
+  const { spaceShortTitle, spaceUrl } = useSpaceInfo();
   const isRoot = segment === null;
   const isBlog = segment === "blog";
   const showSiteName = isRoot || isBlog;
@@ -79,14 +79,17 @@ export function TitleIsland({ className }: { className?: string }) {
               <div
                 className={cn("text-primary", {
                   "font-normal text-2xl md:text-3xl 2xl:text-4xl text-primary/50":
-                    spaceTitle,
-                  "font-bold text-2xl md:text-3xl 2xl:text-4xl": !spaceTitle,
+                    spaceShortTitle,
+                  "font-bold text-2xl md:text-3xl 2xl:text-4xl":
+                    !spaceShortTitle,
                 })}
               >
                 {findSegment(segment)}
               </div>
-              {spaceTitle && <span className="text-primary/50">/</span>}
-              {spaceTitle && <span className="text-primary">{spaceTitle}</span>}
+              {spaceShortTitle && <span className="text-primary/50">/</span>}
+              {spaceShortTitle && (
+                <span className="text-primary">{spaceShortTitle}</span>
+              )}
             </motion.div>
           ) : null}
         </AnimatePresence>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Markdown } from "@/components/markdown-parser";
-import { TPost } from "@/lib/types/post";
+import { TPost } from "@/lib/types/post.types";
 import { motion } from "motion/react";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
@@ -49,7 +49,7 @@ export function Post({
             }}
             className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-2 sm:mb-3 text-gray-900 dark:text-gray-100 leading-tight"
           >
-            {post.metadata.title}
+            {post.title}
           </motion.h1>
           <motion.time
             layoutId={`date-${post.slug}`}
@@ -61,7 +61,7 @@ export function Post({
             }}
             className="text-sm sm:text-base text-gray-600 dark:text-gray-400"
           >
-            {new Date(post.metadata.date).toLocaleDateString("en-US", {
+            {new Date(post.createdAt).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
               day: "numeric",

@@ -1,6 +1,6 @@
 "use server";
 
-import { TPost } from "@/lib/types/post";
+import { TPost } from "@/lib/types/post.types";
 import { store } from "./qdrant";
 
 export async function createCollection({
@@ -28,9 +28,9 @@ const getPostMetadataForCollection = (
 ): TPostCollectionMetadata[] => {
   return posts.map((post) => ({
     id: post.slug,
-    text: post.metadata.title,
+    text: post.title,
     slug: post.slug,
-    description: post.metadata.description,
+    description: post.description,
   }));
 };
 

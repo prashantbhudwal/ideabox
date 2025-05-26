@@ -1,5 +1,5 @@
 import { TPostChunk } from "./chunk";
-import { TPost } from "@/lib/types/post";
+import { TPost } from "@/lib/types/post.types";
 import { mdxToGfmMarkdown } from "./mdx-to-markdown";
 import dedent from "dedent";
 import { generateText } from "ai";

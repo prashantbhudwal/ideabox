@@ -1,4 +1,4 @@
-import { TPost } from "@/lib/types/post";
+import { TPost } from "@/lib/types/post.types";
 import { mdxToGfmMarkdown } from "./mdx-to-markdown";
 import { MDocument } from "@mastra/rag";
 import { getRagConfig, TRagConfigVersion } from "./rag-defaults";
@@ -28,9 +28,9 @@ export const getPostChunks = async function ({
       metadata: {
         ...chunk.metadata,
         section: chunk.metadata.section,
-        postTitle: post.metadata.title,
+        postTitle: post.title,
         postSlug: post.slug,
-        description: post.metadata.description,
+        description: post.description,
       },
     };
   });

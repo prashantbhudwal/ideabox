@@ -34,11 +34,11 @@ export async function GET() {
     posts.forEach((post) => {
       const postUrl = `${baseUrl}/blog/${post.slug}`;
       feed.addItem({
-        title: post.metadata.title,
+        title: post.title,
         id: postUrl,
         link: postUrl,
         description: post.content.substring(0, 200) + "...",
-        date: new Date(post.metadata.date),
+        date: new Date(post.createdAt),
       });
     });
 

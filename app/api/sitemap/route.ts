@@ -21,7 +21,7 @@ export async function GET() {
           (post) => `
         <url>
           <loc>${baseUrl}/blog/${post.slug}</loc>
-          <lastmod>${new Date(post.metadata.date).toISOString()}</lastmod>
+          <lastmod>${new Date(post.createdAt).toISOString()}</lastmod>
           <changefreq>monthly</changefreq>
           <priority>0.8</priority>
         </url>

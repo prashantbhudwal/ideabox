@@ -1,4 +1,4 @@
-import { TPost } from "@/lib/types/post";
+import { TPost } from "@/lib/types/post.types";
 import { PostCard } from "./post-card";
 import { server } from "@/server/routers";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

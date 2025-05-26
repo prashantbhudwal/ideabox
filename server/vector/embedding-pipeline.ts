@@ -1,5 +1,5 @@
 "use server";
-import { TPost } from "@/lib/types/post";
+import { TPost } from "@/lib/types/post.types";
 import { server } from "../routers";
 import { getPostChunks } from "./chunk";
 import { enrichChunkWithContext } from "./chunk-context";

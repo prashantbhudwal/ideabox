@@ -81,13 +81,13 @@ export default async function BlogPage() {
   // Sort posts by date in descending order
   posts.sort(
     (a, b) =>
-      new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime(),
+      new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
   );
 
   // Group posts by year
   const postsByYear = posts.reduce<{ [key: string]: typeof posts }>(
     (acc, post) => {
-      const year = new Date(post.metadata.date).getFullYear().toString();
+      const year = new Date(post.createdAt).getFullYear().toString();
       if (!acc[year]) {
         acc[year] = [];
       }

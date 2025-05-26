@@ -10,7 +10,7 @@ const authorProfile = {
 export const link = {
   path: {
     post: ({ slug }: { slug: string }) => `/blog/${slug}`,
-    space: ({ id }: { id: string }) => `/spaces/${id}`,
+    space: ({ slug }: { slug: string }) => `/spaces/${slug}`,
     images: {
       spaces: ({ imgName }: { imgName: string }) => `/spaces/${imgName}`,
     },
@@ -18,7 +18,7 @@ export const link = {
   url: {
     internal: {
       post: ({ slug }: { slug: string }) => constants.base + "/blog/" + slug,
-      space: ({ id }: { id: string }) => constants.base + "/spaces/" + id,
+      space: ({ slug }: { slug: string }) => constants.base + "/spaces/" + slug,
     },
     external: {
       authorProfile,

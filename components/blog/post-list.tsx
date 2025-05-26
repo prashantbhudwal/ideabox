@@ -1,5 +1,5 @@
 "use client";
-import { TPost } from "@/lib/types/post";
+import { TPost } from "@/lib/types/post.types";
 import { PostCard } from "./post-card";
 
 export default function PostList({ posts }: { posts: TPost[] }) {

@@ -1,4 +1,4 @@
-import { TPost } from "@/lib/types/post";
+import { TPost } from "@/lib/types/post.types";
 import { TPostChunk } from "./chunk";
 
 import { embedMany } from "ai";

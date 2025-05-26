@@ -19,12 +19,12 @@ export async function generateMetadata(
     };
   }
 
-  const title = post.metadata.title;
-  const description = post.metadata.description
-    ? post.metadata.description
+  const title = post.title;
+  const description = post.description
+    ? post.description
     : "by prashant";
-  const imagePath = post.metadata.heroImage
-    ? "/blog/" + slug + "/" + post.metadata.heroImage + ".webp"
+  const imagePath = post.heroImage
+    ? "/blog/" + slug + "/" + post.heroImage + ".webp"
     : "";
   console.log(imagePath);
   return {
@@ -34,7 +34,7 @@ export async function generateMetadata(
       title,
       description,
       type: "article",
-      publishedTime: post.metadata.date,
+      publishedTime: post.createdAt,
       authors: "prashant",
       images: [imagePath],
     },
@@ -74,7 +74,7 @@ export default async function Page({
     <div className="flex flex-col items-center gap-8">
       <Post post={post} mdxSource={mdxSource} />
       <RecommendedPosts currentPost={post} />
-      <PostFooter slug={post.slug} metadata={post.metadata} />
+      <PostFooter slug={post.slug} title={post.title} />
     </div>
   );
 }
