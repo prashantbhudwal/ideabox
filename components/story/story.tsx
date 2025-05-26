@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/accordion";
 import { layersPoints } from "./story-data";
 import { TravelMap } from "./map";
-import { Markdown } from "@/components/markdown-parser/markdown-renderer";
+import { Markdown } from "@/components/blog/mdx/markdown-renderer";
 import { Slider } from "@/components/ui/slider";
 import { DETAIL_LABELS, LEVEL, type Story, StorySubplot } from "./types";
 import { Separator } from "@/components/ui/separator";

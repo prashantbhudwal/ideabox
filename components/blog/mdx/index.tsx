@@ -12,7 +12,7 @@ const NonMemoizedMarkdown = ({ mdxSource }: MarkdownProps) => {
   return <MDXContent source={mdxSource} />;
 };
 
-export const Markdown = memo(
+export const Mdx = memo(
   NonMemoizedMarkdown,
-  (prevProps, nextProps) => prevProps.mdxSource === nextProps.mdxSource
+  (prevProps, nextProps) => prevProps.mdxSource === nextProps.mdxSource,
 );

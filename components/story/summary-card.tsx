@@ -1,4 +1,3 @@
-import { Markdown } from "@/components/markdown-parser/markdown-renderer";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -13,6 +12,7 @@ import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { link } from "@/lib/link";
 import { useAtomValue } from "jotai";
 import { resolutionAtom } from "./resolution-atom";
+import { Markdown } from "../blog/mdx/markdown-renderer";
 export function SummaryCard() {
   const resolution = useAtomValue<number>(resolutionAtom);
   return (

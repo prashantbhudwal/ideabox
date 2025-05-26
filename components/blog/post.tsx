@@ -1,11 +1,11 @@
 "use client";
 
-import { Markdown } from "@/components/markdown-parser";
 import { TPost } from "@/lib/types/post.types";
 import { motion } from "motion/react";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { Mdx } from "./mdx";
 
 export function Post({
   post,
@@ -82,7 +82,7 @@ export function Post({
         className="prose prose-lg dark:prose-invert"
         suppressHydrationWarning
       >
-        <Markdown mdxSource={mdxSource} />
+        <Mdx mdxSource={mdxSource} />
       </motion.div>
     </motion.article>
   );

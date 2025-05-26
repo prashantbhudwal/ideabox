@@ -3,10 +3,9 @@
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { CodeBlock } from "./code-block";
 import Link from "next/link";
-import { postComponents } from "@/components/content/post-components";
 import Image from "next/image";
-import { GoDeep } from "../content/go-deep";
 import { Prose } from "./prose";
+import { postComponents } from "./post-components";
 
 const components = {
   // Preserve existing styling for elements

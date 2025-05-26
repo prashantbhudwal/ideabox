@@ -5,7 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import React from "react";
-import { Prose } from "../markdown-parser/prose";
+import { Prose } from "./prose";
 
 export function GoDeep({
   title,
