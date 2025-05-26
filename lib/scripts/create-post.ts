@@ -106,7 +106,7 @@ title: ${slug
 createdAt: ${now}
 updatedAt: ${now}
 id: ${postId}
-shortTitle: 
+shortTitle: ''
 heroImage: ''
 description: ''
 tags: []
