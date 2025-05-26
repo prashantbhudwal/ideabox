@@ -20,9 +20,7 @@ export async function generateMetadata(
   }
 
   const title = post.title;
-  const description = post.description
-    ? post.description
-    : "by prashant";
+  const description = post.description ? post.description : "by prashant";
   const imagePath = post.heroImage
     ? "/blog/" + slug + "/" + post.heroImage + ".webp"
     : "";

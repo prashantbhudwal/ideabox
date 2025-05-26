@@ -5,6 +5,12 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { server } from "@/server/routers";
 
+// Force static rendering at build time
+export const dynamic = "force-static";
+
+// Set revalidation time (optional)
+export const revalidate = false; //
+
 function currentWeekOfLife(
   birthYear: number = 1993,
   birthMonth: number = 2, // March (0-indexed: 0 = January)
@@ -80,8 +86,7 @@ export default async function BlogPage() {
 
   // Sort posts by date in descending order
   posts.sort(
-    (a, b) =>
-      new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
   );
 
   // Group posts by year
