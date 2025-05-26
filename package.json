@@ -15,7 +15,8 @@
     "optimize": "pnpm tsx lib/scripts/optimize-images.ts",
     "mastra": "mastra dev --dir ./mastra",
     "prepare": "husky",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "post": "pnpm tsx lib/scripts/create-post.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.2.18",
