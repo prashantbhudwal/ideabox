@@ -1,4 +1,4 @@
-import { paths } from "@/lib/paths";
+import { link } from "@/lib/link";
 import Image from "next/image";
 
 type PostImageVariants = "square" | "landscape" | "portrait";
@@ -21,7 +21,7 @@ export function PostEmbed_Image({
 
   return (
     <Image
-      src={paths.imageBase + src + ".webp"}
+      src={link.path.images.blog({ imgName: src })}
       alt={alt}
       width={dimensions.width}
       height={dimensions.height}

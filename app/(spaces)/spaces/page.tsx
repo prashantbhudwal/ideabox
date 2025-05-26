@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { SpacesGrid } from "./spaces-grid";
+import { SpacesGrid } from "../../../components/spaces/spaces-grid";
 
 export default function SpacesPage() {
   return (

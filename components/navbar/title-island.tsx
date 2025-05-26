@@ -4,7 +4,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
-import { useSpaceInfo } from "../../app/hooks/use-space-info";
+import { useSpaceInfo } from "../../hooks/use-space-info";
 
 const segmentMap = [
   {

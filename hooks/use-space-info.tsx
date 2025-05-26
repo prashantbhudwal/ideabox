@@ -1,4 +1,4 @@
-import { getSpaceBySlug } from "@/app/(spaces)/spaces/spaces";
+import { getSpaceBySlug } from "@/components/spaces/spaces";
 import { link } from "@/lib/link";
 import { useParams, usePathname } from "next/navigation";
 

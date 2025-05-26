@@ -13,6 +13,7 @@ export const link = {
     space: ({ slug }: { slug: string }) => `/spaces/${slug}`,
     images: {
       spaces: ({ imgName }: { imgName: string }) => `/spaces/${imgName}`,
+      blog: ({ imgName }: { imgName: string }) => `/blog/${imgName}.webp`,
     },
   },
   url: {

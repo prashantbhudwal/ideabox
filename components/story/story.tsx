@@ -19,14 +19,12 @@ import { layersPoints } from "./story-data";
 import { TravelMap } from "./map";
 import { Markdown } from "@/components/markdown-parser/markdown-renderer";
 import { Slider } from "@/components/ui/slider";
-import { useScrollDirection } from "../hooks/useScrollDirection";
 import { DETAIL_LABELS, LEVEL, type Story, StorySubplot } from "./types";
-import { WIP } from "@/components/wip";
 import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
 import { SummaryCard } from "./summary-card";
 import { useAtom } from "jotai";
 import { resolutionAtom } from "./resolution-atom";
+import { useScrollDirection } from "@/hooks/useScrollDirection";
 
 const observerOptions = {
   // threshold: 0, // Not needed if using rootMargin effectively

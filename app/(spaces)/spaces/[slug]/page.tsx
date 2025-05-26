@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getSpaceBySlug } from "../spaces";
+import { getSpaceBySlug } from "../../../../components/spaces/spaces";
 
 export default async function SpacePage({
   params,

@@ -5,7 +5,7 @@ import { Navbar } from "@/components/navbar";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
-import { RootMotionProvider } from "./root-motion-provider";
+import { RootMotionProvider } from "../components/providers/root-motion-provider";
 import { WIP } from "@/components/wip";
 import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
 import { Analytics } from "@vercel/analytics/next";

@@ -12,7 +12,7 @@
  */
 
 import { select } from "@inquirer/prompts";
-import { mastra } from "../../../mastra";
+import { mastra } from "../../../server/mastra";
 import { H_suggestionSelectionStep } from "./travel-agent";
 import { z } from "zod";
 

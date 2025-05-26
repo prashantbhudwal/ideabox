@@ -6,7 +6,7 @@ import {
   travelAgentWorkflow,
   travelPlanningAgent,
   travelSuggestionAgent,
-} from "../dw/mastra/travel-agent-workflow/travel-agent";
+} from "../../dw/mastra/travel-agent-workflow/travel-agent";
 
 export const mastra = new Mastra({
   agents: { travelSuggestionAgent, travelPlanningAgent },
