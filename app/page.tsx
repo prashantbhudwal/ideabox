@@ -1,52 +1,26 @@
+import React from "react";
 import PostList from "@/components/blog/post-list";
 import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { server } from "@/server/routers";
+import { calculateWeekOfLife } from "@/lib/date";
 
 // Force static rendering at build time
 export const dynamic = "force-static";
 
 // Set revalidation time (optional)
-export const revalidate = false; //
-
-function currentWeekOfLife(
-  birthYear: number = 1993,
-  birthMonth: number = 2, // March (0-indexed: 0 = January)
-  birthDay: number = 1,
-): number {
-  // Create the birth date
-  const birthDate = new Date(birthYear, birthMonth, birthDay);
-  const today = new Date();
-
-  // Check if the birth date is in the future
-  if (today < birthDate) {
-    throw new Error("Your birth date is in the future!");
-  }
-
-  // Calculate the difference in milliseconds
-  const msPerDay = 1000 * 60 * 60 * 24;
-  const diffMs = today.getTime() - birthDate.getTime();
-
-  // Calculate the number of days elapsed since birth
-  const daysElapsed = Math.floor(diffMs / msPerDay);
-
-  // Compute the week of life:
-  // Each week has 7 days. The integer division of the elapsed days by 7
-  // plus one (to count the first week as week 1) gives the current week number.
-  const weekNumber = Math.floor(daysElapsed / 7) + 1;
-
-  return weekNumber;
-}
+export const revalidate = false;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const week = currentWeekOfLife();
+  const week = calculateWeekOfLife();
   const baseUrl = "https://www.ashant.in";
+  const description = `Notes on the world, software and life. Week ${week}.`;
 
   return {
-    title: `prashant`,
-    description: `Notes on the world, software and life. Week ${week}.`,
+    title: "prashant",
+    description,
     metadataBase: new URL(baseUrl),
     alternates: {
       canonical: "/",
@@ -67,7 +41,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       title: "prashant",
-      description: `Notes on the world, software and life. Week ${week}.`,
+      description,
       url: baseUrl,
       siteName: "ashant.in",
       locale: "en_US",
@@ -76,51 +50,56 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: "prashant",
-      description: `Notes on the world, software and life. Week ${week}.`,
+      description,
     },
   };
 }
 
-export default async function BlogPage() {
+interface PostsByYear {
+  [year: string]: Awaited<ReturnType<typeof server.post.getAll>>;
+}
+
+export default async function BlogPage(): Promise<React.ReactElement> {
   const posts = await server.post.getAll();
 
   // Sort posts by date in descending order
-  posts.sort(
+  const sortedPosts = [...posts].sort(
     (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
   );
 
   // Group posts by year
-  const postsByYear = posts.reduce<{ [key: string]: typeof posts }>(
+  const postsByYear = sortedPosts.reduce<PostsByYear>(
     (acc, post) => {
       const year = new Date(post.createdAt).getFullYear().toString();
-      if (!acc[year]) {
-        acc[year] = [];
-      }
+      if (!acc[year]) acc[year] = [];
       acc[year].push(post);
       return acc;
     },
-    {},
+    {}
+  );
+
+  // Sort years in descending order
+  const sortedYears = Object.keys(postsByYear).sort(
+    (a, b) => parseInt(b) - parseInt(a)
   );
 
   return (
     <div className="max-w-xl mx-auto flex flex-col space-y-16 pt-10">
-      <div className="flex flex-col space-y-24 ">
-        {Object.keys(postsByYear)
-          .sort((a, b) => parseInt(b) - parseInt(a)) // Sort years in descending order
-          .map((year) => (
-            <div key={year} className="px-1 flex flex-col space-y-6">
-              <h2 className="text-3xl md:text-4xl font-semibold text-primary">
-                {year}
-              </h2>
-              <Separator className="mb-4" />
-              <PostList posts={postsByYear[year]} />
-            </div>
-          ))}
+      <div className="flex flex-col space-y-24">
+        {sortedYears.map((year) => (
+          <div key={year} className="px-1 flex flex-col space-y-6">
+            <h2 className="text-3xl md:text-4xl font-semibold text-primary">
+              {year}
+            </h2>
+            <Separator className="mb-4" />
+            <PostList posts={postsByYear[year]} />
+          </div>
+        ))}
       </div>
       <div className="flex flex-col space-y-10 pb-10 md:items-center">
         <Separator />
-        <Link href={"/story"}>
-          <Button variant={"link"}>About Me</Button>
+        <Link href="/story">
+          <Button variant="link">About Me</Button>
         </Link>
       </div>
     </div>
