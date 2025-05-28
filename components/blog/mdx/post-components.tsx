@@ -1,4 +1,5 @@
 import { bronnComponents } from "@/content/posts/bronn";
+import { poonchThree } from "@/content/posts/poonch-three";
 import { scientificMethod } from "@/content/posts/scientific-method";
 import { sweetenerOptions } from "@/content/posts/sweetener-options";
 import {
@@ -30,6 +31,7 @@ const customComponents = {
 };
 
 export const postComponents = {
+  ...poonchThree,
   ...bronnComponents,
   ...sweetenerOptions,
   ...scientificMethod,
