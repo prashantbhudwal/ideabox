@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { calculateWeekOfLife } from "@/lib/date";
-import { getAllPosts } from "@/server/modules/post/core";
+import { getAllPosts } from "@/server/modules/post/get-all-posts";
 
 // Force static rendering at build time
 export const dynamic = "force-static";

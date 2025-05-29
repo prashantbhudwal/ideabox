@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { baseProcedure, createTRPCRouter } from "./init";
 import { postRouter } from "../routers/post.router";
-import { runEmbeddingPipeline } from "../modules/post/vector";
+import { runEmbeddingPipeline } from "../modules/post/post-rag/run-embeeding-pipeline";
 export const appRouter = createTRPCRouter({
   hello: baseProcedure
     .input(

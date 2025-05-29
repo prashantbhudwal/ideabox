@@ -1,7 +1,8 @@
 import { baseProcedure, createTRPCRouter } from "../trpc/init";
 import { z } from "zod";
 import { TRPCError } from "@trpc/server";
-import { getAllPosts, getPostBySlug } from "@/server/modules/post/core";
+import { getAllPosts } from "@/server/modules/post/get-all-posts";
+import { getPostBySlug } from "@/server/modules/post/get-post-by-slug";
 
 export const postRouter = createTRPCRouter({
   getSlugs: baseProcedure.query(async () => {

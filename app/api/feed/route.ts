@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/server/modules/post/core";
+import { getAllPosts } from "@/server/modules/post/get-all-posts";
 import { Feed } from "feed";
 const baseUrl = "https://www.ashant.in";
 

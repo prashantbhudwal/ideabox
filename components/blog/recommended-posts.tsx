@@ -2,7 +2,7 @@ import { TPost } from "@/lib/types/post.types";
 import { PostCard } from "./post-card";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Suspense } from "react";
-import { getAllPosts } from "@/server/modules/post/core";
+import { getAllPosts } from "@/server/modules/post/get-all-posts";
 
 export function RecommendedPosts({ currentPost }: { currentPost: TPost }) {
   return (

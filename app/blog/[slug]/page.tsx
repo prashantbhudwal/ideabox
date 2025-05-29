@@ -4,7 +4,8 @@ import { serializeMdx } from "@/lib/mdx";
 import { Metadata, ResolvingMetadata } from "next";
 import { PostFooter } from "../../../components/blog/post-footer";
 import { RecommendedPosts } from "@/components/blog/recommended-posts";
-import { getPostBySlug, getAllPosts } from "@/server/modules/post/core";
+import { getAllPosts } from "@/server/modules/post/get-all-posts";
+import { getPostBySlug } from "@/server/modules/post/get-post-by-slug";
 
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
