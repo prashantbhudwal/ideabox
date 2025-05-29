@@ -1,4 +1,4 @@
-import { baseProcedure, createTRPCRouter } from "../init";
+import { baseProcedure, createTRPCRouter } from "../trpc/init";
 import { z } from "zod";
 import { TRPCError } from "@trpc/server";
 import { service } from "@/server/services";
