@@ -43,3 +43,4 @@ sampleData.jsonl
 .env.development
 .mastra
 memory.db
+.notes
