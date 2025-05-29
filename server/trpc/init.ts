@@ -32,7 +32,7 @@ const errorHandlerMiddleware = t.middleware(async ({ path, type, next }) => {
     // Convert any error to a TRPCError with a standardized format
     const trpcError = createTRPCErrorFromUnknown(
       error,
-      `Error in ${type} '${path}'`
+      `Error in ${type} '${path}'`,
     );
     throw trpcError;
   }
