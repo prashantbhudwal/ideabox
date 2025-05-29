@@ -1,4 +1,4 @@
-import { kv } from "./index";
+import { kv } from "../../infra/upstash";
 
 async function testRedis() {
   try {

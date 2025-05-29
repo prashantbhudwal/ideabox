@@ -1,17 +1,17 @@
 import { baseProcedure, createTRPCRouter } from "../trpc/init";
 import { z } from "zod";
 import { TRPCError } from "@trpc/server";
-import { service } from "@/server/services";
+import { getAllPosts, getPostBySlug } from "@/server/modules/post/core";
 
 export const postRouter = createTRPCRouter({
   getSlugs: baseProcedure.query(async () => {
-    return service.post.getSlugs();
+    return getAllPosts();
   }),
 
   getBySlug: baseProcedure
     .input(z.object({ slug: z.string() }))
     .query(async ({ input }) => {
-      const post = await service.post.getBySlug(input.slug);
+      const post = await getPostBySlug(input.slug);
 
       if (!post) {
         throw new TRPCError({
@@ -24,6 +24,10 @@ export const postRouter = createTRPCRouter({
     }),
 
   getAll: baseProcedure.query(async () => {
-    return service.post.getAll();
+    return getAllPosts();
   }),
+  // getSimilarPosts: baseProcedure.query(async () => {
+  //   const data = await service.post.getSimilarPosts();
+  //   return data;
+  // }),
 });

@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { calculateWeekOfLife } from "@/lib/date";
-import { service } from "@/server/services";
+import { getAllPosts } from "@/server/modules/post/core";
 
 // Force static rendering at build time
 export const dynamic = "force-static";
@@ -56,11 +56,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 interface PostsByYear {
-  [year: string]: Awaited<ReturnType<typeof service.post.getAll>>;
+  [year: string]: Awaited<ReturnType<typeof getAllPosts>>;
 }
 
 export default async function BlogPage(): Promise<React.ReactElement> {
-  const posts = await service.post.getAll();
+  const posts = await getAllPosts();
 
   // Sort posts by date in descending order
   const sortedPosts = [...posts].sort(

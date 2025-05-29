@@ -1,8 +1,8 @@
 import { TPost } from "@/lib/types/post.types";
 import { PostCard } from "./post-card";
-import { service } from "@/server/services";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Suspense } from "react";
+import { getAllPosts } from "@/server/modules/post/core";
 
 export function RecommendedPosts({ currentPost }: { currentPost: TPost }) {
   return (
@@ -16,7 +16,7 @@ async function RecommendedPostsContent({
 }: {
   currentPost: TPost;
 }) {
-  const allPosts = await service.post.getAll();
+  const allPosts = await getAllPosts();
 
   const threeRandomPosts = allPosts.sort(() => Math.random() - 0.5).slice(0, 3);
 

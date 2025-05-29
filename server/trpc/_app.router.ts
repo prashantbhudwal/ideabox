@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { baseProcedure, createTRPCRouter } from "./init";
-import { runEmbeddingPipeline } from "@/server/services/vector/embedding-pipeline";
+import { postRouter } from "../routers/post.router";
+import { runEmbeddingPipeline } from "../modules/post/vector";
 export const appRouter = createTRPCRouter({
   hello: baseProcedure
     .input(
@@ -17,6 +18,7 @@ export const appRouter = createTRPCRouter({
     const data = await runEmbeddingPipeline();
     return data;
   }),
+  post: postRouter,
 });
 // export type definition of API
 export type AppRouter = typeof appRouter;
