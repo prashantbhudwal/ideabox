@@ -1,6 +1,6 @@
 import { TPost } from "@/lib/types/post.types";
 import { PostCard } from "./post-card";
-import { server } from "@/server/routers";
+import { service } from "@/server/services";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Suspense } from "react";
 
@@ -16,7 +16,7 @@ async function RecommendedPostsContent({
 }: {
   currentPost: TPost;
 }) {
-  const allPosts = await server.post.getAll();
+  const allPosts = await service.post.getAll();
 
   const threeRandomPosts = allPosts.sort(() => Math.random() - 0.5).slice(0, 3);
 

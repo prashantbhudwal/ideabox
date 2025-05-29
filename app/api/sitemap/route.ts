@@ -1,4 +1,4 @@
-import { server } from "@/server/routers";
+import { service } from "@/server/services";
 
 const baseUrl = "https://www.ashant.in";
 
@@ -7,7 +7,7 @@ export const revalidate = false;
 
 export async function GET() {
   try {
-    const posts = await server.post.getAll();
+    const posts = await service.post.getAll();
 
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

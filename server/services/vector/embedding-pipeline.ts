@@ -1,17 +1,16 @@
 "use server";
 import { TPost } from "@/lib/types/post.types";
-import { server } from "../routers";
+import { service } from "..";
 import { getPostChunks } from "./chunk";
 import { enrichChunkWithContext } from "./chunk-context";
 import { embedPost } from "./embed";
 
 export const runEmbeddingPipeline = async function () {
-  const post = await server.post.getBySlug("poonch-one");
+  const post = await service.post.getBySlug("poonch-one");
   const chunks = await getPostChunks({
     post,
     config: "v1",
   });
-  const firstChunk = chunks[0];
 
   // const enrichedChunk = await enrichChunkWithContext({
   //   chunk: firstChunk,
@@ -32,5 +31,5 @@ export const runEmbeddingPipeline = async function () {
   //   }),
   // );
 
-  return {};
+  return chunks;
 };

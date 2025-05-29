@@ -1,4 +1,4 @@
-import { server } from "@/server/routers";
+import { service } from "@/server/services";
 import { notFound } from "next/navigation";
 import { Post } from "../../../components/blog/post";
 import { serializeMdx } from "@/lib/mdx";
@@ -11,7 +11,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const { slug } = await params;
-  const post = await server.post.getBySlug(slug);
+  const post = await service.post.getBySlug(slug);
 
   if (!post) {
     return {
@@ -48,7 +48,7 @@ export async function generateMetadata(
 
 // This function generates all possible slug values at build time
 export async function generateStaticParams() {
-  const slugs = await server.post.getSlugs();
+  const slugs = await service.post.getSlugs();
   return slugs.map((slug) => ({
     slug,
   }));
@@ -61,7 +61,7 @@ export default async function Page({
 }) {
   const slug = (await params).slug;
 
-  const post = await server.post.getBySlug(slug);
+  const post = await service.post.getBySlug(slug);
   const mdxSource = await serializeMdx(post.content);
 
   if (!post) {

@@ -1,5 +1,5 @@
+import { service } from "@/server/services";
 import { Feed } from "feed";
-import { server } from "@/server/routers";
 const baseUrl = "https://www.ashant.in";
 
 export const dynamic = "force-static";
@@ -7,7 +7,7 @@ export const revalidate = false;
 
 export async function GET() {
   try {
-    const posts = await server.post.getAll();
+    const posts = await service.post.getAll();
 
     if (!posts || posts.length === 0) {
       console.log("No posts found");
