@@ -1,7 +1,7 @@
 "use server";
 import { cache } from "react";
 import { readdirSync } from "node:fs";
-import { serverPaths } from "@/server/common/paths";
+import { serverPaths } from "@/server/utils/paths";
 
 export const getPostSlugs = cache(async (): Promise<string[]> => {
   const entries = readdirSync(serverPaths.dir.posts, {

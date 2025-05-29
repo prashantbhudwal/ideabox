@@ -1,7 +1,7 @@
 import { initTRPC } from "@trpc/server";
 import { cache } from "react";
 import superjson from "superjson";
-import { createTRPCErrorFromUnknown } from "@/server/common/error";
+import { createTRPCErrorFromUnknown } from "@/server/utils/error";
 
 export const createTRPCContext = cache(async () => {
   /**

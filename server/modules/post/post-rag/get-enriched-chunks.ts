@@ -1,4 +1,4 @@
-import { mdxToGfmMarkdown } from "@/server/common/mdx-to-markdown";
+import { mdxToGfmMarkdown } from "@/server/utils/mdx-to-markdown";
 import { openai } from "@ai-sdk/openai";
 import { generateText } from "ai";
 import dedent from "dedent";

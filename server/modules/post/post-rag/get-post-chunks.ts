@@ -1,7 +1,7 @@
 import { TPost } from "@/lib/types/post.types";
 import { TRagConfigVersion } from "@/server/config/rag-defaults";
 import { getRagConfig } from "@/server/config/rag-defaults";
-import { mdxToGfmMarkdown } from "@/server/common/mdx-to-markdown";
+import { mdxToGfmMarkdown } from "@/server/utils/mdx-to-markdown";
 import { MDocument } from "@mastra/rag";
 
 export const getPostChunks = async function ({

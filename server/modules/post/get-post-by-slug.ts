@@ -1,4 +1,4 @@
-import { serverPaths } from "@/server/common/paths";
+import { serverPaths } from "@/server/utils/paths";
 import { cache } from "react";
 import { readFileSync, readdirSync } from "node:fs";
 import matter from "gray-matter";
