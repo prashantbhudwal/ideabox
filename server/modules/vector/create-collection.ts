@@ -10,5 +10,6 @@ export async function createCollection({
   await store.createIndex({
     indexName: collectionName,
     dimension,
+    metric: "cosine",
   });
 }
