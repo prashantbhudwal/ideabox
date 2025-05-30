@@ -16,7 +16,8 @@
     "mastra": "mastra dev --dir ./mastra",
     "prepare": "husky",
     "check": "tsc --noEmit",
-    "post": "pnpm tsx lib/scripts/create-post.ts"
+    "post": "pnpm tsx lib/scripts/create-post.ts",
+    "vector:migrate": "pnpm tsx server/modules/vector/migrate.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.2.18",
