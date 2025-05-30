@@ -4,7 +4,7 @@ import {
   getEmbeddingConfig,
   TChunkConfigVersion,
   TEmbeddingConfigVersion,
-} from "@/server/config/rag.config";
+} from "@/server/modules/vector/rag.config";
 import { mdxToGfmMarkdown } from "@/server/utils/mdx-to-markdown";
 import { openai } from "@ai-sdk/openai";
 import { MDocument } from "@mastra/rag";

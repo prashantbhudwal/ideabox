@@ -4,7 +4,7 @@ import { TPostCollectionMetadata } from "./types";
 import {
   getEmbeddingConfig,
   TEmbeddingConfigVersion,
-} from "@/server/config/rag.config";
+} from "@/server/modules/vector/rag.config";
 
 import to from "await-to-js";
 
