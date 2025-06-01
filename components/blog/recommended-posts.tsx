@@ -1,8 +1,9 @@
-import { TPost } from "@/lib/types/post.types";
+import { TPost } from "@/lib/types/content.types";
 import { PostCard } from "./post-card";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Suspense } from "react";
 import { getAllPosts } from "@/server/modules/post/get-all-posts";
+import { getSimilarPosts } from "@/server/modules/post/get-similar-posts";
 
 export function RecommendedPosts({ currentPost }: { currentPost: TPost }) {
   return (
@@ -18,7 +19,22 @@ async function RecommendedPostsContent({
 }) {
   const allPosts = await getAllPosts();
 
+  const similarPostIds = await getSimilarPosts({ id: currentPost.id });
+  const similarPosts = allPosts.filter((post) =>
+    similarPostIds.includes(post.id),
+  );
+
   const threeRandomPosts = allPosts.sort(() => Math.random() - 0.5).slice(0, 3);
+
+  const postToShow =
+    similarPosts.length === 0
+      ? threeRandomPosts
+      : similarPosts.length < 3
+        ? [
+            ...similarPosts,
+            ...threeRandomPosts.slice(0, 3 - similarPosts.length),
+          ]
+        : similarPosts;
 
   return (
     <Card className="mb-6 w-full max-w-prose">
@@ -29,9 +45,14 @@ async function RecommendedPostsContent({
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-10 max-w-11/12 mx-auto">
-          {threeRandomPosts.map((post) => (
-            <PostCard post={post} key={post.slug} />
-          ))}
+          {postToShow.map((post) => {
+            const isSimilar = similarPosts.some(
+              (similarPost) => similarPost.id === post.id,
+            );
+            return (
+              <PostCard post={post} key={post.slug} isSimilar={isSimilar} />
+            );
+          })}
         </div>
       </CardContent>
     </Card>

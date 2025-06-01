@@ -1,3 +1,4 @@
+import { SimilarityMetric } from "../rag.config";
 import { TIndexConfig } from "./migrate";
 /**
  * # Creating Collections
@@ -11,22 +12,24 @@ import { TIndexConfig } from "./migrate";
  * - If you change a const from this file, the collection will not be updated
  */
 
-export const DOCUMENT_COLLECTION: TIndexConfig = {
+export const DOCUMENT_COLLECTION = {
   indexName: "documents",
   dimension: 1536,
-  metric: "cosine",
+  metric: SimilarityMetric.COSINE,
   description:
     "Stores whole documents like posts, pages, etc. Use for RAG and recommendations.",
-};
+} as const;
 
-export const DOCUMENT_CHUNK_COLLECTION: TIndexConfig = {
+export const DOCUMENT_CHUNK_COLLECTION = {
   indexName: "documentChunks",
   dimension: 1536,
-  metric: "cosine",
+  metric: SimilarityMetric.COSINE,
   description: "Stores chunks of documents. Used for RAG.",
-};
+} as const;
 
-export const COLLECTIONS: TIndexConfig[] = [
+export const COLLECTIONS = [
   DOCUMENT_COLLECTION,
   DOCUMENT_CHUNK_COLLECTION,
-];
+] as const;
+
+export type TCollectionName = (typeof COLLECTIONS)[number]["indexName"];

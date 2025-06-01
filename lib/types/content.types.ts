@@ -1,4 +1,14 @@
+import {
+  TChunkConfig,
+  TEmbeddingConfig,
+} from "@/server/modules/vector/rag.config";
 import { z } from "zod";
+export enum ContentType {
+  POST = "post",
+  PROMPT = "prompt",
+  SPACE = "space",
+}
+export type TContentType = (typeof ContentType)[keyof typeof ContentType];
 
 const ZContentBase = z.object({
   id: z.string(),
@@ -27,15 +37,21 @@ export const ZPostFrontmatter = ZContentBase.pick({
 });
 
 export type TPost = TContentBase & {
-  type: "post";
+  type: ContentType.POST;
   content: string;
 };
 export type TSpace = TContentBase & {
-  type: "space";
+  type: ContentType.SPACE;
   Component: React.ComponentType;
 };
 
 export type TPrompt = TContentBase & {
-  type: "prompt";
+  type: ContentType.PROMPT;
   prompt: string;
+};
+
+export type TPostIndexingMetadata = (TPost | TSpace | TPrompt) & {
+  embeddingConfig: TEmbeddingConfig;
+  isChunked: boolean;
+  chunkConfig: TChunkConfig | null;
 };

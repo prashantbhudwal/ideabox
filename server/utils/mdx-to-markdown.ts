@@ -1,5 +1,4 @@
 "use server";
-import "server-only";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkMdx from "remark-mdx";

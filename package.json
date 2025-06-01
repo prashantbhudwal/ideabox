@@ -17,7 +17,8 @@
     "prepare": "husky",
     "check": "tsc --noEmit",
     "post": "pnpm tsx lib/scripts/create-post.ts",
-    "vector:migrate": "pnpm tsx server/modules/vector/schema/migrate.ts"
+    "vector:migrate": "pnpm tsx server/modules/vector/schema/migrate.ts",
+    "run:pipeline": "pnpm tsx server/modules/vector/pipelines.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.2.18",

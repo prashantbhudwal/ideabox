@@ -2,7 +2,11 @@ import { serverPaths } from "@/server/utils/paths";
 import { cache } from "react";
 import { readFileSync, readdirSync } from "node:fs";
 import matter from "gray-matter";
-import { TPost, ZPostFrontmatter } from "@/lib/types/post.types";
+import {
+  ContentType,
+  TPost,
+  ZPostFrontmatter,
+} from "@/lib/types/content.types";
 
 export const getPostBySlug = cache(async (slug: string): Promise<TPost> => {
   const fullPath = serverPaths.file.postMdx(slug);
@@ -25,7 +29,7 @@ export const getPostBySlug = cache(async (slug: string): Promise<TPost> => {
   const validatedMetadata = ZPostFrontmatter.parse(processedMetadata);
 
   return {
-    type: "post",
+    type: ContentType.POST,
     ...validatedMetadata,
     content,
   };

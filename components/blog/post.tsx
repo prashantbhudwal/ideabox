@@ -1,6 +1,6 @@
 "use client";
 
-import { TPost } from "@/lib/types/post.types";
+import { TPost } from "@/lib/types/content.types";
 import { motion } from "motion/react";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";

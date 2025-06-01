@@ -14,10 +14,17 @@ export type TChunkConfig = {
   readonly chunkingStrategy: ChunkingStrategyEnum;
 };
 
+export enum SimilarityMetric {
+  COSINE = "cosine",
+}
+
+export type TSimilarityMetric = (typeof SimilarityMetric)[keyof typeof SimilarityMetric];
+
 export type TEmbeddingConfig = {
   readonly version: string;
   readonly model: string;
   readonly dimensions: number;
+  readonly metric: TSimilarityMetric;
 };
 
 export type TRagConfigVersion = "v1";
@@ -31,10 +38,12 @@ export type TEmbeddingConfigVersion = "v1";
 export type TChunkConfigVersion = "v1";
 
 const embeddingConfigs: Record<TEmbeddingConfigVersion, TEmbeddingConfig> = {
+  // DO NOT CHANGE THIS, IT IS USED IN MIGRATION SCRIPTS, create new version if needed
   v1: {
     version: "v1",
     model: "text-embedding-3-large",
     dimensions: 1536,
+    metric: SimilarityMetric.COSINE,
   },
 };
 
@@ -46,18 +55,6 @@ const chunkConfigs: Record<TChunkConfigVersion, TChunkConfig> = {
     overlap: Math.floor(800 * 0.3),
     chunkingStrategy: ChunkingStrategyEnum.CONTEXTUAL_MARKDOWN,
   },
-};
-
-const ragConfigs: Record<TEmbeddingConfigVersion, TRagConfig> = {
-  v1: {
-    version: "v1",
-    chunkConfig: chunkConfigs.v1,
-    embeddingConfig: embeddingConfigs.v1,
-  },
-};
-
-export const getRagConfig = function <T extends TRagConfigVersion>(version: T) {
-  return ragConfigs[version];
 };
 
 export const getEmbeddingConfig = function <T extends TEmbeddingConfigVersion>(

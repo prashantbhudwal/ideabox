@@ -1,3 +1,4 @@
+import { isDev } from "@/lib/utils";
 import { QdrantVector } from "@mastra/qdrant";
 
 import dotenv from "dotenv";
@@ -13,4 +14,5 @@ if (!QDRANT_URL || !QDRANT_API_KEY) {
 export const store = new QdrantVector({
   url: QDRANT_URL,
   apiKey: QDRANT_API_KEY,
+  https: isDev ? false : true,
 });

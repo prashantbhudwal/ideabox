@@ -1,4 +1,4 @@
-import { TSpace } from "@/lib/types/post.types";
+import { ContentType, TSpace } from "@/lib/types/content.types";
 import { SimilaritySpace } from "./similarity";
 import { SweetenerSpace } from "./sweetener";
 
@@ -15,7 +15,7 @@ export const spaces: TSpace[] = [
     shortTitle: "Sweeteners",
     createdAt: "2025-05-26T11:48:24.000Z",
     updatedAt: "2025-05-26T11:48:24.000Z",
-    type: "space",
+    type: ContentType.SPACE,
   },
   {
     id: "8a1a8093-0f02-4b20-a780-6d24e87a230f",
@@ -28,7 +28,7 @@ export const spaces: TSpace[] = [
     shortTitle: "Similarity",
     createdAt: "2025-05-26T11:48:24.000Z",
     updatedAt: "2025-05-26T11:48:24.000Z",
-    type: "space",
+    type: ContentType.SPACE,
   },
 ];
 

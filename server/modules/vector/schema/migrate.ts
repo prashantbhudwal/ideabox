@@ -1,10 +1,11 @@
 import { store } from "@/server/infra/qdrant";
 import { COLLECTIONS } from "./collection-schema";
+import { SimilarityMetric, TSimilarityMetric } from "../rag.config";
 
 export type TIndexConfig = {
   indexName: string;
   dimension: number;
-  metric: "cosine";
+  metric: TSimilarityMetric;
   description: string;
 };
 const createCollection = async (config: TIndexConfig): Promise<boolean> => {
