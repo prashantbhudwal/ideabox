@@ -1,12 +1,16 @@
 import { notFound } from "next/navigation";
 import { Post } from "../../../components/blog/post";
-import { serializeMdx } from "@/lib/mdx";
+import { processMdx } from "@/components/blog/mdx_next/mdx-modern";
 import { Metadata, ResolvingMetadata } from "next";
 import { PostFooter } from "../../../components/blog/post-footer";
 import { RecommendedPosts } from "@/components/blog/recommended-posts";
 import { getAllPosts } from "@/server/modules/post/get-all-posts";
 import { getPostBySlug } from "@/server/modules/post/get-post-by-slug";
+// Force static rendering at build time
+export const dynamic = "force-static";
 
+// Set revalidation time (optional)
+export const revalidate = false;
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
   parent: ResolvingMetadata,
@@ -60,14 +64,15 @@ export default async function Page({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const slug = (await params).slug;
-
+  const { slug } = await params;
   const post = await getPostBySlug(slug);
-  const mdxSource = await serializeMdx(post.content);
 
   if (!post) {
     notFound();
   }
+
+  // Process MDX content using next-mdx-remote-client
+  const mdxSource = await processMdx(post.content);
 
   return (
     <div className="flex flex-col items-center gap-8">

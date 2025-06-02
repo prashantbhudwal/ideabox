@@ -4,15 +4,17 @@ import { TPost } from "@/lib/types/content.types";
 import { motion } from "motion/react";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
-import { Mdx } from "./mdx";
+import { Mdx } from "./mdx_next/mdx";
+import type { SerializeResult } from "next-mdx-remote-client/serialize";
+
+type MdxScope = Record<string, unknown>;
 
 export function Post({
   post,
   mdxSource,
 }: {
   post: TPost;
-  mdxSource: MDXRemoteSerializeResult;
+  mdxSource: SerializeResult<Record<string, unknown>, MdxScope>;
 }) {
   const searchParams = useSearchParams();
   const fromPosition = searchParams.get("from");
@@ -79,7 +81,6 @@ export function Post({
           mass: 0.8,
           delay: 0.2,
         }}
-        className="prose prose-lg dark:prose-invert"
         suppressHydrationWarning
       >
         <Mdx mdxSource={mdxSource} />
