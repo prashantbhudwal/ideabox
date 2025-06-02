@@ -12,7 +12,7 @@ import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { link } from "@/lib/link";
 import { useAtomValue } from "jotai";
 import { resolutionAtom } from "./resolution-atom";
-import { Markdown } from "../blog/mdx/markdown-renderer";
+import { Markdown } from "../blog/mdx/md.client";
 export function SummaryCard() {
   const resolution = useAtomValue<number>(resolutionAtom);
   return (

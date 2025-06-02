@@ -2,12 +2,12 @@
 
 import { MDXClient as MDXRemoteClient } from "next-mdx-remote-client";
 import type { SerializeResult } from "next-mdx-remote-client/serialize";
-import { postComponents } from "../mdx/post-components";
 import React from "react";
-import { Prose } from "../mdx/prose";
+import { Prose } from "../custom/prose";
 import Image from "next/image";
 import Link from "next/link";
-import { CodeBlock } from "../mdx/code-block";
+import { CodeBlock } from "../custom/code-block";
+import { postComponents } from "./post-components";
 
 type MdxScope = Record<string, unknown>;
 

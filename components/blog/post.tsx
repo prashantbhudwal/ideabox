@@ -4,7 +4,7 @@ import { TPost } from "@/lib/types/content.types";
 import { motion } from "motion/react";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { Mdx } from "./mdx_next/mdx";
+import { Mdx } from "./mdx/mdx.client";
 import type { SerializeResult } from "next-mdx-remote-client/serialize";
 
 type MdxScope = Record<string, unknown>;

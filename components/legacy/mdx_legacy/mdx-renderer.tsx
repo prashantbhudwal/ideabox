@@ -1,11 +1,10 @@
 "use client";
 
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { CodeBlock } from "./code-block";
+import { CodeBlock } from "../../blog/custom/code-block";
 import Link from "next/link";
 import Image from "next/image";
-import { Prose } from "./prose";
-import { postComponents } from "./post-components";
+import { Prose } from "../../blog/custom/prose";
 
 const components = {
   // Preserve existing styling for elements
@@ -75,7 +74,6 @@ const components = {
   Image: (props: any) => (
     <Image {...props} className="rounded shadow mx-auto" />
   ),
-  ...postComponents,
 };
 
 interface MDXContentProps {

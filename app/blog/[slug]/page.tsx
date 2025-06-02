@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 import { Post } from "../../../components/blog/post";
-import { processMdx } from "@/components/blog/mdx_next/mdx-modern";
 import { Metadata, ResolvingMetadata } from "next";
 import { PostFooter } from "../../../components/blog/post-footer";
 import { RecommendedPosts } from "@/components/blog/recommended-posts";
 import { getAllPosts } from "@/server/modules/post/get-all-posts";
 import { getPostBySlug } from "@/server/modules/post/get-post-by-slug";
+import { processMdx } from "@/components/blog/mdx/mdx.server";
 // Force static rendering at build time
 export const dynamic = "force-static";
 
