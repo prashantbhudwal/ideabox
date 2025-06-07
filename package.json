@@ -13,7 +13,7 @@
     "test:ui": "vitest --ui",
     "shadd": "pnpm dlx shadcn@canary add",
     "optimize": "pnpm tsx lib/scripts/optimize-images.ts",
-    "mastra": "mastra dev --dir ./mastra",
+    "mastra": "mastra dev --dir ./server/mastra",
     "prepare": "husky",
     "check": "tsc --noEmit",
     "post": "pnpm tsx lib/scripts/create-post.ts",

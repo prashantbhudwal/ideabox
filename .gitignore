@@ -44,3 +44,5 @@ sampleData.jsonl
 .mastra
 memory.db
 .notes
+memory.db*
+
