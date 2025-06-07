@@ -19,7 +19,8 @@
     "post": "pnpm tsx lib/scripts/create-post.ts",
     "vector:migrate": "pnpm tsx server/modules/vector/schema/migrate.ts",
     "run:pipeline": "pnpm tsx server/modules/vector/pipelines.ts",
-    "combine:posts": "pnpm tsx server/modules/post/combine-posts.ts"
+    "combine:posts": "pnpm tsx server/modules/post/combine-posts.ts",
+    "bundle": "ANALYZE=true pnpm build"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.2.19",
@@ -141,6 +142,7 @@
     "zod": "^3.25.51"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^15.3.3",
     "@tailwindcss/postcss": "^4.1.8",
     "@tailwindcss/typography": "^0.5.16",
     "@types/marked-terminal": "^6.1.1",
