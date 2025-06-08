@@ -74,6 +74,8 @@ import wiki from "wikipedia";
 import type { Page } from "wikipedia";
 import { Memory } from "@mastra/memory";
 import { LibSQLStore } from "@mastra/libsql";
+import { to } from "await-to-js";
+import { green, red, blue, yellow, cyan } from "picocolors";
 const Z_SearchResultSchema = z.object({
   results: z.array(
     z.object({
@@ -104,9 +106,17 @@ const queryGenerationTool = createTool({
   description: "generates queries for the wikipedia searches",
   execute: async ({ context, mastra }) => {
     const { researchTopic } = context;
-    const result = await queryGenerationAgent.generate(researchTopic, {
-      output: z.object({ queries: z.array(z.string()) }),
-    });
+    const [err, result] = await to(
+      queryGenerationAgent.generate(researchTopic, {
+        output: z.object({ queries: z.array(z.string()) }),
+      }),
+    );
+    if (err) {
+      console.error(red("Error generating queries:"), err);
+      return { queries: [] }; // Example: return empty queries on error
+    }
+    console.log(green("Generated queries:"));
+    console.dir(result.object, { depth: 100 });
     return result.object;
   },
 });
@@ -123,34 +133,36 @@ const wikiSearchTool = createTool({
   }),
   outputSchema: Z_SearchResultSchema,
   execute: async ({ context }) => {
-    // 1. extract the array of queries
     const { queries } = context;
 
-    // 2. for each query, call wiki.search and transform into { title, id } pages
-    const results = await Promise.all(
-      queries.map(async (q) => {
-        // wiki.search returns something like { results: RawSearchItem[], suggestion?: string }
-        const raw = await wiki.search(q, { limit: 5 });
+    const searchPromises = queries.map(async (q) => {
+      const [err, raw] = await to(wiki.search(q, { limit: 5 }));
+      if (err) {
+        console.error(red("Error during Wikipedia search:"), err);
+        return { query: q, pages: [] };
+      }
 
-        // raw.results might be string[] or objects; normalize both cases
-        const pages = raw.results.map((item) => {
-          if (typeof item === "string") {
-            return { title: item, id: item };
-          }
-          // assume item has .title and .pageid
-          return {
-            title: item.title,
-            id: String((item as any).pageid ?? item.title),
-          };
-        });
+      const pages = raw.results.map((item) => {
+        if (typeof item === "string") {
+          return { title: item, id: item };
+        }
+        return {
+          title: item.title,
+          id: String((item as any).pageid ?? item.title),
+        };
+      });
 
-        // return the shape your outputSchema expects
-        return { query: q, pages };
-      }),
-    );
+      return { query: q, pages };
+    });
 
-    // 3. wrap it up under `results`
-    return { results };
+    const [err, searchResults] = await to(Promise.all(searchPromises));
+    if (err) {
+      console.error(red("Error during Wikipedia search:"), err);
+      return { results: [] }; // Example: return empty results on error
+    }
+    console.log(cyan("Search results:"));
+    console.dir(searchResults, { depth: 100 });
+    return { results: searchResults };
   },
 });
 const searchStep = createStep(wikiSearchTool);
@@ -172,10 +184,18 @@ export const pageSelectionTOOL = createTool({
   execute: async ({ context }) => {
     const pages = context.results.flatMap((result) => result.pages);
     const pagesString = JSON.stringify(pages);
+    console.log(cyan("Pages for selection:"));
     console.dir(pages, { depth: 100 });
-    const selectedPages = await pageSelectionAgent.generate(pagesString, {
-      output: z.object({ pageIds: z.array(z.string()) }),
-    });
+    const [err, selectedPages] = await to(
+      pageSelectionAgent.generate(pagesString, {
+        output: z.object({ pageIds: z.array(z.string()) }),
+      }),
+    );
+    if (err) {
+      console.error(red("Error selecting pages:"), err);
+      return { pageIds: [] };
+    }
+    console.log(green("Selected page IDs:"));
     console.dir(selectedPages.object, { depth: 100 });
     return selectedPages.object;
   },
@@ -190,31 +210,37 @@ const getWikiPageTOOL = createTool({
   outputSchema: z.string(),
   execute: async ({ context }) => {
     const pageIds = context.pageIds;
-    console.log("pageIds", pageIds);
+    console.log(blue("Page IDs for content fetching:"), pageIds);
 
-    try {
-      // First get the page objects
-      const pagePromises = pageIds.map((pageId) => wiki.page(pageId));
-      const pages = await Promise.all(pagePromises);
-      console.dir(pages, { depth: 100 });
+    const pagePromises = pageIds.map((pageId) => wiki.page(pageId));
+    const [pagesErr, pages] = await to(Promise.all(pagePromises));
 
-      // Then fetch the content for each page (content is a method that needs to be awaited)
-      const contentPromises = pages.map((page) => page.content());
-      const contents = await Promise.all(contentPromises);
-
-      // Combine page titles with their contents
-      const formattedPages = pages.map((page, index) => {
-        return `# ${page.title}\n\n${contents[index]}`;
-      });
-
-      const pagesString = formattedPages.join("\n\n---\n\n");
-      const pagesStringSlice = pagesString.slice(0, 10000);
-      console.log("pagesString length:", pagesString.length);
-      return pagesStringSlice;
-    } catch (error) {
-      console.error("Error fetching wiki content:", error);
-      return "Error fetching Wikipedia content. Please try again.";
+    if (pagesErr || !pages) {
+      console.error(red("Error fetching wiki page objects:"), pagesErr);
+      return "Error fetching Wikipedia page objects. Please try again.";
     }
+    console.log(cyan("Fetched page objects:"));
+    console.dir(pages, { depth: 100 });
+
+    const contentPromises = pages.map((page: Page) => page.content());
+    const [contentErr, contents] = await to(Promise.all(contentPromises));
+
+    if (contentErr || !contents) {
+      console.error(red("Error fetching wiki page content:"), contentErr);
+      return "Error fetching Wikipedia page content. Please try again.";
+    }
+
+    const formattedPages = pages.map((page, index) => {
+      return `# ${page.title}\n\n${contents[index]}`;
+    });
+
+    const pagesString = formattedPages.join("\n\n---\n\n");
+    const pagesStringSlice = pagesString.slice(0, 10000);
+    console.log(
+      yellow("Total length of combined page content:"),
+      pagesString.length,
+    );
+    return pagesStringSlice;
   },
 });
 const getPageContentStep = createStep(getWikiPageTOOL);
@@ -256,7 +282,7 @@ export const researchWorkflow = createWorkflow({
   .commit();
 const memory = new Memory({
   storage: new LibSQLStore({
-    url: "file:../mastra.db", // Or your database URL
+    url: "file:../mastra.db",
   }),
 });
 
