@@ -64,7 +64,6 @@
  */
 import { createWorkflow, createStep } from "@mastra/core/workflows";
 import { z } from "zod";
-const run = async () => {};
 
 import { Agent } from "@mastra/core/agent";
 import { openai } from "@ai-sdk/openai";
