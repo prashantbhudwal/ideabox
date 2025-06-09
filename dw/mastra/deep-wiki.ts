@@ -75,7 +75,8 @@ import type { Page } from "wikipedia";
 import { Memory } from "@mastra/memory";
 import { LibSQLStore } from "@mastra/libsql";
 import { to } from "await-to-js";
-import { green, red, blue, yellow, cyan } from "picocolors";
+import color from "picocolors";
+
 const Z_SearchResultSchema = z.object({
   results: z.array(
     z.object({
@@ -112,10 +113,10 @@ const queryGenerationTool = createTool({
       }),
     );
     if (err) {
-      console.error(red("Error generating queries:"), err);
+      console.error(color.red("Error generating queries:"), err);
       return { queries: [] }; // Example: return empty queries on error
     }
-    console.log(green("Generated queries:"));
+    console.log(color.green("Generated queries:"));
     console.dir(result.object, { depth: 100 });
     return result.object;
   },
@@ -138,7 +139,7 @@ const wikiSearchTool = createTool({
     const searchPromises = queries.map(async (q) => {
       const [err, raw] = await to(wiki.search(q, { limit: 5 }));
       if (err) {
-        console.error(red("Error during Wikipedia search:"), err);
+        console.error(color.red("Error during Wikipedia search:"), err);
         return { query: q, pages: [] };
       }
 
@@ -157,10 +158,10 @@ const wikiSearchTool = createTool({
 
     const [err, searchResults] = await to(Promise.all(searchPromises));
     if (err) {
-      console.error(red("Error during Wikipedia search:"), err);
+      console.error(color.red("Error during Wikipedia search:"), err);
       return { results: [] }; // Example: return empty results on error
     }
-    console.log(cyan("Search results:"));
+    console.log(color.cyan("Search results:"));
     console.dir(searchResults, { depth: 100 });
     return { results: searchResults };
   },
@@ -184,7 +185,7 @@ export const pageSelectionTOOL = createTool({
   execute: async ({ context }) => {
     const pages = context.results.flatMap((result) => result.pages);
     const pagesString = JSON.stringify(pages);
-    console.log(cyan("Pages for selection:"));
+    console.log(color.cyan("Pages for selection:"));
     console.dir(pages, { depth: 100 });
     const [err, selectedPages] = await to(
       pageSelectionAgent.generate(pagesString, {
@@ -192,10 +193,10 @@ export const pageSelectionTOOL = createTool({
       }),
     );
     if (err) {
-      console.error(red("Error selecting pages:"), err);
+      console.error(color.red("Error selecting pages:"), err);
       return { pageIds: [] };
     }
-    console.log(green("Selected page IDs:"));
+    console.log(color.green("Selected page IDs:"));
     console.dir(selectedPages.object, { depth: 100 });
     return selectedPages.object;
   },
@@ -208,36 +209,47 @@ const getWikiPageTOOL = createTool({
   description: dedent``,
   inputSchema: z.object({ pageIds: z.array(z.string()) }),
   outputSchema: z.string(),
-  execute: async ({ context }) => {
+  execute: async ({
+    context,
+    mastra,
+    runId,
+    resourceId,
+    threadId,
+    runtimeContext,
+  }) => {
     const pageIds = context.pageIds;
-    console.log(blue("Page IDs for content fetching:"), pageIds);
+  
+    console.log(color.green("Page IDs for content fetching:"), pageIds);
 
     const pagePromises = pageIds.map((pageId) => wiki.page(pageId));
     const [pagesErr, pages] = await to(Promise.all(pagePromises));
 
     if (pagesErr || !pages) {
-      console.error(red("Error fetching wiki page objects:"), pagesErr);
+      console.error(color.red("Error fetching wiki page objects:"), pagesErr);
       return "Error fetching Wikipedia page objects. Please try again.";
     }
-    console.log(cyan("Fetched page objects:"));
+    console.log(color.cyan("Fetched page objects:"));
     console.dir(pages, { depth: 100 });
 
-    const contentPromises = pages.map((page: Page) => page.content());
+    const contentPromises = pages.map((page: Page) => page.summary());
+
     const [contentErr, contents] = await to(Promise.all(contentPromises));
+    console.dir(contents, { depth: 100 });
 
     if (contentErr || !contents) {
-      console.error(red("Error fetching wiki page content:"), contentErr);
+      console.error(color.red("Error fetching wiki page content:"), contentErr);
       return "Error fetching Wikipedia page content. Please try again.";
     }
 
     const formattedPages = pages.map((page, index) => {
-      return `# ${page.title}\n\n${contents[index]}`;
+      return `# ${page.title}\n\n${JSON.stringify(contents[index].extract)}`;
     });
 
     const pagesString = formattedPages.join("\n\n---\n\n");
+    console.log("Context:", color.cyan(pagesString));
     const pagesStringSlice = pagesString.slice(0, 10000);
     console.log(
-      yellow("Total length of combined page content:"),
+      color.yellow("Total length of combined page content:"),
       pagesString.length,
     );
     return pagesStringSlice;
@@ -298,6 +310,7 @@ export const researchOrchestratorAgent = new Agent({
   model: gemini,
   workflows: { researchWorkflow },
   memory,
+  
 });
 
 export const toolTestingAgent = new Agent({
