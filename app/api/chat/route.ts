@@ -1,9 +1,7 @@
-import { mastra } from "@/server/mastra";
+import { getAgentResponse } from "@/server/chat";
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
-  const myAgent = mastra.getAgent("researchOrchestratorAgent");
-  const stream = await myAgent.stream(messages);
-
-  return stream.toDataStreamResponse();
+  // TODO: Validate messages
+  return getAgentResponse({ messages });
 }

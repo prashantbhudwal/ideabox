@@ -30,6 +30,7 @@ export function Chat({ className }: { readonly className?: string }) {
     [setOpen],
   );
 
+  // Only show chat in dev
   if (!isDev) return null;
 
   return (
@@ -59,7 +60,8 @@ function ChatPanel() {
       <SheetHeader className="border-b px-4 py-2">
         <SheetTitle>Chat</SheetTitle>
       </SheetHeader>
-      <ScrollArea className="flex-1 p-4">
+      {/* Make the message list take available space and scroll */}
+      <ScrollArea className="flex-1 h-0 overflow-y-auto p-4">
         <div className="flex flex-col gap-2">
           {messages.map((m) => (
             <div
