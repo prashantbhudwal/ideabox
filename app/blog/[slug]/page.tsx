@@ -6,6 +6,7 @@ import { RecommendedPosts } from "@/components/blog/recommended-posts";
 import { getAllPosts } from "@/server/modules/post/get-all-posts";
 import { getPostBySlug } from "@/server/modules/post/get-post-by-slug";
 import { processMdx } from "@/components/blog/mdx/mdx.server";
+import { Chat } from "@/components/chat";
 // Force static rendering at build time
 export const dynamic = "force-static";
 
@@ -76,6 +77,7 @@ export default async function Page({
 
   return (
     <div className="flex flex-col items-center gap-8">
+      <Chat />
       <Post post={post} mdxSource={mdxSource} />
       <RecommendedPosts currentPost={post} />
       <PostFooter slug={post.slug} title={post.title} />
