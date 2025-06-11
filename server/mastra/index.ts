@@ -13,6 +13,7 @@ import {
   researchWorkflow,
   toolTestingAgent,
 } from "@/dw/mastra/deep-wiki";
+import { blogAgent } from "../chat/blog.agent";
 
 export const mastra = new Mastra({
   agents: {
@@ -21,6 +22,7 @@ export const mastra = new Mastra({
     toolTestingAgent,
     researchOrchestratorAgent,
     queryGenerationAgent,
+    blogAgent,
   },
   storage: new LibSQLStore({
     url: "file:../../memory.db",

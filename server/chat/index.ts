@@ -1,12 +1,31 @@
+import { RuntimeContext } from "@mastra/core/runtime-context";
 import { mastra } from "../mastra";
+import { ZBlogAgentData } from "@/lib/types/agent.types";
+import { z } from "zod";
+import { getBlogAgentRuntimeContext } from "./runtime-context";
 
-export async function getAgentResponse({
-  messages,
+const getParsedBlogAgentData = (data: any) => {
+  const blogAgentDataResponse = ZBlogAgentData.safeParse(data);
+  if (!blogAgentDataResponse.success) {
+    throw new Error("Invalid blog agent data");
+  }
+  const blogAgentData = blogAgentDataResponse.data;
+  return blogAgentData;
+};
+
+export async function getBlogAgentResponse({
+  payload,
 }: {
-  messages: any;
+  payload: any;
 }): Promise<Response> {
-  const myAgent = mastra.getAgent("researchOrchestratorAgent");
-  const stream = await myAgent.stream(messages);
+  const { messages, data } = payload;
+  const blogAgentData = getParsedBlogAgentData(data);
+  const myAgent = mastra.getAgent("blogAgent");
+  const runtimeContext = getBlogAgentRuntimeContext(blogAgentData);
+
+  const stream = await myAgent.stream(messages, {
+    runtimeContext,
+  });
 
   return stream.toDataStreamResponse();
 }
