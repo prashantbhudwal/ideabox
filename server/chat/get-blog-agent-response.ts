@@ -1,0 +1,78 @@
+import { RuntimeContext } from "@mastra/core/runtime-context";
+import { mastra } from "../mastra";
+import { ZBlogAgentData } from "@/lib/types/agent.types";
+import { z } from "zod";
+import { getBlogAgentRuntimeContext } from "./runtime-context";
+import { createDataStreamResponse } from "ai";
+import { devUtils } from "@/lib/utils";
+
+const getParsedBlogAgentData = (data: any) => {
+  const blogAgentDataResponse = ZBlogAgentData.safeParse(data);
+  if (!blogAgentDataResponse.success) {
+    throw new Error("Invalid blog agent data");
+  }
+  const blogAgentData = blogAgentDataResponse.data;
+  return blogAgentData;
+};
+
+export type TAgentAnnotation = {
+  type: "step";
+  value: number;
+  stepName: string;
+  message: string;
+};
+
+export async function getBlogAgentResponse({
+  payload,
+}: {
+  payload: any;
+}): Promise<Response> {
+  const { messages, data } = payload;
+
+  const isFirstMessage = messages.length === 1;
+
+  const blogAgentData = getParsedBlogAgentData(data);
+
+  const myAgent = mastra.getAgent("blogAgent");
+  const runtimeContext = getBlogAgentRuntimeContext(blogAgentData);
+
+  const stream = createDataStreamResponse({
+    status: 200,
+    statusText: "OK",
+    headers: {
+      "Custom-Header": "value",
+    },
+    async execute(dataStream) {
+      // Write data
+      // dataStream.writeData({ value: "Hello" });
+
+      // Write annotation
+      if (isFirstMessage) {
+        dataStream.writeMessageAnnotation({
+          type: "step",
+          value: 1,
+          stepName: "Reading",
+          message: "I am reading the blog.",
+        });
+        await devUtils.simulateCall();
+        dataStream.writeMessageAnnotation({
+          type: "step",
+          value: 2,
+          stepName: "Analyzing",
+          message: "I am analyzing the blog to answer your question.",
+        });
+        await devUtils.simulateCall();
+      }
+
+      //mastra agent stream
+      const agentStream = await myAgent.stream(messages, {
+        runtimeContext,
+      });
+      // Merge agent stream
+      agentStream.mergeIntoDataStream(dataStream);
+    },
+    onError: (error) => `Custom error: ${JSON.stringify(error)}`,
+  });
+
+  return stream;
+}

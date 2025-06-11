@@ -8,6 +8,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { TPost } from "@/lib/types/content.types";
@@ -52,7 +53,8 @@ export function Chat({
       </SheetTrigger>
       <SheetContent side="right" className="flex flex-col p-0">
         <SheetHeader className="border-b px-4 py-2">
-          <SheetTitle>Ask Blog</SheetTitle>
+          <SheetTitle>ask ashant</SheetTitle>
+          <SheetDescription>{post.title.toLowerCase()}</SheetDescription>
         </SheetHeader>
         <ChatPanel post={post} />
       </SheetContent>

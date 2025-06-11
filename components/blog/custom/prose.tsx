@@ -1,6 +1,19 @@
-export function Prose({ children }: { children: React.ReactNode }) {
+import { cn } from "@/lib/utils";
+
+export function Prose({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <div className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0 prose-lg">
+    <div
+      className={cn(
+        "prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0 prose-lg",
+        className,
+      )}
+    >
       {children}
     </div>
   );
