@@ -3,7 +3,7 @@ import MiniSearch from "minisearch";
 import type { TPost } from "@/lib/types/content.types";
 import { useTRPC } from "@/trpc/client";
 import { useQuery } from "@tanstack/react-query";
-import { searchConfigOptions } from "@/server/search/config";
+import { searchConfigOptions } from "@/server/modules/search/config";
 
 const MIN_QUERY_LENGTH = 2;
 const MIN_SCORE = 0.2;

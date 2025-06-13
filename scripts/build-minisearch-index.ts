@@ -5,7 +5,7 @@ import crypto from "crypto";
 import fg from "fast-glob";
 import MiniSearch from "minisearch";
 import { type TPost } from "../lib/types/content.types";
-import { searchConfigOptions } from "@/server/search/config";
+import { searchConfigOptions } from "@/server/modules/search/config";
 import { getAllPosts } from "@/server/modules/post/get-all-posts";
 import { serverPaths } from "@/server/utils/paths";
 

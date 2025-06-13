@@ -1,6 +1,5 @@
 import { baseProcedure, createTRPCRouter } from "../trpc/init";
-import { getSearch } from "../search/mini-search";
-
+import { getSearch } from "../modules/search/mini-search";
 
 export const searchRouter = createTRPCRouter({
   getMiniSearchIndex: baseProcedure.query(async () => {

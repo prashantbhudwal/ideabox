@@ -14,7 +14,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { SearchResult } from "@/server/search/config";
+import { SearchResult } from "@/server/modules/search/config";
 import { SearchModalAtom } from "./search-modal-atom";
 import { useAtom } from "jotai";
 
