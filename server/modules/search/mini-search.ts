@@ -24,6 +24,10 @@ const validateAsset = (indexFile: string | undefined): void => {
   }
 };
 
+
+
+
+
 const loadSearchIndex = (): typeof global.__SEARCH => {
   const publicDir = path.join(process.cwd(), "public");
   const indexFile = readdirSync(publicDir).find((f) =>

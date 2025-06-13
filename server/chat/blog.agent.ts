@@ -3,6 +3,7 @@ import { Agent } from "@mastra/core/agent";
 import type { TBlogAgentRuntimeContext } from "./runtime-context";
 import { RuntimeContext } from "@mastra/core/runtime-context";
 import dedent from "dedent";
+import { fetchPostsTool, keywordSearchPostsTOOL } from "./search.tool";
 
 export const blogAgent = new Agent({
   name: "Blog Agent",
@@ -37,7 +38,24 @@ export const blogAgent = new Agent({
     <postContent>
     ${data.postContent}
     </postContent>
+
+    <tools>
+    You have access to the following tools:
+    <keyword_search_posts_tool>
+    Use this tool to search posts by keyword.
+    </keyword_search_posts_tool>
+    <fetch_posts_tool>
+    Use this tool to fetch posts by id. This tool returns the content of the post.
+    </fetch_posts_tool>
+    </tools>
     `;
   },
   model: gemini,
+  tools: {
+    keywordSearchPostsTOOL,
+    fetchPostsTool,
+  },
+  defaultGenerateOptions: {
+    maxSteps: 6,
+  },
 });

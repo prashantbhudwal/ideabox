@@ -3,7 +3,7 @@ import type { Options } from "minisearch";
 import MiniSearch from "minisearch";
 
 export const searchConfigOptions: Options<TPost> = {
-  fields: ["title", "shortTitle", "description", "content", "tags"],
+  fields: ["title", "shortTitle", "description", "content", "tags", "id"],
   storeFields: [
     "slug",
     "title",
@@ -12,6 +12,8 @@ export const searchConfigOptions: Options<TPost> = {
     "tags",
     "heroImage",
     "createdAt",
+    "content",
+    "id",
   ],
   searchOptions: {
     boost: { title: 3, shortTitle: 2, tags: 1.5 },
@@ -48,4 +50,6 @@ export type SearchResult = Pick<
   | "tags"
   | "heroImage"
   | "createdAt"
+  | "content"
+  | "id"
 >;

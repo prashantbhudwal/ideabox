@@ -46,6 +46,7 @@ export function useSearch() {
             tags: result.tags,
             heroImage: result.heroImage ?? "",
             createdAt: result.createdAt,
+            content: result.content,
           };
         });
     },
