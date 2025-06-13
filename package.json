@@ -21,7 +21,8 @@
     "run:pipeline": "pnpm tsx server/modules/vector/pipelines.ts",
     "combine:posts": "pnpm tsx server/modules/post/combine-posts.ts",
     "bundle": "ANALYZE=true pnpm build",
-    "up": "pnpm update && pnpm check"
+    "up": "pnpm update && pnpm check",
+    "build:search-index": "pnpm tsx scripts/build-minisearch-index.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.2.19",

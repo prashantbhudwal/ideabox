@@ -1,0 +1,54 @@
+import { useCallback, useMemo } from "react";
+import MiniSearch from "minisearch";
+import type { TPost } from "@/lib/types/content.types";
+import type { SearchResult } from "@/server/routers/search.router";
+import { useTRPC } from "@/trpc/client";
+import { useQuery } from "@tanstack/react-query";
+import { searchConfig } from "@/server/search/config";
+
+const MIN_QUERY_LENGTH = 2;
+const MIN_SCORE = 0.2;
+const MAX_RESULTS = 25;
+
+export function useSearch() {
+  const trpc = useTRPC();
+
+  const {
+    data: indexData,
+    isLoading,
+    error,
+    isFetched,
+  } = useQuery(trpc.search.getMiniSearchIndex.queryOptions());
+
+  const miniSearch = useMemo(() => {
+    if (!indexData) return null;
+    return MiniSearch.loadJS<TPost>(indexData, searchConfig);
+  }, [indexData]);
+
+  const search = useCallback(
+    (query: string): SearchResult[] => {
+      if (!miniSearch || !query || query.length < MIN_QUERY_LENGTH) {
+        return [];
+      }
+
+      const results = miniSearch.search(query);
+
+      return results
+        .filter((result) => result.score >= MIN_SCORE)
+        .slice(0, MAX_RESULTS)
+        .map((result) => ({
+          slug: result.id,
+          title: result.title ?? "",
+          score: result.score,
+        }));
+    },
+    [miniSearch],
+  );
+
+  return {
+    search,
+    isLoading,
+    error,
+    isReady: isFetched,
+  };
+}
