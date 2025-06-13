@@ -14,26 +14,34 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import type { SearchResult } from "@/server/routers/search.router";
+import { SearchResult } from "@/server/search/config";
+import { SearchModalAtom } from "./search-modal-atom";
+import { useAtom } from "jotai";
 
 export function BlogSearch(): React.ReactElement {
-  const [open, setOpen] = React.useState(false);
   const [query, setQuery] = React.useState("");
+  const [searchModalOpen, setSearchModalOpen] = useAtom(SearchModalAtom);
   const router = useRouter();
   const { search, isLoading, isReady } = useSearch();
   const [results, setResults] = React.useState<SearchResult[]>([]);
 
   // Update results when query changes
   React.useEffect(() => {
-    setResults(search(query));
-  }, [search, query]);
+    const results = search(query);
+    setResults(results);
+    // TODO Prefetching does not work
+    results.forEach((result) => {
+      const href = link.path.post({ slug: result.slug });
+      router.prefetch(href);
+    });
+  }, [search, query, router]);
 
   // Toggle search dialog with Cmd+K
   useHotkeys(
     "meta+k, ctrl+k",
     (event) => {
       event.preventDefault();
-      setOpen((prev) => !prev);
+      setSearchModalOpen((prev) => !prev);
     },
     {
       enableOnFormTags: true,
@@ -44,15 +52,15 @@ export function BlogSearch(): React.ReactElement {
   // Handle selection of search result
   const handleSelect = React.useCallback(
     (slug: string) => {
-      setOpen(false);
+      setSearchModalOpen(false);
       router.push(link.path.post({ slug }));
     },
     [router],
   );
 
   return (
-    <CommandDialog open={open} onOpenChange={setOpen}>
-      <Command shouldFilter={false}>
+    <CommandDialog open={searchModalOpen} onOpenChange={setSearchModalOpen}>
+      <Command shouldFilter={false} className="min-h-[350px]">
         <CommandInput
           placeholder="Search posts..."
           value={query}
@@ -63,20 +71,17 @@ export function BlogSearch(): React.ReactElement {
             <CommandEmpty>Loading search index...</CommandEmpty>
           ) : isLoading ? (
             <CommandEmpty>Searching...</CommandEmpty>
-          ) : (
-            <CommandEmpty>No results found.</CommandEmpty>
-          )}
-          <CommandGroup>
-            {results.map((result) => (
-              <CommandItem
-                key={result.slug}
-                value={result.slug}
-                onSelect={handleSelect}
-              >
-                {result.title}
-              </CommandItem>
-            ))}
-          </CommandGroup>
+          ) : null}
+
+          {results.map((result) => (
+            <CommandItem
+              key={result.slug}
+              value={result.slug}
+              onSelect={handleSelect}
+            >
+              {result.title}
+            </CommandItem>
+          ))}
         </CommandList>
       </Command>
     </CommandDialog>

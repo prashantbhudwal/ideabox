@@ -3,7 +3,7 @@ import path from "node:path";
 import MiniSearch from "minisearch";
 import type { TPost } from "@/lib/types/content.types";
 import { SearchServiceError } from "./error";
-import { searchConfig } from "./config";
+import { searchConfigOptions } from "./config";
 
 declare global {
   // eslint-disable-next-line no-var
@@ -37,7 +37,7 @@ const loadSearchIndex = (): typeof global.__SEARCH => {
       readFileSync(path.join(publicDir, indexFile!), "utf8"),
     );
 
-    const miniSearch = MiniSearch.loadJS<TPost>(indexJson, searchConfig);
+    const miniSearch = MiniSearch.loadJS<TPost>(indexJson, searchConfigOptions);
 
     const hash = indexFile!.match(/minisearch-index_([a-f0-9]+)\.json/)![1];
 

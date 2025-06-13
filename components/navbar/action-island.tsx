@@ -1,9 +1,12 @@
 "use client";
 import Link from "next/link";
 import { FaXTwitter, FaGithub, FaAddressBook, FaDiceD6 } from "react-icons/fa6";
+import { FaSearch } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useSelectedLayoutSegment } from "next/navigation";
+import { useAtom, useSetAtom } from "jotai";
+import { SearchModalAtom } from "../search/search-modal-atom";
 
 type ActionItem = {
   icon: React.ReactElement;
@@ -59,6 +62,34 @@ export function ActionIsland({ className }: { className?: string }) {
           </Link>
         </Button>
       ))}
+      <ActionIslandButtons />
     </ul>
+  );
+}
+
+export function ActionIslandButtons({ className }: { className?: string }) {
+  const setSearchModalOpen = useSetAtom(SearchModalAtom);
+
+  const buttons = [
+    {
+      action: () => setSearchModalOpen(true),
+      name: "search",
+      icon: <FaSearch className="text-primary/70" />,
+    },
+  ];
+
+  return (
+    <>
+      {buttons.map((button) => (
+        <Button
+          size="icon"
+          variant="ghost"
+          key={button.name}
+          onClick={button.action}
+        >
+          {button.icon}
+        </Button>
+      ))}
+    </>
   );
 }

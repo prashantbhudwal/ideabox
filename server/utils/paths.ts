@@ -6,6 +6,7 @@ export const serverPaths = {
   dir: {
     posts: path.join(cwd, "content/posts"),
     drafts: path.join(cwd, "content/drafts"),
+    public: path.join(cwd, "public"),
   },
   file: {
     postMdx: (slug: string) =>
