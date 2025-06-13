@@ -4,7 +4,7 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import { useHotkeys } from "react-hotkeys-hook";
 import { link } from "@/lib/link";
-import { useSearch } from "@/components/search/use-client-search";
+import { useSearch } from "@/components/search/use-search";
 import {
   Command,
   CommandDialog,
