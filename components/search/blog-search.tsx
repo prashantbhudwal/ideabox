@@ -29,12 +29,7 @@ export function BlogSearch(): React.ReactElement {
   React.useEffect(() => {
     const results = search(query);
     setResults(results);
-    // TODO Prefetching does not work
-    results.forEach((result) => {
-      const href = link.path.post({ slug: result.slug });
-      router.prefetch(href);
-    });
-  }, [search, query, router]);
+  }, [search, query]);
 
   // Toggle search dialog with Cmd+K
   useHotkeys(
