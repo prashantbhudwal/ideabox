@@ -1,5 +1,5 @@
 import { link } from "@/lib/link";
-import { constants } from "@/lib/constants";
+import { C } from "@/lib/constants";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -12,8 +12,8 @@ export const PostFooter = ({
   title: string;
 }) => {
   const postUrl = link.url.internal.post({ slug });
-  const tweetText = `\n\nRead "${title}" by ${constants.xHandle}\n${postUrl}`;
-  const whatsAppText = `\n\nRead "${title}" by ${constants.firstName}\n${postUrl}`;
+  const tweetText = `\n\nRead "${title}" by ${C.xHandle}\n${postUrl}`;
+  const whatsAppText = `\n\nRead "${title}" by ${C.firstName}\n${postUrl}`;
   return (
     <>
       <Separator className="mb-4" />

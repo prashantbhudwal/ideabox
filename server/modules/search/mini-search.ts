@@ -4,6 +4,7 @@ import MiniSearch from "minisearch";
 import type { TPost } from "@/lib/types/content.types";
 import { SearchServiceError } from "./error";
 import { searchConfigOptions } from "./config";
+import { serverPaths } from "@/server/utils/server-paths";
 
 declare global {
   // eslint-disable-next-line no-var
@@ -24,13 +25,9 @@ const validateAsset = (indexFile: string | undefined): void => {
   }
 };
 
-
-
-
-
 const loadSearchIndex = (): typeof global.__SEARCH => {
-  const publicDir = path.join(process.cwd(), "public");
-  const indexFile = readdirSync(publicDir).find((f) =>
+  const PUBLIC_DIR = serverPaths.dir.public;
+  const indexFile = readdirSync(PUBLIC_DIR).find((f) =>
     f.startsWith("minisearch-index_"),
   );
 
@@ -38,7 +35,7 @@ const loadSearchIndex = (): typeof global.__SEARCH => {
 
   try {
     const indexJson = JSON.parse(
-      readFileSync(path.join(publicDir, indexFile!), "utf8"),
+      readFileSync(path.join(PUBLIC_DIR, indexFile!), "utf8"),
     );
 
     const miniSearch = MiniSearch.loadJS<TPost>(indexJson, searchConfigOptions);

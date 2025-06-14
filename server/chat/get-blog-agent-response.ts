@@ -46,23 +46,23 @@ export async function getBlogAgentResponse({
       // Write data
       // dataStream.writeData({ value: "Hello" });
 
-      // Write annotation
-      if (isFirstMessage) {
-        dataStream.writeMessageAnnotation({
-          type: "step",
-          value: 1,
-          stepName: "Reading",
-          message: "I am reading the blog.",
-        });
-        await devUtils.simulateCall();
-        dataStream.writeMessageAnnotation({
-          type: "step",
-          value: 2,
-          stepName: "Analyzing",
-          message: "I am analyzing the blog to answer your question.",
-        });
-        await devUtils.simulateCall();
-      }
+      // // Write annotation
+      // if (isFirstMessage) {
+      //   dataStream.writeMessageAnnotation({
+      //     type: "step",
+      //     value: 1,
+      //     stepName: "Reading",
+      //     message: "I am reading the blog.",
+      //   });
+      //   await devUtils.simulateCall();
+      //   dataStream.writeMessageAnnotation({
+      //     type: "step",
+      //     value: 2,
+      //     stepName: "Analyzing",
+      //     message: "I am analyzing the blog to answer your question.",
+      //   });
+      //   await devUtils.simulateCall();
+      // }
 
       //mastra agent stream
       const agentStream = await myAgent.stream(messages, {

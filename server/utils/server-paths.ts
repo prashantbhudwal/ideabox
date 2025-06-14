@@ -1,12 +1,28 @@
 import path from "path";
+import { existsSync } from "fs";
+import { isDev } from "@/lib/utils";
+import { C } from "@/lib/constants";
+
+const findProjectRoot = (startPath: string): string => {
+  let currentPath = startPath;
+  while (currentPath !== path.parse(currentPath).root) {
+    if (existsSync(path.join(currentPath, "package.json"))) {
+      return currentPath;
+    }
+    currentPath = path.dirname(currentPath);
+  }
+  throw new Error("Could not find project root (no package.json found)");
+};
 
 const cwd = process.cwd();
+const isMastraPlayground = isDev && cwd.includes(C.DIR.MASTRA_PLAYGROUND);
+const basePath = isMastraPlayground ? findProjectRoot(cwd) : cwd;
 
 export const serverPaths = {
   dir: {
-    posts: path.join(cwd, "content/posts"),
-    drafts: path.join(cwd, "content/drafts"),
-    public: path.join(cwd, "public"),
+    posts: path.join(basePath, C.DIR.POSTS),
+    drafts: path.join(basePath, C.DIR.DRAFTS),
+    public: path.join(basePath, C.DIR.PUBLIC),
   },
   file: {
     postMdx: (slug: string) =>
