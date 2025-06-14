@@ -1,4 +1,4 @@
-import { serverPaths } from "@/server/utils/paths";
+import { serverPaths } from "@/server/utils/server-paths";
 import { cache } from "react";
 import { ContentType, TPost } from "@/lib/types/content.types";
 import { getValidatedPost } from "./utils";

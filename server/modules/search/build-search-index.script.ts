@@ -7,7 +7,7 @@ import MiniSearch from "minisearch";
 import { type TPost } from "../../../lib/types/content.types";
 import { searchConfigOptions } from "@/server/modules/search/config";
 import { getAllPosts } from "@/server/modules/post/get-all-posts";
-import { serverPaths } from "@/server/utils/paths";
+import { serverPaths } from "@/server/utils/server-paths";
 
 // Constants
 const PUBLIC_DIR = serverPaths.dir.public;

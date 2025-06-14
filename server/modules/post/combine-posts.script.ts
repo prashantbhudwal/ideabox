@@ -1,4 +1,4 @@
-import { serverPaths } from "@/server/utils/paths";
+import { serverPaths } from "@/server/utils/server-paths";
 import fs from "node:fs";
 import path from "node:path";
 import { getAllPosts } from "./get-all-posts";
@@ -8,7 +8,10 @@ import { TPost } from "@/lib/types/content.types";
  * Combines all blog posts into a single markdown file and generates a TOC file
  * @returns An object containing paths to the generated files
  */
-export const combineAllPosts = async (): Promise<{ postsPath: string; tocPath: string }> => {
+export const combineAllPosts = async (): Promise<{
+  postsPath: string;
+  tocPath: string;
+}> => {
   // Get all posts
   const posts = await getAllPosts();
 
@@ -85,51 +88,51 @@ const generateCombinedMarkdown = (posts: TPost[]): string => {
  */
 const generateTocMarkdown = (posts: TPost[]): string => {
   const currentDate = new Date().toISOString().split("T")[0];
-  
+
   // Create a JSON-like structure that's more token-efficient
   let output = `# Posts TOC (${currentDate}) - ${posts.length} total\n\n`;
-  
+
   // Add compact post data
   posts.forEach((post, index) => {
     // Extract first paragraph from content
     const firstParagraph = extractFirstParagraph(post.content);
-    
+
     // Format dates
     const created = new Date(post.createdAt).toISOString().split("T")[0];
     const updated = new Date(post.updatedAt).toISOString().split("T")[0];
-    
+
     // Format tags
     const tags = post.tags && post.tags.length > 0 ? post.tags.join(",") : "-";
-    
+
     // Build compact entry
     output += `${index + 1}. ${post.title}\n`;
     output += `id:${post.id || "-"} slug:${post.slug || "-"} created:${created}`;
-    
+
     // Only add updated if different from created
     if (created !== updated) {
       output += ` updated:${updated}`;
     }
-    
+
     output += ` tags:${tags}`;
-    
+
     // Add optional fields only if they exist
     if (post.shortTitle) {
       output += ` short:"${post.shortTitle}"`;
     }
-    
+
     if (post.heroImage) {
       output += ` img:${post.heroImage}`;
     }
-    
+
     // Add description and first paragraph on new lines for readability
     if (post.description) {
       output += `\ndesc:"${post.description}"`;
     }
-    
+
     // Add first paragraph
     output += `\nfirst:"${firstParagraph}"\n\n`;
   });
-  
+
   return output;
 };
 
@@ -140,7 +143,7 @@ const generateTocMarkdown = (posts: TPost[]): string => {
 const extractFirstParagraph = (content: string): string => {
   // Split content into lines
   const lines = content.split("\n");
-  
+
   // Skip import statements and empty lines
   let startIndex = 0;
   while (startIndex < lines.length) {
@@ -150,20 +153,26 @@ const extractFirstParagraph = (content: string): string => {
     }
     startIndex++;
   }
-  
+
   // Find the first paragraph
   let paragraph = "";
   let inParagraph = false;
-  
+
   for (let i = startIndex; i < lines.length; i++) {
     const line = lines[i].trim();
-    
+
     // Skip headings, code blocks, and other non-paragraph elements
-    if (line.startsWith("#") || line.startsWith("```") || line.startsWith(">") || 
-        line.startsWith("- ") || line.startsWith("* ") || line.startsWith("1. ")) {
+    if (
+      line.startsWith("#") ||
+      line.startsWith("```") ||
+      line.startsWith(">") ||
+      line.startsWith("- ") ||
+      line.startsWith("* ") ||
+      line.startsWith("1. ")
+    ) {
       continue;
     }
-    
+
     // If we find a non-empty line, start collecting the paragraph
     if (line !== "" && !inParagraph) {
       inParagraph = true;
@@ -176,7 +185,7 @@ const extractFirstParagraph = (content: string): string => {
       break;
     }
   }
-  
+
   return paragraph || "No paragraph found";
 };
 
