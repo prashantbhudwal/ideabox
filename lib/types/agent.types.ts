@@ -1,7 +1,9 @@
 import { z } from "zod";
 
 export const ZBlogAgentData = z.object({
-  postContent: z.string(),
+  routeName: z.string(),
+  contentType: z.string(),
+  content: z.string(),
 });
 
 export const ZBlogAgentBody = z.object({

@@ -11,11 +11,14 @@ import { Button } from "@/components/ui/button";
 import { TAgentAnnotation } from "@/server/chat/get-blog-agent-response";
 import { Separator } from "@/components/ui/separator";
 import { Markdown } from "@/components/blog/mdx/md.client";
+import { link } from "@/lib/link";
 
 export function ChatPanel({ post }: { readonly post: TPost }) {
   const body: TBlogAgentBody = {
     data: {
-      postContent: post.content,
+      routeName: link.url.internal.post({ slug: post.slug }),
+      contentType: "blog-page",
+      content: post.content,
     },
   };
 

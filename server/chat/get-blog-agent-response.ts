@@ -7,12 +7,12 @@ import { createDataStreamResponse } from "ai";
 import { devUtils } from "@/lib/utils";
 
 const getParsedBlogAgentData = (data: any) => {
-  const blogAgentDataResponse = ZBlogAgentData.safeParse(data);
-  if (!blogAgentDataResponse.success) {
+  const blogAgentBodyResponse = ZBlogAgentData.safeParse(data);
+  if (!blogAgentBodyResponse.success) {
+    console.error("Validation error:", blogAgentBodyResponse.error);
     throw new Error("Invalid blog agent data");
   }
-  const blogAgentData = blogAgentDataResponse.data;
-  return blogAgentData;
+  return blogAgentBodyResponse.data;
 };
 
 export type TAgentAnnotation = {
@@ -27,6 +27,7 @@ export async function getBlogAgentResponse({
 }: {
   payload: any;
 }): Promise<Response> {
+  console.log("payload", payload);
   const { messages, data } = payload;
 
   const isFirstMessage = messages.length === 1;

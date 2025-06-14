@@ -51,9 +51,11 @@ export const keywordSearchPostsTOOL = createTool({
 
 export const fetchPostsTOOL = createTool({
   id: "fetch_posts_tool",
-  description: `Use this tool to fetch posts by id.`,
+  description: `Use this tool to fetch posts by id. You can fetch a maximum of 3 posts.`,
   inputSchema: z.object({
-    id: z.array(z.string().describe("The id of the post")),
+    id: z
+      .array(z.string().describe("The id of the post"))
+      .describe("The ids of the posts to fetch. Max 3 ids."),
   }),
   outputSchema: z.array(
     z.object({

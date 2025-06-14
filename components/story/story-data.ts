@@ -1,4 +1,4 @@
-import endent from "endent";
+import dedent from "dedent";
 import { LEVEL, Story } from "./types";
 
 export const layersPoints: Story[] = [
@@ -109,7 +109,7 @@ export const layersPoints: Story[] = [
         description: "2016-18",
         layers: {
           l1: {
-            text: endent`I received a job offer through campus placement but chose not to join after orientation. Instead, I took an unpaid internship at a startup. I realized a conventional corporate setup wasn’t the best fit for me. The internship converted into a full-time position in three months and later into a founding‑team role.
+            text: dedent`I received a job offer through campus placement but chose not to join after orientation. Instead, I took an unpaid internship at a startup. I realized a conventional corporate setup wasn’t the best fit for me. The internship converted into a full-time position in three months and later into a founding‑team role.
             `,
           },
           l2: {
@@ -156,7 +156,7 @@ export const layersPoints: Story[] = [
         description: "2021-2022",
         layers: {
           l1: {
-            text: endent`Medal was a teacher training and hiring platform for Ed-tech companies. We trained 25 teachers through our MVP course, achieving a 100% success rate in getting them hired.`,
+            text: dedent`Medal was a teacher training and hiring platform for Ed-tech companies. We trained 25 teachers through our MVP course, achieving a 100% success rate in getting them hired.`,
           },
           l2: {
             text: "The platform was powered by a teacher evaluation and rating system that helps employers hire the best teachers.",
@@ -186,7 +186,7 @@ export const layersPoints: Story[] = [
         description: "2022-23",
         layers: {
           l1: {
-            text: endent`Hiring engineers as a non-technical founder is a big pain. At this point in time, I no longer wanted to deal with this pain. So I decided that I would learn to code. The end of 2022 and the beginning of 2023 was all about learning to code.`,
+            text: dedent`Hiring engineers as a non-technical founder is a big pain. At this point in time, I no longer wanted to deal with this pain. So I decided that I would learn to code. The end of 2022 and the beginning of 2023 was all about learning to code.`,
           },
 
           l2: {
