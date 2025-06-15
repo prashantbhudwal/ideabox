@@ -14,6 +14,7 @@ import {
   toolTestingAgent,
 } from "@/dw/mastra/deep-wiki";
 import { blogAgent } from "../chat/blog.agent";
+import { reflectionAgent } from "../chat/reflection.agent";
 
 export const mastra = new Mastra({
   agents: {
@@ -23,6 +24,7 @@ export const mastra = new Mastra({
     researchOrchestratorAgent,
     queryGenerationAgent,
     blogAgent,
+    reflectionAgent,
   },
   storage: new LibSQLStore({
     url: "file:../../memory.db",

@@ -54,6 +54,8 @@ export async function getBlogAgentResponse({
       //mastra agent stream
       const agentStream = await myAgent.stream(messages, {
         runtimeContext,
+        threadId: "t1",
+        resourceId: "prashant",
       });
       // Merge agent stream
       agentStream.mergeIntoDataStream(dataStream);
