@@ -1,19 +1,6 @@
-import { RuntimeContext } from "@mastra/core/runtime-context";
 import { mastra } from "../mastra";
-import { ZBlogAgentData } from "@/lib/types/agent.types";
-import { z } from "zod";
-import { getBlogAgentRuntimeContext } from "./runtime-context";
 import { createDataStreamResponse } from "ai";
-import { devUtils } from "@/lib/utils";
-
-const getParsedBlogAgentData = (data: any) => {
-  const blogAgentBodyResponse = ZBlogAgentData.safeParse(data);
-  if (!blogAgentBodyResponse.success) {
-    console.error("Validation error:", blogAgentBodyResponse.error);
-    throw new Error("Invalid blog agent data");
-  }
-  return blogAgentBodyResponse.data;
-};
+import { createRuntimeCtx, getParsedBlogAgentData } from "./blog.agent.utils";
 
 export type TAgentAnnotation = {
   type: "step";
@@ -33,9 +20,8 @@ export async function getBlogAgentResponse({
   const isFirstMessage = messages.length === 1;
 
   const blogAgentData = getParsedBlogAgentData(data);
-
   const myAgent = mastra.getAgent("blogAgent");
-  const runtimeContext = getBlogAgentRuntimeContext(blogAgentData);
+  const runtimeContext = createRuntimeCtx(blogAgentData);
 
   const stream = createDataStreamResponse({
     status: 200,
