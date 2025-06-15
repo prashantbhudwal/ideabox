@@ -12,6 +12,7 @@ import { TAgentAnnotation } from "@/server/chat/get-blog-agent-response";
 import { Separator } from "@/components/ui/separator";
 import { Markdown } from "@/components/blog/mdx/md.client";
 import { link } from "@/lib/link";
+import { JsonViewer } from "@/components/json-viewer";
 
 export function ChatPanel({ post }: { readonly post: TPost }) {
   const body: TBlogAgentBody = {
@@ -26,8 +27,9 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
     useChat({
       api: "/api/chat/blog",
       body,
-      experimental_throttle: 50,
     });
+
+  console.log("messages", messages);
 
   return (
     <>
@@ -45,6 +47,55 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
                     : "bg-card",
                 )}
               >
+                <JsonViewer src={message.parts} />
+                <div className="flex flex-col gap-2">
+                  {message.parts.map((part, index) => {
+                    if (part.type === "text") {
+                      return <span key={index}>{part.text}</span>;
+                    }
+                    if (part.type === "step-start") {
+                      return (
+                        <>
+                          <span key={index}>
+                            Step Start: <JsonViewer src={part} />
+                          </span>
+                          <Separator key={index} />
+                        </>
+                      );
+                    }
+                    if (part.type === "tool-invocation") {
+                      return (
+                        <>
+                          <span key={index}>
+                            Tool: <JsonViewer src={part} />
+                          </span>
+                          <Separator />
+                        </>
+                      );
+                    }
+                    if (part.type === "source") {
+                      return (
+                        <>
+                          <span key={index}>
+                            Source: <JsonViewer src={part} />
+                          </span>
+                          <Separator />
+                        </>
+                      );
+                    }
+                    if (part.type === "reasoning") {
+                      return (
+                        <>
+                          <span key={index}>
+                            Reasoning: <JsonViewer src={part} />
+                          </span>
+                          <Separator />
+                        </>
+                      );
+                    }
+                    return null;
+                  })}
+                </div>
                 {annotations && annotations.length > 0 && (
                   <div className="mb-2 flex flex-col gap-2">
                     {(annotations as TAgentAnnotation[] | undefined)?.map(

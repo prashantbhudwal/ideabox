@@ -7,6 +7,7 @@ import { getAllPosts } from "@/server/modules/post/get-all-posts";
 import { getPostBySlug } from "@/server/modules/post/get-post-by-slug";
 import { processMdx } from "@/components/blog/mdx/mdx.server";
 import { Chat } from "@/components/chat/blog-agent/chat";
+import { SelectionToolbar } from "@/components/pill";
 // Force static rendering at build time
 export const dynamic = "force-static";
 
@@ -81,6 +82,7 @@ export default async function Page({
       <Post post={post} mdxSource={mdxSource} />
       <RecommendedPosts currentPost={post} />
       <PostFooter slug={post.slug} title={post.title} />
+      <SelectionToolbar />
     </div>
   );
 }
