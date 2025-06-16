@@ -13,6 +13,7 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import * as React from "react";
 import appCss from "~/styles/globals.css?url";
 import { Button } from "~/components/ui/button";
+import { Providers } from "~/components/providers";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -94,11 +95,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             activeOptions={{ exact: true }}
           >
             Home
-          </Link>{" "}
+          </Link>
           <Button>Button</Button>
         </div>
         <hr />
-        {children}
+        <Providers>{children}</Providers>
         <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
       </body>
