@@ -13,6 +13,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { TPost } from "@/lib/types/content.types";
 import { ChatPanel } from "./chat-panel";
+import { chatPanelAtom } from "./chat-panel.atom";
+import { useAtom } from "jotai";
 
 export function Chat({
   className,
@@ -21,7 +23,7 @@ export function Chat({
   readonly className?: string;
   readonly post: TPost;
 }) {
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useAtom(chatPanelAtom);
   useHotkeys(
     "meta+k, ctrl+k",
     (event) => {
