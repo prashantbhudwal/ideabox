@@ -10,6 +10,7 @@ import { WIP } from "@/components/wip";
 import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
 import { Analytics } from "@vercel/analytics/next";
 import { TRPCReactProvider } from "@/trpc/client";
+import { BlogSearch } from "@/components/search/blog-search";
 
 export const metadata: Metadata = {
   robots: {
@@ -49,7 +50,10 @@ export default function RootLayout({
             >
               <Navbar className="2xl:mb-36" />
               <RootMotionProvider>
-                <ConvexClientProvider>{children}</ConvexClientProvider>
+                <ConvexClientProvider>
+                  {children}
+                  <BlogSearch />
+                </ConvexClientProvider>
               </RootMotionProvider>
               <WIP className="text-sm md:text-base mt-4 self-end" />
             </ThemeProvider>
