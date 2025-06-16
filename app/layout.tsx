@@ -52,7 +52,7 @@ export default function RootLayout({
               <RootMotionProvider>
                 <ConvexClientProvider>
                   {children}
-                  <BlogSearch />
+                  {/* <BlogSearch /> */}
                 </ConvexClientProvider>
               </RootMotionProvider>
               <WIP className="text-sm md:text-base mt-4 self-end" />
