@@ -4,6 +4,7 @@ import { PostEmbedder } from "./PostEmbedder";
 
 import { select, confirm } from "@inquirer/prompts";
 import { ContentIndexer } from "./ContentIndexer";
+import esMain from "es-main";
 
 export const runPostChunkEmbeddingPipeline = async function () {
   throw new Error("Not implemented yet");
@@ -87,6 +88,6 @@ export const main = async () => {
   await runPipeline();
 };
 
-if (require.main === module) {
+if (esMain(import.meta)) {
   main();
 }

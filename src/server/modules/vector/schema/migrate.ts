@@ -1,6 +1,7 @@
 import { store } from "~/server/infra/qdrant";
 import { COLLECTIONS } from "./collection-schema";
 import { SimilarityMetric, TSimilarityMetric } from "../rag.config";
+import esMain from "es-main";
 
 export type TIndexConfig = {
   indexName: string;
@@ -58,7 +59,7 @@ export const runMigrations = async (): Promise<void> => {
   }
 };
 
-if (require.main === module) {
+if (esMain(import.meta)) {
   runMigrations().catch((error) => {
     console.error(error);
     process.exit(1);

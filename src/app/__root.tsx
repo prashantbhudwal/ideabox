@@ -4,18 +4,23 @@ import { NotFound } from "src/components/NotFound";
 import { seo } from "src/utils/seo";
 import {
   HeadContent,
-  Link,
   Outlet,
   Scripts,
-  createRootRoute,
+  createRootRouteWithContext,
 } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import * as React from "react";
 import appCss from "~/styles/globals.css?url";
 import { Providers } from "~/components/providers";
 import { Navbar } from "~/components/navbar";
+import { TRPCRouter } from "~/server/routers/_router";
+import { QueryClient } from "@tanstack/react-query";
+import { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
+interface MyRouterContext {
+  queryClient: QueryClient;
 
-export const Route = createRootRoute({
+  trpc: TRPCOptionsProxy<TRPCRouter>;
+}
+export const Route = createRootRouteWithContext<MyRouterContext>()({
   head: () => ({
     meta: [
       {
@@ -92,7 +97,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             {children}
           </Providers>
         </main>
-        <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
       </body>
     </html>

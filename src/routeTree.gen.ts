@@ -18,6 +18,7 @@ import { Route as PathlessLayoutNestedLayoutRouteImport } from './app/_pathlessL
 import { Route as PathlessLayoutNestedLayoutRouteBRouteImport } from './app/_pathlessLayout/_nested-layout/route-b'
 import { Route as PathlessLayoutNestedLayoutRouteARouteImport } from './app/_pathlessLayout/_nested-layout/route-a'
 import { ServerRoute as CustomScriptDotjsServerRouteImport } from './app/customScript[.]js'
+import { ServerRoute as ApiTrpcSplatServerRouteImport } from './app/api.trpc.$'
 
 const rootServerRouteImport = createServerRootRoute()
 
@@ -55,6 +56,11 @@ const PathlessLayoutNestedLayoutRouteARoute =
 const CustomScriptDotjsServerRoute = CustomScriptDotjsServerRouteImport.update({
   id: '/customScript.js',
   path: '/customScript.js',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiTrpcSplatServerRoute = ApiTrpcSplatServerRouteImport.update({
+  id: '/api/trpc/$',
+  path: '/api/trpc/$',
   getParentRoute: () => rootServerRouteImport,
 } as any)
 
@@ -101,24 +107,28 @@ export interface RootRouteChildren {
 }
 export interface FileServerRoutesByFullPath {
   '/customScript.js': typeof CustomScriptDotjsServerRoute
+  '/api/trpc/$': typeof ApiTrpcSplatServerRoute
 }
 export interface FileServerRoutesByTo {
   '/customScript.js': typeof CustomScriptDotjsServerRoute
+  '/api/trpc/$': typeof ApiTrpcSplatServerRoute
 }
 export interface FileServerRoutesById {
   __root__: typeof rootServerRouteImport
   '/customScript.js': typeof CustomScriptDotjsServerRoute
+  '/api/trpc/$': typeof ApiTrpcSplatServerRoute
 }
 export interface FileServerRouteTypes {
   fileServerRoutesByFullPath: FileServerRoutesByFullPath
-  fullPaths: '/customScript.js'
+  fullPaths: '/customScript.js' | '/api/trpc/$'
   fileServerRoutesByTo: FileServerRoutesByTo
-  to: '/customScript.js'
-  id: '__root__' | '/customScript.js'
+  to: '/customScript.js' | '/api/trpc/$'
+  id: '__root__' | '/customScript.js' | '/api/trpc/$'
   fileServerRoutesById: FileServerRoutesById
 }
 export interface RootServerRouteChildren {
   CustomScriptDotjsServerRoute: typeof CustomScriptDotjsServerRoute
+  ApiTrpcSplatServerRoute: typeof ApiTrpcSplatServerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -176,6 +186,13 @@ declare module '@tanstack/react-start/server' {
       preLoaderRoute: typeof CustomScriptDotjsServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
+    '/api/trpc/$': {
+      id: '/api/trpc/$'
+      path: '/api/trpc/$'
+      fullPath: '/api/trpc/$'
+      preLoaderRoute: typeof ApiTrpcSplatServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
   }
 }
 
@@ -219,6 +236,7 @@ export const routeTree = rootRouteImport
   ._addFileTypes<FileRouteTypes>()
 const rootServerRouteChildren: RootServerRouteChildren = {
   CustomScriptDotjsServerRoute: CustomScriptDotjsServerRoute,
+  ApiTrpcSplatServerRoute: ApiTrpcSplatServerRoute,
 }
 export const serverRouteTree = rootServerRouteImport
   ._addFileChildren(rootServerRouteChildren)

@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { getAllPosts } from "./get-all-posts";
 import { TPost } from "~/lib/types/content.types";
+import esMain from "es-main";
 
 /**
  * Combines all blog posts into a single markdown file and generates a TOC file
@@ -198,6 +199,6 @@ export const main = async (): Promise<void> => {
   console.log("Posts combination completed!");
 };
 
-if (require.main === module) {
+if (esMain(import.meta)) {
   main();
 }

@@ -2,18 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import PostList from "~/components/blog/post-list";
 import { Separator } from "~/components/ui/separator";
 import { Button } from "~/components/ui/button";
-import { getAllPosts } from "~/server/modules/post/get-all-posts";
 import { getWeekOfLife } from "~/lib/date";
-import { createServerFn } from "@tanstack/react-start";
 import { seo } from "~/utils/seo";
 import { C } from "~/lib/constants";
-
-export const getData = createServerFn({
-  method: "GET",
-  response: "data",
-}).handler(async () => {
-  return await getAllPosts();
-});
+import { useQuery } from "@tanstack/react-query";
+import { useTRPC } from "~/trpc/react";
 
 export const Route = createFileRoute("/")({
   head: () => {
@@ -36,14 +29,22 @@ export const Route = createFileRoute("/")({
       ],
     };
   },
-  loader: async () => {
-    return await getData();
+  loader: async ({ context }) => {
+    await context.queryClient.prefetchQuery(
+      context.trpc.post.getAll.queryOptions(),
+    );
   },
+
   component: HomePage,
 });
 
 function HomePage() {
-  const posts = Route.useLoaderData();
+  const trpc = useTRPC();
+  const { data: posts } = useQuery(trpc.post.getAll.queryOptions());
+
+  if (!posts) {
+    return null;
+  }
 
   const sorted = [...posts].sort(
     (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),

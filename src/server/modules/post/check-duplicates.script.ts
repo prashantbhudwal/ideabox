@@ -1,5 +1,6 @@
 import { getAllPostFiles, getValidatedPost } from "./utils";
 import path from "path";
+import esMain from "es-main";
 
 const POST_DIR = path.join(process.cwd(), "content/posts");
 
@@ -40,7 +41,7 @@ const checkDuplicatePostsById = async () => {
     `);
 };
 
-if (require.main === module) {
+if (esMain(import.meta)) {
   checkDuplicatePostsById().catch((err) => {
     console.error(err);
     process.exit(1);
