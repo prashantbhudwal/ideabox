@@ -14,6 +14,7 @@ import * as React from "react";
 import appCss from "~/styles/globals.css?url";
 import { Button } from "~/components/ui/button";
 import { Providers } from "~/components/providers";
+import { Navbar } from "~/components/navbar";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -85,21 +86,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
-        <div className="p-2 flex gap-2 text-lg">
-          <Link
-            to="/"
-            activeProps={{
-              className: "font-bold",
-            }}
-            activeOptions={{ exact: true }}
-          >
-            Home
-          </Link>
-          <Button>Button</Button>
-        </div>
-        <hr />
-        <Providers>{children}</Providers>
+      <body className="antialiased mx-4 mt-8 md:mt-10 lg:mt-12 md:mx-auto max-w-full selection:bg-primary selection:text-primary-foreground">
+        <main className="min-w-0 flex flex-col space-y-12 md:space-y-10 lg:space-y-12 xl:space-y-16 2xl:space-y-20 px-2 md:px-4 lg:px-6 xl:px-8 2xl:px-10 pb-4">
+          <Providers>
+            <Navbar className="2xl:mb-36" />
+            {children}
+          </Providers>
+        </main>
         <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
       </body>
