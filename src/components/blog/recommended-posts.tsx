@@ -1,25 +1,42 @@
 import { TPost } from "~/lib/types/content.types";
 import { PostCard } from "./post-card";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
-import { Suspense } from "react";
-import { getAllPosts } from "~/server/modules/post/get-all-posts";
-import { getSimilarPosts } from "~/server/modules/post/get-similar-posts";
+import { useTRPC } from "~/trpc/react";
+import { useQuery } from "@tanstack/react-query";
 
-export function RecommendedPosts({ currentPost }: { currentPost: TPost }) {
+export function RecommendedPosts({ currentPostId }: { currentPostId: string }) {
+  const trpc = useTRPC();
+  const { data: similarPostIds, isLoading } = useQuery(
+    trpc.post.getSimilarPosts.queryOptions({ id: currentPostId }),
+  );
+
+  const { data: allPosts, isLoading: allPostsLoading } = useQuery(
+    trpc.post.getAll.queryOptions(),
+  );
+
+  if (isLoading || allPostsLoading) {
+    return <RecommendedPostsLoading />;
+  }
+
+  if (!similarPostIds || !allPosts) {
+    return null;
+  }
+
   return (
-    <Suspense fallback={<RecommendedPostsLoading />}>
-      <RecommendedPostsContent currentPost={currentPost} />
-    </Suspense>
+    <RecommendedPostsContent
+      similarPostIds={similarPostIds}
+      allPosts={allPosts}
+    />
   );
 }
-async function RecommendedPostsContent({
-  currentPost,
-}: {
-  currentPost: TPost;
-}) {
-  const allPosts = await getAllPosts();
 
-  const similarPostIds = await getSimilarPosts({ id: currentPost.id });
+function RecommendedPostsContent({
+  similarPostIds,
+  allPosts,
+}: {
+  similarPostIds: string[];
+  allPosts: TPost[];
+}) {
   const similarPosts = allPosts.filter((post) =>
     similarPostIds.includes(post.id),
   );

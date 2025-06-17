@@ -3,6 +3,7 @@ import { z } from "zod";
 import { TRPCError } from "@trpc/server";
 import { getAllPosts } from "~/server/modules/post/get-all-posts";
 import { getPostBySlug } from "~/server/modules/post/get-post-by-slug";
+import { getSimilarPosts } from "../modules/post/get-similar-posts";
 
 export const postRouter = createTRPCRouter({
   getSlugs: baseProcedure.query(async () => {
@@ -27,8 +28,10 @@ export const postRouter = createTRPCRouter({
   getAll: baseProcedure.query(async () => {
     return getAllPosts();
   }),
-  // getSimilarPosts: baseProcedure.query(async () => {
-  //   const data = await service.post.getSimilarPosts();
-  //   return data;
-  // }),
+  getSimilarPosts: baseProcedure
+    .input(z.object({ id: z.string() }))
+    .query(async ({ input }) => {
+      const data = await getSimilarPosts({ id: input.id });
+      return data;
+    }),
 });

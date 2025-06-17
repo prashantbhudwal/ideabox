@@ -38,7 +38,7 @@ function RouteComponent() {
       {/* <Chat post={post} /> */}
       <Post post={post} mdxSource={mdxSource} />
       {/* Refactor from rsc to tanstack */}
-      {/* <RecommendedPosts currentPost={post} /> */}
+      <RecommendedPosts currentPostId={post.id} />
       <PostFooter slug={post.slug} title={post.title} />
       <SelectionToolbar />
     </div>
