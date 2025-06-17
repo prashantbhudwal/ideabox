@@ -6,7 +6,13 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build && tsc --noEmit",
-    "start": "node .output/server/index.mjs"
+    "start": "node .output/server/index.mjs",
+    "check": "tsc --noEmit",
+    "shadd": "pnpm dlx shadcn@canary add",
+    "test": "vitest",
+    "test:watch": "vitest watch",
+    "test:coverage": "vitest run --coverage",
+    "up": "pnpm update && pnpm check"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",

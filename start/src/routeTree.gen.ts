@@ -10,13 +10,13 @@
 
 import { createServerRootRoute } from '@tanstack/react-start/server'
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as PathlessLayoutRouteImport } from './routes/_pathlessLayout'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as PathlessLayoutNestedLayoutRouteImport } from './routes/_pathlessLayout/_nested-layout'
-import { Route as PathlessLayoutNestedLayoutRouteBRouteImport } from './routes/_pathlessLayout/_nested-layout/route-b'
-import { Route as PathlessLayoutNestedLayoutRouteARouteImport } from './routes/_pathlessLayout/_nested-layout/route-a'
-import { ServerRoute as CustomScriptDotjsServerRouteImport } from './routes/customScript[.]js'
+import { Route as rootRouteImport } from './app/__root'
+import { Route as PathlessLayoutRouteImport } from './app/_pathlessLayout'
+import { Route as IndexRouteImport } from './app/index'
+import { Route as PathlessLayoutNestedLayoutRouteImport } from './app/_pathlessLayout/_nested-layout'
+import { Route as PathlessLayoutNestedLayoutRouteBRouteImport } from './app/_pathlessLayout/_nested-layout/route-b'
+import { Route as PathlessLayoutNestedLayoutRouteARouteImport } from './app/_pathlessLayout/_nested-layout/route-a'
+import { ServerRoute as CustomScriptDotjsServerRouteImport } from './app/customScript[.]js'
 
 const rootServerRouteImport = createServerRootRoute()
 
