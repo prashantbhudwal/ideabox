@@ -19,6 +19,7 @@ export default defineConfig({
       tsr: {
         routesDirectory: "src/app",
       },
+      target: "vercel",
       prerender: {
         crawlLinks: true,
         enabled: true,
