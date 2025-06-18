@@ -4,8 +4,17 @@ import { CodeBlock } from "../custom/code-block";
 import { postComponents } from "./post-components";
 import { Image } from "~/components/image";
 import { Link } from "@tanstack/react-router";
-import { runSync,  } from "@mdx-js/mdx";
-import * as runtime from "react/jsx-runtime";
+import { run, runSync } from "@mdx-js/mdx";
+// Import appropriate JSX runtime based on environment to support _jsxDEV in development
+import * as jsxRuntime from "react/jsx-runtime";
+import * as jsxDevRuntime from "react/jsx-dev-runtime";
+
+// In development, MDX compiles to `_jsxDEV` calls which live in the dev runtime.
+// They can also call `jsx` & `jsxs`, so we merge both runtimes when developing.
+const runtime: typeof jsxRuntime & typeof jsxDevRuntime = import.meta.env.DEV
+  ? ({ ...jsxRuntime, ...jsxDevRuntime } as typeof jsxRuntime &
+      typeof jsxDevRuntime)
+  : (jsxRuntime as typeof jsxRuntime & typeof jsxDevRuntime);
 
 export interface MdxClientProps {
   compiledSource: string;
@@ -88,35 +97,69 @@ const components = {
  * for rendering MDX content with proper styling
  */
 export function Mdx({ compiledSource, frontmatter }: MdxClientProps) {
-  try {
-    // If there was an error during compilation
-    if (!compiledSource) {
-      return (
-        <div className="text-red-500 p-4 border border-red-300 rounded">
-          <h3 className="font-bold">Error rendering MDX content</h3>
-          <p>No compiled source available</p>
-        </div>
-      );
+  const [Content, setContent] = React.useState<React.ComponentType<any> | null>(
+    null,
+  );
+  const [error, setError] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    let cancelled = false;
+
+    async function evaluate() {
+      if (!compiledSource) {
+        setError("No compiled source available");
+        return;
+      }
+      try {
+        // Prefer synchronous evaluation for performance when possible
+        const syncModule = runSync(compiledSource, {
+          ...runtime,
+          baseUrl: import.meta.url,
+          useMDXComponents: () => components,
+        });
+        if (!cancelled) setContent(() => syncModule.default);
+      } catch (err) {
+        // Fallback to async evaluation for code containing top-level await
+        try {
+          const asyncModule = await run(compiledSource, {
+            ...runtime,
+            baseUrl: import.meta.url,
+            useMDXComponents: () => components,
+          });
+          if (!cancelled) setContent(() => asyncModule.default);
+        } catch (asyncErr) {
+          console.error("Error rendering MDX content:", asyncErr);
+          if (!cancelled)
+            setError(
+              asyncErr instanceof Error ? asyncErr.message : String(asyncErr),
+            );
+        }
+      }
     }
 
-    // Use the MDX runtime to evaluate the compiled source
-    const { default: Content } = runSync(compiledSource, {
-      ...runtime,
-      baseUrl: import.meta.url,
-    });
+    evaluate();
 
-    return (
-      <Prose>
-        <Content components={components} frontmatter={frontmatter} />
-      </Prose>
-    );
-  } catch (error) {
-    console.error("Error rendering MDX content:", error);
+    return () => {
+      cancelled = true;
+    };
+  }, [compiledSource]);
+
+  if (error) {
     return (
       <div className="text-red-500 p-4 border border-red-300 rounded">
         <h3 className="font-bold">Error rendering MDX content</h3>
-        <p>{error instanceof Error ? error.message : String(error)}</p>
+        <p>{error}</p>
       </div>
     );
   }
+
+  if (!Content) {
+    return <p className="text-sm text-muted-foreground">Loading content…</p>;
+  }
+
+  return (
+    <Prose>
+      <Content components={components} frontmatter={frontmatter} />
+    </Prose>
+  );
 }
