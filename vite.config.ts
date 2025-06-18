@@ -8,6 +8,9 @@ export default defineConfig({
   server: {
     port: 1111,
   },
+  ssr: {
+    noExternal: [/react-tweet/],
+  },
   plugins: [
     tsConfigPaths({
       projects: ["./tsconfig.json"],
@@ -24,8 +27,6 @@ export default defineConfig({
     }),
     mdx({
       remarkPlugins: [remarkGfm],
-      format: "mdx",
-      providerImportSource: "@mdx-js/react",
       development: process.env.NODE_ENV === "development",
     }),
   ],
