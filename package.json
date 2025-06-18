@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && tsc --noEmit",
+    "build": "content-collections build && vite build && tsc --noEmit",
     "start": "node .output/server/index.mjs",
     "check": "tsc --noEmit",
     "shadd": "pnpm dlx shadcn@canary add",
