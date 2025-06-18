@@ -1,16 +1,9 @@
 import { TPost } from "~/lib/types/content.types";
 import { motion } from "motion/react";
 import { useEffect } from "react";
-import { Mdx, MdxClientProps } from "./mdx/mdx.client";
-import { ClientOnly } from "@tanstack/react-router";
+import { Mdx } from "./mdx/mdx.client";
 
-export function Post({
-  post,
-  mdxSource,
-}: {
-  post: TPost;
-  mdxSource: MdxClientProps;
-}) {
+export function Post({ mdxCode, post }: { mdxCode: string; post: TPost }) {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
@@ -29,12 +22,9 @@ export function Post({
       className="max-w-3xl py-6 sm:py-10"
     >
       <header className="mb-6 sm:mb-8">
-        <motion.div
-          layoutId={`container-${post.slug}`}
-          className="flex flex-col"
-        >
+        <motion.div layoutId={`container-${mdxCode}`} className="flex flex-col">
           <motion.h1
-            layoutId={`title-${post.slug}`}
+            layoutId={`title-${mdxCode}`}
             transition={{
               type: "spring",
               stiffness: 200,
@@ -75,9 +65,7 @@ export function Post({
         }}
         suppressHydrationWarning
       >
-        <ClientOnly>
-          <Mdx {...mdxSource} />
-        </ClientOnly>
+        <Mdx mdxCode={mdxCode} />
       </motion.div>
     </motion.article>
   );

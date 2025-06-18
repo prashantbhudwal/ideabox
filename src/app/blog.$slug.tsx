@@ -3,41 +3,37 @@ import { PostFooter } from "~/components/blog/post-footer";
 import { RecommendedPosts } from "~/components/blog/recommended-posts";
 import { SelectionToolbar } from "~/components/pill";
 import { Post } from "~/components/blog/post";
-import { createServerFn } from "@tanstack/react-start";
-import { getPostBySlug } from "~/server/modules/post/get-post-by-slug";
-import { processMdxContent } from "~/components/blog/mdx/mdx.server";
-
-const getPosts = createServerFn({
-  type: "static",
-  method: "GET",
-})
-  .validator((data: string) => {
-    if (typeof data !== "string") {
-      throw new Error("Invalid slug");
-    }
-    return data;
-  })
-  .handler(async ({ data }) => {
-    const post = await getPostBySlug(data);
-    const mdxSource = await processMdxContent({ data: post.content });
-    return { post, mdxSource };
-  });
+import { allPosts } from "content-collections";
+import { TPost } from "~/lib/types/content.types";
 
 export const Route = createFileRoute("/blog/$slug")({
   component: RouteComponent,
-  loader: async ({ params }) => {
-    return getPosts({ data: params.slug });
+  beforeLoad: () => ({
+    allPosts,
+  }),
+  loader: async ({ params, context: { allPosts } }) => {
+    const slug = params.slug;
+    const post = allPosts.find((post) => post.slug === slug);
+    if (!post) {
+      throw new Error("Post not found");
+    }
+    const { _meta, mdx, ...postWithoutMeta } = post;
+    return {
+      post: { ...postWithoutMeta } as TPost,
+      mdx,
+    };
   },
 });
 
 function RouteComponent() {
-  console.log("🔴", Route.useLoaderData());
-  const { post, mdxSource } = Route.useLoaderData();
+  const { post, mdx } = Route.useLoaderData();
+  if (!post) {
+    return <div>Post not found</div>;
+  }
   return (
     <div className="flex flex-col items-center gap-8">
       {/* <Chat post={post} /> */}
-      <Post post={post} mdxSource={mdxSource} />
-      {/* Refactor from rsc to tanstack */}
+      <Post mdxCode={mdx} post={post} />
       <RecommendedPosts currentPostId={post.id} />
       <PostFooter slug={post.slug} title={post.title} />
       <SelectionToolbar />

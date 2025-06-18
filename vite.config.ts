@@ -1,8 +1,7 @@
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
-import remarkGfm from "remark-gfm";
-import mdx from "@mdx-js/rollup";
+import contentCollections from "@content-collections/vinxi";
 
 export default defineConfig({
   server: {
@@ -12,6 +11,7 @@ export default defineConfig({
     noExternal: [/react-tweet/],
   },
   plugins: [
+    contentCollections(),
     tsConfigPaths({
       projects: ["./tsconfig.json"],
     }),
@@ -24,10 +24,6 @@ export default defineConfig({
         enabled: true,
         filter: (route) => route.path.startsWith("/blog/"),
       },
-    }),
-    mdx({
-      remarkPlugins: [remarkGfm],
-      development: process.env.NODE_ENV === "development",
     }),
   ],
 });

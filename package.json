@@ -15,7 +15,8 @@
     "up": "pnpm update && pnpm check",
     "build:search-index": "pnpm tsx src/server/modules/search/build-search-index.script.ts",
     "post:check-duplicates": "pnpm tsx src/server/modules/post/check-duplicates.script.ts",
-    "post:create": "pnpm tsx src/lib/scripts/create-post.ts"
+    "post:create": "pnpm tsx src/lib/scripts/create-post.ts",
+    "build:collections": "pnpm content-collections build"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.2.19",
@@ -143,6 +144,10 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@content-collections/cli": "^0.1.6",
+    "@content-collections/core": "^0.9.1",
+    "@content-collections/mdx": "^0.2.2",
+    "@content-collections/vinxi": "^0.1.1",
     "@tailwindcss/postcss": "^4.1.8",
     "@tailwindcss/typography": "^0.5.16",
     "@tanstack/react-query-devtools": "^5.80.7",
