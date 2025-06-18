@@ -1,4 +1,3 @@
-import { serverPaths } from "~/server/utils/server-paths";
 import fs from "node:fs";
 import path from "node:path";
 import { getAllPosts } from "./get-all-posts";

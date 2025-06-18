@@ -4,12 +4,9 @@ import { TRPCError } from "@trpc/server";
 import { getAllPosts } from "~/server/modules/post/get-all-posts";
 import { getPostBySlug } from "~/server/modules/post/get-post-by-slug";
 import { getSimilarPosts } from "../modules/post/get-similar-posts";
+import { allPosts } from "content-collections";
 
 export const postRouter = createTRPCRouter({
-  getSlugs: baseProcedure.query(async () => {
-    return getAllPosts();
-  }),
-
   getBySlug: baseProcedure
     .input(z.object({ slug: z.string() }))
     .query(async ({ input }) => {

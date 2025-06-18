@@ -1,14 +1,16 @@
-import { serverPaths } from "~/server/utils/server-paths";
 import { cache } from "react";
 import { ContentType, TPost } from "~/lib/types/content.types";
-import { getValidatedPost } from "./utils";
+import { allPosts } from "content-collections";
 
 export const getPostBySlug = cache(async (slug: string): Promise<TPost> => {
-  const fullPath = serverPaths.file.postMdx(slug);
-  const post = await getValidatedPost({ file: fullPath });
+  const post = allPosts.find((post) => post.slug === slug);
+
+  if (!post) {
+    throw new Error(`Post with slug '${slug}' not found`);
+  }
+
   return {
+    ...post,
     type: ContentType.POST,
-    ...post.metadata,
-    content: post.content,
   };
 });
