@@ -10,21 +10,24 @@ import { useTRPC } from "~/trpc/react";
 
 export const Route = createFileRoute("/")({
   head: () => {
+    const imagePath = `${C.url}/og-ashant.png`;
+    console.log("🟠imagePath", imagePath);
     return {
       title: "prashant",
       meta: seo({
         title: "prashant",
         description: `Notes on the world, software and life. Week ${getWeekOfLife()}.`,
         keywords: "prashant, blog, notes, software, life",
-        image: `${C.base}/og-image-home.webp`,
+        image: imagePath,
+        imageType: "image/png",
       }),
       links: [
-        { rel: "canonical", href: "/" },
+        { rel: "canonical", href: C.url }, // absolute URL
 
         {
           rel: "alternate",
           type: "application/rss+xml",
-          href: `${C.base}/api/feed`,
+          href: `${C.url}/api/feed`,
         },
       ],
     };
