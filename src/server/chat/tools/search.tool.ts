@@ -1,4 +1,4 @@
-import { getSearch } from "~/server/modules/search/mini-search";
+import { getSearchCached } from "~/server/modules/search/get-search-cached";
 import { createTool } from "@mastra/core";
 import { z } from "zod";
 
@@ -30,7 +30,7 @@ export const keywordSearchPostsTOOL = createTool({
     }),
   ),
   execute: async ({ context }) => {
-    const { miniSearch } = await getSearch();
+    const { miniSearch } = await getSearchCached();
     const queries = context.queries;
     const searches = queries.map((query) => miniSearch.search(query));
 
@@ -66,7 +66,7 @@ export const fetchPostsTOOL = createTool({
     }),
   ),
   execute: async ({ context }) => {
-    const { miniSearch } = await getSearch();
+    const { miniSearch } = await getSearchCached();
     const results = context.id.map((id) => miniSearch.search(id)[0]);
 
     const formattedResults = results.map((result) => ({
