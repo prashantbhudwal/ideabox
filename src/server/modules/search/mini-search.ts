@@ -25,7 +25,7 @@ const validateAsset = (indexFile: string | undefined): void => {
   }
 };
 
-const loadSearchIndex = (): typeof global.__SEARCH => {
+const loadSearchIndex = async (): Promise<typeof global.__SEARCH> => {
   const PUBLIC_DIR = serverPaths.dir.public;
   const indexFile = readdirSync(PUBLIC_DIR).find((f) =>
     f.startsWith("minisearch-index_"),
@@ -52,13 +52,13 @@ const loadSearchIndex = (): typeof global.__SEARCH => {
   }
 };
 
-export const getSearch = (): {
+export const getSearch = async (): Promise<{
   miniSearch: MiniSearch<TPost>;
   hash: string;
-} => {
+}> => {
   // Initialize if not already loaded
   if (!global.__SEARCH) {
-    global.__SEARCH = loadSearchIndex();
+    global.__SEARCH = await loadSearchIndex();
   }
 
   // Safe to assert non-null since we just initialized if needed

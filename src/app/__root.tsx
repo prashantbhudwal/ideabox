@@ -15,6 +15,7 @@ import { Navbar } from "~/components/navbar";
 import { TRPCRouter } from "~/server/routers/_router";
 import { QueryClient } from "@tanstack/react-query";
 import { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
+import { BlogSearch } from "~/components/search/blog-search";
 interface MyRouterContext {
   queryClient: QueryClient;
 
@@ -95,6 +96,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           <Providers>
             <Navbar className="2xl:mb-36" />
             {children}
+            <BlogSearch />
           </Providers>
         </main>
         <Scripts />

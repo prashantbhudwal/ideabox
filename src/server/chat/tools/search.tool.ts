@@ -30,7 +30,7 @@ export const keywordSearchPostsTOOL = createTool({
     }),
   ),
   execute: async ({ context }) => {
-    const { miniSearch } = getSearch();
+    const { miniSearch } = await getSearch();
     const queries = context.queries;
     const searches = queries.map((query) => miniSearch.search(query));
 
@@ -66,7 +66,7 @@ export const fetchPostsTOOL = createTool({
     }),
   ),
   execute: async ({ context }) => {
-    const { miniSearch } = getSearch();
+    const { miniSearch } = await getSearch();
     const results = context.id.map((id) => miniSearch.search(id)[0]);
 
     const formattedResults = results.map((result) => ({

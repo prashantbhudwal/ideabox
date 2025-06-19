@@ -61,7 +61,7 @@ export function ActionIsland({ className }: { className?: string }) {
           </Link>
         </Button>
       ))}
-      {/* <ActionIslandButtons /> */}
+      <ActionIslandButtons />
     </ul>
   );
 }
