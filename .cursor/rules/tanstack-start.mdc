@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+This project is made with tanstack start - a full stack typescript framework based on tanstack router, vite, and vinxi. Tanstack Start is a new framework with a changing api. It provides a brand new data fetching and caching pattern. So, you must use the web or start docs if you are not sure about how to do something.
