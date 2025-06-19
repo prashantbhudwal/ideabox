@@ -136,5 +136,3 @@ export const Image: React.FC<SimpleImageProps> = ({
     />
   );
 };
-
-export default Image;
