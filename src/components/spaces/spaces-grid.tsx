@@ -36,8 +36,7 @@ export function SpacesGrid() {
                     className="rounded object-cover"
                     src={link.path.images.spaces({ imgName: space.heroImage })}
                     alt=""
-                    width={500}
-                    height={500}
+                    fill
                   />
                 </div>
                 <div className="absolute left-2 bottom-2 w-full  p-2 rounded">
