@@ -1,5 +1,5 @@
 import { Agent, run, RunContext, Tool, tool } from "@openai/agents";
-import wiki from "wikipedia";
+// import wiki from "wikipedia";
 import OpenAI from "openai";
 import dotenv from "dotenv";
 import { setOpenAIAPI, setDefaultOpenAIClient } from "@openai/agents";
@@ -65,6 +65,8 @@ const wikiSearchTool = tool({
   parameters: z.object({ query: z.string() }),
   async execute({ query }) {
     console.log("searching for", query);
+    // Dynamic import to avoid Vercel module resolution issues
+    const wiki = await import("wikipedia").then((m) => m.default);
     const res = await wiki.search(query);
     const results = res.results;
     console.log("search results", results);
@@ -78,6 +80,8 @@ const wikiPageSearchTool = tool({
   parameters: z.object({ pageId: z.string() }),
   async execute({ pageId }) {
     console.log("searching for", pageId);
+    // Dynamic import to avoid Vercel module resolution issues
+    const wiki = await import("wikipedia").then((m) => m.default);
     const page = await wiki.page(pageId);
     console.log("search results", page);
     return page;

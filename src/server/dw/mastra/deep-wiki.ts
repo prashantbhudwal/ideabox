@@ -69,8 +69,8 @@ import { Agent } from "@mastra/core/agent";
 import { gemini } from "~/lib/models";
 import dedent from "dedent";
 import { createTool } from "@mastra/core";
-import wiki from "wikipedia";
-import type { Page } from "wikipedia";
+// import wiki from "wikipedia";
+// import type { Page } from "wikipedia";
 import { Memory } from "@mastra/memory";
 import { LibSQLStore } from "@mastra/libsql";
 import { to } from "await-to-js";
@@ -134,6 +134,9 @@ const wikiSearchTool = createTool({
   outputSchema: Z_SearchResultSchema,
   execute: async ({ context }) => {
     const { queries } = context;
+
+    // Dynamic import to avoid Vercel module resolution issues
+    const wiki = await import("wikipedia").then((m) => m.default);
 
     const searchPromises = queries.map(async (q) => {
       const [err, raw] = await to(wiki.search(q, { limit: 5 }));
@@ -219,6 +222,10 @@ const getWikiPageTOOL = createTool({
     const pageIds = context.pageIds;
 
     console.log(color.green("Page IDs for content fetching:"), pageIds);
+
+    // Dynamic import to avoid Vercel module resolution issues
+    const wiki = await import("wikipedia").then((m) => m.default);
+    type Page = Awaited<ReturnType<typeof wiki.page>>;
 
     const pagePromises = pageIds.map((pageId) => wiki.page(pageId));
     const [pagesErr, pages] = await to(Promise.all(pagePromises));

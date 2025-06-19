@@ -8,7 +8,7 @@ export default defineConfig({
     port: 1111,
   },
   ssr: {
-    noExternal: [/react-tweet/, "wikipedia"],
+    noExternal: [/react-tweet/, "wikipedia", /^wikipedia/, "@types/wikipedia"],
     external: ["@mastra/*"],
   },
   plugins: [
