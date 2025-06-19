@@ -15,35 +15,44 @@ export const seo = ({
   imageType?: "image/webp" | "image/png" | "image/jpeg";
 }) => {
   const tags = [
+    // Basic
     { title },
     { name: "description", content: description },
     { name: "keywords", content: keywords },
+
+    // Twitter
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
     { name: "twitter:creator", content: C.xHandle },
     { name: "twitter:site", content: C.xHandle },
-    { name: "og:title", content: title },
-    { name: "og:description", content: description },
-    { name: "og:type", content: type },
-    { name: "article:author", content: C.firstName },
-    { name: "og:url", content: C.base },
-    { name: "og:site_name", content: "ashant.in" },
-    { name: "og:locale", content: "en_US" },
+
+    // Open Graph / Article (must use `property` for FB & LinkedIn)
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:type", content: type },
+    { property: "article:author", content: C.firstName },
+    { property: "og:url", content: C.base },
+    { property: "og:site_name", content: "ashant.in" },
+    { property: "og:locale", content: "en_US" },
+
+    // Robots directives
     { name: "robots", content: "index,follow" },
     {
       name: "googlebot",
       content:
         "index,follow,max-video-preview:-1,max-image-preview:large,max-snippet:-1",
     },
+
+    // Social image (adds only if `image` provided)
     ...(image
       ? [
           { name: "twitter:image", content: image },
           { name: "twitter:card", content: "summary_large_image" },
-          { name: "og:image", content: image },
-          { name: "og:image:width", content: "1200" },
-          { name: "og:image:height", content: "630" },
-          { name: "og:image:alt", content: title },
-          { name: "og:image:type", content: imageType },
+          { property: "og:image", content: image },
+          { property: "og:image:width", content: "1200" },
+          { property: "og:image:height", content: "630" },
+          { property: "og:image:alt", content: title },
+          { property: "og:image:type", content: imageType },
         ]
       : []),
   ];

@@ -45,7 +45,7 @@ export const Route = createFileRoute("/blog/$slug")({
         type: "article",
         imageType: "image/webp",
       }),
-      links: [{ rel: "canonical", href: `${C.base}/blog/${post.slug}` }],
+      links: [{ rel: "canonical", href: `${C.base}blog/${post.slug}` }],
     };
   },
 });
