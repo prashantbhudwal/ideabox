@@ -19,10 +19,12 @@ const isMastraPlayground = isDev && cwd.includes(C.DIR.MASTRA_PLAYGROUND);
 const basePath = isMastraPlayground ? findProjectRoot(cwd) : cwd;
 
 export const serverPaths = {
+  cwd: basePath,
   dir: {
     posts: path.join(basePath, C.DIR.POSTS),
     drafts: path.join(basePath, C.DIR.DRAFTS),
     public: path.join(basePath, C.DIR.PUBLIC),
+    searchGenerated: path.join(basePath, "src/server/modules/search/generated"),
   },
   file: {
     postMdx: (slug: string) =>

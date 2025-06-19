@@ -11,34 +11,20 @@ import { serverPaths } from "~/server/utils/server-paths";
 import esMain from "es-main";
 
 // Constants
-const PUBLIC_DIR = serverPaths.dir.public;
+const INDEX_DIR = serverPaths.dir.searchGenerated;
 
 const saveIndex = async (index: MiniSearch<TPost>) => {
   try {
     const indexJson = index.toJSON();
     const serialized = JSON.stringify(indexJson);
-    const hash = crypto
-      .createHash("sha256")
-      .update(serialized)
-      .digest("hex")
-      .slice(0, 8);
 
-    await fs.mkdir(PUBLIC_DIR, { recursive: true });
+    await fs.mkdir(INDEX_DIR, { recursive: true });
 
-    const oldFiles = await fg([
-      path.join(PUBLIC_DIR, "minisearch-index_*.json"),
-    ]);
-    await Promise.all(oldFiles.map((f) => fs.unlink(f)));
+    const targetFile = path.join(INDEX_DIR, "minisearch-index.json");
+    await fs.writeFile(targetFile, serialized);
 
-    await fs.writeFile(
-      path.join(PUBLIC_DIR, `minisearch-index_${hash}.json`),
-      serialized,
-    );
-
-    console.log(`✅ MiniSearch index saved successfully
-  • Index saved to ${path.join(PUBLIC_DIR, `minisearch-index_${hash}.json`)}
-  • Hash: ${hash}
-  • Index size: ${(serialized.length / 1024).toFixed(1)} KB`);
+    console.log(`✅ MiniSearch index saved to ${targetFile}
+      • Size: ${(serialized.length / 1024).toFixed(1)} KB`);
 
     return index;
   } catch (error) {
