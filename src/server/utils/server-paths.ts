@@ -1,6 +1,6 @@
 import path from "path";
 import { existsSync } from "fs";
-import { isDev } from "~/lib/utils";
+import { isMastraPlayground } from "~/lib/utils";
 import { C } from "~/lib/constants";
 
 const findProjectRoot = (startPath: string): string => {
@@ -15,7 +15,6 @@ const findProjectRoot = (startPath: string): string => {
 };
 
 const cwd = process.cwd();
-const isMastraPlayground = isDev && cwd.includes(C.DIR.MASTRA_PLAYGROUND);
 const basePath = isMastraPlayground ? findProjectRoot(cwd) : cwd;
 
 export const serverPaths = {

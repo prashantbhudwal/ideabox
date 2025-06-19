@@ -8,8 +8,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 export const isDev = process.env.NODE_ENV === "development";
-export const isMastraPlayground =
-  isDev && cwd.includes(C.DIR.MASTRA_PLAYGROUND);
+export const isMastraPlayground = process.env.MASTRA_DEV;
 
 const simulateCall = async (duration = 1000, { failureRate = 0 } = {}) => {
   if (!isDev) return;
