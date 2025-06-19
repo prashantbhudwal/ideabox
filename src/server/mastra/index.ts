@@ -1,6 +1,7 @@
 import { Mastra } from "@mastra/core/mastra";
 import { createLogger } from "@mastra/core/logger";
 import { LibSQLStore } from "@mastra/libsql";
+import { isDev } from "~/lib/utils";
 
 import {
   travelAgentWorkflow,
@@ -26,9 +27,11 @@ export const mastra = new Mastra({
     blogAgent,
     reflectionAgent,
   },
-  storage: new LibSQLStore({
-    url: "file:../../memory.db",
-  }),
+  storage: isDev
+    ? new LibSQLStore({
+        url: "file:../../memory.db",
+      })
+    : undefined,
   workflows: {
     travelAgentWorkflow,
     researchWorkflow,

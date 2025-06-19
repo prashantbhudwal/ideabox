@@ -75,6 +75,7 @@ import { Memory } from "@mastra/memory";
 import { LibSQLStore } from "@mastra/libsql";
 import { to } from "await-to-js";
 import color from "picocolors";
+import { isDev } from "~/lib/utils";
 
 const Z_SearchResultSchema = z.object({
   results: z.array(
@@ -298,11 +299,14 @@ export const researchWorkflow = createWorkflow({
   })
   // .then(reportGenerationStep)
   .commit();
-const memory = new Memory({
-  storage: new LibSQLStore({
-    url: "file:../mastra.db",
-  }),
-});
+
+const memory = isDev
+  ? new Memory({
+      storage: new LibSQLStore({
+        url: "file:../mastra.db",
+      }),
+    })
+  : undefined;
 
 export const researchOrchestratorAgent = new Agent({
   name: "Deep Wiki",
