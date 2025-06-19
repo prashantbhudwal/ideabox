@@ -11,17 +11,35 @@
 import { createServerRootRoute } from '@tanstack/react-start/server'
 
 import { Route as rootRouteImport } from './app/__root'
+import { Route as SpacesRouteImport } from './app/spaces'
 import { Route as IndexRouteImport } from './app/index'
+import { Route as SpacesIndexRouteImport } from './app/spaces.index'
+import { Route as SpacesSlugRouteImport } from './app/spaces.$slug'
 import { Route as BlogSlugRouteImport } from './app/blog.$slug'
 import { ServerRoute as CustomScriptDotjsServerRouteImport } from './app/customScript[.]js'
 import { ServerRoute as ApiTrpcSplatServerRouteImport } from './app/api.trpc.$'
 
 const rootServerRouteImport = createServerRootRoute()
 
+const SpacesRoute = SpacesRouteImport.update({
+  id: '/spaces',
+  path: '/spaces',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const SpacesIndexRoute = SpacesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SpacesRoute,
+} as any)
+const SpacesSlugRoute = SpacesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => SpacesRoute,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/blog/$slug',
@@ -41,27 +59,42 @@ const ApiTrpcSplatServerRoute = ApiTrpcSplatServerRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/spaces': typeof SpacesRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
+  '/spaces/$slug': typeof SpacesSlugRoute
+  '/spaces/': typeof SpacesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/spaces/$slug': typeof SpacesSlugRoute
+  '/spaces': typeof SpacesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/spaces': typeof SpacesRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
+  '/spaces/$slug': typeof SpacesSlugRoute
+  '/spaces/': typeof SpacesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog/$slug'
+  fullPaths: '/' | '/spaces' | '/blog/$slug' | '/spaces/$slug' | '/spaces/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog/$slug'
-  id: '__root__' | '/' | '/blog/$slug'
+  to: '/' | '/blog/$slug' | '/spaces/$slug' | '/spaces'
+  id:
+    | '__root__'
+    | '/'
+    | '/spaces'
+    | '/blog/$slug'
+    | '/spaces/$slug'
+    | '/spaces/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SpacesRoute: typeof SpacesRouteWithChildren
   BlogSlugRoute: typeof BlogSlugRoute
 }
 export interface FileServerRoutesByFullPath {
@@ -92,12 +125,33 @@ export interface RootServerRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/spaces': {
+      id: '/spaces'
+      path: '/spaces'
+      fullPath: '/spaces'
+      preLoaderRoute: typeof SpacesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/spaces/': {
+      id: '/spaces/'
+      path: '/'
+      fullPath: '/spaces/'
+      preLoaderRoute: typeof SpacesIndexRouteImport
+      parentRoute: typeof SpacesRoute
+    }
+    '/spaces/$slug': {
+      id: '/spaces/$slug'
+      path: '/$slug'
+      fullPath: '/spaces/$slug'
+      preLoaderRoute: typeof SpacesSlugRouteImport
+      parentRoute: typeof SpacesRoute
     }
     '/blog/$slug': {
       id: '/blog/$slug'
@@ -127,8 +181,22 @@ declare module '@tanstack/react-start/server' {
   }
 }
 
+interface SpacesRouteChildren {
+  SpacesSlugRoute: typeof SpacesSlugRoute
+  SpacesIndexRoute: typeof SpacesIndexRoute
+}
+
+const SpacesRouteChildren: SpacesRouteChildren = {
+  SpacesSlugRoute: SpacesSlugRoute,
+  SpacesIndexRoute: SpacesIndexRoute,
+}
+
+const SpacesRouteWithChildren =
+  SpacesRoute._addFileChildren(SpacesRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SpacesRoute: SpacesRouteWithChildren,
   BlogSlugRoute: BlogSlugRoute,
 }
 export const routeTree = rootRouteImport
