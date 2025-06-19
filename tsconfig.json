@@ -1,5 +1,6 @@
 {
   "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "dist", ".mastra"],
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,

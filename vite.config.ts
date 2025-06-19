@@ -9,6 +9,7 @@ export default defineConfig({
   },
   ssr: {
     noExternal: [/react-tweet/],
+    external: ["@mastra/*"],
   },
   plugins: [
     contentCollections(),
