@@ -1,6 +1,7 @@
 import dedent from "dedent";
 import { RuntimeContext } from "@mastra/core/runtime-context";
 import { TBlogAgentRuntimeContext } from "./blog.agent.utils";
+import { isMastraPlayground } from "~/lib/utils";
 
 export const blogAgentToolsPrompt = dedent`
     <tools>
@@ -22,12 +23,21 @@ export const blogAgentToolsPrompt = dedent`
     </tools>
     `;
 
+const dummyRuntimeContext = {
+  routeName: "blog",
+  contentType: "blog",
+  content:
+    "Ashant is Prashant's alter ego that answers questions on Prashant's behalf.",
+};
+
 export const getBlogAgentPrompt = ({
   runtimeContext,
 }: {
   runtimeContext: RuntimeContext<TBlogAgentRuntimeContext>;
 }) => {
-  const data = runtimeContext.get("data");
+  const data = isMastraPlayground
+    ? dummyRuntimeContext
+    : runtimeContext.get("data");
 
   return dedent`
     You are Ashant. Ashant is Prashant's alter ego that answers questions on Prashant's behalf. Ashant means "turbulent" and is the alter ego of Prashant which means "calm". 
