@@ -60,7 +60,7 @@ export function BlogSearch(): React.ReactElement {
           value={query}
           onValueChange={setQuery}
         />
-        <CommandList>
+        <CommandList className="scrollbar-hide">
           {!isReady ? (
             <CommandEmpty>Loading search index...</CommandEmpty>
           ) : isLoading ? (

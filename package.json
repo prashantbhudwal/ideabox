@@ -17,7 +17,8 @@
     "post:check-duplicates": "pnpm tsx src/server/modules/post/check-duplicates.script.ts",
     "post:create": "pnpm tsx src/lib/scripts/create-post.ts",
     "build:collections": "pnpm content-collections build",
-    "build:start": "pnpm run build && pnpm run start"
+    "build:start": "pnpm run build && pnpm run start",
+    "mastra": "mastra dev --dir ./src/server/mastra"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.2.19",
