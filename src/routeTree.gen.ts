@@ -19,6 +19,7 @@ import { Route as SpacesSlugRouteImport } from './app/spaces.$slug'
 import { Route as BlogSlugRouteImport } from './app/blog.$slug'
 import { ServerRoute as CustomScriptDotjsServerRouteImport } from './app/customScript[.]js'
 import { ServerRoute as ApiTrpcSplatServerRouteImport } from './app/api.trpc.$'
+import { ServerRoute as ApiChatBlogServerRouteImport } from './app/api.chat.blog'
 
 const rootServerRouteImport = createServerRootRoute()
 
@@ -60,6 +61,11 @@ const CustomScriptDotjsServerRoute = CustomScriptDotjsServerRouteImport.update({
 const ApiTrpcSplatServerRoute = ApiTrpcSplatServerRouteImport.update({
   id: '/api/trpc/$',
   path: '/api/trpc/$',
+  getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiChatBlogServerRoute = ApiChatBlogServerRouteImport.update({
+  id: '/api/chat/blog',
+  path: '/api/chat/blog',
   getParentRoute: () => rootServerRouteImport,
 } as any)
 
@@ -116,27 +122,31 @@ export interface RootRouteChildren {
 }
 export interface FileServerRoutesByFullPath {
   '/customScript.js': typeof CustomScriptDotjsServerRoute
+  '/api/chat/blog': typeof ApiChatBlogServerRoute
   '/api/trpc/$': typeof ApiTrpcSplatServerRoute
 }
 export interface FileServerRoutesByTo {
   '/customScript.js': typeof CustomScriptDotjsServerRoute
+  '/api/chat/blog': typeof ApiChatBlogServerRoute
   '/api/trpc/$': typeof ApiTrpcSplatServerRoute
 }
 export interface FileServerRoutesById {
   __root__: typeof rootServerRouteImport
   '/customScript.js': typeof CustomScriptDotjsServerRoute
+  '/api/chat/blog': typeof ApiChatBlogServerRoute
   '/api/trpc/$': typeof ApiTrpcSplatServerRoute
 }
 export interface FileServerRouteTypes {
   fileServerRoutesByFullPath: FileServerRoutesByFullPath
-  fullPaths: '/customScript.js' | '/api/trpc/$'
+  fullPaths: '/customScript.js' | '/api/chat/blog' | '/api/trpc/$'
   fileServerRoutesByTo: FileServerRoutesByTo
-  to: '/customScript.js' | '/api/trpc/$'
-  id: '__root__' | '/customScript.js' | '/api/trpc/$'
+  to: '/customScript.js' | '/api/chat/blog' | '/api/trpc/$'
+  id: '__root__' | '/customScript.js' | '/api/chat/blog' | '/api/trpc/$'
   fileServerRoutesById: FileServerRoutesById
 }
 export interface RootServerRouteChildren {
   CustomScriptDotjsServerRoute: typeof CustomScriptDotjsServerRoute
+  ApiChatBlogServerRoute: typeof ApiChatBlogServerRoute
   ApiTrpcSplatServerRoute: typeof ApiTrpcSplatServerRoute
 }
 
@@ -202,6 +212,13 @@ declare module '@tanstack/react-start/server' {
       preLoaderRoute: typeof ApiTrpcSplatServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
+    '/api/chat/blog': {
+      id: '/api/chat/blog'
+      path: '/api/chat/blog'
+      fullPath: '/api/chat/blog'
+      preLoaderRoute: typeof ApiChatBlogServerRouteImport
+      parentRoute: typeof rootServerRouteImport
+    }
   }
 }
 
@@ -229,6 +246,7 @@ export const routeTree = rootRouteImport
   ._addFileTypes<FileRouteTypes>()
 const rootServerRouteChildren: RootServerRouteChildren = {
   CustomScriptDotjsServerRoute: CustomScriptDotjsServerRoute,
+  ApiChatBlogServerRoute: ApiChatBlogServerRoute,
   ApiTrpcSplatServerRoute: ApiTrpcSplatServerRoute,
 }
 export const serverRouteTree = rootServerRouteImport

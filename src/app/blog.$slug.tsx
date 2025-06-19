@@ -5,6 +5,7 @@ import { SelectionToolbar } from "~/components/pill";
 import { Post } from "~/components/blog/post";
 import { allPosts } from "content-collections";
 import { TPost } from "~/lib/types/content.types";
+import { Chat } from "~/components/chat/blog-agent/chat";
 
 export const Route = createFileRoute("/blog/$slug")({
   component: RouteComponent,
@@ -32,7 +33,7 @@ function RouteComponent() {
   }
   return (
     <div className="flex flex-col items-center gap-8">
-      {/* <Chat post={post} /> */}
+      <Chat post={post} />
       <Post mdxCode={mdx} post={post} />
       <RecommendedPosts currentPostId={post.id} />
       <PostFooter slug={post.slug} title={post.title} />

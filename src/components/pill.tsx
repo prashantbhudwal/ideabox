@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 import { Button } from "./ui/button";
 import { FaCopy } from "react-icons/fa6";
 import { useAtomValue } from "jotai";
-import { chatPanelAtom } from "./chat/chat-panel.atom";
+import { chatPanelAtom } from "./chat/blog-agent/chat-panel.atom";
 
 export function SelectionToolbar() {
   const [rect, setRect] = useState<DOMRect | null>(null);
