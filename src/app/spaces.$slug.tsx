@@ -4,15 +4,13 @@ import { getSpaceBySlug } from "~/components/spaces/spaces";
 export const Route = createFileRoute("/spaces/$slug")({
   component: RouteComponent,
   loader: async ({ params }) => {
-    const space = getSpaceBySlug({ slug: params.slug });
-    return {
-      space,
-    };
+    return params.slug;
   },
 });
 
 function RouteComponent() {
-  const { space } = Route.useLoaderData();
+  const slug = Route.useLoaderData();
+  const space = getSpaceBySlug({ slug });
   if (!space) {
     return <div>Space not found</div>;
   }
