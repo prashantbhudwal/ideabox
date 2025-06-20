@@ -5,8 +5,7 @@ import { Button } from "~/components/ui/button";
 import { getWeekOfLife } from "~/lib/date";
 import { seo } from "~/utils/seo";
 import { C } from "~/lib/constants";
-import { useQuery } from "@tanstack/react-query";
-import { useTRPC } from "~/trpc/react";
+import { getPostsServerFn } from "~/server/modules/post/get-all-posts.server";
 
 export const Route = createFileRoute("/")({
   head: () => {
@@ -32,22 +31,15 @@ export const Route = createFileRoute("/")({
       ],
     };
   },
-  loader: async ({ context }) => {
-    await context.queryClient.prefetchQuery(
-      context.trpc.post.getAll.queryOptions(),
-    );
+  loader: async () => {
+    const posts = await getPostsServerFn();
+    return { posts };
   },
-
   component: HomePage,
 });
 
 function HomePage() {
-  const trpc = useTRPC();
-  const { data: posts } = useQuery(trpc.post.getAll.queryOptions());
-
-  if (!posts) {
-    return null;
-  }
+  const { posts } = Route.useLoaderData();
 
   const sorted = [...posts].sort(
     (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
