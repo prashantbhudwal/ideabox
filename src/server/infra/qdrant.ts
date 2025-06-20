@@ -1,4 +1,4 @@
-import { isDev } from "~/lib/utils";
+import { isDev } from "~/client/lib/utils";
 import { QdrantVector } from "@mastra/qdrant";
 
 import dotenv from "dotenv";

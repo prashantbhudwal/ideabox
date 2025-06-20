@@ -1,4 +1,4 @@
-import { isDev } from "~/lib/utils";
+import { isDev } from "~/client/lib/utils";
 import { Redis } from "@upstash/redis";
 
 const redisToken = isDev

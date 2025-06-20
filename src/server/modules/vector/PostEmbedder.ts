@@ -1,4 +1,4 @@
-import { TPost } from "~/lib/types/content.types";
+import { TPost } from "~/common/types/content.types";
 import {
   getChunkConfig,
   getEmbeddingConfig,

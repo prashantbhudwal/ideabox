@@ -1,4 +1,4 @@
-import { models } from "~/lib/models";
+import { models } from "~/server/utils/models";
 import { Agent } from "@mastra/core";
 import dedent from "dedent";
 import { blogAgentToolsPrompt } from "./blog.agent.prompt";

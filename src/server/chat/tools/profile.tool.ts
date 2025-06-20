@@ -1,4 +1,4 @@
-import { layersPoints } from "~/components/story/story-data";
+import { layersPoints } from "~/client/components/story/story-data";
 import { createTool } from "@mastra/core";
 import { z } from "zod";
 

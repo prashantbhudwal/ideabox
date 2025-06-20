@@ -1,4 +1,4 @@
-import type { TPost } from "~/lib/types/content.types";
+import type { TPost } from "~/common/types/content.types";
 import type { Options } from "minisearch";
 import MiniSearch from "minisearch";
 
@@ -7,7 +7,7 @@ export const searchConfigOptions: Options<TPost> = {
   storeFields: [
     "slug",
     "title",
-    "shortTitle", 
+    "shortTitle",
     "description",
     "tags",
     "heroImage",

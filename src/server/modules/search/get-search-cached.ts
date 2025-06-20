@@ -1,5 +1,5 @@
 import MiniSearch from "minisearch";
-import type { TPost } from "~/lib/types/content.types";
+import type { TPost } from "~/common/types/content.types";
 import { searchConfigOptions } from "./config";
 import indexJson from "./generated/minisearch-index.json" assert { type: "json" };
 

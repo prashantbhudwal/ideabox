@@ -2,7 +2,7 @@ import { defineCollection, defineConfig } from "@content-collections/core";
 import { compileMDX } from "@content-collections/mdx";
 import remarkGfm from "remark-gfm";
 import { z } from "zod";
-import { ContentType } from "~/lib/types/content.types";
+import { ContentType } from "~/common/types/content.types";
 const posts = defineCollection({
   name: "posts",
   directory: "src/content/posts",

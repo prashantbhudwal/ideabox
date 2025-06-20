@@ -1,6 +1,6 @@
 import fs from "fs/promises";
 import matter from "gray-matter";
-import { ZPostFrontmatter } from "~/lib/types/content.types";
+import { ZPostFrontmatter } from "~/common/types/content.types";
 import fg from "fast-glob";
 
 export const getValidatedPost = async ({ file }: { file: string }) => {

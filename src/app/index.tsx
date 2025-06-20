@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import PostList from "~/components/blog/post-list";
-import { Separator } from "~/components/ui/separator";
-import { Button } from "~/components/ui/button";
-import { getWeekOfLife } from "~/lib/date";
-import { seo } from "~/utils/seo";
-import { C } from "~/lib/constants";
+import PostList from "~/client/components/blog/post-list";
+import { Separator } from "~/client/components/ui/separator";
+import { Button } from "~/client/components/ui/button";
+import { getWeekOfLife } from "~/common/utils/date";
+import { seo } from "~/client/lib/utils/seo";
+import { C } from "~/common/constants";
 import { getPostsServerFn } from "~/server/modules/post/get-all-posts.server";
 
 export const Route = createFileRoute("/")({

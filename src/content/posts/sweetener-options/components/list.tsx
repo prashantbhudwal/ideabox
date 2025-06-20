@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { Badge } from "~/components/ui/badge";
-import { Input } from "~/components/ui/input";
+import { Badge } from "~/client/components/ui/badge";
+import { Input } from "~/client/components/ui/input";
 import {
   Table,
   TableBody,
@@ -10,13 +10,13 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "~/components/ui/table";
+} from "~/client/components/ui/table";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "~/components/ui/tooltip";
+} from "~/client/components/ui/tooltip";
 import { Check, X } from "lucide-react";
 import { sweetenerData } from "./sweetener-data";
 import type { SweetenerData } from "./sweetener-data";

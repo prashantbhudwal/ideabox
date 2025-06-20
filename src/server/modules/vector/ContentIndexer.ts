@@ -3,7 +3,7 @@ import {
   TContentType,
   TPost,
   TPostIndexingMetadata,
-} from "~/lib/types/content.types";
+} from "~/common/types/content.types";
 import {
   getEmbeddingConfig,
   TEmbeddingConfig,

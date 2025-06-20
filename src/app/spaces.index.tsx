@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Separator } from "~/components/ui/separator";
-import { SpacesGrid } from "~/components/spaces/spaces-grid";
+import { Separator } from "~/client/components/ui/separator";
+import { SpacesGrid } from "~/client/components/spaces/spaces-grid";
 
 export const Route = createFileRoute("/spaces/")({
   component: RouteComponent,

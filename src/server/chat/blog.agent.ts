@@ -1,8 +1,8 @@
-import { gemini, gemini25, models } from "~/lib/models";
+import { gemini, gemini25, models } from "~/server/utils/models";
 import { Agent } from "@mastra/core/agent";
 import { fetchPostsTOOL, keywordSearchPostsTOOL } from "./tools/search.tool";
 import { Memory } from "@mastra/memory";
-import { isDev } from "~/lib/utils";
+import { isDev } from "~/client/lib/utils";
 import { LibSQLStore } from "@mastra/libsql";
 import profileTool from "./tools/profile.tool";
 import { getBlogAgentPrompt } from "./blog.agent.prompt";

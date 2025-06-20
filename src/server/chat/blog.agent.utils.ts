@@ -1,5 +1,5 @@
 import { RuntimeContext } from "@mastra/core/runtime-context";
-import { ZBlogAgentData } from "~/lib/types/agent.types";
+import { ZBlogAgentData } from "~/common/types/agent.types";
 import { z } from "zod";
 
 export type TBlogAgentRuntimeContext = {

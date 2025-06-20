@@ -1,7 +1,7 @@
 import path from "path";
 import { existsSync } from "fs";
-import { isMastraPlayground } from "~/lib/utils";
-import { C } from "~/lib/constants";
+import { isMastraPlayground } from "~/client/lib/utils";
+import { C } from "~/common/constants";
 
 const findProjectRoot = (startPath: string): string => {
   let currentPath = startPath;

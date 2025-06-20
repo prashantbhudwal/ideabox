@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Story } from "~/components/story/story";
+import { Story } from "~/client/components/story/story";
 
 export const Route = createFileRoute("/story")({
   component: RouteComponent,

@@ -1,7 +1,7 @@
 /// <reference types="vite/client" />
-import { DefaultCatchBoundary } from "src/components/DefaultCatchBoundary";
-import { NotFound } from "src/components/NotFound";
-import { seo } from "src/utils/seo";
+import { DefaultCatchBoundary } from "~/client/components/DefaultCatchBoundary";
+import { NotFound } from "~/client/components/NotFound";
+import { seo } from "~/client/lib/utils/seo";
 import {
   HeadContent,
   Outlet,
@@ -10,12 +10,12 @@ import {
 } from "@tanstack/react-router";
 import * as React from "react";
 import appCss from "~/styles/globals.css?url";
-import { Providers } from "~/components/providers";
-import { Navbar } from "~/components/navbar";
+import { Providers } from "~/client/components/providers";
+import { Navbar } from "~/client/components/navbar";
 import { TRPCRouter } from "~/server/routers/_router";
 import { QueryClient } from "@tanstack/react-query";
 import { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
-import { BlogSearch } from "~/components/search/blog-search";
+import { BlogSearch } from "~/client/components/search/blog-search";
 interface MyRouterContext {
   queryClient: QueryClient;
 

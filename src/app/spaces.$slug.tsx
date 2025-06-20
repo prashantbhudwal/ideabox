@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { getSpaceBySlug } from "~/components/spaces/spaces";
+import { getSpaceBySlug } from "~/client/components/spaces/spaces";
 
 export const Route = createFileRoute("/spaces/$slug")({
   component: RouteComponent,

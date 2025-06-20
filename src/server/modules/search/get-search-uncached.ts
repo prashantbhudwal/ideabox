@@ -1,7 +1,7 @@
 import indexJson from "./generated/minisearch-index.json" assert { type: "json" };
 import { searchConfigOptions } from "./config";
 import MiniSearch from "minisearch";
-import { TPost } from "~/lib/types/content.types";
+import { TPost } from "~/common/types/content.types";
 
 // Fast cold start but is imported-serialized on every request
 export const getSearchUncached = (): {

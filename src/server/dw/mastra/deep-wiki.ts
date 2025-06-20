@@ -66,7 +66,7 @@ import { createWorkflow, createStep } from "@mastra/core/workflows";
 import { z } from "zod";
 
 import { Agent } from "@mastra/core/agent";
-import { gemini } from "~/lib/models";
+import { gemini } from "~/server/utils/models";
 import dedent from "dedent";
 import { createTool } from "@mastra/core";
 // import wiki from "wikipedia";
@@ -75,7 +75,7 @@ import { Memory } from "@mastra/memory";
 import { LibSQLStore } from "@mastra/libsql";
 import { to } from "await-to-js";
 import color from "picocolors";
-import { isDev } from "~/lib/utils";
+import { isDev } from "~/client/lib/utils";
 
 const Z_SearchResultSchema = z.object({
   results: z.array(

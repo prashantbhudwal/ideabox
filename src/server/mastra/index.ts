@@ -1,7 +1,7 @@
 import { Mastra } from "@mastra/core/mastra";
 import { createLogger } from "@mastra/core/logger";
 import { LibSQLStore } from "@mastra/libsql";
-import { isDev } from "~/lib/utils";
+import { isDev } from "~/client/lib/utils";
 
 import {
   travelAgentWorkflow,

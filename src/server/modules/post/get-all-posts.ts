@@ -1,6 +1,6 @@
 import { cache } from "react";
-import { TPost } from "~/lib/types/content.types";
-import { ContentType } from "~/lib/types/content.types";
+import { TPost } from "~/common/types/content.types";
+import { ContentType } from "~/common/types/content.types";
 import { allPosts } from "content-collections";
 
 export const getAllPosts = cache(async (): Promise<TPost[]> => {

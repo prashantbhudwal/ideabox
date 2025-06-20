@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PostFooter } from "~/components/blog/post-footer";
-import { RecommendedPosts } from "~/components/blog/recommended-posts";
-import { SelectionToolbar } from "~/components/pill";
-import { Post } from "~/components/blog/post";
+import { PostFooter } from "~/client/components/blog/post-footer";
+import { RecommendedPosts } from "~/client/components/blog/recommended-posts";
+import { SelectionToolbar } from "~/client/components/pill";
+import { Post } from "~/client/components/blog/post";
 import { allPosts } from "content-collections";
-import { TPost } from "~/lib/types/content.types";
-import { Chat } from "~/components/chat/blog-agent/chat";
-import { seo } from "~/utils/seo";
-import { C } from "~/lib/constants";
+import { TPost } from "~/common/types/content.types";
+import { Chat } from "~/client/components/chat/blog-agent/chat";
+import { seo } from "~/client/lib/utils/seo";
+import { C } from "~/common/constants";
 
 export const Route = createFileRoute("/blog/$slug")({
   component: RouteComponent,
