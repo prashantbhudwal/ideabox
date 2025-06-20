@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { cn } from "~/lib/utils";
 import { motion, AnimatePresence } from "motion/react";
-import { usePathInfo } from "~/hooks/use-segments";
+import { usePathInfo } from "~/hooks/use-path-info";
 
 type TTitleIslandProps = {
   className?: string;
