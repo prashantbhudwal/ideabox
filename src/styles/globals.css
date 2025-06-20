@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 @import 'tailwind-scrollbar-hide/v4';
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/geist-mono';
 @plugin "@tailwindcss/typography";
 @plugin "tailwind-scrollbar";
 @plugin "tailwind-capitalize-first-letter";
@@ -7,6 +9,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-sans: 'Geist Variable', sans-serif;
+  --font-mono: 'Geist Mono Variable', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
