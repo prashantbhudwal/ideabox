@@ -1,16 +1,15 @@
 import { useChat } from "@ai-sdk/react";
-import { TPost } from "~/common/types/content.types";
-import { cn } from "~/client/lib/utils";
-import { TBlogAgentBody } from "~/common/types/agent.types";
-import { MemoizedMarkdown } from "./memo-markdown";
-import { ScrollArea } from "~/client/components/ui/scroll-area";
-import { Input } from "~/client/components/ui/input";
-import { Button } from "~/client/components/ui/button";
-import { TAgentAnnotation } from "~/server/chat/get-blog-agent-response";
-import { Separator } from "~/client/components/ui/separator";
 import { Markdown } from "~/client/components/blog/mdx/md.client";
-import { link } from "~/client/lib/link";
 import { JsonViewer } from "~/client/components/json-viewer";
+import { Button } from "~/client/components/ui/button";
+import { Input } from "~/client/components/ui/input";
+import { ScrollArea } from "~/client/components/ui/scroll-area";
+import { Separator } from "~/client/components/ui/separator";
+import { link } from "~/client/lib/link";
+import { cn } from "~/client/lib/utils";
+import { type TBlogAgentBody } from "~/common/types/agent.types";
+import type { TPost } from "~/common/types/content.types";
+import { type TAgentAnnotation } from "~/server/chat/get-blog-agent-response";
 
 export function ChatPanel({ post }: { readonly post: TPost }) {
   const body: TBlogAgentBody = {
@@ -21,19 +20,16 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
     },
   };
 
-  const { messages, input, handleInputChange, handleSubmit, setData, data } =
-    useChat({
-      api: "/api/chat/blog",
-      body,
-    });
-
-  console.log("messages", messages);
+  const { messages, input, handleInputChange, handleSubmit } = useChat({
+    api: "/api/chat/blog",
+    body,
+  });
 
   return (
     <>
       <ScrollArea className="flex-1 h-0 overflow-y-auto p-4">
         <div className="flex flex-col gap-2">
-          {messages.map((message, index) => {
+          {messages.map((message) => {
             const annotations = message.annotations;
             return (
               <div

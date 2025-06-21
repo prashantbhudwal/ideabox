@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, memo } from "react";
+import { type FC, memo } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
@@ -9,9 +9,7 @@ interface Props {
   value: string;
 }
 
-interface languageMap {
-  [key: string]: string | undefined;
-}
+type languageMap = Record<string, string | undefined>;
 
 export const programmingLanguages: languageMap = {
   javascript: ".js",
@@ -54,7 +52,7 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
     if (typeof window === "undefined") {
       return;
     }
-    const fileExtension = programmingLanguages[language] || ".file";
+    const fileExtension = programmingLanguages[language] ?? ".file";
     const suggestedFileName = `file-${generateRandomString(
       3,
       true

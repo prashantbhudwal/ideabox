@@ -1,4 +1,4 @@
-import { TPost } from "~/common/types/content.types";
+import { type TPost } from "~/common/types/content.types";
 import { PostCard } from "./post-card";
 import {
   Card,

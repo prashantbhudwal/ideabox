@@ -5,8 +5,8 @@ import {
   generateObject,
   generateText,
   Tool,
-  ToolCall,
-  ToolResult,
+  type ToolCall,
+  type ToolResult,
 } from "ai";
 import * as dotenv from "dotenv";
 import { tool } from "ai";

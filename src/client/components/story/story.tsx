@@ -17,7 +17,7 @@ import { layersPoints } from "./story-data";
 import { TravelMap } from "./map";
 import { Markdown } from "~/client/components/blog/mdx/md.client";
 import { Slider } from "~/client/components/ui/slider";
-import { DETAIL_LABELS, LEVEL, type Story, StorySubplot } from "./types";
+import { DETAIL_LABELS, LEVEL, type Story, type StorySubplot } from "./types";
 import { Separator } from "~/client/components/ui/separator";
 import { SummaryCard } from "./summary-card";
 import { useAtom } from "jotai";

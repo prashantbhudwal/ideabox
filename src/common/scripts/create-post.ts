@@ -122,7 +122,7 @@ Write your post content here.
 
     // Create index.tsx file
     const camelCaseSlug = slug.replace(/-([a-z])/g, (_, letter) =>
-      letter.toUpperCase(),
+      (letter as string).toUpperCase(),
     );
     const indexContent = `import dynamic from "next/dynamic";
 

@@ -1,5 +1,5 @@
 import dedent from "dedent";
-import { LEVEL, Story } from "./types";
+import { LEVEL, type Story } from "./types";
 
 export const layersPoints: Story[] = [
   {

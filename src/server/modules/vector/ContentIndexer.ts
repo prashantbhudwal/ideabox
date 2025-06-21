@@ -1,17 +1,17 @@
 import {
   ContentType,
   TContentType,
-  TPost,
-  TPostIndexingMetadata,
+  type TPost,
+  type TPostIndexingMetadata,
 } from "~/common/types/content.types";
 import {
   getEmbeddingConfig,
   TEmbeddingConfig,
-  TEmbeddingConfigVersion,
+  type TEmbeddingConfigVersion,
 } from "./rag.config";
 import { store } from "~/server/infra/qdrant";
 import to from "await-to-js";
-import { TCollectionName } from "./schema/collection-schema";
+import { type TCollectionName } from "./schema/collection-schema";
 
 export class ContentIndexer {
   #collection: TCollectionName;

@@ -1,4 +1,4 @@
-import { ContentType, TSpace } from "~/common/types/content.types";
+import { ContentType, type TSpace } from "~/common/types/content.types";
 import { SimilaritySpace } from "./similarity";
 import { SweetenerSpace } from "./sweetener";
 

@@ -32,7 +32,7 @@ import {
 } from "@tanstack/react-table";
 import { type ChangeEvent } from "react";
 
-const GI_TABLE_SUGAR: number = 65;
+const GI_TABLE_SUGAR = 65;
 
 export function SweetenerTable() {
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set([""])); // First row expanded by default
@@ -320,7 +320,7 @@ export function SweetenerTable() {
                                         Solid Carrier:
                                       </span>
                                       <span className="text-sm font-medium">
-                                        {row.original.solidCarrier || "N/A"}
+                                        {row.original.solidCarrier ?? "N/A"}
                                       </span>
                                     </div>
                                     <div className="flex justify-between">
@@ -328,7 +328,7 @@ export function SweetenerTable() {
                                         Liquid Carrier:
                                       </span>
                                       <span className="text-sm font-medium">
-                                        {row.original.liquidCarrier || "N/A"}
+                                        {row.original.liquidCarrier ?? "N/A"}
                                       </span>
                                     </div>
                                   </div>

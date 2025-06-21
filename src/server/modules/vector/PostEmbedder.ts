@@ -1,14 +1,14 @@
-import { TPost } from "~/common/types/content.types";
+import { type TPost } from "~/common/types/content.types";
 import {
   getChunkConfig,
   getEmbeddingConfig,
-  TChunkConfigVersion,
-  TEmbeddingConfigVersion,
+  type TChunkConfigVersion,
+  type TEmbeddingConfigVersion,
 } from "~/server/modules/vector/rag.config";
 import { mdxToGfmMarkdown } from "~/server/utils/mdx-to-markdown";
 import { openai } from "@ai-sdk/openai";
 import { MDocument } from "@mastra/rag";
-import { embedMany, generateText, LanguageModel } from "ai";
+import { embedMany, generateText, type LanguageModel } from "ai";
 import dedent from "dedent";
 import DataLoader from "dataloader";
 

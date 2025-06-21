@@ -2,8 +2,8 @@ import { models } from "~/server/utils/models";
 import { Agent } from "@mastra/core";
 import dedent from "dedent";
 import { blogAgentToolsPrompt } from "./blog.agent.prompt";
-import { RuntimeContext } from "@mastra/core/runtime-context";
-import { TReflectionAgentRuntimeContext } from "./tools/reflection.tool";
+import { type RuntimeContext } from "@mastra/core/runtime-context";
+import { type TReflectionAgentRuntimeContext } from "./tools/reflection.tool";
 
 export const reflectionAgent = new Agent({
   name: "Reflection Agent",

@@ -1,6 +1,7 @@
 import { mastra } from "../mastra";
-import { createDataStreamResponse } from "ai";
+import { type CoreMessage, createDataStreamResponse } from "ai";
 import { createRuntimeCtx, getParsedBlogAgentData } from "./blog.agent.utils";
+import type { TBlogAgentData } from "~/common/types/agent.types";
 
 export type TAgentAnnotation = {
   type: "step";
@@ -10,13 +11,12 @@ export type TAgentAnnotation = {
 };
 
 export async function getBlogAgentResponse({
-  payload,
+  messages,
+  data,
 }: {
-  payload: any;
+  messages: CoreMessage[];
+  data: TBlogAgentData;
 }): Promise<Response> {
-  console.log("payload", payload);
-  const { messages, data } = payload;
-
   const isFirstMessage = messages.length === 1;
 
   const blogAgentData = getParsedBlogAgentData(data);

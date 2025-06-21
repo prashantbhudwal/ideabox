@@ -9,7 +9,7 @@ import {
   SheetDescription,
 } from "~/client/components/ui/sheet";
 import { Button } from "~/client/components/ui/button";
-import { TPost } from "~/common/types/content.types";
+import { type TPost } from "~/common/types/content.types";
 import { useAtom } from "jotai";
 import { chatPanelAtom } from "./chat-panel.atom";
 import { ChatPanel } from "./chat-panel";

@@ -12,9 +12,9 @@ import * as React from "react";
 import appCss from "~/styles/globals.css?url";
 import { Providers } from "~/client/components/providers";
 import { Navbar } from "~/client/components/navbar";
-import { TRPCRouter } from "~/server/routers/_router";
-import { QueryClient } from "@tanstack/react-query";
-import { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
+import { type TRPCRouter } from "~/server/routers/_router";
+import { type QueryClient } from "@tanstack/react-query";
+import { type TRPCOptionsProxy } from "@trpc/tanstack-react-query";
 import { BlogSearch } from "~/client/components/search/blog-search";
 import { GlobalSidebarProvider } from "~/client/components/providers/sidebar-provider";
 interface MyRouterContext {

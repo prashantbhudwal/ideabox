@@ -1,7 +1,7 @@
 import "server-only"; // <-- ensure this file cannot be imported from the client
 import {
   createTRPCOptionsProxy,
-  TRPCQueryOptions,
+  type TRPCQueryOptions,
 } from "@trpc/tanstack-react-query";
 import { cache } from "react";
 import { makeQueryClient } from "./query-client";
@@ -40,7 +40,7 @@ export function prefetch<T extends ReturnType<TRPCQueryOptions<any>>>(
 ) {
   const queryClient = getQueryClient();
   if (queryOptions.queryKey[1]?.type === "infinite") {
-    void queryClient.prefetchInfiniteQuery(queryOptions as any);
+    void queryClient.prefetchInfiniteQuery(queryOptions as any); // eslint-disable-line @typescript-eslint/no-unsafe-argument
   } else {
     void queryClient.prefetchQuery(queryOptions);
   }

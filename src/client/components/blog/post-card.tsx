@@ -1,4 +1,4 @@
-import { TPost } from "~/common/types/content.types";
+import { type TPost } from "~/common/types/content.types";
 import { cn } from "~/client/lib/utils";
 import { link } from "~/client/lib/link";
 import { Link } from "@tanstack/react-router";

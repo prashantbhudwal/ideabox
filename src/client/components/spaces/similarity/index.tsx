@@ -2,7 +2,7 @@ import { Button } from "~/client/components/ui/button";
 import { useState } from "react";
 import { Input } from "~/client/components/ui/input";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { type z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
@@ -39,9 +39,11 @@ export function SimilaritySpace() {
       if (result) {
         setSimilarity(result);
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error in onSubmit:", error);
-      setError(error.message || "An error occurred while comparing texts");
+      setError(
+        (error as Error).message ?? "An error occurred while comparing texts",
+      );
       setSimilarity(0);
     } finally {
       setIsLoading(false);

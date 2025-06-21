@@ -2,6 +2,16 @@ import { getSearchCached } from "~/server/modules/search/get-search-cached";
 import { createTool } from "@mastra/core";
 import { z } from "zod";
 
+const ZPostResult = z.object({
+  slug: z.string(),
+  title: z.string(),
+  id: z.string(),
+});
+
+const ZPostWithContent = ZPostResult.extend({
+  content: z.string(),
+});
+
 export const keywordSearchPostsTOOL = createTool({
   id: "keyword_search_posts_tool",
   description: `Use this tool to search posts by keyword or phrase. You can break the user query into multiple keywords or phrases to get better results.
@@ -20,17 +30,11 @@ export const keywordSearchPostsTOOL = createTool({
   outputSchema: z.array(
     z.object({
       query: z.string(),
-      results: z.array(
-        z.object({
-          slug: z.string(),
-          title: z.string(),
-          id: z.string(),
-        }),
-      ),
+      results: z.array(ZPostResult),
     }),
   ),
   execute: async ({ context }) => {
-    const { miniSearch } = await getSearchCached();
+    const { miniSearch } = getSearchCached();
     const queries = context.queries;
     const searches = queries.map((query) => miniSearch.search(query));
 
@@ -38,11 +42,7 @@ export const keywordSearchPostsTOOL = createTool({
 
     const formattedResults = results.map((result, index) => ({
       query: queries[index],
-      results: result.map((post) => ({
-        slug: post.slug || "",
-        title: post.title || "",
-        id: post.id || "",
-      })),
+      results: result.map((post) => ZPostResult.parse(post)),
     }));
 
     return formattedResults;
@@ -66,15 +66,12 @@ export const fetchPostsTOOL = createTool({
     }),
   ),
   execute: async ({ context }) => {
-    const { miniSearch } = await getSearchCached();
+    const { miniSearch } = getSearchCached();
     const results = context.id.map((id) => miniSearch.search(id)[0]);
 
-    const formattedResults = results.map((result) => ({
-      title: result.title || "",
-      id: result.id || "",
-      content: result.content || "",
-      slug: result.slug || "",
-    }));
+    const formattedResults = results.map((result) =>
+      ZPostWithContent.parse(result),
+    );
 
     return formattedResults;
   },

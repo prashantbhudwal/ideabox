@@ -26,7 +26,7 @@ export const seo = ({
     { name: "twitter:creator", content: C.xHandle },
     { name: "twitter:site", content: C.xHandle },
 
-    // Open Graph / Article (must use `property` for FB & LinkedIn)
+    // OpenGraph / Article (must use `property` for FB & LinkedIn)
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:type", content: type },

@@ -66,6 +66,15 @@ import { createWorkflow, createStep } from "@mastra/core/workflows";
 import { z } from "zod";
 
 import { Agent } from "@mastra/core/agent";
+
+// Schema for Wikipedia search result item
+const WikiSearchItemSchema = z.union([
+  z.string(),
+  z.object({
+    title: z.string(),
+    pageid: z.number().optional(),
+  }),
+]);
 import { gemini } from "~/server/utils/models";
 import dedent from "dedent";
 import { createTool } from "@mastra/core";
@@ -147,12 +156,13 @@ const wikiSearchTool = createTool({
       }
 
       const pages = raw.results.map((item) => {
-        if (typeof item === "string") {
-          return { title: item, id: item };
+        const parsedItem = WikiSearchItemSchema.parse(item);
+        if (typeof parsedItem === "string") {
+          return { title: parsedItem, id: parsedItem };
         }
         return {
-          title: item.title,
-          id: String((item as any).pageid ?? item.title),
+          title: parsedItem.title,
+          id: String(parsedItem.pageid ?? parsedItem.title),
         };
       });
 

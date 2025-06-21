@@ -1,4 +1,4 @@
-import { TPost } from "~/common/types/content.types";
+import { type TPost } from "~/common/types/content.types";
 import { motion } from "motion/react";
 import { useEffect } from "react";
 import { Mdx } from "./mdx/mdx.client";

@@ -32,7 +32,7 @@ import {
 } from "@tanstack/react-table";
 import { type ChangeEvent } from "react";
 
-const GI_TABLE_SUGAR: number = 65;
+const GI_TABLE_SUGAR = 65;
 
 export default function SweetenerList() {
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set([""])); // First row expanded by default

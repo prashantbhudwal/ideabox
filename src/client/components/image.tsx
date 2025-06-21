@@ -86,11 +86,7 @@ export const Image: React.FC<SimpleImageProps> = ({
     if (typeof src === "string") {
       return { url: src, w: width, h: height, blur: blurDataURL };
     }
-    const data: StaticImageData =
-      "default" in src
-        ? (src as StaticRequire).default
-        : (src as StaticImageData);
-
+    const data: StaticImageData = "default" in src ? src.default : src;
     return {
       url: data.src,
       w: width ?? data.width,

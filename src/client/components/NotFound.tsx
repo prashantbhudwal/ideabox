@@ -1,10 +1,10 @@
-import { Link } from '@tanstack/react-router'
+import { Link } from "@tanstack/react-router";
 
-export function NotFound({ children }: { children?: any }) {
+export function NotFound({ children }: { children?: React.ReactNode }) {
   return (
     <div className="space-y-2 p-2">
       <div className="text-gray-600 dark:text-gray-400">
-        {children || <p>The page you are looking for does not exist.</p>}
+        {children ?? <p>The page you are looking for does not exist.</p>}
       </div>
       <p className="flex items-center gap-2 flex-wrap">
         <button
@@ -21,5 +21,5 @@ export function NotFound({ children }: { children?: any }) {
         </Link>
       </p>
     </div>
-  )
+  );
 }

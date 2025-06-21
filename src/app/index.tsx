@@ -1,10 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import PostList from "~/client/components/blog/post-list";
 import { Separator } from "~/client/components/ui/separator";
 import { Button } from "~/client/components/ui/button";
 import { getWeekOfLife } from "~/common/utils/date";
 import { seo } from "~/client/lib/utils/seo";
 import { C } from "~/common/constants";
+import { type TPost } from "~/common/types/content.types";
 import { getPostsServerFn } from "~/server/modules/post/get-all-posts.server";
 
 export const Route = createFileRoute("/")({
@@ -33,18 +34,20 @@ export const Route = createFileRoute("/")({
   },
   loader: async () => {
     const posts = await getPostsServerFn();
-    return { posts };
+    const sorted = [...posts].sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+    );
+    return { posts: sorted };
   },
-  component: HomePage,
+  component: () => {
+    const { posts } = Route.useLoaderData();
+    return <Posts posts={posts} />;
+  },
 });
 
-function HomePage() {
-  const { posts } = Route.useLoaderData();
-
-  const sorted = [...posts].sort(
-    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-  );
-  const byYear = sorted.reduce<Record<string, typeof posts>>((acc, post) => {
+function Posts({ posts }: { posts: TPost[] }) {
+  const byYear = posts.reduce<Record<string, typeof posts>>((acc, post) => {
     const y = new Date(post.createdAt).getFullYear().toString();
     (acc[y] ||= []).push(post);
     return acc;
@@ -64,9 +67,9 @@ function HomePage() {
       ))}
       <div className="flex flex-col space-y-10 pb-10 md:items-center">
         <Separator />
-        <a href="/story">
+        <Link to="/story">
           <Button variant="link">About Me</Button>
-        </a>
+        </Link>
       </div>
     </div>
   );

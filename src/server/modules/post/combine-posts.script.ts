@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { getAllPosts } from "./get-all-posts";
-import { TPost } from "~/common/types/content.types";
+import { type TPost } from "~/common/types/content.types";
 import esMain from "es-main";
 
 /**

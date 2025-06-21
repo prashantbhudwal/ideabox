@@ -1,4 +1,4 @@
-import { Agent, run, RunContext, Tool, tool } from "@openai/agents";
+import { Agent, run, type RunContext, Tool, tool } from "@openai/agents";
 // import wiki from "wikipedia";
 import OpenAI from "openai";
 import dotenv from "dotenv";

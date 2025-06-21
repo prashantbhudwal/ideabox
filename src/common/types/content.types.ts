@@ -1,8 +1,8 @@
-import {
+import { z } from "zod";
+import type {
   TChunkConfig,
   TEmbeddingConfig,
 } from "~/server/modules/vector/rag.config";
-import { z } from "zod";
 export enum ContentType {
   POST = "post",
   PROMPT = "prompt",

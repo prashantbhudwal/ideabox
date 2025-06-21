@@ -4,7 +4,7 @@ import { searchConfigOptions } from "./config";
 import indexJson from "./generated/minisearch-index.json" assert { type: "json" };
 
 declare global {
-  // eslint-disable-next-line no-var
+   
   var __SEARCH:
     | {
         readonly miniSearch: MiniSearch<TPost>;

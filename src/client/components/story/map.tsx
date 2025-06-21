@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import mapboxgl, { Map, Marker, LngLatLike } from "mapbox-gl";
+import mapboxgl, { type Map, Marker, type LngLatLike } from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { AspectRatio } from "~/client/components/ui/aspect-ratio";
 import { useIsMobile } from "~/client/hooks/use-mobile";
-import { Story } from "./types";
+import { type Story } from "./types";
 
 interface TargetLocation {
   coordinates: [number, number];
@@ -22,7 +22,7 @@ export const TravelMap: React.FC<TravelMapProps> = ({
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const map = useRef<Map | null>(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
-  const markersRef = useRef<{ [key: string]: Marker }>({}); // Store markers
+  const markersRef = useRef<Record<string, Marker>>({}); // Store markers
 
   // --- Initial Map Setup ---
   useEffect(() => {
@@ -171,7 +171,7 @@ export const TravelMap: React.FC<TravelMapProps> = ({
       });
 
       // Add location markers with smoother animations
-      const currentMarkers: { [key: string]: Marker } = {};
+      const currentMarkers: Record<string, Marker> = {};
       points.forEach((feature) => {
         const properties = feature.properties as { title: string; id: string };
         const element = document.createElement("div");

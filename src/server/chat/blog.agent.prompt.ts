@@ -1,6 +1,6 @@
 import dedent from "dedent";
-import { RuntimeContext } from "@mastra/core/runtime-context";
-import { TBlogAgentRuntimeContext } from "./blog.agent.utils";
+import { type RuntimeContext } from "@mastra/core/runtime-context";
+import { type TBlogAgentRuntimeContext } from "./blog.agent.utils";
 import { isMastraPlayground } from "~/client/lib/utils";
 
 export const blogAgentToolsPrompt = dedent`

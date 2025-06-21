@@ -80,7 +80,7 @@ const generateSuggestionsStep = createStep({
 
     const { vacationDescription } = inputData;
 
-    const agent = await mastra.getAgent("travelSuggestionAgent");
+    const agent = mastra.getAgent("travelSuggestionAgent");
 
     const generatedObjectSchema = z.object({
       suggestions: z.array(

@@ -22,8 +22,8 @@ export const embedAndCompareProd = createServerFn({
         const res = await fetch(url, options);
         if (res.status === 401) throw new Error("Invalid API key");
         if (!res.ok) {
-          const err = await res.json();
-          throw new Error(err.error?.message || "Embedding failed");
+          const err = (await res.json()) as { error?: { message: string } };
+          throw new Error(err.error?.message ?? "Embedding failed");
         }
         return res;
       },

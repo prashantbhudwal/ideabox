@@ -6,9 +6,9 @@
  * @returns The current week number since birth
  */
 export function getWeekOfLife(
-  birthYear: number = 1993,
-  birthMonth: number = 2, // March (0-indexed: 0 = January)
-  birthDay: number = 1,
+  birthYear = 1993,
+  birthMonth = 2, // March (0-indexed: 0 = January)
+  birthDay = 1,
 ): number {
   // Create the birth date
   const birthDate = new Date(birthYear, birthMonth, birthDay);

@@ -9,14 +9,14 @@ import {
   SidebarHeader,
 } from "~/client/components/ui/sidebar";
 import { ChatPanel } from "../blog-agent/chat-panel";
-import { TPost } from "~/common/types/content.types";
+import { type TPost } from "~/common/types/content.types";
 
 export function ChatSidebar({ post }: { readonly post: TPost }) {
   const [open, setOpen] = useAtom(chatSidebarAtom);
   const isMobile = useIsMobile();
 
   useHotkeys(
-    "meta+i, ctrl+i",
+    "meta+u, ctrl+u",
     (event) => {
       event.preventDefault();
       if (!isMobile) {
