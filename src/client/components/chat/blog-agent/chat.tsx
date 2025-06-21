@@ -39,25 +39,28 @@ export function Chat({
   // Only show chat in dev
   if (!isDev) return null;
 
-  return (
-    <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild>
-        <Button
-          className={cn("fixed bottom-4 right-20 h-12 w-12 p-0", className)}
-          size="icon"
-          variant="secondary"
-        >
-          💬
-          <span className="sr-only">Toggle Chat (⌘/Ctrl + K)</span>
-        </Button>
-      </SheetTrigger>
-      <SheetContent side="right" className="flex flex-col p-0">
-        <SheetHeader className="border-b px-4 py-2">
-          <SheetTitle>ask ashant</SheetTitle>
-          <SheetDescription>{post.title.toLowerCase()}</SheetDescription>
-        </SheetHeader>
-        <ChatPanel post={post} />
-      </SheetContent>
-    </Sheet>
-  );
+  // Removed from DOM - keeping implementation for reference
+  return null;
+
+  // return (
+  //   <Sheet open={open} onOpenChange={setOpen}>
+  //     <SheetTrigger asChild>
+  //       <Button
+  //         className={cn("fixed bottom-4 right-20 h-12 w-12 p-0", className)}
+  //         size="icon"
+  //         variant="secondary"
+  //       >
+  //         💬
+  //         <span className="sr-only">Toggle Chat (⌘/Ctrl + K)</span>
+  //       </Button>
+  //     </SheetTrigger>
+  //     <SheetContent side="right" className="flex flex-col p-0">
+  //       <SheetHeader className="border-b px-4 py-2">
+  //         <SheetTitle>ask ashant</SheetTitle>
+  //         <SheetDescription>{post.title.toLowerCase()}</SheetDescription>
+  //       </SheetHeader>
+  //       <ChatPanel post={post} />
+  //     </SheetContent>
+  //   </Sheet>
+  // );
 }
