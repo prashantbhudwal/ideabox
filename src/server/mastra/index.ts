@@ -1,5 +1,5 @@
 import { Mastra } from "@mastra/core/mastra";
-import { createLogger } from "@mastra/core/logger";
+import { ConsoleLogger } from "@mastra/core/logger";
 import { LibSQLStore } from "@mastra/libsql";
 import { isDev } from "~/client/lib/utils";
 
@@ -36,7 +36,7 @@ export const mastra = new Mastra({
     travelAgentWorkflow,
     researchWorkflow,
   },
-  logger: createLogger({
+  logger: new ConsoleLogger({
     name: "Mastra",
     level: "info",
   }),
