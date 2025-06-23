@@ -15,8 +15,6 @@ const personal = {
   firstName: "prashant",
 };
 
-console.log("🟠import.meta.env", import.meta.env);
-
 export const C = {
   url: import.meta.env.DEV ? "http://localhost:1111" : "https://www.ashant.in",
   base: import.meta.env.DEV
