@@ -1,20 +1,18 @@
 import { Message, useChat } from "@ai-sdk/react";
-import { Markdown } from "~/client/components/blog/mdx/md.client";
 import { Button } from "~/client/components/ui/button";
 import { Input } from "~/client/components/ui/input";
 import { ScrollArea } from "~/client/components/ui/scroll-area";
-import { Separator } from "~/client/components/ui/separator";
 import { link } from "~/client/lib/link";
 import { cn } from "~/client/lib/utils";
 import { type TBlogAgentBody } from "~/common/types/agent.types";
 import { type TPost } from "~/common/types/content.types";
-import { type TAgentAnnotation } from "~/server/chat/get-blog-agent-response";
 import { Thought } from "./thought";
 import { dummyMessageParts } from "./thoughts.data";
 import { useRef, useLayoutEffect, useState, useEffect } from "react";
 import { isDev } from "~/client/lib/utils/isDev";
 import { Prose } from "../../blog/custom/prose.v2";
 import { useAgentStore } from "./agent.store";
+import { SelectedText } from "./chat.selected-text";
 
 const CHAT_API = "/api/chat/blog";
 const BOTTOM_PADDING_PERCENTAGE = 0.9;
@@ -39,16 +37,20 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
   const lastUserRef = useRef<HTMLDivElement | null>(null);
   const [bottomPadding, setBottomPadding] = useState(0);
 
-  const { messages, input, handleInputChange, handleSubmit, status } = useChat({
-    api: CHAT_API,
-    body: getRequestBody(post),
-  });
+  const selectedText = useAgentStore((s) => s.selectedText);
+  const setSelectedText = useAgentStore((s) => s.setSelectedText);
+
+  const { messages, input, handleInputChange, setInput, append, status } =
+    useChat({
+      api: CHAT_API,
+      body: getRequestBody(post),
+    });
 
   useEffect(() => {
     setChatStatus(status);
   }, [status, setChatStatus]);
 
-  // “scroll newest user bubble to the top”
+  // "scroll newest user bubble to the top"
   useLayoutEffect(() => {
     if (messages.length === 0) return;
 
@@ -59,7 +61,7 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
     lastUserRef.current?.scrollIntoView({ block: "start", behavior: "smooth" });
   }, [messages]);
 
-  // “keep bottom padding equal to 90 % of the current viewport height”
+  // "keep bottom padding equal to 90 % of the current viewport height"
   useLayoutEffect(() => {
     const updatePadding = () => {
       if (scrollAreaRef.current) {
@@ -83,6 +85,20 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
       resizeObserver.disconnect();
     };
   }, []);
+
+  // Replace the form's onSubmit handler to prepend selected text
+  const handleCustomSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    let message = input;
+    if (selectedText) {
+      message = `>> ${selectedText}\n${input}`;
+    }
+    if (message.trim() === "") return;
+    await append({ role: "user", content: message });
+    setInput("");
+    console.log("Clearing selectedText from submit");
+    setSelectedText("");
+  };
 
   // Find the last user message's id so we can attach the ref
 
@@ -136,7 +152,8 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
           })}
         </div>
       </ScrollArea>
-      <form onSubmit={handleSubmit} className="flex gap-2 border-t p-4">
+      <SelectedText />
+      <form onSubmit={handleCustomSubmit} className="flex gap-2 border-t p-4">
         <Input
           value={input}
           onChange={handleInputChange}

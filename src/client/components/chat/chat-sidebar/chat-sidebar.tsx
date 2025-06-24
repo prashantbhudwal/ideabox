@@ -16,7 +16,7 @@ export function ChatSidebar({ post }: { readonly post: TPost }) {
   const isMobile = useIsMobile();
 
   useHotkeys(
-    "meta+u, ctrl+u",
+    "meta+shift+i, ctrl+shift+i",
     (event) => {
       event.preventDefault();
       if (!isMobile) {
@@ -27,6 +27,7 @@ export function ChatSidebar({ post }: { readonly post: TPost }) {
       enableOnFormTags: ["INPUT", "TEXTAREA"],
       enableOnContentEditable: true,
       preventDefault: true,
+      scopes: ["chat-sidebar"],
     },
     [setOpen, isMobile],
   );

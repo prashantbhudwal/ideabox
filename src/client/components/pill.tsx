@@ -3,33 +3,60 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "./ui/button";
 import { FaCopy } from "react-icons/fa6";
-import { useAtomValue } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { chatPanelAtom } from "./chat/blog-agent/chat-panel.atom";
+import { chatSidebarAtom } from "./chat/chat-sidebar/chat-sidebar.atom";
+import { useAgentStore } from "./chat/blog-agent/agent.store";
+import { useRouter } from "@tanstack/react-router";
+import { isDev } from "~/client/lib/utils/isDev";
+import { useIsMobile } from "~/client/hooks/use-mobile";
 
 export function SelectionToolbar() {
   const [rect, setRect] = useState<DOMRect | null>(null);
   const chatPanelOpen = useAtomValue(chatPanelAtom);
+  const [sidebarOpen, setSidebarOpen] = useAtom(chatSidebarAtom);
+  const setSelectedText = useAgentStore((s) => s.setSelectedText);
+  const router = useRouter();
+  const isMobile = useIsMobile();
 
   /* Track selection end */
   useEffect(() => {
     const handleMouseUp = () => {
       const sel = window.getSelection();
-      if (!sel || sel.isCollapsed) return setRect(null);
+      if (sel && !sel.isCollapsed) {
+        const range = sel.getRangeAt(0);
+        const rects = range.getClientRects();
+        const lastRect = rects[rects.length - 1];
+        if (lastRect) {
+          setTimeout(() => {
+            setRect(lastRect);
+            console.log("Setting selectedText:", sel.toString());
+            setSelectedText(sel.toString()); // Only update when there is a new selection
 
-      const range = sel.getRangeAt(0);
-      const rects = range.getClientRects();
-      const lastRect = rects[rects.length - 1];
-      if (lastRect) {
-        // Add 200ms delay before showing the pill
-        setTimeout(() => {
-          setRect(lastRect);
-        }, 200);
+            // Auto-open sidebar if on blog page, not mobile, and in dev mode
+            const isPostPage =
+              router.state.location.pathname.startsWith("/blog/");
+            if (isPostPage && !isMobile && isDev && !sidebarOpen) {
+              console.log("Auto-opening sidebar for text selection");
+              setSidebarOpen(true);
+            }
+          }, 200);
+        }
+      } else {
+        setRect(null); // Hide the pill, but do NOT clear selectedText
+        // Do not call setSelectedText("") here!
       }
     };
 
     document.addEventListener("mouseup", handleMouseUp);
     return () => document.removeEventListener("mouseup", handleMouseUp);
-  }, []);
+  }, [
+    setSelectedText,
+    router.state.location.pathname,
+    isMobile,
+    sidebarOpen,
+    setSidebarOpen,
+  ]);
 
   if (!rect) return null;
 
@@ -50,6 +77,8 @@ export function SelectionToolbar() {
         navigator.clipboard.writeText(text);
         window.getSelection()?.removeAllRanges();
         setRect(null);
+        console.log("Clearing selectedText from pill click");
+        setSelectedText(""); // Clear selectedText only when copying
       }}
       style={style}
       className="

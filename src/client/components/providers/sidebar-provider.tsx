@@ -11,11 +11,11 @@ export function GlobalSidebarProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const isMobile = useIsMobile();
-  if (isMobile || !isDev) return children;
-
   const [open, setOpen] = useAtom(chatSidebarAtom);
   const router = useRouter();
+
+  const isMobile = useIsMobile();
+  if (isMobile || !isDev) return children;
 
   const isPostPage = router.state.location.pathname.startsWith("/blog/");
   const post = (router.state as any)?.matches?.[1]?.loaderData?.post;

@@ -38,6 +38,7 @@ export function BlogSearch(): React.ReactElement {
     {
       enableOnFormTags: true,
       preventDefault: true,
+      scopes: ["search"],
     },
   );
 
