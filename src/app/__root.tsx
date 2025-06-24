@@ -17,6 +17,7 @@ import { type QueryClient } from "@tanstack/react-query";
 import { type TRPCOptionsProxy } from "@trpc/tanstack-react-query";
 import { BlogSearch } from "~/client/components/search/blog-search";
 import { GlobalSidebarProvider } from "~/client/components/providers/sidebar-provider";
+import { SidebarTrigger } from "~/client/components/ui/sidebar";
 interface MyRouterContext {
   queryClient: QueryClient;
 
@@ -95,6 +96,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body className="antialiased">
         <GlobalSidebarProvider>
           <main className="mx-4 mt-8 md:mt-10 lg:mt-12 md:mx-auto max-w-full selection:bg-primary selection:text-primary-foreground px-4 md:px-8 lg:px-12">
+            <SidebarTrigger className="absolute top-2 left-2" />
             <Providers>
               <Navbar className="mb-12 md:mb-16 lg:mb-20 2xl:mb-36" />
               {children}
