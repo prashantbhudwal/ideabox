@@ -75,6 +75,8 @@ export default [
       "@typescript-eslint/no-inferrable-types": "warn",
       "@typescript-eslint/restrict-template-expressions": "warn",
       "@typescript-eslint/no-unsafe-assignment": "warn",
+      "@typescript-eslint/no-unsafe-call": "warn",
+      "@typescript-eslint/no-unsafe-construction": "warn",
       "@typescript-eslint/consistent-type-imports": [
         "warn",
         {
