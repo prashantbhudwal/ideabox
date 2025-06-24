@@ -37,6 +37,7 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const lastUserRef = useRef<HTMLDivElement | null>(null);
   const [bottomPadding, setBottomPadding] = useState(0);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const selectedText = useAgentStore((s) => s.selectedText);
   const setSelectedText = useAgentStore((s) => s.setSelectedText);
@@ -50,6 +51,24 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
   useEffect(() => {
     setChatStatus(status);
   }, [status, setChatStatus]);
+
+  // Clear selected text when clicking outside the form
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        selectedText &&
+        formRef.current &&
+        !formRef.current.contains(event.target as Node)
+      ) {
+        setSelectedText("");
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [selectedText, setSelectedText]);
 
   // "scroll newest user bubble to the top"
   useLayoutEffect(() => {
@@ -159,7 +178,11 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
         </div>
       </ScrollArea>
       <SelectedText />
-      <form onSubmit={handleCustomSubmit} className="flex gap-2 border-t p-4">
+      <form
+        ref={formRef}
+        onSubmit={handleCustomSubmit}
+        className="flex gap-2 border-t p-4"
+      >
         <Input
           value={input}
           onChange={handleInputChange}
