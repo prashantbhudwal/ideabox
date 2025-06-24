@@ -13,6 +13,7 @@ import { isDev } from "~/client/lib/utils/isDev";
 import { Prose } from "../../blog/custom/prose.v2";
 import { useAgentStore } from "./agent.store";
 import { SelectedText } from "./chat.selected-text";
+import dedent from "dedent";
 
 const CHAT_API = "/api/chat/blog";
 const BOTTOM_PADDING_PERCENTAGE = 0.9;
@@ -91,7 +92,8 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
     e.preventDefault();
     let message = input;
     if (selectedText) {
-      message = `>> ${selectedText}\n${input}`;
+      message = dedent`> ${selectedText}\n\n
+      ${input}`;
     }
     if (message.trim() === "") return;
     await append({ role: "user", content: message });
