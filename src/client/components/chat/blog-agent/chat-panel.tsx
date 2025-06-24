@@ -1,6 +1,5 @@
-import { useChat } from "@ai-sdk/react";
+import { Message, useChat } from "@ai-sdk/react";
 import { Markdown } from "~/client/components/blog/mdx/md.client";
-import { JsonViewer } from "~/client/components/json-viewer";
 import { Button } from "~/client/components/ui/button";
 import { Input } from "~/client/components/ui/input";
 import { ScrollArea } from "~/client/components/ui/scroll-area";
@@ -8,32 +7,109 @@ import { Separator } from "~/client/components/ui/separator";
 import { link } from "~/client/lib/link";
 import { cn } from "~/client/lib/utils";
 import { type TBlogAgentBody } from "~/common/types/agent.types";
-import type { TPost } from "~/common/types/content.types";
+import { type TPost } from "~/common/types/content.types";
 import { type TAgentAnnotation } from "~/server/chat/get-blog-agent-response";
+import { Thought } from "./thought";
+import { dummyMessageParts } from "./thoughts.data";
+import { useRef, useLayoutEffect, useState, useEffect } from "react";
+import { isDev } from "~/client/lib/utils/isDev";
+import { Prose } from "../../blog/custom/prose.v2";
+import { useAgentStore } from "./agent.store";
 
-export function ChatPanel({ post }: { readonly post: TPost }) {
-  const body: TBlogAgentBody = {
+const CHAT_API = "/api/chat/blog";
+const BOTTOM_PADDING_PERCENTAGE = 0.9;
+
+const getRequestBody = (post: TPost): TBlogAgentBody => {
+  return {
     data: {
       routeName: link.url.internal.post({ slug: post.slug }),
       contentType: "blog-page",
       content: post.content,
     },
   };
+};
 
-  const { messages, input, handleInputChange, handleSubmit } = useChat({
-    api: "/api/chat/blog",
-    body,
+const getLastUserMessage = (messages: Message[]) => {
+  return messages.findLast((m) => m.role === "user");
+};
+
+export function ChatPanel({ post }: { readonly post: TPost }) {
+  const setChatStatus = useAgentStore((state) => state.setChatStatus);
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const lastUserRef = useRef<HTMLDivElement | null>(null);
+  const [bottomPadding, setBottomPadding] = useState(0);
+
+  const { messages, input, handleInputChange, handleSubmit, status } = useChat({
+    api: CHAT_API,
+    body: getRequestBody(post),
   });
+
+  useEffect(() => {
+    setChatStatus(status);
+  }, [status, setChatStatus]);
+
+  // “scroll newest user bubble to the top”
+  useLayoutEffect(() => {
+    if (messages.length === 0) return;
+
+    const lastMessage = messages[messages.length - 1];
+    if (lastMessage.role !== "user") return;
+    // only scroll when a new user message is added
+
+    lastUserRef.current?.scrollIntoView({ block: "start", behavior: "smooth" });
+  }, [messages]);
+
+  // “keep bottom padding equal to 90 % of the current viewport height”
+  useLayoutEffect(() => {
+    const updatePadding = () => {
+      if (scrollAreaRef.current) {
+        setBottomPadding(
+          scrollAreaRef.current.offsetHeight * BOTTOM_PADDING_PERCENTAGE,
+        );
+      }
+    };
+
+    updatePadding();
+
+    const resizeObserver = new ResizeObserver(updatePadding);
+    if (scrollAreaRef.current) {
+      resizeObserver.observe(scrollAreaRef.current);
+    }
+
+    window.addEventListener("resize", updatePadding);
+
+    return () => {
+      window.removeEventListener("resize", updatePadding);
+      resizeObserver.disconnect();
+    };
+  }, []);
+
+  // Find the last user message's id so we can attach the ref
 
   return (
     <>
-      <ScrollArea className="flex-1 h-0 overflow-y-auto p-4">
-        <div className="flex flex-col gap-2">
+      <ScrollArea
+        ref={scrollAreaRef}
+        className="flex-1 h-0 overflow-y-auto p-4 w-full"
+      >
+        <div
+          className="flex flex-col gap-2 w-full"
+          style={{ paddingBottom: `${bottomPadding}px` }}
+        >
+          {/*  Add dummy message parts for development */}
+          {messages.length === 0 && isDev && (
+            <Thought messageParts={dummyMessageParts} />
+          )}
           {messages.map((message) => {
-            const annotations = message.annotations;
             return (
               <div
                 key={message.id}
+                ref={
+                  message.role === "user" &&
+                  message.id === getLastUserMessage(messages)?.id
+                    ? lastUserRef
+                    : undefined
+                }
                 className={cn(
                   "rounded-lg px-3 py-2 text-sm ",
                   message.role === "user"
@@ -41,78 +117,15 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
                     : "bg-card",
                 )}
               >
-                <JsonViewer src={message.parts} />
-                <div className="flex flex-col gap-2">
-                  {message.parts.map((part, index) => {
-                    if (part.type === "text") {
-                      return <span key={index}>{part.text}</span>;
-                    }
-                    if (part.type === "step-start") {
-                      return (
-                        <>
-                          <span key={index}>
-                            Step Start: <JsonViewer src={part} />
-                          </span>
-                          <Separator key={index} />
-                        </>
-                      );
-                    }
-                    if (part.type === "tool-invocation") {
-                      return (
-                        <>
-                          <span key={index}>
-                            Tool: <JsonViewer src={part} />
-                          </span>
-                          <Separator />
-                        </>
-                      );
-                    }
-                    if (part.type === "source") {
-                      return (
-                        <>
-                          <span key={index}>
-                            Source: <JsonViewer src={part} />
-                          </span>
-                          <Separator />
-                        </>
-                      );
-                    }
-                    if (part.type === "reasoning") {
-                      return (
-                        <>
-                          <span key={index}>
-                            Reasoning: <JsonViewer src={part} />
-                          </span>
-                          <Separator />
-                        </>
-                      );
-                    }
-                    return null;
-                  })}
-                </div>
-                {annotations && annotations.length > 0 && (
-                  <div className="mb-2 flex flex-col gap-2">
-                    {(annotations as TAgentAnnotation[] | undefined)?.map(
-                      (a) => (
-                        <div
-                          key={`${a.type}-${a.stepName}`}
-                          className="mb-1 py-1 text-xs text-muted-foreground flex flex-col gap-1"
-                        >
-                          <span className="font-semibold mr-1 capitalize text-primary/90">
-                            {a.stepName}
-                          </span>
-                          <span>{a.message}</span>
-                        </div>
-                      ),
-                    )}
-                    {message.content.length > 1 && <Separator />}
-                  </div>
+                {message.role === "assistant" && (
+                  <Thought messageParts={message.parts} />
                 )}
-                {/* <MemoizedMarkdown id={message.id} content={message.content} /> */}
-                <Markdown
+
+                <Prose
                   content={message.content}
+                  type="markdown"
                   className={cn(
-                    "prose-sm",
+                    "prose",
                     message.role === "user"
                       ? "text-primary-foreground"
                       : "text-card-foreground",
@@ -135,3 +148,23 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
     </>
   );
 }
+
+//             const annotations = message.annotations;
+// {
+//   annotations && annotations.length > 0 && (
+//     <div className="mb-2 flex flex-col gap-2">
+//       {(annotations as TAgentAnnotation[] | undefined)?.map((a) => (
+//         <div
+//           key={`${a.type}-${a.stepName}`}
+//           className="mb-1 py-1 text-xs text-muted-foreground flex flex-col gap-1"
+//         >
+//           <span className="font-semibold mr-1 capitalize text-primary/90">
+//             {a.stepName}
+//           </span>
+//           <span>{a.message}</span>
+//         </div>
+//       ))}
+//       {message.content.length > 1 && <Separator />}
+//     </div>
+//   );
+// }

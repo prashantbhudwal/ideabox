@@ -27,7 +27,7 @@ export function Prose({
   return (
     <div
       className={cn(
-        `prose dark:prose-invert prose-p:leading-relaxed prose-pre:p-0 prose-lg`,
+        `prose dark:prose-invert prose-p:leading-relaxed prose-pre:p-0`,
         `wrap-break-words`,
         className,
       )}
