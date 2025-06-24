@@ -98,8 +98,12 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
     if (message.trim() === "") return;
     await append({ role: "user", content: message });
     setInput("");
-    console.log("Clearing selectedText from submit");
-    setSelectedText("");
+
+    // Clear selected text immediately after sending
+    if (selectedText) {
+      console.log("Clearing selectedText from submit");
+      setSelectedText("");
+    }
   };
 
   // Find the last user message's id so we can attach the ref
@@ -131,7 +135,7 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
                 className={cn(
                   "rounded-lg px-3 py-2 text-sm ",
                   message.role === "user"
-                    ? "bg-primary/80 text-primary-foreground ml-auto"
+                    ? "bg-secondary text-secondary-foreground ml-auto"
                     : "bg-card",
                 )}
               >
@@ -145,7 +149,7 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
                   className={cn(
                     "prose",
                     message.role === "user"
-                      ? "text-primary-foreground"
+                      ? "text-secondary-foreground"
                       : "text-card-foreground",
                   )}
                 />
