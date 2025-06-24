@@ -4,7 +4,7 @@ import { chatSidebarAtom } from "../chat/chat-sidebar/chat-sidebar.atom";
 import { ChatSidebar } from "../chat/chat-sidebar";
 import { useRouter } from "@tanstack/react-router";
 import { useIsMobile } from "~/client/hooks/use-mobile";
-import { isDev } from "~/client/lib/utils";
+import { isDev } from "~/client/lib/utils/isDev";
 
 export function GlobalSidebarProvider({
   children,
@@ -12,7 +12,6 @@ export function GlobalSidebarProvider({
   children: React.ReactNode;
 }) {
   const isMobile = useIsMobile();
-  // Only show sidebar in dev and not on mobile for now
   if (isMobile || !isDev) return children;
 
   const [open, setOpen] = useAtom(chatSidebarAtom);
@@ -22,11 +21,7 @@ export function GlobalSidebarProvider({
   const post = (router.state as any)?.matches?.[1]?.loaderData?.post;
 
   return (
-    <SidebarProvider
-      open={open}
-      onOpenChange={setOpen}
-      style={{ "--sidebar-width": "45ch" } as React.CSSProperties}
-    >
+    <SidebarProvider open={open} onOpenChange={setOpen}>
       {isPostPage && post ? <ChatSidebar post={post} /> : null}
       <SidebarInset>{children}</SidebarInset>
     </SidebarProvider>

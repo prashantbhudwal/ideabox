@@ -92,13 +92,15 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="antialiased mx-4 mt-8 md:mt-10 lg:mt-12 md:mx-auto max-w-full selection:bg-primary selection:text-primary-foreground px-4 md:px-8 lg:px-12">
+      <body className="antialiased">
         <GlobalSidebarProvider>
-          <Providers>
-            <Navbar className="mb-12 md:mb-16 lg:mb-20 2xl:mb-36" />
-            {children}
-            <BlogSearch />
-          </Providers>
+          <main className="mx-4 mt-8 md:mt-10 lg:mt-12 md:mx-auto max-w-full selection:bg-primary selection:text-primary-foreground px-4 md:px-8 lg:px-12">
+            <Providers>
+              <Navbar className="mb-12 md:mb-16 lg:mb-20 2xl:mb-36" />
+              {children}
+              <BlogSearch />
+            </Providers>
+          </main>
         </GlobalSidebarProvider>
         <Scripts />
       </body>
