@@ -22,11 +22,7 @@ export function PostCard({
           {post.title}
         </h3>
         <time className="text-sm text-muted-foreground md:text-base group-hover:text-slate-200 transition duration-400">
-          {new Date(post.createdAt).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
+          {post.createdAt}
         </time>
       </div>
     </Link>

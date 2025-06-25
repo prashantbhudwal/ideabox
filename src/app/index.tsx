@@ -8,7 +8,6 @@ import { C } from "~/common/constants";
 import { type TPost } from "~/common/types/content.types";
 import { getPostsServerFn } from "~/server/modules/post/get-all-posts.server";
 
-// New optimized type for pre-computed year groups
 type TPostsByYear = {
   year: string;
   posts: TPost[];
@@ -47,8 +46,19 @@ export const Route = createFileRoute("/")({
     );
 
     const byYear = sorted.reduce<Record<string, TPost[]>>((acc, post) => {
-      const year = new Date(post.createdAt).getFullYear().toString();
-      (acc[year] ||= []).push(post);
+      const dateObj = new Date(post.createdAt);
+      const year = dateObj.getFullYear().toString();
+
+      const formattedPost = {
+        ...post,
+        createdAt: dateObj.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }) as any,
+      };
+
+      (acc[year] ||= []).push(formattedPost);
       return acc;
     }, {});
 
