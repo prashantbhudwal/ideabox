@@ -16,7 +16,6 @@ type TPostsByYear = {
 export const Route = createFileRoute("/")({
   head: () => {
     const imagePath = `${C.url}/og-ashant.png`;
-    console.log("🟠imagePath", imagePath);
     return {
       title: "prashant",
       meta: seo({

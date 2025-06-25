@@ -30,14 +30,12 @@ export function SelectionToolbar() {
         if (lastRect) {
           setTimeout(() => {
             setRect(lastRect);
-            console.log("Setting selectedText:", sel.toString());
             setSelectedText(sel.toString()); // Only update when there is a new selection
 
             // Auto-open sidebar if on blog page, not mobile, and in dev mode
             const isPostPage =
               router.state.location.pathname.startsWith("/blog/");
             if (isPostPage && !isMobile && isDev && !sidebarOpen) {
-              console.log("Auto-opening sidebar for text selection");
               setSidebarOpen(true);
             }
           }, 200);
@@ -77,7 +75,6 @@ export function SelectionToolbar() {
         navigator.clipboard.writeText(text);
         window.getSelection()?.removeAllRanges();
         setRect(null);
-        console.log("Clearing selectedText from pill click");
         setSelectedText(""); // Clear selectedText only when copying
       }}
       style={style}

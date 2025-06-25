@@ -120,7 +120,6 @@ export function ChatPanel({ post }: { readonly post: TPost }) {
 
     // Clear selected text immediately after sending
     if (selectedText) {
-      console.log("Clearing selectedText from submit");
       setSelectedText("");
     }
   };

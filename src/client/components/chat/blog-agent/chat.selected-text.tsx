@@ -21,7 +21,6 @@ export function SelectedText() {
     return () => clearTimeout(timer);
   }, [selectedText]);
 
-  console.log("SelectedText render:", selectedText);
   if (!selectedText) return null;
 
   // Helper function to format text as "first few chars...ending chars"

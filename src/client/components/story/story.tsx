@@ -54,7 +54,6 @@ export function Story() {
 
     // Update the active location ID *only* when the section comes into view
     if (inView && locationId) {
-      console.log("InView:", locationId); // For debugging
       setActiveLocationId(locationId);
     }
     // Note: If multiple sections are "inView" based on the options,
