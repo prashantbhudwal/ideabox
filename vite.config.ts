@@ -28,7 +28,6 @@ export default defineConfig({
         filter: (route) => route.path.startsWith("/blog/"),
       },
     }),
-    // BEAST MODE: Rollup bundle analyzer - only runs when ANALYZE=true
     process.env.ANALYZE === "true" &&
       visualizer({
         filename: "dist/stats.html",
