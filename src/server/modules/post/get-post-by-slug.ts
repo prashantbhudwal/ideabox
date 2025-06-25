@@ -2,7 +2,7 @@ import { cache } from "react";
 import { ContentType, type TPost } from "~/common/types/content.types";
 import { allPosts } from "content-collections";
 
-export const getPostBySlug = cache(async (slug: string): Promise<TPost> => {
+export const getPostBySlug = cache(async (slug: string) => {
   const post = allPosts.find((post) => post.slug === slug);
 
   if (!post) {
