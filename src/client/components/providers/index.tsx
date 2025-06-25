@@ -1,4 +1,3 @@
-import { ClientOnly } from "@tanstack/react-router";
 import { ThemeProvider } from "./theme-provider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { TanStackRouterDevtools } from "node_modules/@tanstack/react-router-devtools/dist/esm/TanStackRouterDevtools";
@@ -8,12 +7,10 @@ import { isDev } from "~/client/lib/utils/isDev";
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ClientOnly fallback={<div className="bg-black"></div>}>
-      <ThemeProvider defaultTheme="dark">
-        <MDXProvider components={components}>{children}</MDXProvider>
-        <ReactQueryDevtools buttonPosition="bottom-right" />
-        {isDev && <TanStackRouterDevtools position="bottom-left" />}
-      </ThemeProvider>
-    </ClientOnly>
+    <ThemeProvider>
+      <MDXProvider components={components}>{children}</MDXProvider>
+      <ReactQueryDevtools buttonPosition="bottom-right" />
+      {isDev && <TanStackRouterDevtools position="bottom-left" />}
+    </ThemeProvider>
   );
 };

@@ -1,11 +1,10 @@
-import { createContext, useContext, useEffect, useState } from "react";
-
-type Theme = "dark" | "light" | "system";
+import { createContext, useContext, useEffect } from "react";
+import { useRouter } from "@tanstack/react-router";
+import { Route } from "~/app/__root";
+import { setThemeServerFn, type Theme } from "~/server/utils/theme";
 
 type ThemeProviderProps = {
   children: React.ReactNode;
-  defaultTheme?: Theme;
-  storageKey?: string;
 };
 
 type ThemeProviderState = {
@@ -14,22 +13,17 @@ type ThemeProviderState = {
 };
 
 const initialState: ThemeProviderState = {
-  theme: "system",
+  theme: "dark",
   setTheme: () => null,
 };
 
 export const ThemeProviderContext =
   createContext<ThemeProviderState>(initialState);
-// TODO: The theme flash on load issue
-export function ThemeProvider({
-  children,
-  defaultTheme = "system",
-  storageKey = "vite-ui-theme",
-  ...props
-}: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
-  );
+
+export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  const router = useRouter();
+
+  const { theme } = Route.useLoaderData();
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -41,7 +35,6 @@ export function ThemeProvider({
         .matches
         ? "dark"
         : "light";
-
       root.classList.add(systemTheme);
       return;
     }
@@ -49,12 +42,18 @@ export function ThemeProvider({
     root.classList.add(theme);
   }, [theme]);
 
+  const setTheme = async (newTheme: Theme) => {
+    try {
+      await setThemeServerFn({ data: newTheme });
+      router.invalidate();
+    } catch (error) {
+      console.error("Failed to set theme:", error);
+    }
+  };
+
   const value = {
     theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
-      setTheme(theme);
-    },
+    setTheme,
   };
 
   return (
@@ -63,3 +62,12 @@ export function ThemeProvider({
     </ThemeProviderContext.Provider>
   );
 }
+
+export const useTheme = () => {
+  const context = useContext(ThemeProviderContext);
+
+  if (context === undefined)
+    throw new Error("useTheme must be used within a ThemeProvider");
+
+  return context;
+};

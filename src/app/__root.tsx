@@ -20,12 +20,18 @@ import { GlobalSidebarProvider } from "~/client/components/providers/sidebar-pro
 import { SidebarTrigger } from "~/client/components/ui/sidebar";
 import { useIsMobile } from "~/client/hooks/use-mobile";
 import { isDev } from "~/client/lib/utils/isDev";
+import { getThemeServerFn } from "~/server/utils/theme";
+
 interface MyRouterContext {
   queryClient: QueryClient;
-
   trpc: TRPCOptionsProxy<TRPCRouter>;
 }
+
 export const Route = createRootRouteWithContext<MyRouterContext>()({
+  loader: async () => {
+    const theme = await getThemeServerFn();
+    return { theme };
+  },
   head: () => ({
     meta: [
       {
@@ -93,8 +99,17 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   const isMobile = useIsMobile();
   const shouldShowSidebar = !isMobile && isDev;
 
+  const { theme } = Route.useLoaderData();
+
+  const resolvedTheme = React.useMemo(() => {
+    if (theme === "system") {
+      return "dark";
+    }
+    return theme;
+  }, [theme]);
+
   return (
-    <html>
+    <html className={resolvedTheme} suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
