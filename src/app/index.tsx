@@ -8,6 +8,12 @@ import { C } from "~/common/constants";
 import { type TPost } from "~/common/types/content.types";
 import { getPostsServerFn } from "~/server/modules/post/get-all-posts.server";
 
+// New optimized type for pre-computed year groups
+type TPostsByYear = {
+  year: string;
+  posts: TPost[];
+};
+
 export const Route = createFileRoute("/")({
   head: () => {
     const imagePath = `${C.url}/og-ashant.png`;
@@ -34,35 +40,40 @@ export const Route = createFileRoute("/")({
   },
   loader: async () => {
     const posts = await getPostsServerFn();
+
     const sorted = [...posts].sort(
       (a, b) =>
         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
     );
-    return { posts: sorted };
+
+    const byYear = sorted.reduce<Record<string, TPost[]>>((acc, post) => {
+      const year = new Date(post.createdAt).getFullYear().toString();
+      (acc[year] ||= []).push(post);
+      return acc;
+    }, {});
+
+    const postsByYear: TPostsByYear[] = Object.entries(byYear)
+      .map(([year, posts]) => ({ year, posts }))
+      .sort((a, b) => +b.year - +a.year);
+
+    return { postsByYear };
   },
   component: () => {
-    const { posts } = Route.useLoaderData();
-    return <Posts posts={posts} />;
+    const { postsByYear } = Route.useLoaderData();
+    return <Posts postsByYear={postsByYear} />;
   },
 });
 
-function Posts({ posts }: { posts: TPost[] }) {
-  const byYear = posts.reduce<Record<string, typeof posts>>((acc, post) => {
-    const y = new Date(post.createdAt).getFullYear().toString();
-    (acc[y] ||= []).push(post);
-    return acc;
-  }, {});
-  const years = Object.keys(byYear).sort((a, b) => +b - +a);
-
+function Posts({ postsByYear }: { postsByYear: TPostsByYear[] }) {
   return (
     <div className="max-w-xl mx-auto flex flex-col space-y-16 pt-10">
-      {years.map((year) => (
+      {postsByYear.map(({ year, posts }) => (
         <div key={year} className="px-1 flex flex-col space-y-6">
           <h2 className="text-3xl md:text-4xl font-semibold text-primary">
             {year}
           </h2>
           <Separator className="mb-4" />
-          <PostList posts={byYear[year]} />
+          <PostList posts={posts} />
         </div>
       ))}
       <div className="flex flex-col space-y-10 pb-10 md:items-center">
