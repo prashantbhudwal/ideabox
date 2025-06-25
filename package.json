@@ -20,7 +20,8 @@
     "post:create": "pnpm tsx src/lib/scripts/create-post.ts",
     "build:collections": "pnpm content-collections build",
     "build:start": "pnpm run build && pnpm run start",
-    "mastra": "mastra dev --dir ./src/server/mastra"
+    "mastra": "mastra dev --dir ./src/server/mastra",
+    "analyze": "ANALYZE=true pnpm run build"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.2.19",
@@ -179,6 +180,7 @@
     "postcss": "^8.5.6",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.12",
+    "rollup-plugin-visualizer": "^6.0.3",
     "tailwind-capitalize-first-letter": "^1.0.4",
     "tailwind-scrollbar": "^4.0.2",
     "tailwind-scrollbar-hide": "^4.0.0",

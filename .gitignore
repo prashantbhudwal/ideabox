@@ -67,3 +67,4 @@ yarn.lock
 /playwright/.cache/
 .tanstack
 .content-collections
+dist
