@@ -8,7 +8,7 @@ import {
   SidebarContent,
   SidebarHeader,
 } from "~/client/components/ui/sidebar";
-import { ChatPanel } from "../blog-agent/chat-panel";
+import { Chat } from "../blog-agent/chat";
 import { type TPost } from "~/common/types/content.types";
 
 export function ChatSidebar({ post }: { readonly post: TPost }) {
@@ -44,7 +44,7 @@ export function ChatSidebar({ post }: { readonly post: TPost }) {
         </p>
       </SidebarHeader>
       <SidebarContent className="flex flex-col p-0">
-        <ChatPanel post={post} />
+        <Chat post={post} />
       </SidebarContent>
     </Sidebar>
   );

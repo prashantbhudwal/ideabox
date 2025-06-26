@@ -1,6 +1,7 @@
+import { memo } from "react";
 import { Prose } from "../../blog/custom/prose.v2";
 
-export function ChatMarkdown({
+export const ChatMarkdown = memo(function ({
   markdown,
   className,
 }: {
@@ -8,4 +9,4 @@ export function ChatMarkdown({
   className?: string;
 }) {
   return <Prose content={markdown} type="markdown" className={className} />;
-}
+});

@@ -7,7 +7,7 @@ import type {
   ToolInvocationUIPart,
 } from "@ai-sdk/ui-utils";
 import { Card, CardContent, CardHeader, CardTitle } from "../../ui/card";
-import { ChatMarkdown } from "./chat-text";
+import { ChatMarkdown } from "./chat.markdown";
 import { useAgentStore } from "./agent.store";
 import { cn } from "~/client/lib/utils";
 import { Separator } from "../../ui/separator";
