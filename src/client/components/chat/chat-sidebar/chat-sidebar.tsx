@@ -13,15 +13,12 @@ import { type TPost } from "~/common/types/content.types";
 
 export function ChatSidebar({ post }: { readonly post: TPost }) {
   const [open, setOpen] = useAtom(chatSidebarAtom);
-  const isMobile = useIsMobile();
 
   useHotkeys(
     "meta+shift+i, ctrl+shift+i",
     (event) => {
       event.preventDefault();
-      if (!isMobile) {
-        setOpen((prev) => !prev);
-      }
+      setOpen((prev) => !prev);
     },
     {
       enableOnFormTags: ["INPUT", "TEXTAREA"],
@@ -29,11 +26,10 @@ export function ChatSidebar({ post }: { readonly post: TPost }) {
       preventDefault: true,
       scopes: ["chat-sidebar"],
     },
-    [setOpen, isMobile],
+    [setOpen],
   );
 
-  // Only show chat in dev and not on mobile
-  if (!isDev || isMobile) return null;
+  if (!isDev) return null;
 
   return (
     <Sidebar side="left" variant="inset">
