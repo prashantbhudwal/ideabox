@@ -3,7 +3,14 @@ import { ScrollArea } from "~/client/components/ui/scroll-area";
 import { link } from "~/client/lib/link";
 import { type TBlogAgentBody } from "~/common/types/agent.types";
 import { type TPost } from "~/common/types/content.types";
-import { useRef, useLayoutEffect, useState, useEffect, useMemo } from "react";
+import {
+  useRef,
+  useLayoutEffect,
+  useState,
+  useEffect,
+  useMemo,
+  useDeferredValue,
+} from "react";
 import { useAgentStore } from "./agent.store";
 import dedent from "dedent";
 import { Composer } from "./chat.composer";
@@ -32,11 +39,19 @@ export function Chat({ post }: { readonly post: TPost }) {
   const selectedText = useAgentStore((s) => s.selectedText);
   const setSelectedText = useAgentStore((s) => s.setSelectedText);
 
-  const { messages, input, handleInputChange, setInput, append, status } =
-    useChat({
-      api: CHAT_API,
-      body,
-    });
+  const {
+    messages,
+    input: realInput,
+    handleInputChange,
+    setInput,
+    append,
+    status,
+  } = useChat({
+    api: CHAT_API,
+    body,
+  });
+
+  const input = useDeferredValue(realInput);
 
   useEffect(() => {
     setChatStatus(status);
