@@ -4,7 +4,6 @@ import { RecommendedPosts } from "~/client/components/blog/recommended-posts";
 import { SelectionToolbar } from "~/client/components/pill";
 import { Post } from "~/client/components/blog/post";
 import { type TPost } from "~/common/types/content.types";
-import { ChatLegacy } from "~/client/components/chat/blog-agent/legacy.chat";
 import { seo } from "~/client/lib/utils/seo";
 import { C } from "~/common/constants";
 
@@ -55,7 +54,6 @@ function RouteComponent() {
   }
   return (
     <div className="flex flex-col items-center gap-8">
-      <ChatLegacy post={post} />
       <Post mdxCode={mdx} post={post} />
       <RecommendedPosts currentPostId={post.id} />
       <PostFooter slug={post.slug} title={post.title} />
