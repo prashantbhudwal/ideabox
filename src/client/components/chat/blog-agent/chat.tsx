@@ -81,6 +81,7 @@ export function Chat({ post }: { readonly post: TPost }) {
   // Replace the form's onSubmit handler to prepend selected text
   const handleCustomSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setInput("");
     let message = input;
     if (selectedText) {
       message = dedent`> ${selectedText}\n\n
@@ -88,7 +89,6 @@ export function Chat({ post }: { readonly post: TPost }) {
     }
     if (message.trim() === "") return;
     await append({ role: "user", content: message });
-    setInput("");
 
     // Clear selected text immediately after sending
     if (selectedText) {

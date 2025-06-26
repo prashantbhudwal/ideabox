@@ -15,13 +15,13 @@ type TViewPortSlice = {
 
 type TUserStateSlice = {
   isTyping: boolean;
-
   setIsTyping: (isTyping: boolean) => void;
 };
 
 type TChatSlice = {
   chatStatus: UseChatHelpers["status"];
   isStreaming: boolean;
+  isReady: boolean;
   setChatStatus: (status: UseChatHelpers["status"]) => void;
 };
 
@@ -73,11 +73,13 @@ const createChatSlice: TStateCreator<TChatSlice> = (set) => {
   return {
     chatStatus: "ready",
     isStreaming: false,
+    isReady: true,
     setChatStatus: (chatStatus) =>
       set((state) => ({
         ...state,
         chatStatus,
         isStreaming: chatStatus === "streaming",
+        isReady: chatStatus === "ready",
       })),
   };
 };
@@ -95,7 +97,8 @@ export const useAgentStore = create<TStore>()((set, ...args) => ({
       routeType: "general",
       isTyping: false,
       chatStatus: "ready",
-      isLoading: false,
+      isStreaming: false,
+      isReady: true,
     }));
   },
 }));

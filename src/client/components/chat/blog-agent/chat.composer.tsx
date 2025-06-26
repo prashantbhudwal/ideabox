@@ -6,6 +6,8 @@ import { SelectedText } from "./chat.selected-text";
 import { ArrowUp, SendIcon } from "lucide-react";
 import { Textarea } from "../../ui/textarea";
 
+const PLACEHOLDER = "ask anything about this blog";
+
 export function Composer({
   handleCustomSubmit,
   input,
@@ -17,6 +19,7 @@ export function Composer({
 }) {
   const selectedText = useAgentStore((s) => s.selectedText);
   const setSelectedText = useAgentStore((s) => s.setSelectedText);
+  const isReady = useAgentStore((s) => s.isReady);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -43,14 +46,28 @@ export function Composer({
         onSubmit={handleCustomSubmit}
         className="flex flex-col gap-2 p-4 rounded-xl outline bg-secondary "
       >
+        {/* Submit on enter */}
+
         <Textarea
           value={input}
           onChange={handleInputChange}
-          placeholder="ask anything"
+          placeholder={PLACEHOLDER}
           className="resize-none border-none focus-visible:ring-0 focus-visible:ring-offset-0 max-h-64 scrollbar-none hover:scrollbar-thin"
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey && isReady) {
+              handleCustomSubmit(
+                e as unknown as React.FormEvent<HTMLFormElement>,
+              );
+            }
+          }}
         />
         <div className="flex justify-end">
-          <Button type="submit" size={"icon"} className="rounded-full size-7">
+          <Button
+            type="submit"
+            size={"icon"}
+            className="rounded-full size-7"
+            disabled={!isReady}
+          >
             <ArrowUp />
           </Button>
         </div>
