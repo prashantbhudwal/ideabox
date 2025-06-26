@@ -14,6 +14,7 @@ import {
 import { type SearchResult } from "~/server/modules/search/config";
 import { SearchModalAtom } from "./search-modal-atom";
 import { useAtom } from "jotai";
+import { useDeferredValue } from "react";
 
 export function BlogSearch(): React.ReactElement {
   const [query, setQuery] = React.useState("");
@@ -22,11 +23,13 @@ export function BlogSearch(): React.ReactElement {
   const { search, isLoading, isReady } = useSearch();
   const [results, setResults] = React.useState<SearchResult[]>([]);
 
+  const deferredQuery = useDeferredValue(query);
+
   // Update results when query changes
   React.useEffect(() => {
-    const results = search(query);
+    const results = search(deferredQuery);
     setResults(results);
-  }, [search, query]);
+  }, [search, deferredQuery]);
 
   // Toggle search dialog with Cmd+K
   useHotkeys(
