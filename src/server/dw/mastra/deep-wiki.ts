@@ -302,7 +302,7 @@ export const researchWorkflow = createWorkflow({
   .then(searchStep)
   .then(pageSelectionStep)
   .then(getPageContentStep)
-  .map(({ inputData }) => {
+  .map(async ({ inputData }) => {
     return {
       prompt: inputData,
     };
@@ -315,6 +315,12 @@ const memory = isDev
       storage: new LibSQLStore({
         url: "file:../mastra.db",
       }),
+      options: {
+        workingMemory: {
+          enabled: true,
+          scope: "resource",
+        },
+      },
     })
   : undefined;
 
