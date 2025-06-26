@@ -15,6 +15,7 @@
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
     "up": "pnpm update && pnpm check",
+    "in": "pnpm install --frozen-lockfile",
     "build:search-index": "pnpm tsx src/server/modules/search/build-search-index.script.ts",
     "post:check-duplicates": "pnpm tsx src/server/modules/post/check-duplicates.script.ts",
     "post:create": "pnpm tsx src/lib/scripts/create-post.ts",
