@@ -19,7 +19,7 @@
     "build:search-index": "pnpm tsx src/server/modules/search/build-search-index.script.ts",
     "post:check-duplicates": "pnpm tsx src/server/modules/post/check-duplicates.script.ts",
     "post:create": "pnpm tsx src/lib/scripts/create-post.ts",
-    "build:collections": "pnpm content-collections build",
+    "build:cc": "pnpm content-collections build",
     "build:start": "pnpm run build && pnpm run start",
     "mastra": "mastra dev --dir ./src/server/mastra",
     "analyze": "ANALYZE=true pnpm run build"
