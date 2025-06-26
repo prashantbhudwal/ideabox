@@ -47,7 +47,7 @@ export function Composer({
           value={input}
           onChange={handleInputChange}
           placeholder="ask anything"
-          className="resize-none border-none focus-visible:ring-0 focus-visible:ring-offset-0"
+          className="resize-none border-none focus-visible:ring-0 focus-visible:ring-offset-0 max-h-64 scrollbar-none hover:scrollbar-thin"
         />
         <div className="flex justify-end">
           <Button type="submit" size={"icon"} className="rounded-full size-7">
