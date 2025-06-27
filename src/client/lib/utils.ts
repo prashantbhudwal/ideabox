@@ -20,10 +20,23 @@ const simulateCall = async (duration = 1000, { failureRate = 0 } = {}) => {
   });
 };
 
+export function sleep(
+  ms: number,
+  { nonBlocking = true }: { nonBlocking?: boolean },
+) {
+  if (nonBlocking) {
+    return new Promise((r) => setTimeout(r, ms));
+  } else {
+    const wakeUpTime = Date.now() + ms;
+    while (Date.now() < wakeUpTime) {}
+  }
+}
+
 /**
  * These utils are only available in development environment.
  * @returns *null* in production environment.
  */
 export const devUtils = {
   simulateCall,
+  sleep,
 };
