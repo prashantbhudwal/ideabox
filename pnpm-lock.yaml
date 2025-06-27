@@ -38,6 +38,9 @@ importers:
       '@inquirer/prompts':
         specifier: ^7.5.3
         version: 7.5.3(@types/node@24.0.4)
+      '@loadable/component':
+        specifier: ^5.16.7
+        version: 5.16.7(react@19.1.0)
       '@mastra/client-js':
         specifier: ^0.10.7
         version: 0.10.7(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.67)
@@ -414,6 +417,9 @@ importers:
       '@tanstack/react-query-devtools':
         specifier: ^5.81.2
         version: 5.81.2(@tanstack/react-query@5.81.2(react@19.1.0))(react@19.1.0)
+      '@types/loadable__component':
+        specifier: ^5.13.9
+        version: 5.13.9
       '@types/marked-terminal':
         specifier: ^6.1.1
         version: 6.1.1
@@ -1686,6 +1692,12 @@ packages:
     resolution: {integrity: sha512-aNcmDrD1Ws+dNZIv9ECbxBQumqB9MlSVEykwfXJpqv/593nABb8Ttg5nAGUPtnADyaGDTrGvPPP81d/KsKho4Q==}
     cpu: [x64]
     os: [win32]
+
+  '@loadable/component@5.16.7':
+    resolution: {integrity: sha512-XvkFixLUOTEaj8lI7uwc4nf8Wmq3IulYG7SZHCWcPm/Li5gjJDFfIkgWOLPnD7jqPJVtAG9bEz4SCek+SpHYYg==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      react: ^16.3.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   '@lukeed/csprng@1.1.0':
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
@@ -4445,6 +4457,9 @@ packages:
   '@types/katex@0.16.7':
     resolution: {integrity: sha512-HMwFiRujE5PjrgwHQ25+bsLJgowjGjm5Z8FVSf0N6PwgJrwxH0QxzHYDcKsTfV3wva0vzrpqMTJS2jXPr5BMEQ==}
 
+  '@types/loadable__component@5.13.9':
+    resolution: {integrity: sha512-QWOtIkwZqHNdQj3nixQ8oyihQiTMKZLk/DNuvNxMSbTfxf47w+kqcbnxlUeBgAxdOtW0Dh48dTAIp83iJKtnrQ==}
+
   '@types/lodash@4.17.19':
     resolution: {integrity: sha512-NYqRyg/hIQrYPT9lbOeYc3kIRabJDn/k4qQHIXUpx88CBDww2fD15Sg5kbXlW86zm2XEW4g0QxkTI3/Kfkc7xQ==}
 
@@ -6402,6 +6417,9 @@ packages:
 
   highlightjs-vue@1.0.0:
     resolution: {integrity: sha512-PDEfEF102G23vHmPhLyPboFCD+BkMGu+GuJe2d9/eH4FsCwvgBpnc9n0pGE+ffKdph38s6foEZiEjdgHdzp+IA==}
+
+  hoist-non-react-statics@3.3.2:
+    resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
 
   hono-openapi@0.4.8:
     resolution: {integrity: sha512-LYr5xdtD49M7hEAduV1PftOMzuT8ZNvkyWfh1DThkLsIr4RkvDb12UxgIiFbwrJB6FLtFXLoOZL9x4IeDk2+VA==}
@@ -11188,6 +11206,13 @@ snapshots:
   '@libsql/win32-x64-msvc@0.5.13':
     optional: true
 
+  '@loadable/component@5.16.7(react@19.1.0)':
+    dependencies:
+      '@babel/runtime': 7.27.6
+      hoist-non-react-statics: 3.3.2
+      react: 19.1.0
+      react-is: 16.13.1
+
   '@lukeed/csprng@1.1.0': {}
 
   '@lukeed/uuid@2.0.1':
@@ -14885,6 +14910,10 @@ snapshots:
 
   '@types/katex@0.16.7': {}
 
+  '@types/loadable__component@5.13.9':
+    dependencies:
+      '@types/react': 19.1.8
+
   '@types/lodash@4.17.19': {}
 
   '@types/mapbox__point-geometry@0.1.4': {}
@@ -17191,6 +17220,10 @@ snapshots:
   highlight.js@10.7.3: {}
 
   highlightjs-vue@1.0.0: {}
+
+  hoist-non-react-statics@3.3.2:
+    dependencies:
+      react-is: 16.13.1
 
   hono-openapi@0.4.8(hono@4.8.3)(openapi-types@12.1.3)(zod@3.25.67):
     dependencies:
