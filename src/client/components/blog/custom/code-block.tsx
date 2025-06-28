@@ -1,8 +1,14 @@
-"use client";
-
 import { type FC, memo } from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import loadable from "@loadable/component";
+
+const SyntaxHighlighter = loadable(
+  () => import("react-syntax-highlighter").then((mod) => mod.Prism),
+  {
+    ssr: false,
+  },
+);
 
 interface Props {
   language: string;
@@ -55,7 +61,7 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
     const fileExtension = programmingLanguages[language] ?? ".file";
     const suggestedFileName = `file-${generateRandomString(
       3,
-      true
+      true,
     )}${fileExtension}`;
     const fileName = window.prompt("Enter file name", suggestedFileName);
 
