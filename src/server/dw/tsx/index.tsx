@@ -1,3 +1,4 @@
 import { UseMemoApp } from "./use-memo";
+import { Lazy } from "./lazy";
 
-export { UseMemoApp as Test };
+export { Lazy as Test };
