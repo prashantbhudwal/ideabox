@@ -1,12 +1,12 @@
-import { useAgentStore } from "./agent.store";
+import { useStore } from "../../../store";
 import { Card, CardContent } from "../../ui/card";
 import { Button } from "../../ui/button";
 import { X } from "lucide-react";
 import React from "react";
 
 export function SelectedText() {
-  const selectedText = useAgentStore((s) => s.selectedText);
-  const setSelectedText = useAgentStore((s) => s.setSelectedText);
+  const selectedText = useStore((s) => s.selectedText);
+  const setSelectedText = useStore((s) => s.setSelectedText);
   const [isDismissing, setIsDismissing] = React.useState(false);
   const [isAppearing, setIsAppearing] = React.useState(true);
 

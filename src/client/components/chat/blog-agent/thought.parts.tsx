@@ -8,7 +8,7 @@ import type {
 } from "@ai-sdk/ui-utils";
 import { Card, CardContent, CardHeader, CardTitle } from "../../ui/card";
 import { ChatMarkdown } from "./chat.markdown";
-import { useAgentStore } from "./agent.store";
+import { useStore } from "../../../store";
 import { cn } from "~/client/lib/utils";
 import { Separator } from "../../ui/separator";
 export function ThinkingTopic({ topic }: { topic: string }) {
@@ -45,7 +45,7 @@ export function extractDisplayContent(result: unknown): string {
 }
 
 export function StepStartPart({ part }: { part: StepStartUIPart }) {
-  const isStreaming = useAgentStore((state) => state.isStreaming);
+  const isStreaming = useStore((state) => state.isStreaming);
   return (
     <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
       <div

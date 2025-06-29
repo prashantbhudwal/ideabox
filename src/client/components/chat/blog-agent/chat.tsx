@@ -11,7 +11,7 @@ import {
   useMemo,
   useDeferredValue,
 } from "react";
-import { useAgentStore } from "./agent.store";
+import { useStore } from "../../../store";
 import dedent from "dedent";
 import { Composer } from "./chat.composer";
 import { ChatMessageList } from "./chat.message-list";
@@ -30,14 +30,14 @@ const getRequestBody = (post: TPost): TBlogAgentBody => {
 };
 
 export function Chat({ post }: { readonly post: TPost }) {
-  const setChatStatus = useAgentStore((state) => state.setChatStatus);
+  const setChatStatus = useStore((state) => state.setChatStatus);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const lastUserRef = useRef<HTMLDivElement | null>(null);
   const [bottomPadding, setBottomPadding] = useState(0);
   const body = useMemo(() => getRequestBody(post), [post.id]);
 
-  const selectedText = useAgentStore((s) => s.selectedText);
-  const setSelectedText = useAgentStore((s) => s.setSelectedText);
+  const selectedText = useStore((s) => s.selectedText);
+  const setSelectedText = useStore((s) => s.setSelectedText);
 
   const {
     messages,

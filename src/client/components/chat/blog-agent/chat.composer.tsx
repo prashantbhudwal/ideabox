@@ -1,6 +1,6 @@
 import { Button } from "~/client/components/ui/button";
 import { Input } from "~/client/components/ui/input";
-import { useAgentStore } from "./agent.store";
+import { useStore } from "../../../store";
 import { useRef, useEffect } from "react";
 import { SelectedText } from "./chat.selected-text";
 import { ArrowUp, SendIcon } from "lucide-react";
@@ -17,9 +17,9 @@ export function Composer({
   input: string;
   handleInputChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }) {
-  const selectedText = useAgentStore((s) => s.selectedText);
-  const setSelectedText = useAgentStore((s) => s.setSelectedText);
-  const isReady = useAgentStore((s) => s.isReady);
+  const selectedText = useStore((s) => s.selectedText);
+  const setSelectedText = useStore((s) => s.setSelectedText);
+  const isReady = useStore((s) => s.isReady);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {

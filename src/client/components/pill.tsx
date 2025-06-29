@@ -6,7 +6,7 @@ import { FaCopy } from "react-icons/fa6";
 import { useAtom, useAtomValue } from "jotai";
 import { chatPanelAtom } from "./chat/blog-agent/chat-panel.atom";
 import { chatSidebarAtom } from "./chat/chat-sidebar/chat-sidebar.atom";
-import { useAgentStore } from "./chat/blog-agent/agent.store";
+import { useStore } from "../store";
 import { useRouter } from "@tanstack/react-router";
 import { isDev } from "~/client/lib/utils/isDev";
 import { useIsMobile } from "~/client/hooks/use-mobile";
@@ -15,7 +15,7 @@ export function SelectionToolbar() {
   const [rect, setRect] = useState<DOMRect | null>(null);
   const chatPanelOpen = useAtomValue(chatPanelAtom);
   const [sidebarOpen, setSidebarOpen] = useAtom(chatSidebarAtom);
-  const setSelectedText = useAgentStore((s) => s.setSelectedText);
+  const setSelectedText = useStore((s) => s.setSelectedText);
   const router = useRouter();
   const isMobile = useIsMobile();
 
