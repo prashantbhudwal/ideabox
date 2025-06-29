@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PostFooter } from "~/client/components/blog/post-footer";
 import { RecommendedPosts } from "~/client/components/blog/recommended-posts";
-import { SelectionToolbar } from "~/client/components/pill";
 import { Post } from "~/client/components/blog/post";
 import { type TPost } from "~/common/types/content.types";
 import { seo } from "~/client/lib/utils/seo";
@@ -57,7 +56,6 @@ function RouteComponent() {
       <Post mdxCode={mdx} post={post} />
       <RecommendedPosts currentPostId={post.id} />
       <PostFooter slug={post.slug} title={post.title} />
-      <SelectionToolbar />
     </div>
   );
 }

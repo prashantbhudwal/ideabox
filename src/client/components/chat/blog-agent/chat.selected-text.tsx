@@ -46,7 +46,7 @@ export function SelectedText() {
   //Show a snippet of the selected text
   return (
     <Card
-      className={`w-42 relative transition-all duration-300 ease-in-out ${
+      className={`w-42 relative transition-all duration-300 ease-in-out outline outline-primary ${
         isDismissing
           ? "opacity-0 scale-95 translate-y-2"
           : isAppearing

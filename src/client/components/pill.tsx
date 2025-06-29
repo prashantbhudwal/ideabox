@@ -33,9 +33,8 @@ export function SelectionToolbar() {
             setSelectedText(sel.toString()); // Only update when there is a new selection
 
             // Auto-open sidebar if on blog page, not mobile, and in dev mode
-            const isPostPage =
-              router.state.location.pathname.startsWith("/blog/");
-            if (isPostPage && !isMobile && isDev && !sidebarOpen) {
+
+            if (!isMobile && isDev && !sidebarOpen) {
               setSidebarOpen(true);
             }
           }, 200);

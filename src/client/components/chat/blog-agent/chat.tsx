@@ -1,40 +1,28 @@
 import { useChat } from "@ai-sdk/react";
 import { ScrollArea } from "~/client/components/ui/scroll-area";
-import { link } from "~/client/lib/link";
-import { type TBlogAgentBody } from "~/common/types/agent.types";
-import { type TPost } from "~/common/types/content.types";
 import {
   useRef,
   useLayoutEffect,
   useState,
   useEffect,
-  useMemo,
   useDeferredValue,
 } from "react";
 import { useStore } from "../../../store";
 import dedent from "dedent";
 import { Composer } from "./chat.composer";
 import { ChatMessageList } from "./chat.message-list";
+import { useLocation } from "@tanstack/react-router";
+import { getContent } from "./helpers";
 
 const CHAT_API = "/api/chat/blog";
 const BOTTOM_PADDING_PERCENTAGE = 0.9;
 
-const getRequestBody = (post: TPost): TBlogAgentBody => {
-  return {
-    data: {
-      routeName: link.url.internal.post({ slug: post.slug }),
-      contentType: "blog-page",
-      content: post.content,
-    },
-  };
-};
-
-export function Chat({ post }: { readonly post: TPost }) {
+export function Chat() {
+  const location = useLocation();
   const setChatStatus = useStore((state) => state.setChatStatus);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const lastUserRef = useRef<HTMLDivElement | null>(null);
   const [bottomPadding, setBottomPadding] = useState(0);
-  const body = useMemo(() => getRequestBody(post), [post.id]);
 
   const selectedText = useStore((s) => s.selectedText);
   const setSelectedText = useStore((s) => s.setSelectedText);
@@ -46,16 +34,67 @@ export function Chat({ post }: { readonly post: TPost }) {
     setInput,
     append,
     status,
+    setMessages,
   } = useChat({
     api: CHAT_API,
-    body,
   });
 
   const input = useDeferredValue(realInput);
 
+  const handleCustomSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setInput("");
+    let message = input;
+    if (selectedText) {
+      message = dedent`> ${selectedText}\n\n
+      ${input}`;
+    }
+    if (message.trim() === "") return;
+
+    // Capture latest content right before sending
+    const container = document.querySelector('main[data-llm="content"]');
+    if (container) {
+      const content = getContent(container);
+      useStore.getState().updateViewport({
+        viewportContent: content,
+        route: location.pathname,
+        routeType: "post",
+      });
+    } else {
+      useStore.getState().updateViewport({
+        viewportContent: "Hidden from LLM",
+        route: location.pathname,
+        routeType: "post",
+      });
+    }
+
+    // Get fresh viewport data for this specific message
+    const currentRoute = useStore.getState().route;
+    const currentContent = useStore.getState().viewportContent;
+    const currentRouteType = useStore.getState().routeType;
+
+    await append(
+      { role: "user", content: message },
+      {
+        body: {
+          data: {
+            routeName: currentRoute,
+            contentType: currentRouteType,
+            content: currentContent,
+          },
+        },
+      },
+    );
+
+    // Clear selected text immediately after sending
+    if (selectedText) {
+      setSelectedText("");
+    }
+  };
+
   useEffect(() => {
     setChatStatus(status);
-  }, [status, setChatStatus]);
+  }, [status]);
 
   // "scroll newest user bubble to the top"
   useLayoutEffect(() => {
@@ -94,22 +133,6 @@ export function Chat({ post }: { readonly post: TPost }) {
   }, []);
 
   // Replace the form's onSubmit handler to prepend selected text
-  const handleCustomSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setInput("");
-    let message = input;
-    if (selectedText) {
-      message = dedent`> ${selectedText}\n\n
-      ${input}`;
-    }
-    if (message.trim() === "") return;
-    await append({ role: "user", content: message });
-
-    // Clear selected text immediately after sending
-    if (selectedText) {
-      setSelectedText("");
-    }
-  };
 
   return (
     <>

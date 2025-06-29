@@ -19,7 +19,7 @@ const memory = isDev
 export const blogAgent = new Agent({
   name: "Blog Agent",
   instructions: getBlogAgentPrompt,
-  model: models.gemini,
+  model: models.gemini25,
   tools: {
     keywordSearchPostsTOOL,
     fetchPostsTOOL,
