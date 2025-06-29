@@ -118,7 +118,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body className="antialiased">
         <GlobalSidebarProvider>
-          <main className="mx-4 mt-8 md:mt-10 lg:mt-12 md:mx-auto max-w-full selection:bg-primary selection:text-primary-foreground px-4 md:px-8 lg:px-12">
+          <main
+            className="mx-4 mt-8 md:mt-10 lg:mt-12 md:mx-auto max-w-full selection:bg-primary selection:text-primary-foreground px-4 md:px-8 lg:px-12"
+            data-llm="content"
+          >
             {shouldShowSidebar && (
               <SidebarTrigger className="absolute top-2 left-2" />
             )}
