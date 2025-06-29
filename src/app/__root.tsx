@@ -21,6 +21,8 @@ import { SidebarTrigger } from "~/client/components/ui/sidebar";
 import { useIsMobile } from "~/client/hooks/use-mobile";
 import { isDev } from "~/client/lib/utils/isDev";
 import { getThemeServerFn } from "~/server/utils/theme";
+import { useAtom } from "jotai";
+import { chatSidebarAtom } from "~/client/components/chat/chat-sidebar";
 
 interface MyRouterContext {
   queryClient: QueryClient;
@@ -42,32 +44,31 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: "width=device-width, initial-scale=1",
       },
       ...seo({
-        title:
-          "TanStack Start | Type-Safe, Client-First, Full-Stack React Framework",
-        description: `TanStack Start is a type-safe, client-first, full-stack React framework. `,
+        title: "ashant",
+        description: `thoughts on software, design, and life`,
       }),
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      {
-        rel: "apple-touch-icon",
-        sizes: "180x180",
-        href: "/apple-touch-icon.png",
-      },
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "32x32",
-        href: "/favicon-32x32.png",
-      },
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "16x16",
-        href: "/favicon-16x16.png",
-      },
       { rel: "manifest", href: "/site.webmanifest", color: "#fffff" },
       { rel: "icon", href: "/favicon.ico" },
+      // {
+      //   rel: "apple-touch-icon",
+      //   sizes: "180x180",
+      //   href: "/apple-touch-icon.png",
+      // },
+      // {
+      //   rel: "icon",
+      //   type: "image/png",
+      //   sizes: "32x32",
+      //   href: "/favicon-32x32.png",
+      // },
+      // {
+      //   rel: "icon",
+      //   type: "image/png",
+      //   sizes: "16x16",
+      //   href: "/favicon-16x16.png",
+      // },
     ],
     // scripts: [
     //   {
@@ -96,6 +97,8 @@ function RootComponent() {
 }
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const [open, setOpen] = useAtom(chatSidebarAtom);
+
   const isMobile = useIsMobile();
   const shouldShowSidebar = !isMobile && isDev;
 
