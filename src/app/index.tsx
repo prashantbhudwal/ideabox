@@ -7,6 +7,7 @@ import { seo } from "~/client/lib/utils/seo";
 import { C } from "~/common/constants";
 import { type TPost } from "~/common/types/content.types";
 import { getPostsServerFn } from "~/server/modules/post/get-all-posts.server";
+import { formatDate } from "~/client/helpers/format-date";
 
 type TPostsByYear = {
   year: string;
@@ -50,11 +51,7 @@ export const Route = createFileRoute("/")({
 
       const formattedPost = {
         ...post,
-        createdAt: dateObj.toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        }) as any,
+        createdAt: formatDate(post.createdAt),
       };
 
       (acc[year] ||= []).push(formattedPost);

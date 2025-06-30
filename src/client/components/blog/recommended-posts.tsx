@@ -8,7 +8,9 @@ import {
 } from "~/client/components/ui/card";
 import { useTRPC } from "~/client/trpc/react";
 import { useQuery } from "@tanstack/react-query";
+import { formatDate } from "~/client/helpers/format-date";
 
+// TODO refactor the logic, looks like a mess
 export function RecommendedPosts({ currentPostId }: { currentPostId: string }) {
   const trpc = useTRPC();
   const { data: similarPostIds, isLoading } = useQuery(
@@ -58,6 +60,13 @@ function RecommendedPostsContent({
           ]
         : similarPosts;
 
+  const postsWithFormattedDate = postToShow.map((post) => {
+    return {
+      ...post,
+      createdAt: formatDate(post.createdAt),
+    };
+  });
+
   return (
     <Card className="mb-6 w-full max-w-prose">
       <CardHeader>
@@ -67,7 +76,7 @@ function RecommendedPostsContent({
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-10 max-w-11/12 mx-auto">
-          {postToShow.map((post) => {
+          {postsWithFormattedDate.map((post) => {
             const isSimilar = similarPosts.some(
               (similarPost) => similarPost.id === post.id,
             );
