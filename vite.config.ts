@@ -18,6 +18,7 @@ export default defineConfig({
       projects: ["./tsconfig.json"],
     }),
     tanstackStart({
+      pages: [{ path: "/", prerender: { enabled: true } }],
       tsr: {
         routesDirectory: "src/app",
       },
@@ -25,7 +26,12 @@ export default defineConfig({
       prerender: {
         crawlLinks: true,
         enabled: true,
-        filter: (route) => route.path.startsWith("/blog/"),
+        // filter: (route) => {
+        //   console.log("🟢 Prerendering route", route.path);
+        //   const split = route.path.startsWith("/blog/");
+        //   console.log("🟢 Prerendering route", split);
+        //   return split;
+        // },
       },
     }),
     process.env.ANALYZE === "true" &&
