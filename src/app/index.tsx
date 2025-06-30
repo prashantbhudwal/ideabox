@@ -6,8 +6,44 @@ import { getWeekOfLife } from "~/common/utils/date";
 import { seo } from "~/client/lib/utils/seo";
 import { C } from "~/common/constants";
 import { type TPost } from "~/common/types/content.types";
-import { getPostsServerFn } from "~/server/modules/post/get-all-posts.server";
 import { formatDate } from "~/client/helpers/format-date";
+import { createServerFn } from "@tanstack/react-start";
+import { getAllPosts } from "~/server/modules/post/get-all-posts";
+
+export const getPostsMetadataServerFn = createServerFn({
+  type: "static",
+}).handler(async () => {
+  const posts = await getAllPosts();
+  const postsWithoutContent = posts.map((post) => {
+    return {
+      ...post,
+      content: "",
+    };
+  });
+
+  const sorted = [...postsWithoutContent].sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+  );
+
+  const byYear = sorted.reduce<Record<string, TPost[]>>((acc, post) => {
+    const dateObj = new Date(post.createdAt);
+    const year = dateObj.getFullYear().toString();
+
+    const formattedPost = {
+      ...post,
+      createdAt: formatDate(post.createdAt),
+    };
+
+    (acc[year] ||= []).push(formattedPost);
+    return acc;
+  }, {});
+
+  const postsByYear: TPostsByYear[] = Object.entries(byYear)
+    .map(([year, posts]) => ({ year, posts }))
+    .sort((a, b) => +b.year - +a.year);
+
+  return postsByYear;
+});
 
 type TPostsByYear = {
   year: string;
@@ -38,34 +74,10 @@ export const Route = createFileRoute("/")({
     };
   },
   loader: async () => {
-    const posts = await getPostsServerFn();
-
-    const sorted = [...posts].sort(
-      (a, b) =>
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-    );
-
-    const byYear = sorted.reduce<Record<string, TPost[]>>((acc, post) => {
-      const dateObj = new Date(post.createdAt);
-      const year = dateObj.getFullYear().toString();
-
-      const formattedPost = {
-        ...post,
-        createdAt: formatDate(post.createdAt),
-      };
-
-      (acc[year] ||= []).push(formattedPost);
-      return acc;
-    }, {});
-
-    const postsByYear: TPostsByYear[] = Object.entries(byYear)
-      .map(([year, posts]) => ({ year, posts }))
-      .sort((a, b) => +b.year - +a.year);
-
-    return { postsByYear };
+    return await getPostsMetadataServerFn();
   },
   component: () => {
-    const { postsByYear } = Route.useLoaderData();
+    const postsByYear = Route.useLoaderData();
     return <Posts postsByYear={postsByYear} />;
   },
 });
