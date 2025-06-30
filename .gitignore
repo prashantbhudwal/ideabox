@@ -68,3 +68,4 @@ yarn.lock
 .tanstack
 .content-collections
 dist
+dump
