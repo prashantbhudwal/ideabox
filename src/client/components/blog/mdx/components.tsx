@@ -1,7 +1,16 @@
 import { Image, type SimpleImageProps } from "~/client/components/image";
 import { postComponents } from "./post-components";
-import { CodeBlock } from "../custom/code-block";
 import { Link } from "@tanstack/react-router";
+import loadable from "@loadable/component";
+
+const CodeBlock = loadable(
+  () =>
+    import("../custom/code-block").then((mod) => ({ default: mod.CodeBlock })),
+  {
+    ssr: false,
+    fallback: <div>Loading...</div>,
+  },
+);
 
 export const components = {
   // Preserve existing styling for elements

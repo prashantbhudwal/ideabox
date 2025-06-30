@@ -1,10 +1,22 @@
 import { type FC, memo } from "react";
 // import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+// import { coldarkDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import loadable from "@loadable/component";
 
 const SyntaxHighlighter = loadable(
-  () => import("react-syntax-highlighter").then((mod) => mod.Prism),
+  () =>
+    Promise.all([
+      import("react-syntax-highlighter").then((mod) => mod.Prism),
+      import("react-syntax-highlighter/dist/cjs/styles/prism").then(
+        (mod) => mod.coldarkDark,
+      ),
+    ]).then(([SyntaxHighlighterComponent, style]) => {
+      // Create a wrapper component that has the style built-in
+      const StyledSyntaxHighlighter = (props: any) => (
+        <SyntaxHighlighterComponent style={style} {...props} />
+      );
+      return StyledSyntaxHighlighter;
+    }),
   {
     ssr: false,
   },
@@ -97,7 +109,6 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
       </div>
       <SyntaxHighlighter
         language={language}
-        style={coldarkDark}
         PreTag="div"
         showLineNumbers
         customStyle={{
