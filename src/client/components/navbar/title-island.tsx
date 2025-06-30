@@ -1,7 +1,16 @@
 import { Link } from "@tanstack/react-router";
 import { cn } from "~/client/lib/utils";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { usePathInfo } from "~/client/hooks/use-path-info";
+import loadable from "@loadable/component";
+
+const AnimatePresence = loadable(
+  () =>
+    import("motion/react").then((mod) => ({ default: mod.AnimatePresence })),
+  {
+    ssr: false,
+  },
+);
 
 type TTitleIslandProps = {
   className?: string;
