@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getSpaceBySlug } from "~/client/components/spaces/spaces";
+import { useMemo } from "react";
 
 export const Route = createFileRoute("/spaces/$slug")({
   component: RouteComponent,
@@ -10,7 +11,7 @@ export const Route = createFileRoute("/spaces/$slug")({
 
 function RouteComponent() {
   const slug = Route.useLoaderData();
-  const space = getSpaceBySlug({ slug });
+  const space = useMemo(() => getSpaceBySlug({ slug }), [slug]);
   if (!space) {
     return <div>Space not found</div>;
   }
