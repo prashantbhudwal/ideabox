@@ -1,5 +1,5 @@
 import { Image, type SimpleImageProps } from "~/client/components/image";
-import { postComponents } from "./post-components";
+import { mdxComponents } from "./post-components";
 import { Link } from "@tanstack/react-router";
 import loadable from "@loadable/component";
 
@@ -46,7 +46,7 @@ export const components = {
   }) => (
     <Link
       to={href}
-      className="text-foreground hover:underline underline-offset-1 decoration-primary font-semibold"
+      className="text-foreground decoration-primary font-semibold underline-offset-1 hover:underline"
       target={href.startsWith("http") ? "_blank" : undefined}
       rel={href.startsWith("http") ? "noreferrer" : undefined}
       {...props}
@@ -55,37 +55,37 @@ export const components = {
     </Link>
   ),
   h1: ({ children, ...props }: { children: React.ReactNode }) => (
-    <h1 className="text-3xl font-semibold mt-6 mb-2" {...props}>
+    <h1 className="mt-6 mb-2 text-3xl font-semibold" {...props}>
       {children}
     </h1>
   ),
   h2: ({ children, ...props }: { children: React.ReactNode }) => (
-    <h2 className="text-2xl font-semibold mt-6 mb-2" {...props}>
+    <h2 className="mt-6 mb-2 text-2xl font-semibold" {...props}>
       {children}
     </h2>
   ),
   h3: ({ children, ...props }: { children: React.ReactNode }) => (
-    <h3 className="text-xl font-semibold mt-6 mb-2" {...props}>
+    <h3 className="mt-6 mb-2 text-xl font-semibold" {...props}>
       {children}
     </h3>
   ),
   h4: ({ children, ...props }: { children: React.ReactNode }) => (
-    <h4 className="text-lg font-semibold mt-6 mb-2" {...props}>
+    <h4 className="mt-6 mb-2 text-lg font-semibold" {...props}>
       {children}
     </h4>
   ),
   h5: ({ children, ...props }: { children: React.ReactNode }) => (
-    <h5 className="text-base font-semibold mt-6 mb-2" {...props}>
+    <h5 className="mt-6 mb-2 text-base font-semibold" {...props}>
       {children}
     </h5>
   ),
   h6: ({ children, ...props }: { children: React.ReactNode }) => (
-    <h6 className="text-sm font-semibold mt-6 mb-2" {...props}>
+    <h6 className="mt-6 mb-2 text-sm font-semibold" {...props}>
       {children}
     </h6>
   ),
   Image: (props: SimpleImageProps) => (
-    <Image {...props} className="rounded shadow mx-auto" />
+    <Image {...props} className="mx-auto rounded shadow" />
   ),
-  ...postComponents,
+  ...mdxComponents,
 };

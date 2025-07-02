@@ -1,6 +1,13 @@
 import { cn } from "~/client/lib/utils";
-import { Tweet } from "react-tweet";
 import { ClientOnly } from "@tanstack/react-router";
+import loadable from "@loadable/component";
+
+const Tweet = loadable(
+  () => import("react-tweet").then((mod) => ({ default: mod.Tweet })),
+  {
+    ssr: false,
+  },
+);
 
 export function PostEmbed_X({
   id,

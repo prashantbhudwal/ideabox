@@ -1,5 +1,15 @@
 import { cn } from "~/client/lib/utils";
-import { FacebookEmbed } from "react-social-media-embed";
+import loadable from "@loadable/component";
+
+const FacebookEmbed = loadable(
+  () =>
+    import("react-social-media-embed").then((mod) => ({
+      default: mod.FacebookEmbed,
+    })),
+  {
+    ssr: false,
+  },
+);
 
 export function PostEmbed_Facebook({
   href,

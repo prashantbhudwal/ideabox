@@ -1,5 +1,15 @@
 import { cn } from "~/client/lib/utils";
-import { InstagramEmbed } from "react-social-media-embed";
+import loadable from "@loadable/component";
+
+const InstagramEmbed = loadable(
+  () =>
+    import("react-social-media-embed").then((mod) => ({
+      default: mod.InstagramEmbed,
+    })),
+  {
+    ssr: false,
+  },
+);
 
 export function PostEmbed_Instagram({
   href,
