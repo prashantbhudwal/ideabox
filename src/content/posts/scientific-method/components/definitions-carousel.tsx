@@ -16,6 +16,7 @@ import {
 
 import dedent from "dedent";
 import { Prose } from "~/client/components/blog/custom/prose.v2";
+import { useIsMobile } from "~/client/hooks/use-mobile";
 
 const content = [
   {
@@ -59,13 +60,14 @@ export default function DefinitionsCarousel({
 }: {
   hasWarnings?: boolean;
 }) {
+  const isMobile = useIsMobile();
   return (
-    <Carousel orientation="vertical">
+    <Carousel orientation={isMobile ? "vertical" : "horizontal"}>
       <CarouselContent>
         {content.map((item) => {
           return (
             <CarouselItem key={item.source.title}>
-              <Card className="">
+              <Card className="h-full">
                 <CardHeader>
                   <CardTitle>{item.source.title}</CardTitle>
                   <CardDescription>{item.source.description}</CardDescription>
@@ -81,6 +83,12 @@ export default function DefinitionsCarousel({
           );
         })}
       </CarouselContent>
+      {!isMobile && (
+        <>
+          <CarouselPrevious />
+          <CarouselNext />
+        </>
+      )}
     </Carousel>
   );
 }
