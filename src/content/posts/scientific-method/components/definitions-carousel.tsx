@@ -15,6 +15,7 @@ import {
 } from "~/client/components/ui/carousel";
 
 import dedent from "dedent";
+import { Prose } from "~/client/components/blog/custom/prose.v2";
 
 const content = [
   {
@@ -59,17 +60,19 @@ export default function DefinitionsCarousel({
   hasWarnings?: boolean;
 }) {
   return (
-    <Carousel>
+    <Carousel orientation="vertical">
       <CarouselContent>
         {content.map((item) => {
           return (
             <CarouselItem key={item.source.title}>
-              <Card className="h-full">
+              <Card className="">
                 <CardHeader>
                   <CardTitle>{item.source.title}</CardTitle>
                   <CardDescription>{item.source.description}</CardDescription>
                 </CardHeader>
-                <CardContent>{item.text}</CardContent>
+                <CardContent>
+                  <Prose type="markdown" content={item.text} />
+                </CardContent>
                 <CardFooter className="text-amber-300 italic">
                   {hasWarnings && <> Warning: {item.warning}</>}
                 </CardFooter>
@@ -78,8 +81,6 @@ export default function DefinitionsCarousel({
           );
         })}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
     </Carousel>
   );
 }
