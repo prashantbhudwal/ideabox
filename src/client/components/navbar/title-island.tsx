@@ -4,33 +4,23 @@ import { motion } from "motion/react";
 import { usePathInfo } from "~/client/hooks/use-path-info";
 import loadable from "@loadable/component";
 
-const AnimatePresence = loadable(
-  () =>
-    import("motion/react").then((mod) => ({ default: mod.AnimatePresence })),
-  {
-    ssr: false,
-  },
-);
-
 type TTitleIslandProps = {
   className?: string;
 };
 
-const SiteName = () => (
-  <motion.h1
-    key="siteName"
-    initial={{ opacity: 0, y: -10 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: 10 }}
-    transition={{ duration: 0.2 }}
-    className="text-2xl md:text-3xl 2xl:text-4xl font-bold font-mono"
-  >
-    pr
-    <span className="underline underline-offset-3 md:underline-offset-4 2xl:underline-offset-5 decoration-1 decoration-primary">
-      ashant
-    </span>
-  </motion.h1>
-);
+function SiteName() {
+  return (
+    <h1
+      key="siteName"
+      className="font-mono text-2xl font-bold md:text-3xl 2xl:text-4xl"
+    >
+      pr
+      <span className="decoration-primary underline decoration-1 underline-offset-3 md:underline-offset-4 2xl:underline-offset-5">
+        ashant
+      </span>
+    </h1>
+  );
+}
 
 type TSegmentTitleProps = {
   segment: string;
@@ -52,15 +42,15 @@ const SegmentTitle = ({
     exit={{ opacity: 0, x: -10 }}
     transition={{ duration: 0.2 }}
     className={cn(
-      "flex flex-row gap-1 md:gap-1.5 xl:gap-2 items-baseline text-2xl md:text-3xl 2xl:text-4xl font-bold font-mono",
+      "flex flex-row items-baseline gap-1 font-mono text-2xl font-bold md:gap-1.5 md:text-3xl xl:gap-2 2xl:text-4xl",
       className,
     )}
   >
     <div
       className={cn("text-primary", {
-        "font-normal text-2xl md:text-3xl 2xl:text-4xl text-primary/50":
+        "text-primary/50 text-2xl font-normal md:text-3xl 2xl:text-4xl":
           spaceShortTitle,
-        "font-bold text-2xl md:text-3xl 2xl:text-4xl": !spaceShortTitle,
+        "text-2xl font-bold md:text-3xl 2xl:text-4xl": !spaceShortTitle,
       })}
     >
       {isSpace ? "spaces" : segment}
@@ -74,6 +64,14 @@ const SegmentTitle = ({
   </motion.div>
 );
 
+const AnimatePresence = loadable(
+  () =>
+    import("motion/react").then((mod) => ({ default: mod.AnimatePresence })),
+  {
+    ssr: false,
+    fallback: <SiteName />,
+  },
+);
 export function TitleIsland({ className }: TTitleIslandProps) {
   const { segment, backLink, showSiteName, spaceInfo, isSpace } = usePathInfo();
   const spaceShortTitle = spaceInfo?.spaceShortTitle;
@@ -82,7 +80,7 @@ export function TitleIsland({ className }: TTitleIslandProps) {
     <Link to={backLink}>
       <div
         className={cn(
-          "flex flex-row gap-1 md:gap-1.5 xl:gap-2 items-baseline text-2xl md:text-3xl 2xl:text-4xl font-bold font-mono",
+          "flex flex-row items-baseline gap-1 font-mono text-2xl font-bold md:gap-1.5 md:text-3xl xl:gap-2 2xl:text-4xl",
           className,
         )}
       >
@@ -92,7 +90,7 @@ export function TitleIsland({ className }: TTitleIslandProps) {
             alt="icon"
             width="36"
             height="36"
-            className="w-7 h-7 md:w-9 md:h-9 2xl:w-11 2xl:h-11"
+            className="h-7 w-7 md:h-9 md:w-9 2xl:h-11 2xl:w-11"
           />
         </div>
         <AnimatePresence mode="wait">
