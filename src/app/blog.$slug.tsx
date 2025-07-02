@@ -5,28 +5,13 @@ import { Post } from "~/client/components/blog/post";
 import { type TPost } from "~/common/types/content.types";
 import { seo } from "~/client/lib/utils/seo";
 import { C } from "~/common/constants";
-import { createServerFn } from "@tanstack/react-start";
-import { z } from "zod";
 import { getPostBySlug } from "~/server/modules/post/get-post-by-slug";
-
-const getPostServerFn = createServerFn({ type: "static" })
-  .validator(
-    z.object({
-      slug: z.string(),
-    }),
-  )
-  .handler(async ({ data: { slug } }) => {
-    console.log("🔥 STATIC SERVER FUNCTION CALLED AT BUILD TIME");
-    const post = await getPostBySlug(slug);
-    return post;
-  });
 
 export const Route = createFileRoute("/blog/$slug")({
   component: RouteComponent,
   loader: async ({ params }) => {
-    const post = await getPostServerFn({
-      data: { slug: params.slug },
-    });
+    console.log("🔥 LOADER CALLED FOR SLUG:", params.slug);
+    const post = await getPostBySlug(params.slug);
 
     if (!post) {
       throw new Error("Post not found");
