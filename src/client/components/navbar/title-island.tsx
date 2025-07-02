@@ -84,15 +84,15 @@ export function TitleIsland({ className }: TTitleIslandProps) {
           className,
         )}
       >
-        <div className="relative top-[0.25em]">
+        {/* <div className="relative top-[0.25em]">
           <img
             src="/icon-new.webp"
             alt="icon"
             width="36"
             height="36"
             className="h-7 w-7 md:h-9 md:w-9 2xl:h-11 2xl:w-11"
-          />
-        </div>
+      />
+        </div> */}
         <AnimatePresence mode="wait">
           {showSiteName ? (
             <SiteName />

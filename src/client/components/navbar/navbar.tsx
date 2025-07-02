@@ -6,7 +6,8 @@ export function Navbar({ className }: { className?: string }) {
   return (
     <nav
       className={cn(
-        "flex flex-row md:space-x-12 tracking-tight w-full items-baseline",
+        "flex w-full flex-row items-center tracking-tight md:space-x-12",
+        "bg-background/50 sticky top-0 z-50 backdrop-blur-sm",
         className,
       )}
     >

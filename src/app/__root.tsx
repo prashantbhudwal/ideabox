@@ -23,6 +23,7 @@ import { isDev } from "~/client/lib/utils/isDev";
 import { getThemeServerFn } from "~/server/utils/theme";
 import { useAtom } from "jotai";
 import { chatSidebarAtom } from "~/client/components/chat/chat-sidebar";
+import { cn } from "~/client/lib/utils";
 
 interface MyRouterContext {
   queryClient: QueryClient;
@@ -117,21 +118,23 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body className="antialiased">
-        <GlobalSidebarProvider>
-          <main
-            className="mx-4 mt-8 md:mt-10 lg:mt-12 md:mx-auto max-w-full selection:bg-primary selection:text-primary-foreground px-4 md:px-8 lg:px-12"
-            data-llm="content"
-          >
-            {shouldShowSidebar && (
-              <SidebarTrigger className="absolute top-2 left-2" />
-            )}
-            <Providers>
-              <Navbar className="mb-12 md:mb-16 lg:mb-20 2xl:mb-36" />
-              {children}
-              <BlogSearch />
-            </Providers>
-          </main>
-        </GlobalSidebarProvider>
+        <Providers>
+          <GlobalSidebarProvider>
+            <main
+              className={cn(
+                "px-6 py-2 md:px-8 md:py-4 lg:px-10 lg:py-6",
+                "selection:bg-primary selection:text-primary-foreground",
+              )}
+              data-llm="content"
+            >
+              <Navbar className="py-2 md:py-4 lg:py-6 2xl:py-8" />
+              <div className="mx-auto max-w-full">
+                {children}
+                <BlogSearch />
+              </div>
+            </main>
+          </GlobalSidebarProvider>
+        </Providers>
         <Scripts />
       </body>
     </html>
