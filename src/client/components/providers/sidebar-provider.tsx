@@ -16,7 +16,7 @@ export function GlobalSidebarProvider({
   if (isMobile || !isDev)
     return (
       <SidebarProvider open={open} onOpenChange={setOpen}>
-        {children}
+        <div className="flex w-full flex-1 flex-col">{children}</div>
       </SidebarProvider>
     );
 
