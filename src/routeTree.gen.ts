@@ -11,6 +11,7 @@
 import { createServerRootRoute } from '@tanstack/react-start/server'
 
 import { Route as rootRouteImport } from './app/__root'
+import { Route as TestRouteImport } from './app/test'
 import { Route as StoryRouteImport } from './app/story'
 import { Route as SpacesRouteImport } from './app/spaces'
 import { Route as IndexRouteImport } from './app/index'
@@ -23,6 +24,11 @@ import { ServerRoute as ApiChatBlogServerRouteImport } from './app/api.chat.blog
 
 const rootServerRouteImport = createServerRootRoute()
 
+const TestRoute = TestRouteImport.update({
+  id: '/test',
+  path: '/test',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StoryRoute = StoryRouteImport.update({
   id: '/story',
   path: '/story',
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/spaces': typeof SpacesRouteWithChildren
   '/story': typeof StoryRoute
+  '/test': typeof TestRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/spaces/$slug': typeof SpacesSlugRoute
   '/spaces/': typeof SpacesIndexRoute
@@ -80,6 +87,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/story': typeof StoryRoute
+  '/test': typeof TestRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/spaces/$slug': typeof SpacesSlugRoute
   '/spaces': typeof SpacesIndexRoute
@@ -89,6 +97,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/spaces': typeof SpacesRouteWithChildren
   '/story': typeof StoryRoute
+  '/test': typeof TestRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/spaces/$slug': typeof SpacesSlugRoute
   '/spaces/': typeof SpacesIndexRoute
@@ -99,16 +108,18 @@ export interface FileRouteTypes {
     | '/'
     | '/spaces'
     | '/story'
+    | '/test'
     | '/blog/$slug'
     | '/spaces/$slug'
     | '/spaces/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/story' | '/blog/$slug' | '/spaces/$slug' | '/spaces'
+  to: '/' | '/story' | '/test' | '/blog/$slug' | '/spaces/$slug' | '/spaces'
   id:
     | '__root__'
     | '/'
     | '/spaces'
     | '/story'
+    | '/test'
     | '/blog/$slug'
     | '/spaces/$slug'
     | '/spaces/'
@@ -118,6 +129,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SpacesRoute: typeof SpacesRouteWithChildren
   StoryRoute: typeof StoryRoute
+  TestRoute: typeof TestRoute
   BlogSlugRoute: typeof BlogSlugRoute
 }
 export interface FileServerRoutesByFullPath {
@@ -152,6 +164,13 @@ export interface RootServerRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/test': {
+      id: '/test'
+      path: '/test'
+      fullPath: '/test'
+      preLoaderRoute: typeof TestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/story': {
       id: '/story'
       path: '/story'
@@ -239,6 +258,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SpacesRoute: SpacesRouteWithChildren,
   StoryRoute: StoryRoute,
+  TestRoute: TestRoute,
   BlogSlugRoute: BlogSlugRoute,
 }
 export const routeTree = rootRouteImport
