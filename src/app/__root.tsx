@@ -17,12 +17,7 @@ import { type QueryClient } from "@tanstack/react-query";
 import { type TRPCOptionsProxy } from "@trpc/tanstack-react-query";
 import { BlogSearch } from "~/client/components/search/blog-search";
 import { GlobalSidebarProvider } from "~/client/components/providers/sidebar-provider";
-import { SidebarTrigger } from "~/client/components/ui/sidebar";
-import { useIsMobile } from "~/client/hooks/use-mobile";
-import { isDev } from "~/client/lib/utils/isDev";
 import { getThemeServerFn } from "~/server/utils/theme";
-import { useAtom } from "jotai";
-import { chatSidebarAtom } from "~/client/components/chat/chat-sidebar";
 import { cn } from "~/client/lib/utils";
 
 interface MyRouterContext {
@@ -85,24 +80,47 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       </RootDocument>
     );
   },
-  notFoundComponent: () => <NotFound />,
+  notFoundComponent: () => (
+    <RootDocument>
+      <NotFound />
+    </RootDocument>
+  ),
   component: RootComponent,
 });
 
 function RootComponent() {
   return (
-    <RootDocument>
+    <RootLayout>
       <Outlet />
+    </RootLayout>
+  );
+}
+
+function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <RootDocument>
+      <Providers>
+        <GlobalSidebarProvider>
+          <main
+            className={cn(
+              "px-6 py-2 md:px-8 md:py-4 lg:px-10 lg:py-6",
+              "selection:bg-primary selection:text-primary-foreground",
+            )}
+            data-llm="content"
+          >
+            <Navbar className="py-2 md:py-4 lg:py-6 2xl:py-8" />
+            <div className="mx-auto max-w-full">
+              {children}
+              <BlogSearch />
+            </div>
+          </main>
+        </GlobalSidebarProvider>
+      </Providers>
     </RootDocument>
   );
 }
 
 function RootDocument({ children }: { children: React.ReactNode }) {
-  const [open, setOpen] = useAtom(chatSidebarAtom);
-
-  const isMobile = useIsMobile();
-  const shouldShowSidebar = !isMobile && isDev;
-
   const { theme } = Route.useLoaderData();
 
   const resolvedTheme = React.useMemo(() => {
@@ -111,30 +129,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     }
     return theme;
   }, [theme]);
-
   return (
     <html className={resolvedTheme} suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
       <body className="antialiased">
-        <Providers>
-          <GlobalSidebarProvider>
-            <main
-              className={cn(
-                "px-6 py-2 md:px-8 md:py-4 lg:px-10 lg:py-6",
-                "selection:bg-primary selection:text-primary-foreground",
-              )}
-              data-llm="content"
-            >
-              <Navbar className="py-2 md:py-4 lg:py-6 2xl:py-8" />
-              <div className="mx-auto max-w-full">
-                {children}
-                <BlogSearch />
-              </div>
-            </main>
-          </GlobalSidebarProvider>
-        </Providers>
+        {children}
         <Scripts />
       </body>
     </html>
