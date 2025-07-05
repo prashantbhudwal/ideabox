@@ -40,7 +40,6 @@ export function SimilaritySpace() {
         setSimilarity(result);
       }
     } catch (error: unknown) {
-      console.error("Error in onSubmit:", error);
       setError(
         (error as Error).message ?? "An error occurred while comparing texts",
       );
@@ -51,8 +50,8 @@ export function SimilaritySpace() {
   }
 
   return (
-    <div className="flex flex-col gap-4 p-4 pt-12 max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold text-center mb-4">
+    <div className="mx-auto flex max-w-3xl flex-col gap-4 p-4 pt-12">
+      <h1 className="mb-4 text-center text-2xl font-bold">
         Text Similarity Checker
       </h1>
 
@@ -67,7 +66,7 @@ export function SimilaritySpace() {
                   <FormLabel>First Text</FormLabel>
                   <FormControl>
                     <textarea
-                      className="w-full text-sm border p-4 rounded-lg bg-card min-h-[150px] resize-vertical custom-scrollbar"
+                      className="bg-card resize-vertical custom-scrollbar min-h-[150px] w-full rounded-lg border p-4 text-sm"
                       placeholder="Enter first text here..."
                       {...field}
                     />
@@ -85,7 +84,7 @@ export function SimilaritySpace() {
                   <FormLabel>Second Text</FormLabel>
                   <FormControl>
                     <textarea
-                      className="w-full text-sm border p-4 rounded-lg bg-card min-h-[150px] resize-vertical custom-scrollbar"
+                      className="bg-card resize-vertical custom-scrollbar min-h-[150px] w-full rounded-lg border p-4 text-sm"
                       placeholder="Enter second text here..."
                       {...field}
                     />
@@ -116,7 +115,7 @@ export function SimilaritySpace() {
 
           {error && (
             <div
-              className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+              className="mb-4 rounded-lg bg-red-100 p-4 text-sm text-red-700 dark:bg-red-200 dark:text-red-800"
               role="alert"
             >
               <span className="font-medium">Error:</span> {error}
@@ -132,7 +131,7 @@ export function SimilaritySpace() {
               {isLoading ? (
                 <>
                   <svg
-                    className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                    className="mr-2 -ml-1 h-4 w-4 animate-spin text-white"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -159,16 +158,16 @@ export function SimilaritySpace() {
             </Button>
 
             {similarity > 0 && !isLoading && (
-              <div className="text-center mt-4 p-4 bg-secondary/50 rounded-lg w-full">
+              <div className="bg-secondary/50 mt-4 w-full rounded-lg p-4 text-center">
                 <p className="text-lg font-semibold">
                   Similarity Score:{" "}
                   <span className="text-primary">
                     {Math.round(similarity * 100)}%
                   </span>
                 </p>
-                <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                <div className="mt-2 h-2.5 w-full rounded-full bg-gray-200">
                   <div
-                    className="bg-blue-600 h-2.5 rounded-full"
+                    className="h-2.5 rounded-full bg-blue-600"
                     style={{
                       width: `${Math.min(100, Math.round(similarity * 100))}%`,
                     }}
