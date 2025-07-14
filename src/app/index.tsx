@@ -9,6 +9,7 @@ import { type TPost } from "~/common/types/content.types";
 import { formatDate } from "~/client/helpers/format-date";
 import { createServerFn } from "@tanstack/react-start";
 import { getAllPosts } from "~/server/modules/post/get-all-posts";
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 
 export const getPostsMetadataServerFn = createServerFn({
   type: "static",
@@ -50,6 +51,11 @@ type TPostsByYear = {
   posts: TPost[];
 };
 
+const postsMetadataQueryOptions = queryOptions({
+  queryKey: ["posts-metadata"],
+  queryFn: () => getPostsMetadataServerFn(),
+});
+
 export const Route = createFileRoute("/")({
   head: () => {
     const imagePath = `${C.url}/og-ashant.png`;
@@ -73,21 +79,23 @@ export const Route = createFileRoute("/")({
       ],
     };
   },
-  loader: async () => {
-    return await getPostsMetadataServerFn();
+  loader: async (opts) => {
+    return await opts.context.queryClient.ensureQueryData(
+      postsMetadataQueryOptions,
+    );
   },
   component: () => {
-    const postsByYear = Route.useLoaderData();
+    const postsByYear = useSuspenseQuery(postsMetadataQueryOptions).data;
     return <Posts postsByYear={postsByYear} />;
   },
 });
 
 function Posts({ postsByYear }: { postsByYear: TPostsByYear[] }) {
   return (
-    <div className="max-w-xl mx-auto flex flex-col space-y-16 pt-10">
+    <div className="mx-auto flex max-w-xl flex-col space-y-16 pt-10">
       {postsByYear.map(({ year, posts }) => (
-        <div key={year} className="px-1 flex flex-col space-y-6">
-          <h2 className="text-3xl md:text-4xl font-semibold text-primary">
+        <div key={year} className="flex flex-col space-y-6 px-1">
+          <h2 className="text-primary text-3xl font-semibold md:text-4xl">
             {year}
           </h2>
           <Separator className="mb-4" />
