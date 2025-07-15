@@ -12,15 +12,15 @@ import { Image } from "../image";
 
 export function SpacesGrid() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2 auto-rows-[250px]">
+    <div className="grid auto-rows-[200px] md:auto-rows-[250px] grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-6">
       {spaces.map((space, index) => {
         return (
           <Link
             to={link.path.space({ slug: space.slug })}
             key={space.id}
             className={cn(
-              "h-full",
-              index === 0 ? "col-span-1 md:col-span-3" : "",
+              "col-span-1 h-full md:col-span-3",
+              index === 0 ? "col-span-1 md:col-span-4" : "",
               index === 1 ? "col-span-1 md:col-span-2" : "",
             )}
           >
@@ -28,10 +28,10 @@ export function SpacesGrid() {
               <Card
                 className={cn(
                   "relative h-full",
-                  "hover:outline-primary hover:outline transition-colors duration-300 p-0.5 backdrop-blur-xs hover:backdrop-blur-none",
+                  "hover:outline-primary p-0.5 backdrop-blur-xs transition-colors duration-300 hover:outline hover:backdrop-blur-none",
                 )}
               >
-                <div className="relative w-full h-full overflow-hidden">
+                <div className="relative h-full w-full overflow-hidden">
                   <Image
                     className="rounded object-cover"
                     src={link.path.images.spaces({ imgName: space.heroImage })}
@@ -39,12 +39,12 @@ export function SpacesGrid() {
                     fill
                   />
                 </div>
-                <div className="absolute left-2 bottom-2 w-full  p-2 rounded">
+                <div className="absolute bottom-2 left-2 w-full rounded p-2">
                   <CardHeader>
-                    <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground font-serif drop-shadow-md">
+                    <CardTitle className="text-foreground font-serif text-2xl font-extrabold drop-shadow-md sm:text-3xl md:text-4xl">
                       {space.shortTitle}
                     </CardTitle>
-                    <CardDescription className="text-sm sm:text-base md:text-lg text-foreground/80 bg-black/10 backdrop-blur-xs">
+                    <CardDescription className="text-foreground/80 bg-black/10 text-sm backdrop-blur-xs sm:text-base md:text-lg">
                       {space.description}
                     </CardDescription>
                   </CardHeader>

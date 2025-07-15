@@ -1,6 +1,7 @@
 import { ContentType, type TSpace } from "~/common/types/content.types";
 import { SimilaritySpace } from "./similarity";
 import { SweetenerSpace } from "./sweetener";
+import { ChunkerSpace } from "./chunker";
 
 export const spaces: TSpace[] = [
   {
@@ -28,6 +29,20 @@ export const spaces: TSpace[] = [
     shortTitle: "Similarity",
     createdAt: "2025-05-26T11:48:24.000Z",
     updatedAt: "2025-05-26T11:48:24.000Z",
+    type: ContentType.SPACE,
+  },
+  {
+    id: "c044f7bb-7a12-44fe-813f-9ae423aeda85",
+    slug: "chunker",
+    description:
+      "Chunker is a tool that helps you chunk your text into smaller pieces.",
+    Component: ChunkerSpace,
+    heroImage: "chunker.png",
+    tags: ["thinking", "software"],
+    title: "Text Chunker",
+    shortTitle: "Chunker",
+    createdAt: "2025-07-15T11:48:24.000Z",
+    updatedAt: "2025-07-15T11:48:24.000Z",
     type: ContentType.SPACE,
   },
 ];
