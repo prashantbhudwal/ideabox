@@ -13,7 +13,7 @@ import {
 } from "../../ui/form";
 import { Input } from "../../ui/input";
 import { Textarea } from "../../ui/textarea";
-import { QueryClient, useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Alert } from "../../ui/alert";
 import { MDocument } from "@mastra/rag";
 import { createServerFn } from "@tanstack/react-start";
@@ -55,13 +55,13 @@ const chunkTextServerFn = createServerFn({
 
 function Chunker() {
   const [copiedChunkIndices, setCopiedChunkIndices] = useState<number[]>([]);
-  const queryClient = new QueryClient();
+  const queryClient = useQueryClient();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       text: "",
-      chunkSize: 22000,
+      chunkSize: 6000,
     },
   });
 
@@ -77,11 +77,11 @@ function Chunker() {
     retry: 2,
   });
 
-  const handleChunk = () => {
-    queryClient.setQueryData(
-      ["chunker", form.getValues().text, form.getValues().chunkSize],
-      [],
-    );
+  const handleChunk = (data: FormValues) => {
+    // Clear previous results to avoid showing stale data
+    queryClient.removeQueries({
+      queryKey: ["chunker"],
+    });
     setCopiedChunkIndices([]);
     refetch();
   };
@@ -110,7 +110,7 @@ function Chunker() {
                   <Textarea
                     {...field}
                     placeholder="Enter your text here"
-                    className="h-[150px] w-full resize-none scrollbar-thin scrollbar-track-gray-800 scrollbar-thumb-green-500"
+                    className="scrollbar-thin scrollbar-track-gray-800 scrollbar-thumb-green-500 h-[150px] w-full resize-none"
                   />
                 </FormControl>
                 <FormMessage />
